@@ -47,7 +47,7 @@ function Navbar() {
 									Home
 								</a>
 								<a
-									href="#"
+									href="/product"
 									className="text-secondTextColor hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
 								>
 									Product
@@ -127,19 +127,19 @@ function Navbar() {
 						Home
 					</a>
 					<a
-						href="#"
+						href="/product"
 						className="text-secondTextColor hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
 					>
 						Product
 					</a>
 					<a
-						href="#"
+						href="/contact"
 						className="text-secondTextColor hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
 					>
 						Contact
 					</a>
 					<a
-						href="#"
+						href="/account"
 						className="text-secondTextColor hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
 					>
 						My Account

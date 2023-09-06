@@ -28,6 +28,7 @@
 		font-size: 18px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 16%;
 	}
 }
 
@@ -38,6 +39,7 @@
 		font-size: 20px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 15%;
 	}
 }
 
@@ -48,6 +50,7 @@
 		font-size: 22px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 15%;
 	}
 }
 
@@ -58,6 +61,7 @@
 		font-size: 24px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 15%;
 	}
 }
 
@@ -68,6 +72,7 @@
 		font-size: 24px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 15%;
 	}
 }
 
@@ -78,5 +83,162 @@
 		font-size: 24px;
 		justify-content: center;
 		margin-left: 30%;
+		margin-top: 15%;
+	}
+}
+
+/* Custom Image */
+
+/* Small screens ('sm-phone') */
+@media (max-width: 320px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 20%;
+	}
+}
+
+/* Medium screens ('md-phone') */
+@media (min-width: 321px) and (max-width: 375px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 17%;
+	}
+}
+
+/* Large screens ('lg-phone') */
+@media (min-width: 376px) and (max-width: 414px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 17%;
+	}
+}
+
+/* Extra large screens ('xl-phone') */
+@media (min-width: 415px) and (max-width: 480px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 17%;
+	}
+}
+
+/* Small tablets ('sm-tablet') */
+@media (min-width: 481px) and (max-width: 600px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 17%;
+	}
+}
+
+/* Medium tablets ('md-tablet') */
+@media (min-width: 601px) and (max-width: 639px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: 17%;
+		height: min-content;
+	}
+}
+
+/* custom paragraph - landing page */
+
+/* Small screens ('sm-phone') */
+@media (max-width: 320px) {
+	.custom-paragraph1 {
+		font-size: 14px;
+		margin-top: 15%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Medium screens ('md-phone') */
+@media (min-width: 321px) and (max-width: 375px) {
+	.custom-paragraph1 {
+		font-size: 16px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Large screens ('lg-phone') */
+@media (min-width: 376px) and (max-width: 414px) {
+	.custom-paragraph1 {
+		font-size: 18px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Extra large screens ('xl-phone') */
+@media (min-width: 415px) and (max-width: 480px) {
+	.custom-paragraph1 {
+		font-size: 20px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Small tablets ('sm-tablet') */
+@media (min-width: 481px) and (max-width: 600px) {
+	.custom-paragraph1 {
+		font-size: 20px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Medium tablets ('md-tablet') */
+@media (min-width: 601px) and (max-width: 639px) {
+	.custom-paragraph1 {
+		font-size: 20px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Custom H1 tag */
+
+/* Small screens ('sm-phone') */
+@media (max-width: 320px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Medium screens ('md-phone') */
+@media (min-width: 321px) and (max-width: 375px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Large screens ('lg-phone') */
+@media (min-width: 376px) and (max-width: 414px) {
+	.custom-h1 {
+		line-height: 1.4; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Extra large screens ('xl-phone') */
+@media (min-width: 415px) and (max-width: 480px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Small tablets ('sm-tablet') */
+@media (min-width: 481px) and (max-width: 600px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
 	}
 }

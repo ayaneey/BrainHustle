@@ -114,7 +114,10 @@
 		".next/types/**/*.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"app/about/page.jsx"
+		"app/about/page.jsx",
+		"app/signup/page.jsx",
+		"app/profile/page.jsx",
+		"app/login/page.jsx"
 	],
 	"exclude": ["node_modules"]
 }
