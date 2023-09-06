@@ -87,6 +87,16 @@
 	}
 }
 
+/* Large tablets ('lg-tablet') */
+@media (min-width: 640px) and (max-width: 767px) {
+	.custom-button {
+		padding: 18px 36px;
+		font-size: 24px;
+		justify-content: center;
+		margin-left: 3%;
+	}
+}
+
 /* Custom Image */
 
 /* Small screens ('sm-phone') */
@@ -133,8 +143,17 @@
 @media (min-width: 601px) and (max-width: 639px) {
 	.custom-image-class {
 		max-width: 100%;
-		margin-top: 17%;
-		height: min-content;
+		margin-top: 10%;
+		margin-right: 5%;
+	}
+}
+
+/* Large tablets ('lg-tablet') */
+@media (min-width: 640px) and (max-width: 767px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: -17%;
+		margin-right: 3%;
 	}
 }
 
@@ -197,6 +216,17 @@
 
 /* Medium tablets ('md-tablet') */
 @media (min-width: 601px) and (max-width: 639px) {
+	.custom-paragraph1 {
+		font-size: 20px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
+/* Large tablets ('lg-tablet') */
+@media (min-width: 640px) and (max-width: 767px) {
 	.custom-paragraph1 {
 		font-size: 20px;
 		margin-top: 12%;
