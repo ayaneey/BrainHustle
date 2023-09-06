@@ -12,6 +12,16 @@ module.exports = {
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
+			fontFamily: {
+				raleway: ["Raleway", "sans"],
+			},
+			colors: {
+				background: "#F1F7F6",
+				box: "#8E9399",
+				primaryColor: "#F5F5F5",
+				secondTextColor: "#737373",
+				baseBlack: "#23242A",
+			},
 		},
 	},
 	plugins: [require("daisyui")],

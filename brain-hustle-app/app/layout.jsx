@@ -1,9 +1,24 @@
 import "./globals.css";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
+import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { Lato } from "next/font/google";
 import Navbar from "../components/nav/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ weight: "400", subsets: ["latin"] });
+const raleway500 = Raleway({ weight: "500", subsets: ["latin"] });
+const raleway600 = Raleway({ weight: "600", subsets: ["latin"] });
+const raleway700 = Raleway({ weight: "700", subsets: ["latin"] });
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
+const lato = Lato({ weight: "400", subsets: ["latin"] }); // Specify weight as a string
 
 const metadata = {
 	title: "Create Next App",
@@ -12,7 +27,7 @@ const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={`bg-background ${inter.className}`}>
 				<Navbar />
 				{children}
 			</body>
