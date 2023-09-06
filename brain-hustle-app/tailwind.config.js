@@ -7,6 +7,11 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			screens: {
+				"sm-phone": "320px", // Common small phone
+				"md-phone": "375px", // Common medium phone
+				"lg-phone": "414px", // Common large phone
+			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":
