@@ -16,11 +16,13 @@ function Home() {
 					a quam consectetur porro asperiores aspernatur. Accusantium excepturi
 					ducimus vel eius aliquam.
 				</p>
-				<button className="custom-button mt-4 sm:mt-20 md:mt-6 lg:mt-6 xl:mt-12 xl:text-white xl:text-center xl:font-raleway xl:text-30 xl:font-normal xl:leading-120 xl:tracking-wide">
+				<button className="custom-button mt-4 sm:mt-20 md:mt-28 lg:mt-6 xl:mt-12 xl:text-white xl:text-center xl:font-raleway xl:text-30 xl:font-normal xl:leading-120 xl:tracking-wide">
 					Get In Touch
 				</button>
 			</div>
-			<div className="lg:w-1/2">
+			<div className="lg:w-1/2 md:w-full">
+				{" "}
+				{/* Adjust width for md */}
 				<Homepage />
 			</div>
 		</div>

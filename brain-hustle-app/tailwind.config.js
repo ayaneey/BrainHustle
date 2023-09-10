@@ -11,6 +11,12 @@ module.exports = {
 				"sm-phone": "320px", // Common small phone
 				"md-phone": "375px", // Common medium phone
 				"lg-phone": "414px", // Common large phone
+				"xl-phone": "480px", // Common extra-large phone
+				"sm-tablet": "600px", // Small tablets
+				"md-tablet": "639px", // Medium tablets
+				"lg-tablet": "767px", // Large tablets
+				"xl-tablet": "840px", // Extra large tablets
+				"2xl-tablet": "1023px", // Double extra large tablets
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -97,6 +97,26 @@
 	}
 }
 
+/* Extra large tablets (xl-tablet */
+@media (min-width: 768px) and (max-width: 840px) {
+	.custom-button {
+		padding: 18px 36px;
+		font-size: 24px;
+		margin-left: 3%;
+	}
+}
+
+/* Double Extra large tablets (2xl-tablet */
+@media (min-width: 841px) and (max-width: 1023px) {
+	.custom-button {
+		padding: 18px 36px;
+		font-size: 24px;
+		justify-content: center;
+
+		margin-top: -15%;
+	}
+}
+
 /* Custom Image */
 
 /* Small screens ('sm-phone') */
@@ -136,6 +156,8 @@
 	.custom-image-class {
 		max-width: 100%;
 		margin-top: 17%;
+		max-width: 80%;
+		max-height: 150px;
 	}
 }
 
@@ -150,6 +172,15 @@
 
 /* Large tablets ('lg-tablet') */
 @media (min-width: 640px) and (max-width: 767px) {
+	.custom-image-class {
+		max-width: 100%;
+		margin-top: -17%;
+		margin-right: 3%;
+	}
+}
+
+/* Extra large tablets (xl-tablet */
+@media (min-width: 768px) and (max-width: 840px) {
 	.custom-image-class {
 		max-width: 100%;
 		margin-top: -17%;
@@ -236,6 +267,17 @@
 	}
 }
 
+/* Extra large tablets (xl-tablet */
+@media (min-width: 768px) and (max-width: 840px) {
+	.custom-paragraph1 {
+		font-size: 20px;
+		margin-top: 12%;
+		text-align: center;
+		align-items: center;
+		line-height: 1.6;
+	}
+}
+
 /* Custom H1 tag */
 
 /* Small screens ('sm-phone') */
@@ -268,6 +310,20 @@
 
 /* Small tablets ('sm-tablet') */
 @media (min-width: 481px) and (max-width: 600px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Medium tablets ('md-tablet') */
+@media (min-width: 601px) and (max-width: 639px) {
+	.custom-h1 {
+		line-height: 1.5; /* Adjust this value for your desired line height */
+	}
+}
+
+/* Large tablets ('lg-tablet') */
+@media (min-width: 640px) and (max-width: 767px) {
 	.custom-h1 {
 		line-height: 1.5; /* Adjust this value for your desired line height */
 	}

@@ -2,8 +2,8 @@ import React from "react";
 
 function Homepage() {
 	return (
-		<div className="sm:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto custom-image-class sm-phone:max-w-sm md-phone:max-w-md lg-phone:max-w-lg xl-phone:max-w-xl sm:order-first ">
-			<img src="./images/pupil.svg" alt="Home" className="w-full" />
+		<div className="sm:w-full max-w-xs sm:max-w-sm  lg:max-w-lg xl:max-w-xl mx-auto custom-image-class sm-phone:max-w-xs md-phone:max-w-xs lg-phone:max-w-xs xl-phone:max-w-xs sm-tablet:max-w-sm lg-tablet:max-w-sm xl-tablet:max-lg sm:order-first md:max-h-60 md:mr-8  ">
+			<img src="./images/pupil.svg" alt="Home" className="w-full  " />
 		</div>
 	);
 }
