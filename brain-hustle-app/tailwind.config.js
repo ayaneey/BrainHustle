@@ -15,9 +15,10 @@ module.exports = {
 				"2xl-phone": "500px", // Common double extra-large phone
 				"sm-tablet": "601px", // Small tablets
 				"md-tablet": "640px", // Medium tablets
-				"lg-tablet": "767px", // Large tablets
+				"lg-tablet": "768px", // Large tablets
 				"xl-tablet": "840px", // Extra large tablets
 				"2xl-tablet": "1023px", // Double extra large tablets
+				"md-laptop": "1280px", // Medium laptops
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
