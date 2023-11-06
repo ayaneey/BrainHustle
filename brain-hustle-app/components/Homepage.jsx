@@ -3,9 +3,9 @@ import React from "react";
 function Homepage() {
 	return (
 		<div className="">
-			<div className="flex flex-col items-center ">
+			<div className="flex flex-col items-center">
 				{/* Image Container */}
-				<div className=" ">
+				<div className="sm-phone:w-[250px] sm-phone:ml-40 ">
 					<img
 						src="./images/pupil.svg"
 						alt="Home"
