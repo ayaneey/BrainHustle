@@ -30,7 +30,9 @@ function Button({ title, smallOnMobile, mediumOnMobile }) {
 
 			if (screenWidth >= 320 && screenWidth < 350) {
 				setMarginLeft("70px");
-			} else if (screenWidth >= 350 && screenWidth <= 376) {
+			} else if (screenWidth >= 350 && screenWidth <= 444) {
+				setMarginLeft("100px");
+			} else if (screenWidth >= 445 && screenWidth <= 600) {
 				setMarginLeft("90px");
 			} else {
 				setMarginLeft("70px"); // Default marginLeft
