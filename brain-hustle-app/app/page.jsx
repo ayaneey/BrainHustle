@@ -2,6 +2,7 @@ import React from "react";
 import Homepage from "../components/Homepage";
 import Hero from "./home/Hero";
 import Button from "./common/components/Button";
+import Product from "../components/Product/product";
 
 function Home() {
 	const title = "";
@@ -9,6 +10,7 @@ function Home() {
 		<div className="">
 			<Hero />
 			{/* <Button title={title} /> */}
+			<Product />
 		</div>
 	);
 }

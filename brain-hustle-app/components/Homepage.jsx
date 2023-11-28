@@ -5,7 +5,7 @@ function Homepage() {
 		<div className="">
 			<div className="flex flex-col items-center">
 				{/* Image Container */}
-				<div className="sm-phone:w-[250px] sm-phone:ml-40 ">
+				<div className="sm-phone:w-[250px] sm:w-[260px] md:w-[320px] sm-phone:mt-10 lg-phone:w-[300px] lg:w-[400px] xl:w-[450px]">
 					<img
 						src="./images/pupil.svg"
 						alt="Home"

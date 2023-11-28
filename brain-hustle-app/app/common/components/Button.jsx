@@ -20,7 +20,7 @@ function Button({ title, smallOnMobile, mediumOnMobile }) {
 					className="bg-box text-primaryColor hover:bg-gray-700 hover:text-white rounded-md p-2 inline-flex items-center"
 					style={buttonStyle}
 				>
-					<span className="mx-auto">{title} Get in Touch</span>
+					<span className="mx-auto">{title}</span>
 				</button>
 			</div>
 		</div>
