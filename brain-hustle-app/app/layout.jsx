@@ -8,7 +8,7 @@ import { Nunito } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import { Lato } from "next/font/google";
 import Navbar from "../components/nav/Navbar";
-
+import { Providers } from "./Providers";
 const inter = Inter({ subsets: ["latin"] });
 const raleway = Raleway({ weight: "400", subsets: ["latin"] });
 const raleway500 = Raleway({ weight: "500", subsets: ["latin"] });
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={`bg-background ${inter.className}`}>
 				<Navbar />
-				{children}
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
