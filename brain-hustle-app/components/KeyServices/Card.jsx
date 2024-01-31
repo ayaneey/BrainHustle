@@ -1,57 +1,55 @@
-"use client";
-
 import React from "react";
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import Image from "next/image";
 
-export default function servicecards() {
-	const list = [
-		{
-			title: "Orange",
-			img: "https://images.unsplash.com/photo-1700771266232-7a31af68eb31?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8",
-			price: "$5.50",
-		},
-		{
-			title: "Tangerine",
-			img: "/images/fruit-2.jpeg",
-			price: "$3.00",
-		},
-		{
-			title: "Raspberry",
-			img: "/images/fruit-3.jpeg",
-			price: "$10.00",
-		},
-		{
-			title: "Raspberry",
-			img: "/images/fruit-3.jpeg",
-			price: "$10.00",
-		},
-	];
-
+function Card({ imgSrc, title, description }) {
 	return (
-		<div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-			{list.map((item, index) => (
-				<Card
-					shadow="sm"
-					key={index}
-					isPressable
-					onPress={() => console.log("item pressed")}
-				>
-					<CardBody className="overflow-visible p-0">
-						<Image
-							shadow="sm"
-							radius="lg"
-							width="100%"
-							alt={item.title}
-							className="w-full object-cover h-[140px]"
-							src={item.img}
-						/>
-					</CardBody>
-					<CardFooter className="text-small justify-between">
-						<b>{item.title}</b>
-						<p className="text-default-500">{item.price}</p>
-					</CardFooter>
-				</Card>
-			))}
+		<div className=" flex bg-white  md:w-[47%] lg:w-[47%] xl:w-[40%] md:gap-5 sm:gap-10 lg:gap-10 xl:gap-10  p-10 rounded-md ">
+			<div>
+				<Image
+					src={imgSrc}
+					width={100}
+					height={100}
+					className="md:w-44 md:h-44 lg:w-40 h-40"
+				/>
+			</div>
+			<div>
+				<h1 className=" sm:text-3xl md:text-2xl lg:text-3xl  md:mb-5">
+					{title}
+				</h1>
+				<p className=" text-black/50 text-base">{description}</p>
+			</div>
 		</div>
 	);
 }
+
+export default Card;
+
+export const keyServicesCardData = [
+	{
+		id: 1,
+		title: " Engaging Lessons",
+		description:
+			"Engaging lessons with animations, videos, and quizzes make learning fun!",
+		imgSrc: "/images/lessons.svg",
+	},
+	{
+		id: 2,
+		title: " Personalised Study ",
+		description:
+			"Customised plans for your pace and style, paving your path to exam success",
+		imgSrc: "/images/journey.svg",
+	},
+	{
+		id: 3,
+		title: "Targeted Focus",
+		description:
+			"Master your GCSE subjects with laser-focused resources tailored for exam success.",
+		imgSrc: "/images/target.svg",
+	},
+	{
+		id: 4,
+		title: "Progress Tracking",
+		description: "Track your journey, see strengths and areas to improve.",
+		imgSrc: "/images/progress.svg",
+	},
+];
