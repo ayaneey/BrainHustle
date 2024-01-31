@@ -24,7 +24,7 @@ function Product() {
 	return (
 		<div className="flex flex-col justify-center items-center xl:ml-72">
 			<div className="w-3/4 flex-1 sm:w-full sm:flex justify-center xl:mr-60 xl:mb-12">
-				<h1 className="sm:text-[29px] md:text-[30px] xl:text-[35px] xl:mr-14 mb-12 font-semibold font-raleway-700 text-base-black">
+				<h1 className="sm:text-[29px] md:text-[30px] xl:text-[35px] xl:mr-14 mb-12 font-bold font-raleway-700 text-base-black">
 					Your journey to success begins with us
 				</h1>
 			</div>
