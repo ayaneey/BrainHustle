@@ -7,6 +7,7 @@ import Product from "../components/Product/product";
 import KeyServices from "../components/KeyServices/services";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Success from "../components/Success/Success";
+import Footer from "../components/Footer/Footer";
 
 function Home() {
 	const title = "";
@@ -18,6 +19,7 @@ function Home() {
 			<KeyServices />
 			<Testimonials />
 			<Success />
+			<Footer />
 		</div>
 	);
 }

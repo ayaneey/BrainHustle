@@ -25,7 +25,7 @@ function Hero() {
 							<span className="block">Excel Harder!</span>
 						</span>
 					</h1>
-					<p className="text-base text-center custom-paragraph1 mt-2 md:mt-5 lg:mt-8 xl:mt-12 xl:mb-4 sm:text-[13px] xl:text-[16px] ">
+					<p className="text-black/50 xl:leading-10 text-base text-center custom-paragraph1 mt-2 md:mt-5 lg:mt-8 xl:mt-12 xl:mb-4 sm:text-[13px] xl:text-[16px] xl:max-w-[500px] xl:ml-24">
 						Conquer GCSEs with Brain Hustle! Tailored Maths and English
 						resources, interactive lessons, practice exams, and personalised
 						study plans. Ace your exams - learn with success!
