@@ -67,8 +67,8 @@ function Navbar() {
 										</>
 									) : (
 										<>
-											<div className="lg:ml-28 xl:ml-72 ">
-												<div className="space-x-8">
+											<div className="lg:ml-28 xl:ml-96">
+												<div className="xl:space-x-8">
 													<Link href="/login">
 														<span className="text-secondTextColor rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">
 															Login

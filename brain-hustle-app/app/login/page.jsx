@@ -1,11 +1,12 @@
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
+import Link from "next/link";
 
-function Page() {
+function page() {
 	return (
 		<div className="flex flex-col sm:flex-row">
-			<div className="flex-1 sm:min-h-full flex-col justify-center px-4 py-8 sm:py-12 lg:px-8 lg:py-16 bg-red-500">
-				<div className="ml-4 sm:ml-10">
+			<div className="flex-1 sm:min-h-full flex-col justify-center px-4 py-8 sm:py-12 lg:px-8 lg:py-16">
+				<div className="ml-4 xl:ml-32 sm:ml-10">
 					<h1 className="text-lg sm:text-lg sm:mb-4 lg:text-2xl mb-2 lg:mb-3">
 						Welcome to
 					</h1>
@@ -25,13 +26,13 @@ function Page() {
 							src="/images/login-page.svg"
 							alt="Login Image"
 							className="mt-8 sm:mt-12 lg:mt-20"
-							width={400} // Adjusted image width for better scaling
+							width={400}
 						/>
 					</div>
 				</div>
 			</div>
 			<div className="flex-1 sm:flex-1 lg:flex-1">
-				<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-yellow-500">
+				<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 					<div className="sm:mx-auto sm:w-full sm:max-w-sm">
 						<img
 							className="mx-auto h-10 w-auto"
@@ -58,7 +59,7 @@ function Page() {
 										type="email"
 										autoComplete="email"
 										required
-										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-left pl-3"
 									/>
 								</div>
 							</div>
@@ -86,7 +87,7 @@ function Page() {
 										type="password"
 										autoComplete="current-password"
 										required
-										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
 									/>
 								</div>
 							</div>
@@ -99,7 +100,8 @@ function Page() {
 								</button>
 							</div>
 						</form>
-						<div className="flex justify-center mt-4">
+						<div className="flex justify-center mt-8 space-x-6">
+							{" "}
 							{/* Google Sign-In Button */}
 							<button className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
 								<svg
@@ -186,12 +188,12 @@ function Page() {
 						</div>
 						<p className="mt-10 text-center text-sm text-gray-500">
 							Not a member?{" "}
-							<a
-								href="#"
+							<Link
+								href="/register"
 								className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
 							>
 								Sign up here
-							</a>
+							</Link>
 						</p>
 					</div>
 				</div>
@@ -200,4 +202,4 @@ function Page() {
 	);
 }
 
-export default Page;
+export default page;
