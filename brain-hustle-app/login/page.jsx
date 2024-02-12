@@ -1,8 +1,49 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 
 function page() {
+	const [formData, setFormData] = useState({
+		email: "",
+		password: "",
+	});
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		try {
+			const { email, password } = formData; // Destructure email and password
+			const response = await fetch("/api/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email, password }), // Send only email and password
+			});
+
+			if (response.ok) {
+				alert("Login successful!");
+				// Redirect to dashboard or any other page upon successful login
+			} else {
+				const data = await response.json();
+				alert(data.message || "Login failed.");
+			}
+		} catch (error) {
+			console.error("Login failed:", error);
+			alert("Login failed. Please try again later.");
+		}
+	};
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
+	};
+
 	return (
 		<div className="flex flex-col sm:flex-row">
 			<div className="flex-1 sm:min-h-full flex-col justify-center px-4 py-8 sm:py-12 lg:px-8 lg:py-16">
@@ -59,6 +100,8 @@ function page() {
 										type="email"
 										autoComplete="email"
 										required
+										value={formData.email}
+										onChange={handleChange}
 										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-left pl-3"
 									/>
 								</div>
@@ -87,7 +130,9 @@ function page() {
 										type="password"
 										autoComplete="current-password"
 										required
-										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-center"
+										value={formData.password}
+										onChange={handleChange}
+										className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-left pl-3"
 									/>
 								</div>
 							</div>
@@ -95,6 +140,7 @@ function page() {
 								<button
 									type="submit"
 									className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+									onClick={handleSubmit}
 								>
 									Sign in
 								</button>
