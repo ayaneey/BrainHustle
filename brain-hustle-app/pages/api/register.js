@@ -1,22 +1,23 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-// Set the salt rounds for bcrypt
+// Set the salt rounds for bcrypt hashing
 const saltRounds = 10;
 
-// Instantiate Prisma client
+// Creating a new instance of the PrismaClient
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
+	// Check if the request method is POST
 	if (req.method !== "POST") {
 		return res.status(405).json({ message: "Method Not Allowed" });
 	}
 
 	try {
-		// Extract data from the request body
+		// Extract data from the request body (name, email, and password)
 		const { name, email, password } = req.body;
 
-		// Perform any necessary validation on the input data
+		// If any of the required fields are missing, return an error
 		if (!name || !email || !password) {
 			return res
 				.status(400)
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
 		// Hash the password
 		const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-		// Here you would use Prisma to create a new user with the hashed password
+		// Here we create a new user in the database using the create method
 		await prisma.user.create({
 			data: {
 				name,
@@ -35,7 +36,7 @@ export default async function handler(req, res) {
 			},
 		});
 
-		// Simulating successful registration
+		// If the user is created successfully, return a success message else return an error message
 		return res.status(201).json({ message: "User registered successfully" });
 	} catch (error) {
 		console.error("Error registering user:", error);
