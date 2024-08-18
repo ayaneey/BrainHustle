@@ -36,6 +36,8 @@ module.exports = {
 				primaryColor: "#F5F5F5",
 				secondTextColor: "#737373",
 				baseBlack: "#23242A",
+				dashboard: "#84a98c",
+				dashboardDrop: "#52796f",
 			},
 		},
 	},
