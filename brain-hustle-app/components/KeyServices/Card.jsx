@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+// Defining a functional component named Card which accepts 3 props: imgSrc, title, and description
 function Card({ imgSrc, title, description }) {
 	return (
 		<div className=" flex bg-white  md:w-[47%] lg:w-[47%] xl:w-[40%] md:gap-5 sm:gap-10 lg:gap-10 xl:gap-10  p-10 rounded-md ">
@@ -24,6 +25,8 @@ function Card({ imgSrc, title, description }) {
 
 export default Card;
 
+// Exporting an array of objects named keyServicesCardData
+// Each object in the array represents data for a card
 export const keyServicesCardData = [
 	{
 		id: 1,

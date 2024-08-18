@@ -39,7 +39,7 @@ function Navbar() {
 								Product
 							</span>
 						</Link>
-						<Link href="#">
+						<Link href="/contact">
 							<span className="text-secondTextColor hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
 								Contact
 							</span>
@@ -74,12 +74,14 @@ function Navbar() {
 															Login
 														</span>
 													</Link>
-													<button
-														type="button"
-														className="bg-box text-primaryColor hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-													>
-														Become a member →
-													</button>
+													<Link href="/register">
+														<button
+															type="button"
+															className="bg-box text-primaryColor hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+														>
+															Become a member →
+														</button>
+													</Link>
 												</div>
 											</div>
 										</>

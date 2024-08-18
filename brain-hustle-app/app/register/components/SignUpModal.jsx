@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 export default function SignUpModal() {
 	const [formData, setFormData] = useState({
@@ -9,22 +10,26 @@ export default function SignUpModal() {
 		email: "",
 		password: "",
 	});
+	const router = useRouter(); // Initialize useRouter for redirection
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		try {
+			// Destructure the form data
+			const { name, email, password } = formData;
+
 			const response = await fetch("/api/register", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify({ name, email, password }),
 			});
 
 			if (response.ok) {
 				alert("Sign up successful!");
-				// Redirect to a new page or perform any other action upon successful sign-up
+				router.push("/dashboard"); // Redirect to the dashboard upon successful sign-up
 			} else {
 				const data = await response.json();
 				alert(data.message || "Sign up failed.");

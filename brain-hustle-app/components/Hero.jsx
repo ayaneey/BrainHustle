@@ -1,6 +1,6 @@
 import React from "react";
-import Homepage from "../../components/Homepage";
-import Button from "../common/components/Button";
+import Homepage from "./Homepage";
+import Button from "../app/common/components/Button";
 
 function Hero() {
 	const title = "";

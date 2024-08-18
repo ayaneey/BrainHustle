@@ -18,9 +18,9 @@ function page() {
 						user-friendly platform is dedicated to providing you with the best
 						study experience. Join us today to unlock your full potential!
 					</p>
-					<button className="mt-6 sm:mt-8 lg:mt-12 text-sm sm:text-base text-blue-600">
+					{/* <button className="mt-6 sm:mt-8 lg:mt-12 text-sm sm:text-base text-blue-600">
 						Join Now!
-					</button>
+					</button> */}
 					<div className="sm:mr-8 ">
 						<img
 							src="/images/login-page.svg"

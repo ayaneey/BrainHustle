@@ -3,13 +3,14 @@
 import React, { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function page() {
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
 	});
-
+	const router = useRouter();
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -25,6 +26,8 @@ function page() {
 
 			if (response.ok) {
 				alert("Login successful!");
+				router.push("/dashboard");
+
 				// Redirect to dashboard or any other page upon successful login
 			} else {
 				const data = await response.json();
@@ -59,9 +62,11 @@ function page() {
 						user-friendly platform is dedicated to providing you with the best
 						study experience. Join us today to unlock your full potential!
 					</p>
-					<button className="mt-6 sm:mt-8 lg:mt-12 text-sm sm:text-base text-blue-600">
-						Join Now!
-					</button>
+					<Link href="/register">
+						<button className="mt-6 sm:mt-8 lg:mt-12 text-sm sm:text-base text-blue-600">
+							Join Now!
+						</button>
+					</Link>
 					<div className="sm:mr-8 ">
 						<img
 							src="/images/login-page.svg"

@@ -1,7 +1,7 @@
 import React from "react";
 // import { NextUIProvider } from "@nextui-org/react";
 import Homepage from "../components/Homepage";
-import Hero from "./home/Hero";
+import Hero from "../components/Hero";
 import Button from "./common/components/Button";
 import Product from "../components/Product/product";
 import KeyServices from "../components/KeyServices/services";
