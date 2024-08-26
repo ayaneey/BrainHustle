@@ -1,57 +1,59 @@
-import Prisma from "../../../libs/prismadb";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req, res) {
-	// If not a POST request, send a method not allowed error
-	if (req.method !== "POST") {
-		return NextResponse.json(
-			{ message: "Method Not Allowed" },
-			{ status: 405 }
-		);
-	}
+const prisma = new PrismaClient();
 
+export async function POST(req, res) {
 	try {
-		// Extract data from the request body
-		const { email, password } = req.body;
+		// Parse the request body
+		const body = await req.json();
+		const { email, password, name } = body;
 		console.log(email, password);
 
-		// Perform any necessary validation on the input data
+		// Validate the input data
 		if (!email || !password) {
-			return NextResponse.json({ message: "Email and password are required" });
+			return NextResponse.json(
+				{ message: "Email and password are required" },
+				{ status: 400 }
+			);
 		}
 
-		// Check for existing user with the same email
-		const existingUser = await Prisma.user.findUnique({
+		// Check for an existing user with the same email
+		const existingUser = await prisma.user.findUnique({
 			where: { email },
 		});
 
-		// If user already exists, return an error
 		if (existingUser) {
-			return NextResponse.json({ message: "Email already exists" });
+			return NextResponse.json(
+				{ message: "Email already exists" },
+				{ status: 400 }
+			);
 		}
 
-		// Hash the password before storing it in the database
+		// Hash the password
 		const saltRounds = 10;
 		const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-		async function createUser(name, email, hashedPassword) {
-			const user = await prisma.user.create({
-				data: {
-					name,
-					email,
-					hashedPassword,
-				},
-			});
-
-			return user;
-		}
+		// Create a new user in the database
+		const user = await prisma.user.create({
+			data: {
+				name,
+				email,
+				hashedPassword,
+			},
+		});
 
 		// If user creation is successful, return a success message
-		return NextResponse.json({ message: "Signup successful" });
+		return NextResponse.json(
+			{ message: "Signup successful", user },
+			{ status: 201 }
+		);
 	} catch (error) {
 		console.error("Error signing up:", error);
-		// Return a generic error message for security reasons
-		return NextResponse.json({ message: "Error signing up" });
+		return NextResponse.json({ message: "Error signing up" }, { status: 500 });
+	} finally {
+		// Disconnect Prisma client to prevent memory leaks
+		await prisma.$disconnect();
 	}
 }

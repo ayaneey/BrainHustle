@@ -1,8 +1,9 @@
-import Prisma from "../../../libs/prismadb";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
 
 // Creating a new instance of the PrismaClient
+const prisma = new PrismaClient();
 
 export async function POST(req, res) {
 	// if (req.method !== "POST") {
@@ -11,7 +12,8 @@ export async function POST(req, res) {
 
 	try {
 		// Extract data from the request body
-		const { email, password } = req.body;
+		const body = await req.json();
+		const { email, password } = body;
 		console.log(email, password);
 
 		// Perform any necessary validation on the input data
@@ -21,7 +23,7 @@ export async function POST(req, res) {
 		}
 
 		// Query the user by email address from the database using the findUnique method
-		const user = await Prisma.user.findUnique({
+		const user = await prisma.user.findUnique({
 			where: { email },
 		});
 
