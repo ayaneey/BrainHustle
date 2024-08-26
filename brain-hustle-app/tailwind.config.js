@@ -38,6 +38,8 @@ module.exports = {
 				baseBlack: "#23242A",
 				dashboard: "#84a98c",
 				dashboardDrop: "#52796f",
+				greenShade: "#95d5b2",
+				greyShade: "#adb5bd",
 			},
 		},
 	},

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-const Sidebar = () => {
+const Sidebar = ({ selectedSection }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -25,11 +25,14 @@ const Sidebar = () => {
 		return () => document.removeEventListener("click", handleClickOutside);
 	}, []);
 
+	// Function to determine if the link is active
+	const isActiveLink = (section) => selectedSection === section;
+
 	return (
 		<div>
 			{/* Sidebar */}
 			<aside
-				className={` md:min-h-screen  text-white h-full p-4 lg:w-64 md:w-48 sm:w-36 flex flex-col ${
+				className={`md:min-h-screen text-white h-full p-4 lg:w-64 md:w-48 sm:w-36 flex flex-col ${
 					isMenuOpen ? "block" : "hidden"
 				} md:block`}
 			>
@@ -39,14 +42,21 @@ const Sidebar = () => {
 				<nav className="flex-1">
 					<ul className="space-y-2">
 						<li>
-							<Link href="/" className="block p-2 rounded hover:bg-green-700">
+							<Link
+								href="/"
+								className={`block p-2 rounded hover:bg-greyShade ${
+									isActiveLink(null) ? "bg-greenShade" : ""
+								}`}
+							>
 								Home
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="/dashboard?section=journal"
-								className="block p-2 rounded hover:bg-green-700"
+								className={`block p-2 rounded hover:bg-greyShade ${
+									isActiveLink("journal") ? "bg-greenShade" : ""
+								}`}
 							>
 								Journal
 							</Link>
@@ -54,7 +64,9 @@ const Sidebar = () => {
 						<li>
 							<Link
 								href="/dashboard?section=calendar"
-								className="block p-2 rounded hover:bg-green-700"
+								className={`block p-2 rounded hover:bg-greyShade ${
+									isActiveLink("calendar") ? "bg-greenShade" : ""
+								}`}
 							>
 								Calendar
 							</Link>
@@ -62,7 +74,9 @@ const Sidebar = () => {
 						<li>
 							<Link
 								href="/dashboard?section=settings"
-								className="block p-2 rounded hover:bg-green-700"
+								className={`block p-2 rounded hover:bg-greyShade ${
+									isActiveLink("settings") ? "bg-greenShade" : ""
+								}`}
 							>
 								Settings
 							</Link>
@@ -72,7 +86,7 @@ const Sidebar = () => {
 			</aside>
 			{/* Mobile Menu Button */}
 			<button
-				className="md:hidden p-2 bg-gray-800 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mb-10 "
+				className="md:hidden p-2 bg-gray-800 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mb-10"
 				onClick={handleMenuToggle}
 			>
 				<svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">

@@ -29,7 +29,7 @@ function page() {
 			Content = Settings;
 			break;
 		default:
-			Content = Home;
+			Content = "Null";
 			break;
 	}
 
@@ -37,7 +37,11 @@ function page() {
 		<div className="flex justify-center items-start min-h-screen p-4 ">
 			<div className="flex flex-col sm:flex-row w-full max-w-6xl p-14 rounded-lg overflow-hidden bg-dashboardDrop shadow-lg min-h-screen">
 				<div className="w-full sm:w-1/4 ">
-					<Sidebar /> {/* The sidebar component holds the navigational menu */}
+					<Sidebar selectedSection={section} />{" "}
+					{/* What does this do? Passes the current section value from the URL to the 
+					Sidebar component as a prop named 'selectedSection'. This allows Sidebar to determine and highlight the active navigation 
+					link based on the current section. */}
+					{/* The sidebar component holds the navigational menu */}
 				</div>
 				<div className="flex-1 bg-white/60 text-white lg:text-3xl lg:text-center md-phone:p-10 md-phone:ml-10 md-phone:pt-12 md-phone:pr-12 md-phone:pb-12 md-phone:pl-12 md-phone:text-center">
 					<Content />{" "}
