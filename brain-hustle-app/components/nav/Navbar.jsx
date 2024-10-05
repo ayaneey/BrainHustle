@@ -46,12 +46,14 @@ function Navbar() {
 						</Link>
 						{isSmallOrMediumScreen ? (
 							<>
-								<button
-									type="button"
-									className="bg-blue-500 text-white rounded-md px-3 py-2 text-sm font-medium"
-								>
-									Login
-								</button>
+								<Link href="/login">
+									<button
+										type="button"
+										className="bg-blue-500 text-white rounded-md px-3 py-2 text-sm font-medium"
+									>
+										Login
+									</button>
+								</Link>
 							</>
 						) : (
 							<>

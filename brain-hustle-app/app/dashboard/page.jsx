@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
 import Home from "../page";
 // Here components are imported from the components folder. They will be used to render the dashboard page through the Content variable.
-import Journal from "../../components/Dashboard/Sidebar/Journal";
+import Journal from "../../components/Dashboard/Journal/Journal";
 import Calendar from "../../components/Dashboard/Sidebar/Calendar";
 import Settings from "../../components/Dashboard/Sidebar/Settings";
 
@@ -34,18 +34,15 @@ function page() {
 	}
 
 	return (
-		<div className="flex justify-center items-start min-h-screen p-4 ">
-			<div className="flex flex-col sm:flex-row w-full max-w-6xl p-14 rounded-lg overflow-hidden bg-dashboardDrop shadow-lg min-h-screen">
-				<div className="w-full sm:w-1/4 ">
-					<Sidebar selectedSection={section} />{" "}
-					{/* What does this do? Passes the current section value from the URL to the 
-					Sidebar component as a prop named 'selectedSection'. This allows Sidebar to determine and highlight the active navigation 
-					link based on the current section. */}
-					{/* The sidebar component holds the navigational menu */}
+		<div className="flex justify-center items-center min-h-screen p-4">
+			<div className="flex flex-col sm:flex-row w-full max-w-6xl p-6 sm:p-10 rounded-lg overflow-hidden bg-dashboardDrop shadow-lg min-h-screen lg-phone:justify-center lg-phone:items-center xl-phone:justify-center xl-phone:items-center sm-tablet:justify-center sm-tablet:items-center">
+				<div className="w-full sm:w-1/4">
+					<Sidebar selectedSection={section} />
+					{/* Sidebar navigation */}
 				</div>
-				<div className="flex-1 bg-white/60 text-white lg:text-3xl lg:text-center md-phone:p-10 md-phone:ml-10 md-phone:pt-12 md-phone:pr-12 md-phone:pb-12 md-phone:pl-12 md-phone:text-center">
-					<Content />{" "}
-					{/* This is Content that re-renders based on what user selects onto the dashboard */}
+				<div className="flex-1 sm:ml-5 text-white text-lg lg:text-2xl lg:text-center lg-phone:w-3/4">
+					<Content />
+					{/* Content that re-renders based on what user selects */}
 				</div>
 			</div>
 		</div>
