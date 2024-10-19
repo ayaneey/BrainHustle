@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { Input, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
 
@@ -56,8 +58,6 @@ export default function ToDoList() {
 		}
 	};
 
-	/****************************************************************************************/
-
 	/******** Function to Handle DELETING a To-Do Item ********/
 	// This function deletes a to-do item from the database (DELETE request) and updates the list in the UI
 
@@ -80,7 +80,7 @@ export default function ToDoList() {
 
 	/* UI */
 	return (
-		<Card className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[45%] mx-auto mt-4 sm:mt-6 md:mt-8">
+		<Card className="w-full shadow-2xl max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[50%] xl:max-w-[45%] mx-10 my-6 xl:mb-52">
 			<CardHeader className="flex justify-center pb-2 sm:pb-4">
 				<h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
 					To-Do List

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -79,6 +81,35 @@ const Sidebar = ({ selectedSection }) => {
 								}`}
 							>
 								Settings
+							</Link>
+						</li>
+						<li>
+							<Link
+								href="/login"
+								onClick={async (e) => {
+									e.preventDefault(); // Prevent default link behavior
+									try {
+										// Make a request to the logout API
+										const response = await fetch("/api/logout", {
+											method: "GET",
+										});
+
+										// Check if logout was successful
+										if (response.ok) {
+											// Redirect to login after successfully logging out
+											window.location.href = "/login";
+										} else {
+											console.error("Failed to log out");
+										}
+									} catch (error) {
+										console.error("Error during logout:", error);
+									}
+								}}
+								className={`block p-2 rounded hover:bg-greyShade ${
+									isActiveLink("settings") ? "bg-greenShade" : ""
+								}`}
+							>
+								Logout
 							</Link>
 						</li>
 					</ul>

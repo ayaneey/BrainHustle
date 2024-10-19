@@ -1,61 +1,62 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
-import { NextRequest, NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
+import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
-// Creating a new instance of the PrismaClient
 const prisma = new PrismaClient();
 
-export async function POST(req, res) {
-	// if (req.method !== "POST") {
-	// 	return res.status(405).json({ message: "Method Not Allowed" });
-	// }
-
+export async function POST(req) {
 	try {
-		// Extract data from the request body
 		const body = await req.json();
 		const { email, password } = body;
-		console.log(email, password);
 
-		// Perform any necessary validation on the input data
+		// Check if email and password are provided
 		if (!email || !password) {
-			// return { message: "Email and password are required" };
-			return NextResponse.json({ message: "Email and password are required" });
+			return NextResponse.json(
+				{ message: "Email and password are required" },
+				{ status: 400 }
+			);
 		}
 
-		// Query the user by email address from the database using the findUnique method
-		const user = await prisma.user.findUnique({
-			where: { email },
+		// Find the user by email
+		const user = await prisma.user.findUnique({ where: { email } });
+
+		// Check if user exists
+		if (!user) {
+			return NextResponse.json({ message: "User not found" }, { status: 404 });
+		}
+
+		// Compare the entered password with the hashed password
+		const isPasswordMatch = await bcrypt.compare(password, user.hashedPassword);
+
+		// If password doesn't match, return an error
+		if (!isPasswordMatch) {
+			return NextResponse.json(
+				{ message: "Incorrect password" },
+				{ status: 401 }
+			);
+		}
+
+		// Generate JWT token
+		const token = jwt.sign(
+			{ userId: user.id, email: user.email },
+			process.env.JWT_SECRET, // Use an environment variable for your secret key
+			{ expiresIn: "7d" } // Token expiration time
+		);
+
+		// Set the token as a cookie using Next.js cookies API
+		cookies().set("token", token, {
+			secure: process.env.NODE_ENV === "production",
+			sameSite: "strict",
+			path: "/",
+			maxAge: 60 * 60 * 24 * 7, // 1 week
 		});
 
-		// Here we check if the user exists in the database or not and return an error if not found
-		if (!user) {
-			// return { message: "User not found" };
-			return NextResponse.json({ message: "User not found" });
-		}
-
-		// Here we compare the the password provided by the user with the hashed password stored in the database using the compare method
-		const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
-
-		// If the password does not match, return an error
-		if (!passwordMatch) {
-			// return { message: "Incorrect password" };
-			return NextResponse.json({ message: "Incorrect password" });
-		}
-
-		// If the password matches, return a success message to the user indicating that the login was successful if not return an error
-		// return res.status(200).json({ message: "Login successful" });
-		return NextResponse.json({ message: "Login successful" });
+		// Return response
+		return NextResponse.json({ message: "Login successful" }, { status: 200 });
 	} catch (error) {
-		console.error("Error logging in:", error);
-		// return { message: "Error logging in" };
-		return NextResponse.json({ message: "Error logging in" });
+		console.error("Login error:", error);
+		return NextResponse.json({ message: "Error logging in" }, { status: 500 });
 	}
 }
-
-// export async function POST() {
-// 	const res = await
-
-// 	const data = await res.json()
-
-// 	return Response.json(data)
-//   }

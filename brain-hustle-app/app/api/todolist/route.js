@@ -1,7 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 
-// Important Tip! Lesson: Always make sure that when you refer to a model in your code, you match the exact case (e.g., prisma.toDo if your model is ToDo). Prisma is case-sensitive, hence the 'toDo'.
-
 // Creating a new instance of the PrismaClient
 const prisma = new PrismaClient();
 
@@ -9,7 +7,7 @@ const prisma = new PrismaClient();
 export async function GET() {
 	try {
 		// Fetch all to-do items from the database
-		const todos = await prisma.toDo.findMany(); // 'toDo' to match the model name
+		const todos = await prisma.toDo.findMany();
 
 		// Send the retrieved to-dos with a status 200 (success)
 		return new Response(JSON.stringify(todos), { status: 200 });
@@ -28,6 +26,9 @@ export async function POST(req) {
 	try {
 		// Get the 'text' from the request body
 		const { text } = await req.json();
+
+		// Check if the 'text' is actually being passed
+		console.log("Text received for new to-do:", text);
 
 		// Create a new todo in the database
 		const newTodo = await prisma.toDo.create({ data: { text } });
