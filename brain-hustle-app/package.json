@@ -11,8 +11,11 @@
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
 		"@heroicons/react": "^2.0.18",
+		"@nextui-org/calendar": "^2.0.12",
 		"@nextui-org/card": "^2.0.24",
 		"@nextui-org/react": "^2.4.8",
+		"@nextui-org/system": "^2.2.6",
+		"@nextui-org/theme": "^2.2.11",
 		"@prisma/client": "^5.18.0",
 		"autoprefixer": "10.4.15",
 		"bcrypt": "^5.1.1",

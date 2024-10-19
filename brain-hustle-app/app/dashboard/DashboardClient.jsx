@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
 import { useRouter } from "next/navigation"; // For client-side navigation
 import Journal from "../../components/Dashboard/Journal/Journal";
-import Calendar from "../../components/Dashboard/Sidebar/Calendar";
+import Calendar from "../../components/Dashboard/Sidebar/CalendarComponent";
 import Settings from "../../components/Dashboard/Sidebar/Settings";
 
 export default function DashboardClient({ searchParams }) {
