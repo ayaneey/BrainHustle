@@ -2,82 +2,94 @@
 
 import React, { useEffect, useState } from "react";
 import { Input, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
+import jwt from "jsonwebtoken";
 
 export default function ToDoList() {
-	const [todos, setTodos] = useState([]); // List of to-do items (starts empty)
-	const [newTodo, setNewTodo] = useState(""); // Input text (starts empty)
+	const [todos, setTodos] = useState([]);
+	const [newTodo, setNewTodo] = useState("");
+	const [userId, setUserId] = useState(null);
 
-	/* Fetching existing to-do items from the API when the component loads (GET request)*/
 	useEffect(() => {
-		fetch("/api/todolist")
-			.then((res) => res.json())
-			.then((data) => {
-				if (Array.isArray(data)) {
-					setTodos(data);
-				} else {
-					console.error("Data received is not an array:", data);
-					setTodos([]); // Set to empty array if data is not an array
-				}
-			})
-			.catch((err) => {
-				console.error("Error fetching the to-dos:", err);
-				setTodos([]); // Set to empty array on error
-			});
+		// Get userId from token
+		const token = document.cookie
+			.split("; ")
+			.find((row) => row.startsWith("token="))
+			?.split("=")[1];
+
+		if (token) {
+			const decoded = jwt.decode(token);
+			setUserId(decoded.userId);
+		}
 	}, []);
 
-	// Runs when the user types in the input
+	useEffect(() => {
+		if (userId) {
+			fetch(`/api/todos/${userId}`)
+				.then((res) => res.json())
+				.then((data) => {
+					if (Array.isArray(data)) {
+						setTodos(data);
+					} else {
+						console.error("Data received is not an array:", data);
+						setTodos([]);
+					}
+				})
+				.catch((err) => {
+					console.error("Error fetching the to-dos:", err);
+					setTodos([]);
+				});
+		}
+	}, [userId]);
+
 	const handleInputChange = (e) => {
-		setNewTodo(e.target.value); // Updates the input value with what the user types
+		setNewTodo(e.target.value);
 	};
 
-	/******** Function to Handle ADDING New To-Do to the List ********/
 	const handleSubmit = (e) => {
-		e.preventDefault(); // Stop the page from refreshing
+		e.preventDefault();
 
-		if (newTodo.trim()) {
-			// we need a fetch request: adding a new task to database (POST)
-			fetch("/api/todolist", {
-				method: "POST", // Fix: method should be a string
+		if (newTodo.trim() && userId) {
+			fetch(`/api/todos/${userId}`, {
+				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ text: newTodo }), // this sends the new to-do text to the API
+				body: JSON.stringify({ text: newTodo }),
 			})
 				.then((res) => res.json())
 				.then((data) => {
-					setTodos([...todos, data]); // This adds the new to-do to the list from the database
-					setNewTodo(""); // this clears the input field
+					setTodos([...todos, data]);
+					setNewTodo("");
 				})
-				.catch((err) => console.log("Error adding to-do list", err)); // Fix: place catch inside the chain
+				.catch((err) => console.log("Error adding to-do list", err));
 		}
 	};
 
-	/******** Function to Handle DELETING a To-Do Item ********/
 	const handleDelete = (index, id) => {
-		// Remove the to-do from the database (DELETE request)
-		fetch("/api/todolist", {
-			method: "DELETE",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ id }),
-		})
-			.then((res) => res.json())
-			.then(() => {
-				const updatedTodos = todos.filter((_, i) => i !== index); // This removes the to-do from the UI
-				setTodos(updatedTodos);
+		if (userId) {
+			fetch(`/api/todos/${userId}`, {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ id }),
 			})
-			.catch((err) => console.error("Error deleting to-do list", err));
+				.then((res) => res.json())
+				.then(() => {
+					const updatedTodos = todos.filter((_, i) => i !== index);
+					setTodos(updatedTodos);
+				})
+				.catch((err) => console.error("Error deleting to-do list", err));
+		}
 	};
 
-	/* UI */
+	if (!userId) {
+		return <div>Please log in to view your todos</div>;
+	}
+
 	return (
 		<div className="w-full">
-			{" "}
-			{/* Removed unnecessary background and margins */}
 			<Card className="w-full shadow-2xl max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[75%] mx-auto my-4">
-				{" "}
-				{/* Reduced margins */}
 				<CardHeader className="flex justify-center pb-2 sm:pb-4">
 					<h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
 						To-Do List
@@ -128,7 +140,7 @@ export default function ToDoList() {
 							))}
 						</ul>
 					) : (
-						<p>Loading...</p>
+						<p>No todos yet</p>
 					)}
 				</CardBody>
 			</Card>

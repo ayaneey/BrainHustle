@@ -7,17 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Define useradmin data model
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  email     String   @unique
-  name          String?
-  hashedPassword  String?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  email          String   @unique
+  name           String?
+  hashedPassword String?
+  todos          ToDo[]   // This means a user can have multiple todos 
+  thoughts       Thoughts[]
 }
 
-// Define to-do list model
 model ToDo {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   text      String    
-  createdAt DateTime @default(now())   
+  createdAt DateTime @default(now())
+  userId    String   @db.ObjectId  // This means a todo belongs to a user, and the userId is the foreign key
+  user      User     @relation(fields: [userId], references: [id])
 }
+
+ model Thoughts {
+   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+   text      String
+   createdAt DateTime @default(now())
+   userId    String   @db.ObjectId   
+   user      User     @relation(fields: [userId], references: [id])
+ }

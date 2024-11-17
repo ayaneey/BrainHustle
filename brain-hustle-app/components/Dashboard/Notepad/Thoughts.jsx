@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Today = () => {
+const Thoughts = () => {
 	// State to store the note
 	const [note, setNote] = useState("");
 
@@ -34,4 +34,4 @@ const Today = () => {
 	);
 };
 
-export default Today;
+export default Thoughts;
