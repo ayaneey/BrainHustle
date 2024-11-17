@@ -24,10 +24,10 @@ model ToDo {
   user      User     @relation(fields: [userId], references: [id])
 }
 
- model Thoughts {
+ model Thoughts { 
    id        String   @id @default(auto()) @map("_id") @db.ObjectId
    text      String
    createdAt DateTime @default(now())
-   userId    String   @db.ObjectId   
+   userId    String   @db.ObjectId   // This means a thought belongs to a user, and the userId is the foreign key
    user      User     @relation(fields: [userId], references: [id])
  }
