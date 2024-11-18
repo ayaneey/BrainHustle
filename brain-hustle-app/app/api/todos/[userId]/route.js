@@ -19,7 +19,7 @@ const getUserId = () => {
 export async function GET() {
 	const userId = getUserId();
 	if (!userId) {
-		return new Response(JSON.stringify({ message: "Unauthorized" }), {
+		return new Response(JSON.stringify({ message: "Unauthorised" }), {
 			status: 401,
 		});
 	}
