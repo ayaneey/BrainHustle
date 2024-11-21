@@ -9,37 +9,62 @@ export default function ToDoList() {
 	const [newTodo, setNewTodo] = useState("");
 	const [userId, setUserId] = useState(null);
 
+	/****** This section is the AUTHENTICATION CHECK: It checks for user login status ******/
 	useEffect(() => {
-		// Get userId from token
+		// Get all cookies from browser
 		const token = document.cookie
+			// Split cookies into array at semicolon+space
 			.split("; ")
+			// Find cookie that starts with "token="
 			.find((row) => row.startsWith("token="))
+			// Split found cookie at "=" and take second part (the value)
 			?.split("=")[1];
 
+		// If token found
 		if (token) {
+			// Decode JWT token to get user information
 			const decoded = jwt.decode(token);
+			// Save user ID from token to state
 			setUserId(decoded.userId);
 		}
+		// Empty array means run once when component mounts
 	}, []);
 
+	/* ***************************************************************** */
+
+	/****** This section is the FETCH USER DATA: Gets User's Todos ******/
 	useEffect(() => {
+		// This 'if' means only proceed if we have a user ID (meaning someone is logged in)
 		if (userId) {
-			fetch(`/api/todos/${userId}`)
-				.then((res) => res.json())
+			// Start the request 'fetch' to get todos from our database
+			fetch(`/api/todos/${userId}`) // The ${userId} makes sure we only get THIS user's todos
+				.then((res) => res.json()) // When we get the response, convert it from string format to JSON format
+				// Now that we have the data in a format we can use...
 				.then((data) => {
+					// Check if what we got back is an array (a list of todos)
+					// Arrays are what we expect since todos should be a list
 					if (Array.isArray(data)) {
+						// If it is an array, save these todos in our component's state
+						// This will make them show up on the screen
 						setTodos(data);
 					} else {
+						// If it's not an array, something went wrong
+						// Log the error so we can debug it
 						console.error("Data received is not an array:", data);
+						// Set todos to empty array so our component doesn't break
 						setTodos([]);
 					}
 				})
+				// If anything goes wrong during this process (like network error)
 				.catch((err) => {
+					// Log the error so we can see what went wrong
 					console.error("Error fetching the to-dos:", err);
+					// Set todos to empty array as a fallback
+					// This prevents our component from breaking
 					setTodos([]);
 				});
 		}
-	}, [userId]);
+	}, [userId]); // This userId 're-fetches' todos whenever user login changes i.e. another user logs in, so it fetches THAT specific user's todos
 
 	const handleInputChange = (e) => {
 		setNewTodo(e.target.value);
@@ -147,3 +172,9 @@ export default function ToDoList() {
 		</div>
 	);
 }
+
+/* Explaining the AUTHENTICATION useEffect() hook */
+/* When page loads: 1. Find login from token 2. Get user ID from token 3. Save user ID for later use */
+
+/* Explaining the FETCH USER DATA useEffect() hook */
+/* When we have user ID,  */
