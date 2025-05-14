@@ -10,59 +10,80 @@ const getUserId = () => {
 	const token = cookies().get("token")?.value; // Finds the user's login token in cookies..sees if it exists
 	if (!token) return null; // means if no token, stop here - user isn't logged in
 	try {
-		const decoded = jwt.verify(token, process.env.JWT_SECRET); // if we have token, verify it. Take the token (from cookie) and check if its valid using our secret key. If valid 'decoded' will contain user info
+		const decoded = jwt.verify(token, process.env.JWT_SECRET); // if we have token, verify it
 		return decoded.userId; // We specifically want just the userId for our database operations
 	} catch (error) {
-		// the error catches if anything goes wrong e.g. invalid token, expired token etc.
 		return null; // returns null meaning it's treated like not logged in!
 	}
 };
 
-// Step 3 - Create GET route: this check if user is authenticated, fetches thoughts for specific user, returns if no thought
-export async function GET() {
-	const userId = getUserId();
-	if (!userId) {
+// Step 3 - Create GET route: this checks if user is authenticated, fetches thoughts for specific user, returns if no thought
+export async function GET(req, { params }) {
+	// Added 'params' to access userId dynamically
+	const userIdFromToken = getUserId(); // Fetch userId from the token
+	const { userId } = params; // Get userId from the dynamic route parameter
+
+	if (!userIdFromToken || userIdFromToken !== userId) {
+		// Check if authenticated user matches the requested userId
 		return new Response(JSON.stringify({ message: "Unauthorised" }), {
 			status: 401,
 		});
 	}
+
 	try {
-		const thoughts = await prisma.thoughts.findMany({
-			where: { userId: userId },
+		// Fetch the most recent note
+		const latestThought = await prisma.thoughts.findFirst({
+			where: { userId: userId }, // Filter only for this user's thoughts
+			orderBy: { createdAt: "desc" }, // Sort by createdAt descending
 		});
-		return new Response(JSON.stringify(thoughts), { status: 200 });
+
+		return new Response(JSON.stringify(latestThought || {}), { status: 200 });
 	} catch (error) {
 		return new Response(
 			JSON.stringify({ message: "Error fetching thoughts" }),
-			{
-				status: 500,
-			}
+			{ status: 500 }
 		);
 	}
 }
 
 // Step 4 - POST route: checks if user is authenticated, gets text from request body, creates new thought in db or returns error message
-export async function POST(req) {
-	// req is where the text data comes from
-	const userId = getUserId();
-	if (!userId) {
+export async function POST(req, { params }) {
+	// Added 'params' to access userId dynamically
+	const userIdFromToken = getUserId(); // Fetch userId from the token
+	const { userId } = params; // Get userId from the dynamic route parameter
+
+	if (!userIdFromToken || userIdFromToken !== userId) {
+		// Check if authenticated user matches the requested userId
 		return new Response(JSON.stringify({ message: "Unauthorised" }), {
 			status: 401,
 		});
 	}
 
 	try {
-		const { text } = await req.json();
+		const body = await req.json(); // Parse request body
+		if (!body.text || typeof body.text !== "string") {
+			// Validate text input
+			return new Response(
+				JSON.stringify({ message: "Invalid input. Text must be a string." }),
+				{ status: 400 }
+			);
+		}
+
 		const newThought = await prisma.thoughts.create({
 			data: {
-				text,
-				userId,
+				text: body.text, // Save text field
+				userId, // Use the userId from the route parameter
 			},
 		});
+
 		return new Response(JSON.stringify(newThought), { status: 200 });
 	} catch (error) {
+		console.error("Error creating thoughts:", error);
 		return new Response(
-			JSON.stringify({ message: "Error creating thoughts" }),
+			JSON.stringify({
+				message: "Error creating thoughts",
+				error: error.message,
+			}),
 			{ status: 500 }
 		);
 	}

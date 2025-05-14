@@ -177,4 +177,4 @@ export default function ToDoList() {
 /* When page loads: 1. Find login from token 2. Get user ID from token 3. Save user ID for later use */
 
 /* Explaining the FETCH USER DATA useEffect() hook */
-/* When we have user ID,  */
+/* When we have user Id */

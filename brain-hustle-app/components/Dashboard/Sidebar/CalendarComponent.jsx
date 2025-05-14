@@ -118,7 +118,7 @@ const CalendarComponent = () => {
 
 		return (
 			<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-				<div className="bg-white rounded-lg p-6 w-full max-w-md">
+				<div className="bg-white/70 rounded-lg p-6 w-full max-w-md">
 					{modalMode === "view" ? (
 						<>
 							<div className="flex justify-between items-center mb-4">
@@ -158,7 +158,7 @@ const CalendarComponent = () => {
 						</>
 					) : (
 						<>
-							<h2 className="text-xl font-semibold mb-4">
+							<h2 className="text-xl text-black font-semibold mb-4">
 								Add Event for {days[selectedSlot.dayIndex]} at{" "}
 								{selectedSlot.hour}
 							</h2>
@@ -271,75 +271,80 @@ const CalendarComponent = () => {
 
 	const WeekCalendar = () => (
 		<div className="w-full h-screen max-h-[800px] bg-white rounded-lg shadow-lg overflow-hidden">
-			<div className="border-b">
-				<div className="flex">
-					<div className="w-16 border-r bg-gray-50" />
-					<div className="flex-1">
-						<div className="grid grid-cols-7">
-							{days.map((day, index) => (
-								<div
-									key={day}
-									className={`text-center py-4 border-r last:border-r-0 ${
-										index === currentDate.getDay() ? "bg-blue-50" : ""
-									}`}
-								>
-									<div className="text-sm text-gray-500">{day}</div>
+			<div className="flex flex-col h-full">
+				{/* Header */}
+				<div className="border-b flex-none">
+					<div className="flex">
+						<div className="w-16 border-r border-b bg-gray-50" />
+						<div className="flex-1">
+							<div className="grid grid-cols-7">
+								{days.map((day, index) => (
 									<div
-										className={`text-2xl mt-1 ${
-											index === currentDate.getDay()
-												? "text-blue-600 font-semibold"
-												: ""
+										key={day}
+										className={`text-center py-4 border-r border-b last:border-r-0 ${
+											index === currentDate.getDay() ? "bg-blue-50" : ""
 										}`}
 									>
-										{weekDates[index]}
+										<div className="text-sm text-gray-500">{day}</div>
+										<div
+											className={`text-2xl text-green-900 mt-1 ${
+												index === currentDate.getDay()
+													? "text-blue-600 font-semibold"
+													: ""
+											}`}
+										>
+											{weekDates[index]}
+										</div>
 									</div>
-								</div>
-							))}
+								))}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="flex h-full overflow-y-auto">
-				<div className="w-16 flex-shrink-0 border-r bg-gray-50">
-					{hours.map((hour) => (
-						<div
-							key={hour}
-							className="h-20 border-b text-xs text-gray-500 text-right pr-2 pt-1"
-						>
-							{hour === 0
-								? "12 AM"
-								: hour < 12
-								? `${hour} AM`
-								: hour === 12
-								? "12 PM"
-								: `${hour - 12} PM`}
-						</div>
-					))}
-				</div>
-				<div className="flex-1 relative">
-					<div className="grid grid-cols-7 h-full">
-						{days.map((day, dayIndex) => (
-							<div key={day} className="border-r last:border-r-0">
-								{hours.map((hour) => {
-									const slotEvents = events.filter(
-										(event) => event.day === dayIndex && event.hour === hour
-									);
-									return (
-										<div
-											key={hour}
-											className="h-20 border-b relative hover:bg-gray-50 cursor-pointer"
-											onClick={() =>
-												handleSlotClick(dayIndex, hour, slotEvents)
-											}
-										>
-											{slotEvents.map((event) => (
-												<Event key={event.id} event={event} />
-											))}
-										</div>
-									);
-								})}
+
+				{/* Calendar Grid */}
+				<div className="flex flex-1 overflow-y-auto">
+					<div className="w-16 flex-shrink-0 border-r bg-gray-50">
+						{hours.map((hour) => (
+							<div
+								key={hour}
+								className="h-20 border-b text-xs text-gray-500 text-right pr-2 pt-1"
+							>
+								{hour === 0
+									? "12 AM"
+									: hour < 12
+									? `${hour} AM`
+									: hour === 12
+									? "12 PM"
+									: `${hour - 12} PM`}
 							</div>
 						))}
+					</div>
+					<div className="flex-1 relative">
+						<div className="grid grid-cols-7 h-full">
+							{days.map((day, dayIndex) => (
+								<div key={day} className="border-r last:border-r-0">
+									{hours.map((hour) => {
+										const slotEvents = events.filter(
+											(event) => event.day === dayIndex && event.hour === hour
+										);
+										return (
+											<div
+												key={hour}
+												className="h-20 border-b relative hover:bg-gray-50 cursor-pointer"
+												onClick={() =>
+													handleSlotClick(dayIndex, hour, slotEvents)
+												}
+											>
+												{slotEvents.map((event) => (
+													<Event key={event.id} event={event} />
+												))}
+											</div>
+										);
+									})}
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

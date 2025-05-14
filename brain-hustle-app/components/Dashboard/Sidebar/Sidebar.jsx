@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import jwt from "jsonwebtoken";
 
 const Sidebar = ({ selectedSection }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [userName, setUserName] = useState("");
 
 	const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
 	const handleDropdownToggle = (e) => {
@@ -13,7 +15,20 @@ const Sidebar = ({ selectedSection }) => {
 		setIsDropdownOpen(!isDropdownOpen);
 	};
 
-	// Close dropdown when clicking outside
+	// First useEffect for user authentication
+	useEffect(() => {
+		const token = document.cookie
+			.split("; ")
+			.find((row) => row.startsWith("token="))
+			?.split("=")[1];
+
+		if (token) {
+			const decoded = jwt.decode(token);
+			setUserName(decoded.name || "User");
+		}
+	}, []);
+
+	// Second useEffect for dropdown handling
 	useEffect(() => {
 		const handleClickOutside = (event) => {
 			if (
@@ -23,12 +38,18 @@ const Sidebar = ({ selectedSection }) => {
 				setIsDropdownOpen(false);
 			}
 		};
+
 		document.addEventListener("click", handleClickOutside);
 		return () => document.removeEventListener("click", handleClickOutside);
 	}, []);
 
 	// Function to determine if the link is active
 	const isActiveLink = (section) => selectedSection === section;
+
+	const handleChangeNote = async (e) => {
+		const newValue = e.target.value;
+		setNote(newValue);
+	};
 
 	return (
 		<div>
@@ -39,7 +60,7 @@ const Sidebar = ({ selectedSection }) => {
 				} md:block`}
 			>
 				<div className="mb-8">
-					<h2 className="text-2xl font-bold">Welcome User</h2>
+					<h2 className="text-2xl font-bold">Welcome {userName || "User"}</h2>
 				</div>
 				<nav className="flex-1">
 					<ul className="space-y-2">
