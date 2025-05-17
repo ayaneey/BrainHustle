@@ -8,6 +8,7 @@ function Card({ imgSrc, title, description }) {
 			<div>
 				<Image
 					src={imgSrc}
+					alt={title}
 					width={100}
 					height={100}
 					className="md:w-44 md:h-44 lg:w-40 h-40"

@@ -1,22 +1,24 @@
 /** @type {import('next').NextConfig} */
-
-module.exports = {
+const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				// use this to allow images from a domain, it saves time and effort
 				protocol: "https",
-				hostname: "https://unsplash.com/",
+				hostname: "unsplash.com", // remove https://
 				port: "",
-				pathname: "/***",
+				pathname: "/**",
 			},
 			{
-				// use this to allow images from a domain, it saves time and effort
 				protocol: "https",
-				hostname: "https://images.google.co.uk/",
+				hostname: "images.google.co.uk", // remove https://
 				port: "",
-				pathname: "/***",
+				pathname: "/**",
 			},
 		],
 	},
+	experimental: {
+		serverActions: true,
+	},
 };
+
+module.exports = nextConfig;

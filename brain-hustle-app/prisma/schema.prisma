@@ -8,26 +8,25 @@ datasource db {
 }
 
 model User {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  email          String   @unique
-  name           String?
-  hashedPassword String?
-  todos          ToDo[]   // This means a user can have multiple todos 
-  thoughts       Thoughts[]
+  id       String     @id @map("_id") @db.String   // Clerk's string ID
+  email    String     @unique
+  name     String?
+  todos    ToDo[]
+  thoughts Thoughts[]
 }
 
 model ToDo {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  text      String    
+  text      String
   createdAt DateTime @default(now())
-  userId    String   @db.ObjectId  // This means a todo belongs to a user, and the userId is the foreign key
+  userId    String   @db.String             // <- ✅ FIX HERE
   user      User     @relation(fields: [userId], references: [id])
 }
 
- model Thoughts { 
-   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-   text      String
-   createdAt DateTime @default(now())
-   userId    String   @db.ObjectId   // This means a thought belongs to a user, and the userId is the foreign key
-   user      User     @relation(fields: [userId], references: [id])
- }
+model Thoughts {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  createdAt DateTime @default(now())
+  userId    String   @db.String             // <- ✅ FIX HERE
+  user      User     @relation(fields: [userId], references: [id])
+}

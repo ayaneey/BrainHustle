@@ -117,7 +117,7 @@
 		"app/about/page.jsx",
 		"app/signup/page.jsx",
 		"app/profile/page.jsx",
-		"app/login/page.jsx"
+		"app/sign-in/[[...sign-in]]/page.jsx"
 	],
 	"exclude": ["node_modules"]
 }

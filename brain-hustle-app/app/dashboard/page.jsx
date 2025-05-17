@@ -1,17 +1,14 @@
-import { cookies } from "next/headers";
+// app/dashboard/page.jsx
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import DashboardClient from "./DashboardClient"; // Client-side dashboard logic
+import DashboardClient from "./DashboardClient"; // Don't forget this!
 
-export default function Page({ searchParams }) {
-	const cookieStore = cookies(); // Get cookies on the server-side
-	const token = cookieStore.get("token"); // Retrieve the token from cookies
-	console.log(token, "this is my token"); // For debugging purposes
+export default async function DashboardPage({ searchParams }) {
+	const { userId } = await auth();
 
-	// If no session exists, redirect to login
-	if (!token) {
-		redirect("/login");
+	if (!userId) {
+		redirect("/sign-in");
 	}
 
-	// If session exists, render the client-side dashboard
 	return <DashboardClient searchParams={searchParams} />;
 }

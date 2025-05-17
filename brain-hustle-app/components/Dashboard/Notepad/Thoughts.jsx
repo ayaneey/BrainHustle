@@ -1,103 +1,85 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Input, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
-import jwt from "jsonwebtoken";
+import React, { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { Button } from "@nextui-org/react";
 
 const Thoughts = () => {
-	// State to store the note
 	const [note, setNote] = useState("");
-	const [userId, setUserId] = useState(null);
+	const [status, setStatus] = useState("");
+	const { user } = useUser();
 
-	/****** This section is the AUTHENTICATION CHECK: It checks for user login status ******/
 	useEffect(() => {
-		// Get token from cookie
-		const token = document.cookie
-			// Split cookies into array at semicolon+space
-			.split("; ")
-			// Find cookie that starts with "token="
-			.find((row) => row.startsWith("token="))
-			// Split found cookie at "=" and take second part (the value)
-			?.split("=")[1];
+		if (!user || !user.id) return;
 
-		// If token is found...
-		if (token) {
-			// Decode JWT token to get user information
-			const decoded = jwt.decode(token);
-			// Save user ID from token to state
-			setUserId(decoded.userId);
-		}
-	}, []); // Empty array means run once when component mounts
+		const fetchNote = async () => {
+			try {
+				const res = await fetch(`/api/thoughts/${user.id}`);
+				if (!res.ok) throw new Error("Failed to fetch");
 
-	/****** This section is the FETCH USER DATA: Gets User's Notes ******/
-	useEffect(() => {
-		if (userId) {
-			fetch(`/api/thoughts/${userId}`)
-				.then((res) => res.json())
-				.then((data) => {
-					if (data?.text) {
-						setNote(data.text); // Set the latest note's text
-					} else {
-						console.log("No note found, setting empty");
-						setNote(""); // No note found, set an empty value
-					}
-				})
-				.catch((err) => {
-					console.error("Error fetching note:", err);
-					setNote(""); // Reset note on error
-				});
-		}
-	}, [userId]);
+				const data = await res.json();
+				if (data?.text) setNote(data.text);
+			} catch (err) {
+				console.error("Fetch error:", err);
+			}
+		};
 
-	// Handle form submission - needs async because we're using await with fetch
-	const handleSubmit = async () => {
-		// Check if note is empty or just whitespace
-		if (!note.trim()) {
-			console.error("Note is empty, not submitting");
-			return; // Exit function if note is empty
-		}
+		fetchNote();
+	}, [user]);
+
+	const handleSave = async () => {
+		if (!note.trim()) return;
 
 		try {
-			// Send POST request to our API with the note
-			const response = await fetch(`/api/thoughts/${userId}`, {
-				method: "POST", // Specify HTTP method
-				headers: {
-					"Content-Type": "application/json", // Tell API we're sending JSON
-				},
-				body: JSON.stringify({ text: note }), // Convert note to JSON string
+			const res = await fetch(`/api/thoughts/${user.id}`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ text: note }),
 			});
 
-			const data = await response.json();
-			if (response.ok) {
-				console.log("Note saved successfully:", data);
-				alert("Note saved!");
+			if (res.ok) {
+				setStatus("Note saved!");
 			} else {
-				console.error("Error saving note:", data.message);
+				const error = await res.json();
+				setStatus(`Error: ${error.message}`);
 			}
-		} catch (error) {
-			console.error("Error submitting note:", error);
+		} catch (err) {
+			console.error("Save error:", err);
+			setStatus("Error saving note.");
 		}
 	};
 
+	// Clear the status message after 3 seconds
+	useEffect(() => {
+		if (status) {
+			const timeout = setTimeout(() => {
+				setStatus("");
+			}, 3000); // 3 seconds
+
+			return () => clearTimeout(timeout);
+		}
+	}, [status]);
+
+	if (!user) return null;
+
 	return (
-		<div className="bg-gray-400/50 shadow-lg rounded-lg p-4 w-full h-full max-w-xl">
-			<h2 className="text-xl font-bold mb-2">Notepad</h2>
+		<div className="bg-lightGrey2 text-baseBlack rounded-xl p-6 shadow-lg w-full">
+			<h2 className="text-xl font-semibold mb-4 border-b pb-2">📝 Notepad</h2>
 			<textarea
-				className="w-full h-24 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black text-[18px]"
-				placeholder="Type your notes here..."
+				className="w-full h-36 p-3 rounded-md text-baseBlack text-[16px] border border-gray-300 focus:outline-none focus:ring-2 focus:ring-greenShade resize-none transition"
+				placeholder="Type your thoughts here..."
 				value={note}
 				onChange={(e) => setNote(e.target.value)}
 			/>
-
-			<Button
-				color="primary"
-				type="button"
-				size="sm"
-				className="md:w-auto"
-				onClick={handleSubmit}
-			>
-				Save
-			</Button>
+			<div className="mt-4 flex justify-end">
+				<Button
+					onClick={handleSave}
+					className="bg-greenShade text-baseBlack font-semibold shadow hover:shadow-md transition"
+				>
+					Save
+				</Button>
+			</div>
+			{status && <p className="text-sm mt-2 text-green-600">{status}</p>}
 		</div>
 	);
 };
