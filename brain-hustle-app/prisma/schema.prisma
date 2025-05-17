@@ -30,3 +30,13 @@ model Thoughts {
   userId    String   @db.String             // <- ✅ FIX HERE
   user      User     @relation(fields: [userId], references: [id])
 }
+
+model QuizResult {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  subject   String
+  score     Int
+  date      DateTime @default(now())
+}
+
+

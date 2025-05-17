@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
 	LineChart,
 	Line,
@@ -11,16 +11,66 @@ import {
 	CartesianGrid,
 	ResponsiveContainer,
 } from "recharts";
-
-const data = [
-	{ month: "Jan", Maths: 60, Science: 70, English: 65 },
-	{ month: "Feb", Maths: 68, Science: 72, English: 67 },
-	{ month: "Mar", Maths: 75, Science: 80, English: 72 },
-	{ month: "Apr", Maths: 78, Science: 83, English: 75 },
-	{ month: "May", Maths: 82, Science: 85, English: 78 },
-];
+import { useUser } from "@clerk/nextjs";
 
 const LearningChart = () => {
+	const { user } = useUser();
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		if (!user) return;
+
+		const fetchResults = async () => {
+			const res = await fetch(`/api/quizResults/${user.id}`);
+			const raw = await res.json();
+
+			// Convert raw quiz results to chart format
+			const grouped = raw.reduce((acc, curr) => {
+				const month = new Date(curr.date).toLocaleString("default", {
+					month: "short",
+				});
+
+				if (!acc[month]) acc[month] = {};
+				if (!acc[month][curr.subject]) acc[month][curr.subject] = [];
+
+				acc[month][curr.subject].push(curr.score);
+				return acc;
+			}, {});
+
+			const formatted = Object.entries(grouped).map(([month, subjects]) => {
+				const entry = { month };
+				Object.entries(subjects).forEach(([subject, scores]) => {
+					const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+					entry[subject] = Math.round(avg);
+				});
+				return entry;
+			});
+
+			// Sort by month (optional)
+			const monthOrder = [
+				"Jan",
+				"Feb",
+				"Mar",
+				"Apr",
+				"May",
+				"Jun",
+				"Jul",
+				"Aug",
+				"Sep",
+				"Oct",
+				"Nov",
+				"Dec",
+			];
+			formatted.sort(
+				(a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month)
+			);
+
+			setData(formatted);
+		};
+
+		fetchResults();
+	}, [user]);
+
 	return (
 		<div className="bg-white p-6 rounded-xl shadow-md w-full">
 			<h2 className="text-lg font-bold mb-4 text-box">📚 Learning Progress</h2>
