@@ -1,23 +1,16 @@
 // app/api/quote/route.js
+import quotes from "./quotes.json";
+
 export async function GET() {
-	try {
-		const res = await fetch("https://zenquotes.io/api/today", {
-			cache: "no-store", // ensures it's not cached
-		});
-		if (!res.ok) {
-			return new Response(JSON.stringify({ error: "Failed to fetch quote" }), {
-				status: 500,
-			});
-		}
-		const data = await res.json();
-		return new Response(JSON.stringify(data[0]), {
-			headers: { "Content-Type": "application/json" },
-			status: 200,
-		});
-	} catch (error) {
-		console.error("Quote API error:", error);
-		return new Response(JSON.stringify({ error: "Internal server error" }), {
-			status: 500,
-		});
-	}
+	// Get the current day as a number (e.g. 17)
+	const today = new Date();
+	const dayOfYear = today.getDate() + today.getMonth() * 31; // Simple way to spread days across year
+
+	// Pick a quote based on that day
+	const quoteOfTheDay = quotes[dayOfYear % quotes.length];
+
+	return new Response(JSON.stringify(quoteOfTheDay), {
+		headers: { "Content-Type": "application/json" },
+		status: 200,
+	});
 }

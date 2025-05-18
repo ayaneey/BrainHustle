@@ -1,55 +1,66 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
-import Journal from "../../components/Dashboard/Journal/Journal";
 import Settings from "../../components/Dashboard/Sidebar/Settings";
 import AffirmationQuote from "../../components/Dashboard/Sidebar/Affirmations";
 import CalendarComponent from "../../components/Dashboard/Sidebar/CalendarComponent";
 import UpcomingQuizzes from "../../components/Dashboard/UpcomingQuizzes/UpcomingQuizzes";
+import Maths from "../../components/Dashboard/LearningGraph/Quiz/Maths/Maths";
+import English from "../../components/Dashboard/LearningGraph/Quiz/English/English";
+import Science from "../../components/Dashboard/LearningGraph/Quiz/Science/Science";
 
-export default function DashboardClient({ searchParams }) {
-	const section = searchParams.section;
+export default function DashboardClient() {
+	const searchParams = useSearchParams();
+	const section = searchParams.get("section");
+	const isSubjectView = ["maths", "english", "science"].includes(section);
 
-	let Content;
-	switch (section) {
-		case "journal":
-			Content = Journal;
-			break;
-		case "settings":
-			Content = Settings;
-			break;
-		default:
-			Content = Journal;
-			break;
-	}
+	const Content = (() => {
+		switch (section) {
+			case "maths":
+				return <Maths />;
+			case "english":
+				return <English />;
+			case "science":
+				return <Science />;
+			case "settings":
+				return <Settings />;
+			default:
+				return (
+					<div className="bg-white p-6 rounded-lg shadow-md">
+						<h2 className="text-xl font-semibold text-box mb-2">
+							Dashboard Overview
+						</h2>
+						<p className="text-secondTextColor text-sm">
+							Your daily dashboard is ready. Stay consistent, stay sharp!
+						</p>
+					</div>
+				);
+		}
+	})();
 
 	return (
 		<div className="flex justify-center items-start min-h-screen p-2 sm-tablet:p-4 bg-dashboardBg">
-			<div
-				className="
-          w-full max-w-7xl
-          p-3 sm-tablet:p-6
-          rounded-lg shadow-lg
-          bg-BackgroundAccent
-        "
-			>
+			<div className="w-full max-w-7xl p-3 sm-tablet:p-6 rounded-lg shadow-lg bg-BackgroundAccent">
 				{/* Mobile & Small Tablet Layout (up to 767px) */}
 				<div className="flex flex-col gap-4 lg-tablet:hidden">
 					<div className="w-full">
 						<Sidebar selectedSection={section} />
 					</div>
-					<div className="w-full">
-						<Content />
-					</div>
-					<div className="w-full">
-						<CalendarComponent />
-					</div>
-					<div className="w-full">
-						<AffirmationQuote />
-					</div>
-					<div className="w-full">
-						<UpcomingQuizzes />
-					</div>
+					<div className="w-full">{Content}</div>
+					{!isSubjectView && (
+						<>
+							<div className="w-full">
+								<CalendarComponent />
+							</div>
+							<div className="w-full">
+								<AffirmationQuote />
+							</div>
+							<div className="w-full">
+								<UpcomingQuizzes />
+							</div>
+						</>
+					)}
 				</div>
 
 				{/* Medium Tablet Layout (768px to 1023px) */}
@@ -58,21 +69,21 @@ export default function DashboardClient({ searchParams }) {
 						<div className="w-1/3">
 							<Sidebar selectedSection={section} />
 						</div>
-						<div className="w-2/3">
-							<Content />
-						</div>
+						<div className="w-2/3">{Content}</div>
 					</div>
-					<div className="flex gap-5 mt-5">
-						<div className="w-1/2">
-							<CalendarComponent />
+					{!isSubjectView && (
+						<div className="flex gap-5 mt-5">
+							<div className="w-1/2">
+								<CalendarComponent />
+							</div>
+							<div className="w-1/2">
+								<AffirmationQuote />
+							</div>
+							<div className="w-1/2">
+								<UpcomingQuizzes />
+							</div>
 						</div>
-						<div className="w-1/2">
-							<AffirmationQuote />
-						</div>
-						<div className="w-1/2">
-							<UpcomingQuizzes />
-						</div>
-					</div>
+					)}
 				</div>
 
 				{/* Desktop Layout (1024px and above) */}
@@ -80,14 +91,14 @@ export default function DashboardClient({ searchParams }) {
 					<div className="w-1/5 min-w-[220px]">
 						<Sidebar selectedSection={section} />
 					</div>
-					<div className="flex-1">
-						<Content />
-					</div>
-					<div className="w-1/4 min-w-[280px] flex flex-col gap-6">
-						<CalendarComponent />
-						<AffirmationQuote />
-						<UpcomingQuizzes />
-					</div>
+					<div className="flex-1">{Content}</div>
+					{!isSubjectView && (
+						<div className="w-1/4 min-w-[280px] flex flex-col gap-6">
+							<CalendarComponent />
+							<AffirmationQuote />
+							<UpcomingQuizzes />
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
