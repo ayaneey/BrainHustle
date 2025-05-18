@@ -1,0 +1,547 @@
+[
+	{
+		"topic": "Algebra",
+		"questions": [
+			{
+				"question": "Factor: x\u00b2 - 9",
+				"options": ["(x+3)(x-3)", "(x+9)(x-1)", "(x-9)(x+1)", "(x+9)(x+9)"],
+				"answer": "(x+3)(x-3)"
+			},
+			{
+				"question": "What is the value of x in: 3(x - 2) = 9",
+				"options": ["5", "3", "6", "4"],
+				"answer": "5"
+			},
+			{
+				"question": "Expand: (x + 2)(x + 3)",
+				"options": [
+					"x\u00b2 + 5x + 6",
+					"x\u00b2 + 6x + 5",
+					"x\u00b2 + 2x + 3",
+					"x\u00b2 + 3x + 2"
+				],
+				"answer": "x\u00b2 + 5x + 6"
+			},
+			{
+				"question": "Solve for x: 2x + 5 = 13",
+				"options": ["3", "4", "5", "6"],
+				"answer": "4"
+			},
+			{
+				"question": "Simplify: (3x + 2x) - x",
+				"options": ["4x", "5x", "3x", "2x"],
+				"answer": "4x"
+			},
+			{
+				"question": "Solve for x: x\u00b2 = 49",
+				"options": ["7", "\u00b17", "6", "9"],
+				"answer": "\u00b17"
+			},
+			{
+				"question": "Solve: x\u00b2 - 4x = 0",
+				"options": ["0, 4", "2", "1, -1", "4"],
+				"answer": "0, 4"
+			},
+			{
+				"question": "What is the slope in y = 3x + 5?",
+				"options": ["3", "5", "-3", "-5"],
+				"answer": "3"
+			},
+			{
+				"question": "Expand: (x - 1)\u00b2",
+				"options": [
+					"x\u00b2 - 2x + 1",
+					"x\u00b2 - 1",
+					"x\u00b2 + 2x + 1",
+					"x\u00b2 + 1"
+				],
+				"answer": "x\u00b2 - 2x + 1"
+			},
+			{
+				"question": "Simplify: 2(x + 3) + x",
+				"options": ["3x + 6", "2x + 3", "2x + 6", "x + 6"],
+				"answer": "3x + 6"
+			},
+			{
+				"question": "Factor: x\u00b2 + 5x + 6",
+				"options": ["(x+2)(x+3)", "(x+1)(x+6)", "(x+3)(x+4)", "(x+2)(x+4)"],
+				"answer": "(x+2)(x+3)"
+			},
+			{
+				"question": "Simplify: 4x - 2x + 7",
+				"options": ["2x + 7", "6x + 7", "x + 7", "4x + 7"],
+				"answer": "2x + 7"
+			},
+			{
+				"question": "Solve for x: 5x = 20",
+				"options": ["4", "5", "6", "3"],
+				"answer": "4"
+			},
+			{
+				"question": "What is the solution to x\u00b2 - 16 = 0?",
+				"options": ["\u00b14", "4", "-4", "0"],
+				"answer": "\u00b14"
+			},
+			{
+				"question": "What is the solution to 2(x + 4) = 12?",
+				"options": ["x = 2", "x = 3", "x = 4", "x = 1"],
+				"answer": "x = 2"
+			},
+			{
+				"question": "What is the y-intercept of y = 2x + 1?",
+				"options": ["1", "2", "0", "-1"],
+				"answer": "1"
+			},
+			{
+				"question": "What is the value of x if x/2 = 6?",
+				"options": ["12", "6", "3", "10"],
+				"answer": "12"
+			},
+			{
+				"question": "Simplify: (x + 1)(x - 1)",
+				"options": [
+					"x\u00b2 - 1",
+					"x\u00b2 + 1",
+					"x\u00b2 - 2",
+					"x\u00b2 + 2x + 1"
+				],
+				"answer": "x\u00b2 - 1"
+			},
+			{
+				"question": "Solve: x\u00b2 + 2x = 0",
+				"options": ["0, -2", "2", "1", "0, 2"],
+				"answer": "0, -2"
+			},
+			{
+				"question": "What is the solution to: 2x - 3 = 5?",
+				"options": ["x = 4", "x = 3", "x = 5", "x = 2"],
+				"answer": "x = 4"
+			}
+		]
+	},
+	{
+		"topic": "Geometry",
+		"questions": [
+			{
+				"question": "How many degrees are in a right angle?",
+				"options": ["90\u00b0", "45\u00b0", "60\u00b0", "180\u00b0"],
+				"answer": "90\u00b0"
+			},
+			{
+				"question": "What is the total interior angle sum of a quadrilateral?",
+				"options": ["360\u00b0", "180\u00b0", "540\u00b0", "720\u00b0"],
+				"answer": "360\u00b0"
+			},
+			{
+				"question": "What is the area of a triangle with base 10 and height 4?",
+				"options": ["20", "40", "14", "25"],
+				"answer": "20"
+			},
+			{
+				"question": "What is the name of a polygon with 8 sides?",
+				"options": ["Octagon", "Hexagon", "Heptagon", "Nonagon"],
+				"answer": "Octagon"
+			},
+			{
+				"question": "A straight angle measures:",
+				"options": ["180\u00b0", "90\u00b0", "360\u00b0", "120\u00b0"],
+				"answer": "180\u00b0"
+			},
+			{
+				"question": "What is the name of a triangle with two equal sides?",
+				"options": ["Isosceles", "Scalene", "Equilateral", "Right"],
+				"answer": "Isosceles"
+			},
+			{
+				"question": "What do you call a 3D object with circular base and curved surface?",
+				"options": ["Cylinder", "Cone", "Sphere", "Cube"],
+				"answer": "Cylinder"
+			},
+			{
+				"question": "Which shape has all sides equal and angles 90\u00b0?",
+				"options": ["Square", "Rectangle", "Rhombus", "Parallelogram"],
+				"answer": "Square"
+			},
+			{
+				"question": "What is the perimeter of a square with side 4cm?",
+				"options": ["16cm", "8cm", "12cm", "10cm"],
+				"answer": "16cm"
+			},
+			{
+				"question": "How many faces does a cube have?",
+				"options": ["6", "8", "4", "12"],
+				"answer": "6"
+			},
+			{
+				"question": "What is the area of a rectangle with width 5 and length 6?",
+				"options": ["30", "25", "35", "20"],
+				"answer": "30"
+			},
+			{
+				"question": "What is a chord in a circle?",
+				"options": [
+					"A line segment joining two points on the circle",
+					"Radius",
+					"Diameter",
+					"Tangent"
+				],
+				"answer": "A line segment joining two points on the circle"
+			},
+			{
+				"question": "Which triangle has one angle exactly 90\u00b0?",
+				"options": ["Right Triangle", "Scalene", "Equilateral", "Obtuse"],
+				"answer": "Right Triangle"
+			},
+			{
+				"question": "What is the radius of a circle with diameter 10cm?",
+				"options": ["5cm", "10cm", "2cm", "20cm"],
+				"answer": "5cm"
+			},
+			{
+				"question": "What do we call angles that add up to 90\u00b0?",
+				"options": ["Complementary", "Supplementary", "Reflex", "Straight"],
+				"answer": "Complementary"
+			},
+			{
+				"question": "Which 3D shape has only one vertex?",
+				"options": ["Cone", "Sphere", "Cube", "Cylinder"],
+				"answer": "Cone"
+			},
+			{
+				"question": "The distance around a circle is called:",
+				"options": ["Circumference", "Diameter", "Radius", "Chord"],
+				"answer": "Circumference"
+			},
+			{
+				"question": "What is the longest side in a right-angled triangle?",
+				"options": ["Hypotenuse", "Base", "Height", "Adjacent"],
+				"answer": "Hypotenuse"
+			},
+			{
+				"question": "A regular pentagon has how many equal sides?",
+				"options": ["5", "4", "6", "3"],
+				"answer": "5"
+			},
+			{
+				"question": "What is the measure of each angle in an equilateral triangle?",
+				"options": ["60\u00b0", "45\u00b0", "90\u00b0", "30\u00b0"],
+				"answer": "60\u00b0"
+			}
+		]
+	},
+	{
+		"topic": "Fractions & Decimals",
+		"questions": [
+			{
+				"question": "Simplify: 8/12",
+				"options": ["2/3", "3/4", "1/2", "4/5"],
+				"answer": "2/3"
+			},
+			{
+				"question": "What is 0.25 as a fraction?",
+				"options": ["1/4", "1/3", "2/5", "3/4"],
+				"answer": "1/4"
+			},
+			{
+				"question": "Add: 1/3 + 1/6",
+				"options": ["1/2", "2/3", "1/6", "5/6"],
+				"answer": "1/2"
+			},
+			{
+				"question": "Subtract: 3/4 - 1/2",
+				"options": ["1/4", "2/4", "3/4", "1/2"],
+				"answer": "1/4"
+			},
+			{
+				"question": "Convert 0.6 to a fraction",
+				"options": ["3/5", "2/3", "1/2", "4/5"],
+				"answer": "3/5"
+			},
+			{
+				"question": "What is 1/2 of 20?",
+				"options": ["10", "5", "2", "15"],
+				"answer": "10"
+			},
+			{
+				"question": "Which is larger: 0.75 or 2/3?",
+				"options": ["0.75", "2/3", "Equal", "Can't Say"],
+				"answer": "0.75"
+			},
+			{
+				"question": "Multiply: 1/4 \u00d7 2/3",
+				"options": ["2/12", "1/6", "1/2", "2/3"],
+				"answer": "1/6"
+			},
+			{
+				"question": "Divide: 1/2 \u00f7 1/4",
+				"options": ["2", "1", "4", "3"],
+				"answer": "2"
+			},
+			{
+				"question": "Convert 3/4 to a decimal",
+				"options": ["0.75", "0.5", "0.6", "0.8"],
+				"answer": "0.75"
+			},
+			{
+				"question": "What is 1/5 of 100?",
+				"options": ["20", "15", "25", "10"],
+				"answer": "20"
+			},
+			{
+				"question": "Add: 0.2 + 0.5",
+				"options": ["0.7", "0.6", "0.8", "0.9"],
+				"answer": "0.7"
+			},
+			{
+				"question": "Subtract: 0.9 - 0.4",
+				"options": ["0.5", "0.4", "0.3", "0.6"],
+				"answer": "0.5"
+			},
+			{
+				"question": "Simplify: 18/24",
+				"options": ["3/4", "2/3", "5/6", "1/2"],
+				"answer": "3/4"
+			},
+			{
+				"question": "What is 0.5 \u00d7 0.2?",
+				"options": ["0.1", "0.2", "0.05", "0.3"],
+				"answer": "0.1"
+			},
+			{
+				"question": "Which is greater: 1/3 or 0.3?",
+				"options": ["1/3", "0.3", "Equal", "Can't Say"],
+				"answer": "1/3"
+			},
+			{
+				"question": "Divide 0.6 by 0.2",
+				"options": ["3", "2", "1", "0.5"],
+				"answer": "3"
+			},
+			{
+				"question": "What is 0.2 as a fraction?",
+				"options": ["1/5", "1/4", "1/2", "2/5"],
+				"answer": "1/5"
+			},
+			{
+				"question": "What is 1/10 + 1/5?",
+				"options": ["3/10", "1/2", "1/3", "2/10"],
+				"answer": "3/10"
+			},
+			{
+				"question": "Convert 1.25 to a fraction",
+				"options": ["5/4", "3/2", "1/2", "4/5"],
+				"answer": "5/4"
+			}
+		]
+	},
+	{
+		"topic": "Percentages",
+		"questions": [
+			{
+				"question": "What is 25% of 200?",
+				"options": ["50", "25", "75", "100"],
+				"answer": "50"
+			},
+			{
+				"question": "What is 10% of 90?",
+				"options": ["9", "10", "8", "7"],
+				"answer": "9"
+			},
+			{
+				"question": "Increase 100 by 20%",
+				"options": ["120", "110", "115", "105"],
+				"answer": "120"
+			},
+			{
+				"question": "Decrease 80 by 25%",
+				"options": ["60", "55", "70", "50"],
+				"answer": "60"
+			},
+			{
+				"question": "What is 50% of 0.8?",
+				"options": ["0.4", "0.5", "0.6", "0.3"],
+				"answer": "0.4"
+			},
+			{
+				"question": "Convert 0.4 to a percentage",
+				"options": ["40%", "4%", "0.4%", "14%"],
+				"answer": "40%"
+			},
+			{
+				"question": "What percentage is 20 out of 80?",
+				"options": ["25%", "30%", "20%", "15%"],
+				"answer": "25%"
+			},
+			{
+				"question": "Find 15% of 60",
+				"options": ["9", "10", "12", "15"],
+				"answer": "9"
+			},
+			{
+				"question": "Convert 3/4 to percentage",
+				"options": ["75%", "70%", "80%", "60%"],
+				"answer": "75%"
+			},
+			{
+				"question": "If a shirt costs $100 and is discounted by 30%, what is the price?",
+				"options": ["70", "60", "80", "90"],
+				"answer": "70"
+			},
+			{
+				"question": "What is 5% of 300?",
+				"options": ["15", "20", "30", "25"],
+				"answer": "15"
+			},
+			{
+				"question": "Which is greater: 0.6 or 60%",
+				"options": ["Equal", "0.6", "60%", "Can't Say"],
+				"answer": "Equal"
+			},
+			{
+				"question": "What is 12.5% of 80?",
+				"options": ["10", "9", "11", "12"],
+				"answer": "10"
+			},
+			{
+				"question": "Convert 0.05 to a percentage",
+				"options": ["5%", "50%", "0.5%", "0.05%"],
+				"answer": "5%"
+			},
+			{
+				"question": "What is 120 increased by 10%?",
+				"options": ["132", "130", "128", "120"],
+				"answer": "132"
+			},
+			{
+				"question": "What is 90 decreased by 20%?",
+				"options": ["72", "80", "70", "75"],
+				"answer": "72"
+			},
+			{
+				"question": "What percentage of 250 is 50?",
+				"options": ["20%", "25%", "10%", "30%"],
+				"answer": "20%"
+			},
+			{
+				"question": "Find the percentage: 40 out of 160",
+				"options": ["25%", "20%", "30%", "40%"],
+				"answer": "25%"
+			},
+			{
+				"question": "Increase 200 by 10%",
+				"options": ["220", "210", "215", "205"],
+				"answer": "220"
+			},
+			{
+				"question": "Convert 1/5 to a percentage",
+				"options": ["20%", "25%", "15%", "10%"],
+				"answer": "20%"
+			}
+		]
+	},
+	{
+		"topic": "Probability & Statistics",
+		"questions": [
+			{
+				"question": "What is the probability of flipping heads on a fair coin?",
+				"options": ["1/2", "1/3", "1/4", "2/3"],
+				"answer": "1/2"
+			},
+			{
+				"question": "What is the probability of rolling a 3 on a standard die?",
+				"options": ["1/6", "1/3", "1/2", "2/6"],
+				"answer": "1/6"
+			},
+			{
+				"question": "What is the mean of [2, 4, 6]?",
+				"options": ["4", "3", "5", "6"],
+				"answer": "4"
+			},
+			{
+				"question": "What is the median of [4, 1, 3, 2, 5]?",
+				"options": ["3", "2", "4", "5"],
+				"answer": "3"
+			},
+			{
+				"question": "What is the mode of [1, 2, 2, 3, 4]?",
+				"options": ["2", "3", "4", "1"],
+				"answer": "2"
+			},
+			{
+				"question": "Which measure of central tendency is most affected by outliers?",
+				"options": ["Mean", "Median", "Mode", "Range"],
+				"answer": "Mean"
+			},
+			{
+				"question": "What is the probability of drawing a red card from a deck?",
+				"options": ["1/2", "1/3", "1/4", "1/5"],
+				"answer": "1/2"
+			},
+			{
+				"question": "What is the range of [3, 7, 5, 10, 2]?",
+				"options": ["8", "7", "5", "10"],
+				"answer": "8"
+			},
+			{
+				"question": "What is the median of [5, 8, 1, 3, 2]?",
+				"options": ["3", "5", "2", "8"],
+				"answer": "3"
+			},
+			{
+				"question": "What is the mode of [4, 4, 2, 2, 4]?",
+				"options": ["4", "2", "None", "Both"],
+				"answer": "4"
+			},
+			{
+				"question": "What is the chance of rolling an even number on a die?",
+				"options": ["1/2", "1/3", "1/4", "1/6"],
+				"answer": "1/2"
+			},
+			{
+				"question": "If the mean of [2, 2, 4, 6, 6] is recalculated after removing 4, what is the new mean?",
+				"options": ["4", "3.5", "3", "2"],
+				"answer": "4"
+			},
+			{
+				"question": "A coin is flipped twice. Probability of getting 2 heads?",
+				"options": ["1/4", "1/2", "1/3", "3/4"],
+				"answer": "1/4"
+			},
+			{
+				"question": "In a survey, the most selected option is the:",
+				"options": ["Mode", "Mean", "Median", "Range"],
+				"answer": "Mode"
+			},
+			{
+				"question": "What is the mean of [5, 10, 15]?",
+				"options": ["10", "15", "5", "8"],
+				"answer": "10"
+			},
+			{
+				"question": "What is the probability of getting tails on a fair coin toss?",
+				"options": ["1/2", "1/4", "1", "0"],
+				"answer": "1/2"
+			},
+			{
+				"question": "What is the mode of [1, 2, 3, 3, 4, 4, 4]?",
+				"options": ["4", "3", "1", "2"],
+				"answer": "4"
+			},
+			{
+				"question": "If 3 people each roll a die, how many outcomes are possible?",
+				"options": ["216", "6", "36", "18"],
+				"answer": "216"
+			},
+			{
+				"question": "What is the median of [9, 2, 5, 1, 4]?",
+				"options": ["4", "5", "2", "9"],
+				"answer": "4"
+			},
+			{
+				"question": "What is the probability of drawing an Ace from a deck?",
+				"options": ["1/13", "1/4", "1/52", "4/52"],
+				"answer": "1/13"
+			}
+		]
+	}
+]
