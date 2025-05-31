@@ -1,0 +1,477 @@
+[
+	{
+		"topic": "A Christmas Carol",
+		"questions": [
+			{
+				"question": "Who is the author of 'A Christmas Carol'?",
+				"options": [
+					"Charles Dickens",
+					"William Shakespeare",
+					"George Orwell",
+					"Jane Austen"
+				],
+				"answer": "Charles Dickens"
+			},
+			{
+				"question": "What is Scrooge\u2019s first name?",
+				"options": ["Jacob", "Ebenezer", "Bob", "Fred"],
+				"answer": "Ebenezer"
+			},
+			{
+				"question": "What is the name of Scrooge\u2019s clerk?",
+				"options": ["Jacob Marley", "Bob Cratchit", "Fred", "Tiny Tim"],
+				"answer": "Bob Cratchit"
+			},
+			{
+				"question": "Who is the first ghost to visit Scrooge?",
+				"options": [
+					"Ghost of Christmas Present",
+					"Jacob Marley",
+					"Ghost of Christmas Yet to Come",
+					"Tiny Tim"
+				],
+				"answer": "Jacob Marley"
+			},
+			{
+				"question": "What does Scrooge see on Marley\u2019s chain?",
+				"options": [
+					"Money boxes and keys",
+					"Books and candles",
+					"Food and drink",
+					"Children\u2019s toys"
+				],
+				"answer": "Money boxes and keys"
+			},
+			{
+				"question": "Who says: 'God bless us, everyone!'?",
+				"options": ["Bob Cratchit", "Tiny Tim", "Scrooge", "Fred"],
+				"answer": "Tiny Tim"
+			},
+			{
+				"question": "Who is Scrooge\u2019s cheerful nephew?",
+				"options": ["Fred", "Bob", "Tiny Tim", "Jacob Marley"],
+				"answer": "Fred"
+			},
+			{
+				"question": "Which ghost shows Scrooge the Cratchit family\u2019s dinner?",
+				"options": ["Past", "Present", "Future", "Marley"],
+				"answer": "Present"
+			},
+			{
+				"question": "What lesson does Scrooge learn by the end?",
+				"options": [
+					"Greed is good",
+					"Family isn\u2019t important",
+					"Money brings happiness",
+					"Kindness and generosity matter"
+				],
+				"answer": "Kindness and generosity matter"
+			},
+			{
+				"question": "Who says: 'Are there no prisons?'?",
+				"options": ["Scrooge", "Fred", "Tiny Tim", "Bob Cratchit"],
+				"answer": "Scrooge"
+			},
+			{
+				"question": "Who is the second ghost to visit Scrooge?",
+				"options": [
+					"Ghost of Christmas Past",
+					"Ghost of Christmas Present",
+					"Jacob Marley",
+					"Ghost of Christmas Yet to Come"
+				],
+				"answer": "Ghost of Christmas Past"
+			},
+			{
+				"question": "What does the Ghost of Christmas Future show Scrooge?",
+				"options": ["A party", "His grave", "A wedding", "Fred's house"],
+				"answer": "His grave"
+			},
+			{
+				"question": "Where does Scrooge work?",
+				"options": ["A school", "A bank", "A counting house", "A church"],
+				"answer": "A counting house"
+			},
+			{
+				"question": "What does Scrooge send to the Cratchits on Christmas Day?",
+				"options": ["A cake", "A goose", "A turkey", "A present"],
+				"answer": "A turkey"
+			},
+			{
+				"question": "What is the final ghost called?",
+				"options": [
+					"Ghost of Christmas Future",
+					"Ghost of Christmas Present",
+					"Jacob Marley",
+					"Fred"
+				],
+				"answer": "Ghost of Christmas Yet to Come"
+			}
+		]
+	},
+	{
+		"topic": "An Inspector Calls",
+		"questions": [
+			{
+				"question": "Who is the author of 'An Inspector Calls'?",
+				"options": [
+					"J.B. Priestley",
+					"William Shakespeare",
+					"George Orwell",
+					"Charles Dickens"
+				],
+				"answer": "J.B. Priestley"
+			},
+			{
+				"question": "Who is engaged to Sheila Birling?",
+				"options": ["Eric", "Gerald", "Arthur", "Inspector Goole"],
+				"answer": "Gerald"
+			},
+			{
+				"question": "What is the setting year for the play?",
+				"options": ["1912", "1945", "1900", "1920"],
+				"answer": "1912"
+			},
+			{
+				"question": "Who says: 'We are members of one body'?",
+				"options": ["Sheila", "Arthur", "Inspector Goole", "Eric"],
+				"answer": "Inspector Goole"
+			},
+			{
+				"question": "Who is accused of stealing money?",
+				"options": ["Gerald", "Arthur", "Eric", "Sheila"],
+				"answer": "Eric"
+			},
+			{
+				"question": "Who says: 'The girl\u2019s dead though'?",
+				"options": ["Inspector", "Eric", "Sheila", "Arthur"],
+				"answer": "Inspector"
+			},
+			{
+				"question": "Who is described as 'a man of business'?",
+				"options": ["Eric", "Arthur", "Gerald", "Inspector"],
+				"answer": "Arthur"
+			},
+			{
+				"question": "What does Sheila give back to Gerald?",
+				"options": ["His money", "Her ring", "A letter", "A watch"],
+				"answer": "Her ring"
+			},
+			{
+				"question": "Who was Eva Smith pregnant by?",
+				"options": ["Arthur", "Eric", "Inspector", "Gerald"],
+				"answer": "Eric"
+			},
+			{
+				"question": "Who is the Inspector?",
+				"options": [
+					"A family friend",
+					"A police officer",
+					"A mysterious figure",
+					"A priest"
+				],
+				"answer": "A mysterious figure"
+			},
+			{
+				"question": "Who says: 'These girls aren\u2019t cheap labour'?",
+				"options": ["Sheila", "Arthur", "Gerald", "Eric"],
+				"answer": "Sheila"
+			},
+			{
+				"question": "What does the Inspector say at the end?",
+				"options": [
+					"He will return",
+					"Nothing",
+					"He was never real",
+					"He will send help"
+				],
+				"answer": "He will return"
+			},
+			{
+				"question": "Who says: 'I suppose we\u2019re all nice people now'?",
+				"options": ["Sheila", "Eric", "Arthur", "Gerald"],
+				"answer": "Sheila"
+			},
+			{
+				"question": "Who says: 'Public men have responsibilities as well as privileges'?",
+				"options": ["Inspector", "Arthur", "Eric", "Gerald"],
+				"answer": "Inspector"
+			},
+			{
+				"question": "Where does the play take place?",
+				"options": [
+					"A church",
+					"The Birling\u2019s house",
+					"A school",
+					"A restaurant"
+				],
+				"answer": "The Birling\u2019s house"
+			}
+		]
+	},
+	{
+		"topic": "Macbeth",
+		"questions": [
+			{
+				"question": "Who wrote 'Macbeth'?",
+				"options": [
+					"William Shakespeare",
+					"Charles Dickens",
+					"Jane Austen",
+					"George Orwell"
+				],
+				"answer": "William Shakespeare"
+			},
+			{
+				"question": "What is Macbeth\u2019s wife called?",
+				"options": [
+					"Lady Macbeth",
+					"Lady Macduff",
+					"Banquo's Wife",
+					"Lady Ross"
+				],
+				"answer": "Lady Macbeth"
+			},
+			{
+				"question": "Who kills King Duncan?",
+				"options": ["Macbeth", "Macduff", "Banquo", "Lady Macbeth"],
+				"answer": "Macbeth"
+			},
+			{
+				"question": "What title does Macbeth receive from Duncan?",
+				"options": [
+					"Thane of Glamis",
+					"Thane of Cawdor",
+					"King of Scotland",
+					"Prince of Cumberland"
+				],
+				"answer": "Thane of Cawdor"
+			},
+			{
+				"question": "Who says: 'Out, damned spot'?",
+				"options": ["Lady Macbeth", "Macbeth", "Banquo", "Macduff"],
+				"answer": "Lady Macbeth"
+			},
+			{
+				"question": "What is the name of Macbeth's castle?",
+				"options": ["Dunsinane", "Inverness", "Edinburgh", "Scone"],
+				"answer": "Inverness"
+			},
+			{
+				"question": "Who is Banquo\u2019s son?",
+				"options": ["Malcolm", "Fleance", "Donalbain", "Ross"],
+				"answer": "Fleance"
+			},
+			{
+				"question": "Who becomes king at the end?",
+				"options": ["Macbeth", "Macduff", "Malcolm", "Banquo"],
+				"answer": "Malcolm"
+			},
+			{
+				"question": "What do the witches predict for Banquo?",
+				"options": [
+					"He will be king",
+					"He will die",
+					"His children will be kings",
+					"He will flee"
+				],
+				"answer": "His children will be kings"
+			},
+			{
+				"question": "Who kills Macbeth?",
+				"options": ["Banquo", "Macduff", "Malcolm", "Lady Macbeth"],
+				"answer": "Macduff"
+			},
+			{
+				"question": "What is Lady Macbeth's fate?",
+				"options": [
+					"She flees",
+					"She is killed",
+					"She dies by suicide",
+					"She becomes queen"
+				],
+				"answer": "She dies by suicide"
+			},
+			{
+				"question": "Who says: 'Fair is foul and foul is fair'?",
+				"options": ["The witches", "Macbeth", "Lady Macbeth", "Banquo"],
+				"answer": "The witches"
+			},
+			{
+				"question": "Who says: 'Is this a dagger which I see before me'?",
+				"options": ["Macbeth", "Banquo", "Lady Macbeth", "Macduff"],
+				"answer": "Macbeth"
+			},
+			{
+				"question": "What forest comes to Dunsinane?",
+				"options": [
+					"Birnam Wood",
+					"Sherwood Forest",
+					"Hampton Court",
+					"Windsor"
+				],
+				"answer": "Birnam Wood"
+			},
+			{
+				"question": "Who says: 'Out, out, brief candle'?",
+				"options": ["Macbeth", "Lady Macbeth", "Banquo", "Macduff"],
+				"answer": "Macbeth"
+			}
+		]
+	},
+	{
+		"topic": "Language Techniques",
+		"questions": [
+			{
+				"question": "What is a metaphor?",
+				"options": [
+					"A direct comparison saying one thing is another",
+					"A question without an answer",
+					"An extreme exaggeration",
+					"A list of three items"
+				],
+				"answer": "A direct comparison saying one thing is another"
+			},
+			{
+				"question": "What is a simile?",
+				"options": [
+					"A comparison using 'like' or 'as'",
+					"A question without an answer",
+					"A list of three items",
+					"Giving objects human qualities"
+				],
+				"answer": "A comparison using 'like' or 'as'"
+			},
+			{
+				"question": "What is personification?",
+				"options": [
+					"Using many adjectives",
+					"Giving human qualities to something non-human",
+					"A question with no answer",
+					"A type of rhyme"
+				],
+				"answer": "Giving human qualities to something non-human"
+			},
+			{
+				"question": "What is alliteration?",
+				"options": [
+					"Repetition of vowel sounds",
+					"Repeating the same consonant sound",
+					"A list of three",
+					"A type of metaphor"
+				],
+				"answer": "Repeating the same consonant sound"
+			},
+			{
+				"question": "What is hyperbole?",
+				"options": [
+					"A story with a moral",
+					"A mild expression for something harsh",
+					"An extreme exaggeration",
+					"A question with no answer"
+				],
+				"answer": "An extreme exaggeration"
+			},
+			{
+				"question": "What is a rhetorical question?",
+				"options": [
+					"A question that doesn\u2019t need an answer",
+					"A question with two answers",
+					"A question in a story",
+					"A question with a rhyme"
+				],
+				"answer": "A question that doesn\u2019t need an answer"
+			},
+			{
+				"question": "What is onomatopoeia?",
+				"options": [
+					"A list of three",
+					"A word that sounds like its meaning",
+					"A type of poem",
+					"A fancy word"
+				],
+				"answer": "A word that sounds like its meaning"
+			},
+			{
+				"question": "What is a list of three called?",
+				"options": [
+					"Triadic structure",
+					"Tricolon",
+					"Triplet",
+					"All of the above"
+				],
+				"answer": "All of the above"
+			},
+			{
+				"question": "What is emotive language?",
+				"options": [
+					"Language to make you feel something",
+					"Language that is calm",
+					"Language that describes",
+					"Language that rhymes"
+				],
+				"answer": "Language to make you feel something"
+			},
+			{
+				"question": "What is assonance?",
+				"options": [
+					"Repeating consonant sounds",
+					"Repeating vowel sounds",
+					"A question with no answer",
+					"An exaggeration"
+				],
+				"answer": "Repeating vowel sounds"
+			},
+			{
+				"question": "What is juxtaposition?",
+				"options": [
+					"Putting two things side by side for contrast",
+					"A question that doesn\u2019t need an answer",
+					"Repeating words for emphasis",
+					"A type of metaphor"
+				],
+				"answer": "Putting two things side by side for contrast"
+			},
+			{
+				"question": "What is sibilance?",
+				"options": [
+					"Repetition of 's' sounds",
+					"A rhyme scheme",
+					"A type of metaphor",
+					"A poetic device"
+				],
+				"answer": "Repetition of 's' sounds"
+			},
+			{
+				"question": "What is an oxymoron?",
+				"options": [
+					"A phrase with opposite meanings",
+					"A question with no answer",
+					"An exaggeration",
+					"A type of list"
+				],
+				"answer": "A phrase with opposite meanings"
+			},
+			{
+				"question": "What is a pun?",
+				"options": [
+					"A play on words",
+					"A rhyme scheme",
+					"An exaggeration",
+					"A type of list"
+				],
+				"answer": "A play on words"
+			},
+			{
+				"question": "What is irony?",
+				"options": [
+					"Saying the opposite of what you mean",
+					"A question with no answer",
+					"An exaggeration",
+					"A type of metaphor"
+				],
+				"answer": "Saying the opposite of what you mean"
+			}
+		]
+	}
+]
