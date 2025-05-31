@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 export async function POST(req) {
 	const body = await req.json();
@@ -18,6 +18,8 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
+	console.log("Request received at /api/quizResults");
+
 	const { searchParams } = new URL(req.url);
 	const userId = searchParams.get("userId");
 
