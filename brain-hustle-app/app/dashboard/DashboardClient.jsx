@@ -9,6 +9,7 @@ import UpcomingQuizzes from "../../components/Dashboard/UpcomingQuizzes/Upcoming
 import Maths from "../../components/Dashboard/LearningGraph/Quiz/Maths/Maths";
 import English from "../../components/Dashboard/LearningGraph/Quiz/English/English";
 import Science from "../../components/Dashboard/LearningGraph/Quiz/Science/Science";
+import PreviousScores from "../../components/Dashboard/PreviousScores/PreviousScores";
 
 export default function DashboardClient() {
 	const searchParams = useSearchParams();
@@ -27,22 +28,32 @@ export default function DashboardClient() {
 				return <Settings />;
 			default:
 				return (
-					<div className="bg-white p-6 rounded-lg shadow-md">
-						<h2 className="text-xl font-semibold text-box mb-2">
-							Dashboard Overview
-						</h2>
-						<p className="text-secondTextColor text-sm">
-							Your daily dashboard is ready. Stay consistent, stay sharp!
-						</p>
+					<div className="flex flex-col gap-4 w-full">
+						{/* Overview Card */}
+						<div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+							<h2 className="text-lg sm:text-xl font-semibold text-box mb-2">
+								Dashboard Overview
+							</h2>
+							<p className="text-secondTextColor text-sm sm:text-base">
+								Your daily dashboard is ready. Stay consistent, stay sharp!
+							</p>
+						</div>
+
+						{/* Previous Scores Card - only show if not in subject view */}
+						{!isSubjectView && (
+							<div className="bg-white p-4 sm:p-6 rounded-lg shadow-md w-full">
+								<PreviousScores />
+							</div>
+						)}
 					</div>
 				);
 		}
 	})();
 
 	return (
-		<div className="flex justify-center items-start min-h-screen p-2 sm-tablet:p-4 bg-dashboardBg">
+		<div className="flex flex-col justify-start items-center min-h-screen p-2 sm-tablet:p-4 bg-dashboardBg gap-4">
 			<div className="w-full max-w-7xl p-3 sm-tablet:p-6 rounded-lg shadow-lg bg-BackgroundAccent">
-				{/* Mobile & Small Tablet Layout (up to 767px) */}
+				{/* Mobile & Small Tablet Layout */}
 				<div className="flex flex-col gap-4 lg-tablet:hidden">
 					<div className="w-full">
 						<Sidebar selectedSection={section} />
@@ -63,7 +74,7 @@ export default function DashboardClient() {
 					)}
 				</div>
 
-				{/* Medium Tablet Layout (768px to 1023px) */}
+				{/* Medium Tablet Layout */}
 				<div className="hidden lg-tablet:flex 2xl-tablet:hidden flex-col gap-5">
 					<div className="flex gap-5">
 						<div className="w-1/3">
@@ -86,7 +97,7 @@ export default function DashboardClient() {
 					)}
 				</div>
 
-				{/* Desktop Layout (1024px and above) */}
+				{/* Desktop Layout */}
 				<div className="hidden 2xl-tablet:flex gap-6">
 					<div className="w-1/5 min-w-[220px]">
 						<Sidebar selectedSection={section} />
