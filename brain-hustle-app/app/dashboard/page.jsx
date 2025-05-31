@@ -1,7 +1,7 @@
 // app/dashboard/page.jsx
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import DashboardClient from "./DashboardClient"; // Don't forget this!
+import DashboardClient from "./DashboardClient";
 
 export default async function DashboardPage({ searchParams }) {
 	const { userId } = await auth();

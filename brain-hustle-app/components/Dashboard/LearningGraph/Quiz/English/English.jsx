@@ -3,8 +3,12 @@
 import React, { useState } from "react";
 import allEnglishQuestions from "./english-questions.json";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { useUser } from "@clerk/nextjs";
 
 const English = () => {
+	const { user } = useUser();
+	const userId = user?.id;
+
 	const [selectedTopic, setSelectedTopic] = useState(null);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -33,6 +37,20 @@ const English = () => {
 
 	const currentQ = currentQuestions?.[currentIndex];
 
+	// this function is needed to save quiz score to the database
+	const saveScoreToDB = async () => {
+		await fetch("/api/quizResults", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				userId: userId,
+				subject: selectedTopic,
+				score: score,
+				date: new Date(),
+			}),
+		});
+	};
+
 	const handleAnswer = (option) => {
 		setSelectedAnswer(option);
 
@@ -45,6 +63,7 @@ const English = () => {
 				setCurrentIndex((prev) => prev + 1);
 				setSelectedAnswer(null);
 			} else {
+				saveScoreToDB();
 				setShowResults(true);
 			}
 		}, 1000);
