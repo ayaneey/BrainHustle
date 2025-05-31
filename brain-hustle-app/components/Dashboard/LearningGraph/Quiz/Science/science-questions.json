@@ -1,0 +1,587 @@
+[
+	{
+		"topic": "Biology Basics",
+		"questions": [
+			{
+				"question": "What is the basic unit of life?",
+				"options": ["Atom", "Cell", "Organ", "Tissue"],
+				"answer": "Cell"
+			},
+			{
+				"question": "Which process converts sunlight into food?",
+				"options": [
+					"Respiration",
+					"Photosynthesis",
+					"Digestion",
+					"Fermentation"
+				],
+				"answer": "Photosynthesis"
+			},
+			{
+				"question": "What carries genetic information?",
+				"options": ["RNA", "Proteins", "DNA", "Carbohydrates"],
+				"answer": "DNA"
+			},
+			{
+				"question": "What do plants release during photosynthesis?",
+				"options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+				"answer": "Oxygen"
+			},
+			{
+				"question": "Which organ pumps blood?",
+				"options": ["Brain", "Liver", "Heart", "Lungs"],
+				"answer": "Heart"
+			},
+			{
+				"question": "What gas do humans inhale?",
+				"options": ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+				"answer": "Oxygen"
+			},
+			{
+				"question": "Where does digestion begin?",
+				"options": ["Stomach", "Mouth", "Intestines", "Esophagus"],
+				"answer": "Mouth"
+			},
+			{
+				"question": "Which organ filters blood?",
+				"options": ["Liver", "Heart", "Kidney", "Lungs"],
+				"answer": "Kidney"
+			},
+			{
+				"question": "What is the largest organ of the human body?",
+				"options": ["Heart", "Skin", "Liver", "Lungs"],
+				"answer": "Skin"
+			},
+			{
+				"question": "What is the powerhouse of the cell?",
+				"options": ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
+				"answer": "Mitochondria"
+			},
+			{
+				"question": "How many bones are in the human body?",
+				"options": ["106", "206", "306", "406"],
+				"answer": "206"
+			},
+			{
+				"question": "What do red blood cells carry?",
+				"options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Water"],
+				"answer": "Oxygen"
+			},
+			{
+				"question": "What pigment gives skin its color?",
+				"options": ["Melanin", "Keratin", "Chlorophyll", "Collagen"],
+				"answer": "Melanin"
+			},
+			{
+				"question": "Which part of the eye detects light?",
+				"options": ["Lens", "Pupil", "Retina", "Cornea"],
+				"answer": "Retina"
+			},
+			{
+				"question": "What are proteins made of?",
+				"options": ["Nucleic acids", "Fatty acids", "Amino acids", "Glucose"],
+				"answer": "Amino acids"
+			},
+			{
+				"question": "What structure helps plants absorb water?",
+				"options": ["Stomata", "Roots", "Leaves", "Stem"],
+				"answer": "Roots"
+			},
+			{
+				"question": "What type of cell lacks a nucleus?",
+				"options": ["Bacteria", "Animal", "Plant", "Fungi"],
+				"answer": "Bacteria"
+			},
+			{
+				"question": "What protects the brain?",
+				"options": ["Skin", "Skull", "Lungs", "Heart"],
+				"answer": "Skull"
+			},
+			{
+				"question": "What system controls body functions?",
+				"options": ["Circulatory", "Nervous", "Respiratory", "Digestive"],
+				"answer": "Nervous"
+			},
+			{
+				"question": "What part of the brain controls balance?",
+				"options": ["Cerebrum", "Cerebellum", "Medulla", "Spinal cord"],
+				"answer": "Cerebellum"
+			}
+		]
+	},
+	{
+		"topic": "Chemistry Fundamentals",
+		"questions": [
+			{
+				"question": "What is the symbol for water?",
+				"options": ["CO2", "H2O", "O2", "NaCl"],
+				"answer": "H2O"
+			},
+			{
+				"question": "What is table salt's formula?",
+				"options": ["HCl", "NaCl", "KCl", "CaCl2"],
+				"answer": "NaCl"
+			},
+			{
+				"question": "What particle has a negative charge?",
+				"options": ["Proton", "Neutron", "Electron", "Photon"],
+				"answer": "Electron"
+			},
+			{
+				"question": "Which gas is most abundant in air?",
+				"options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+				"answer": "Nitrogen"
+			},
+			{
+				"question": "What is the pH of pure water?",
+				"options": ["0", "7", "14", "5"],
+				"answer": "7"
+			},
+			{
+				"question": "What do bases feel like?",
+				"options": ["Slippery", "Rough", "Sticky", "Dry"],
+				"answer": "Slippery"
+			},
+			{
+				"question": "What is the periodic table?",
+				"options": [
+					"A list of planets",
+					"A calendar",
+					"A table of elements",
+					"A food chart"
+				],
+				"answer": "A table of elements"
+			},
+			{
+				"question": "What are H2 and O2?",
+				"options": ["Mixtures", "Compounds", "Elements", "Solutions"],
+				"answer": "Elements"
+			},
+			{
+				"question": "What measures mass?",
+				"options": ["Thermometer", "Balance", "Voltmeter", "Caliper"],
+				"answer": "Balance"
+			},
+			{
+				"question": "What type of change is burning?",
+				"options": ["Physical", "Chemical", "Mechanical", "Thermal"],
+				"answer": "Chemical"
+			},
+			{
+				"question": "What is freezing water?",
+				"options": ["Evaporation", "Melting", "Freezing", "Condensation"],
+				"answer": "Freezing"
+			},
+			{
+				"question": "What are atoms?",
+				"options": ["Big particles", "Smallest particles", "Bacteria", "Cells"],
+				"answer": "Smallest particles"
+			},
+			{
+				"question": "What is a solution?",
+				"options": ["A solid", "A gas", "A mixture", "A pure element"],
+				"answer": "A mixture"
+			},
+			{
+				"question": "What is table sugar?",
+				"options": ["Salt", "Starch", "Sucrose", "Protein"],
+				"answer": "Sucrose"
+			},
+			{
+				"question": "What’s a catalyst?",
+				"options": [
+					"Slows reactions",
+					"Speeds up reactions",
+					"Stops reactions",
+					"No effect"
+				],
+				"answer": "Speeds up reactions"
+			},
+			{
+				"question": "What’s the smallest unit of an element?",
+				"options": ["Molecule", "Compound", "Atom", "Mixture"],
+				"answer": "Atom"
+			},
+			{
+				"question": "What do acids taste like?",
+				"options": ["Bitter", "Salty", "Sweet", "Sour"],
+				"answer": "Sour"
+			},
+			{
+				"question": "What is the solid form of water?",
+				"options": ["Steam", "Ice", "Liquid", "Mist"],
+				"answer": "Ice"
+			},
+			{
+				"question": "What state of matter has definite shape?",
+				"options": ["Liquid", "Gas", "Solid", "Plasma"],
+				"answer": "Solid"
+			},
+			{
+				"question": "What’s the center of an atom?",
+				"options": ["Nucleus", "Electron cloud", "Shell", "Bond"],
+				"answer": "Nucleus"
+			}
+		]
+	},
+	{
+		"topic": "Physics Principles",
+		"questions": [
+			{
+				"question": "What is the unit of force?",
+				"options": ["Joule", "Watt", "Newton", "Pascal"],
+				"answer": "Newton"
+			},
+			{
+				"question": "What measures temperature?",
+				"options": ["Barometer", "Thermometer", "Voltmeter", "Balance"],
+				"answer": "Thermometer"
+			},
+			{
+				"question": "What is energy of motion?",
+				"options": [
+					"Kinetic energy",
+					"Potential energy",
+					"Thermal energy",
+					"Magnetic energy"
+				],
+				"answer": "Kinetic energy"
+			},
+			{
+				"question": "What does a lever do?",
+				"options": ["Speeds up", "Balances", "Lifts or moves objects", "Heats"],
+				"answer": "Lifts or moves objects"
+			},
+			{
+				"question": "What pulls objects to Earth?",
+				"options": ["Gravity", "Friction", "Magnetism", "Light"],
+				"answer": "Gravity"
+			},
+			{
+				"question": "What is reflection?",
+				"options": [
+					"Bending light",
+					"Bouncing light",
+					"Absorbing light",
+					"Splitting light"
+				],
+				"answer": "Bouncing light"
+			},
+			{
+				"question": "What slows motion?",
+				"options": ["Friction", "Magnetism", "Electricity", "Gravity"],
+				"answer": "Friction"
+			},
+			{
+				"question": "What is a circuit?",
+				"options": [
+					"A circle",
+					"Path for electricity",
+					"A tool",
+					"A type of atom"
+				],
+				"answer": "Path for electricity"
+			},
+			{
+				"question": "What does a magnet attract?",
+				"options": ["Glass", "Wood", "Plastic", "Metal"],
+				"answer": "Metal"
+			},
+			{
+				"question": "What’s measured in volts?",
+				"options": ["Current", "Resistance", "Voltage", "Speed"],
+				"answer": "Voltage"
+			},
+			{
+				"question": "What tool measures weight?",
+				"options": ["Scale", "Ruler", "Thermometer", "Clock"],
+				"answer": "Scale"
+			},
+			{
+				"question": "What’s the speed of light?",
+				"options": ["300,000 m/s", "300,000 km/s", "3,000 m/s", "30,000 m/s"],
+				"answer": "300,000 km/s"
+			},
+			{
+				"question": "What happens to heat?",
+				"options": ["Stays still", "Transfers", "Stops", "Breaks"],
+				"answer": "Transfers"
+			},
+			{
+				"question": "What causes shadows?",
+				"options": ["Reflection", "Refraction", "Blocking light", "Heat"],
+				"answer": "Blocking light"
+			},
+			{
+				"question": "What are sound waves?",
+				"options": ["Light", "Air movements", "Water waves", "Radiation"],
+				"answer": "Air movements"
+			},
+			{
+				"question": "What’s a push or pull?",
+				"options": ["Gravity", "Friction", "Force", "Energy"],
+				"answer": "Force"
+			},
+			{
+				"question": "What is inertia?",
+				"options": ["A push", "A pull", "Resistance to change", "Energy flow"],
+				"answer": "Resistance to change"
+			},
+			{
+				"question": "What is density?",
+				"options": ["Weight", "Mass per volume", "Height", "Speed"],
+				"answer": "Mass per volume"
+			},
+			{
+				"question": "What tool measures time?",
+				"options": ["Scale", "Stopwatch", "Compass", "Ruler"],
+				"answer": "Stopwatch"
+			},
+			{
+				"question": "What carries current in metal?",
+				"options": ["Protons", "Electrons", "Neutrons", "Atoms"],
+				"answer": "Electrons"
+			}
+		]
+	},
+	{
+		"topic": "Earth Science",
+		"questions": [
+			{
+				"question": "What layer of Earth is liquid?",
+				"options": ["Inner core", "Mantle", "Outer core", "Crust"],
+				"answer": "Outer core"
+			},
+			{
+				"question": "What’s the main gas in air?",
+				"options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"],
+				"answer": "Nitrogen"
+			},
+			{
+				"question": "What causes earthquakes?",
+				"options": ["Volcanoes", "Storms", "Tectonic plate movement", "Rain"],
+				"answer": "Tectonic plate movement"
+			},
+			{
+				"question": "What are rocks made of?",
+				"options": ["Plants", "Minerals", "Animals", "Water"],
+				"answer": "Minerals"
+			},
+			{
+				"question": "What is a natural satellite?",
+				"options": ["Star", "Planet", "Moon", "Comet"],
+				"answer": "Moon"
+			},
+			{
+				"question": "What do we call molten rock?",
+				"options": ["Water", "Air", "Magma", "Ice"],
+				"answer": "Magma"
+			},
+			{
+				"question": "What is groundwater?",
+				"options": ["Rain", "Snow", "Water underground", "River water"],
+				"answer": "Water underground"
+			},
+			{
+				"question": "What forms fossils?",
+				"options": ["Plants", "Organic remains", "Sunlight", "Oceans"],
+				"answer": "Organic remains"
+			},
+			{
+				"question": "What is soil erosion?",
+				"options": [
+					"Rock formation",
+					"Soil loss",
+					"Volcano activity",
+					"Ocean movement"
+				],
+				"answer": "Soil loss"
+			},
+			{
+				"question": "What is the water cycle?",
+				"options": [
+					"Moving soil",
+					"Rock cycle",
+					"Movement of water",
+					"Wind patterns"
+				],
+				"answer": "Movement of water"
+			},
+			{
+				"question": "What does a thermometer measure?",
+				"options": ["Mass", "Volume", "Temperature", "Length"],
+				"answer": "Temperature"
+			},
+			{
+				"question": "What is weathering?",
+				"options": [
+					"Moving water",
+					"Breaking down rocks",
+					"Volcano eruptions",
+					"Soil loss"
+				],
+				"answer": "Breaking down rocks"
+			},
+			{
+				"question": "What covers most of Earth?",
+				"options": ["Land", "Water", "Sand", "Ice"],
+				"answer": "Water"
+			},
+			{
+				"question": "What forms clouds?",
+				"options": ["Water vapor", "Air pollution", "Dust", "Wind"],
+				"answer": "Water vapor"
+			},
+			{
+				"question": "What does a barometer measure?",
+				"options": ["Wind speed", "Air pressure", "Rainfall", "Snow"],
+				"answer": "Air pressure"
+			},
+			{
+				"question": "What causes tides?",
+				"options": ["Sunlight", "Waves", "Moon gravity", "Volcanoes"],
+				"answer": "Moon gravity"
+			},
+			{
+				"question": "What is a glacier?",
+				"options": ["River", "Lake", "Slow-moving ice", "Mountain"],
+				"answer": "Slow-moving ice"
+			},
+			{
+				"question": "What is lava?",
+				"options": [
+					"Frozen water",
+					"Ocean water",
+					"Magma above ground",
+					"Clouds"
+				],
+				"answer": "Magma above ground"
+			},
+			{
+				"question": "What forms a canyon?",
+				"options": ["Earthquake", "Flood", "Erosion", "Rain"],
+				"answer": "Erosion"
+			},
+			{
+				"question": "What is Earth’s outer layer?",
+				"options": ["Mantle", "Core", "Crust", "Magma"],
+				"answer": "Crust"
+			}
+		]
+	},
+	{
+		"topic": "Space & Astronomy",
+		"questions": [
+			{
+				"question": "What is the closest planet to the Sun?",
+				"options": ["Earth", "Mars", "Mercury", "Venus"],
+				"answer": "Mercury"
+			},
+			{
+				"question": "Which planet is the Red Planet?",
+				"options": ["Earth", "Mars", "Jupiter", "Saturn"],
+				"answer": "Mars"
+			},
+			{
+				"question": "What is our galaxy?",
+				"options": ["Andromeda", "Whirlpool", "Milky Way", "Black Hole"],
+				"answer": "Milky Way"
+			},
+			{
+				"question": "What do we call a shooting star?",
+				"options": ["Comet", "Meteor", "Planet", "Asteroid"],
+				"answer": "Meteor"
+			},
+			{
+				"question": "What planet has rings?",
+				"options": ["Earth", "Saturn", "Venus", "Mars"],
+				"answer": "Saturn"
+			},
+			{
+				"question": "What does the Sun produce?",
+				"options": ["Wind", "Light & heat", "Water", "Dust"],
+				"answer": "Light & heat"
+			},
+			{
+				"question": "What’s Earth’s natural satellite?",
+				"options": ["Mars", "Jupiter", "Moon", "Venus"],
+				"answer": "Moon"
+			},
+			{
+				"question": "What’s the largest planet?",
+				"options": ["Earth", "Saturn", "Jupiter", "Neptune"],
+				"answer": "Jupiter"
+			},
+			{
+				"question": "What is a star?",
+				"options": [
+					"Burning rock",
+					"Hot ball of gas",
+					"Cold ice",
+					"Living cell"
+				],
+				"answer": "Hot ball of gas"
+			},
+			{
+				"question": "What causes day and night?",
+				"options": ["Moon phases", "Earth’s rotation", "Seasons", "Tides"],
+				"answer": "Earth’s rotation"
+			},
+			{
+				"question": "What causes seasons?",
+				"options": ["Clouds", "Earth’s tilt", "Moon’s orbit", "Stars"],
+				"answer": "Earth’s tilt"
+			},
+			{
+				"question": "What is a constellation?",
+				"options": ["Planet", "Star pattern", "Moon phase", "Space station"],
+				"answer": "Star pattern"
+			},
+			{
+				"question": "What is the Sun?",
+				"options": ["Planet", "Moon", "Star", "Asteroid"],
+				"answer": "Star"
+			},
+			{
+				"question": "What is a light-year?",
+				"options": [
+					"Time measure",
+					"Distance light travels",
+					"Weight of light",
+					"Planet speed"
+				],
+				"answer": "Distance light travels"
+			},
+			{
+				"question": "What is gravity?",
+				"options": ["Energy", "Pulling force", "Light", "Wind"],
+				"answer": "Pulling force"
+			},
+			{
+				"question": "What’s the Moon phase called when it’s fully lit?",
+				"options": ["New Moon", "Full Moon", "Crescent", "Half Moon"],
+				"answer": "Full Moon"
+			},
+			{
+				"question": "What do astronauts wear?",
+				"options": ["Space suit", "Lab coat", "Swimsuit", "Helmet"],
+				"answer": "Space suit"
+			},
+			{
+				"question": "What tool magnifies space objects?",
+				"options": ["Microscope", "Telescope", "Calculator", "Binoculars"],
+				"answer": "Telescope"
+			},
+			{
+				"question": "What’s the name of the first satellite?",
+				"options": ["Sputnik", "Apollo", "Voyager", "Hubble"],
+				"answer": "Sputnik"
+			},
+			{
+				"question": "What’s a black hole?",
+				"options": ["Planet", "Star", "Massive gravity", "Rocket"],
+				"answer": "Massive gravity"
+			}
+		]
+	}
+]

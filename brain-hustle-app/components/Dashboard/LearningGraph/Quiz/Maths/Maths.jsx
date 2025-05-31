@@ -3,8 +3,12 @@
 import { useState } from "react";
 import allTopics from "./questions.json";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { useUser } from "@clerk/nextjs";
 
 const Maths = () => {
+	const { user } = useUser();
+	const userId = user?.id;
+
 	const [selectedTopic, setSelectedTopic] = useState(null); // starts at 'null' since no topic is picked yet
 	const [currentIndex, setCurrentIndex] = useState(0); // currentIndex: The index (number) of the current question the user is on. Starts at 0 because we start at the first question.
 	const [selectedAnswer, setSelectedAnswer] = useState(null); // again, starts at 'null' since user hasn't picked anything yet
@@ -35,6 +39,19 @@ const Maths = () => {
 
 	const currentQ = currentQuestions?.[currentIndex];
 
+	const saveScoreToDB = async () => {
+		await fetch("/api/quizResults", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				userId: userId,
+				subject: selectedTopic,
+				score: score,
+				date: new Date(),
+			}),
+		});
+	};
+
 	const handleAnswer = (option) => {
 		setSelectedAnswer(option);
 
@@ -47,6 +64,7 @@ const Maths = () => {
 				setCurrentIndex((prev) => prev + 1);
 				setSelectedAnswer(null);
 			} else {
+				saveScoreToDB();
 				setShowResults(true);
 			}
 		}, 1000);
