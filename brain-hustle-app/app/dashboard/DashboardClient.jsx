@@ -15,6 +15,7 @@ export default function DashboardClient() {
 	const searchParams = useSearchParams();
 	const section = searchParams.get("section");
 	const isSubjectView = ["maths", "english", "science"].includes(section);
+	const isSettingsView = section === "settings";
 
 	const Content = (() => {
 		switch (section) {
@@ -39,7 +40,7 @@ export default function DashboardClient() {
 							</p>
 						</div>
 
-						{/* Previous Scores Card - only show if not in subject view */}
+						{/* Previous Scores Card */}
 						{!isSubjectView && (
 							<div className="bg-white p-4 sm:p-6 rounded-lg shadow-md w-full">
 								<PreviousScores />
@@ -59,7 +60,9 @@ export default function DashboardClient() {
 						<Sidebar selectedSection={section} />
 					</div>
 					<div className="w-full">{Content}</div>
-					{!isSubjectView && (
+
+					{/* Only show these extra components if not in subject or settings view */}
+					{!isSubjectView && !isSettingsView && (
 						<>
 							<div className="w-full">
 								<CalendarComponent />
@@ -82,7 +85,8 @@ export default function DashboardClient() {
 						</div>
 						<div className="w-2/3">{Content}</div>
 					</div>
-					{!isSubjectView && (
+
+					{!isSubjectView && !isSettingsView && (
 						<div className="flex gap-5 mt-5">
 							<div className="w-1/2">
 								<CalendarComponent />
@@ -103,7 +107,8 @@ export default function DashboardClient() {
 						<Sidebar selectedSection={section} />
 					</div>
 					<div className="flex-1">{Content}</div>
-					{!isSubjectView && (
+
+					{!isSubjectView && !isSettingsView && (
 						<div className="w-1/4 min-w-[280px] flex flex-col gap-6">
 							<CalendarComponent />
 							<AffirmationQuote />
