@@ -5,13 +5,14 @@ import allTopics from "./questions.json";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
 const Maths = () => {
-	const [selectedTopic, setSelectedTopic] = useState(null);
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [selectedAnswer, setSelectedAnswer] = useState(null);
-	const [score, setScore] = useState(0);
-	const [showResults, setShowResults] = useState(false);
+	const [selectedTopic, setSelectedTopic] = useState(null); // starts at 'null' since no topic is picked yet
+	const [currentIndex, setCurrentIndex] = useState(0); // currentIndex: The index (number) of the current question the user is on. Starts at 0 because we start at the first question.
+	const [selectedAnswer, setSelectedAnswer] = useState(null); // again, starts at 'null' since user hasn't picked anything yet
+	const [score, setScore] = useState(0); // this reflects the user's score, and starts at zero
+	const [showResults, setShowResults] = useState(false); // starts at 'false'... no results to show yet
 
 	const topicsInOrder = [
+		// A list of topic names for the buttons at the start (this will display a menu for the user to select from).
 		"Fractions & Decimals",
 		"Percentages",
 		"Algebra",
@@ -20,6 +21,7 @@ const Maths = () => {
 	];
 
 	const handleTopicSelect = (topic) => {
+		// 'handleTopicSelect' is a function that runs when user clicks a topic button
 		setSelectedTopic(topic);
 		setCurrentIndex(0);
 		setSelectedAnswer(null);
