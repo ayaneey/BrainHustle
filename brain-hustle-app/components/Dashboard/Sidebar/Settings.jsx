@@ -21,9 +21,7 @@ import {
 export default function SettingsPage() {
 	// State for toggles
 	const [darkMode, setDarkMode] = useState(false);
-	const [pushNotifications, setPushNotifications] = useState(true);
 	const [emailNotifications, setEmailNotifications] = useState(false);
-	const [publicProfile, setPublicProfile] = useState(true);
 
 	// State for modals
 	const [editProfileModal, setEditProfileModal] = useState(false);
@@ -32,6 +30,10 @@ export default function SettingsPage() {
 	const [changePasswordModal, setChangePasswordModal] = useState(false);
 	const [twoFactorModal, setTwoFactorModal] = useState(false);
 
+	// State for 2FA
+	const [selectedAuthMethod, setSelectedAuthMethod] = useState(null);
+	const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
+
 	// State for profile editing
 	const [profileData, setProfileData] = useState({
 		name: "Ayan",
@@ -39,6 +41,7 @@ export default function SettingsPage() {
 		avatar: null,
 	});
 	const [tempProfileData, setTempProfileData] = useState(profileData);
+	const [tempAvatar, setTempAvatar] = useState(null);
 	const [deleteConfirmText, setDeleteConfirmText] = useState("");
 
 	// Memoized theme classes to prevent recalculation
@@ -60,16 +63,8 @@ export default function SettingsPage() {
 		() => setDarkMode((prev) => !prev),
 		[]
 	);
-	const handlePushToggle = useCallback(
-		() => setPushNotifications((prev) => !prev),
-		[]
-	);
 	const handleEmailToggle = useCallback(
 		() => setEmailNotifications((prev) => !prev),
-		[]
-	);
-	const handlePublicToggle = useCallback(
-		() => setPublicProfile((prev) => !prev),
 		[]
 	);
 
@@ -84,26 +79,28 @@ export default function SettingsPage() {
 		setEditProfileModal(false);
 	}, [tempProfileData]);
 
-	// File upload handler for avatar (camera icon - saves immediately)
+	// File upload handler for avatar (camera icon - stores in temp)
 	const handleAvatarUpload = useCallback((event) => {
 		const file = event.target.files[0];
 		if (file && file.type.startsWith("image/")) {
 			const reader = new FileReader();
 			reader.onload = (e) => {
-				const newAvatar = e.target.result;
-				// Update both temp and main profile data immediately
-				setTempProfileData((prev) => ({
-					...prev,
-					avatar: newAvatar,
-				}));
-				setProfileData((prev) => ({
-					...prev,
-					avatar: newAvatar,
-				}));
+				setTempAvatar(e.target.result);
 			};
 			reader.readAsDataURL(file);
 		}
 	}, []);
+
+	// Save avatar handler
+	const handleSaveAvatar = useCallback(() => {
+		if (tempAvatar) {
+			setProfileData((prev) => ({
+				...prev,
+				avatar: tempAvatar,
+			}));
+			setTempAvatar(null);
+		}
+	}, [tempAvatar]);
 
 	// File upload handler for avatar in modal (only updates temp until save)
 	const handleModalAvatarUpload = useCallback((event) => {
@@ -127,7 +124,19 @@ export default function SettingsPage() {
 
 	const handleTwoFactor = useCallback(() => {
 		setTwoFactorModal(true);
+		setSelectedAuthMethod(null);
 	}, []);
+
+	const handleEnable2FA = useCallback(() => {
+		if (selectedAuthMethod) {
+			setTwoFactorEnabled(true);
+			alert(`Two-factor authentication enabled via ${selectedAuthMethod}!`);
+			setTwoFactorModal(false);
+			setSelectedAuthMethod(null);
+		} else {
+			alert("Please select an authentication method first.");
+		}
+	}, [selectedAuthMethod]);
 
 	// Export handler
 	const handleExportData = useCallback(() => {
@@ -137,9 +146,7 @@ export default function SettingsPage() {
 				profile: profileData,
 				settings: {
 					darkMode,
-					pushNotifications,
 					emailNotifications,
-					publicProfile,
 				},
 				exportDate: new Date().toISOString(),
 			};
@@ -158,13 +165,7 @@ export default function SettingsPage() {
 
 			setExportModal(false);
 		}, 2000);
-	}, [
-		profileData,
-		darkMode,
-		pushNotifications,
-		emailNotifications,
-		publicProfile,
-	]);
+	}, [profileData, darkMode, emailNotifications]);
 
 	// Delete account handler
 	const handleDeleteAccount = useCallback(() => {
@@ -237,12 +238,6 @@ export default function SettingsPage() {
 					>
 						Settings
 					</h1>
-					<p
-						className={`text-sm sm-phone:text-base lg-tablet:text-lg max-w-2xl mx-auto px-2 sm-phone:px-0 ${themeClasses.subtext}`}
-					>
-						Customize your experience and manage your account preferences with
-						our intuitive settings panel
-					</p>
 				</div>
 
 				{/* Main Content Grid */}
@@ -284,13 +279,22 @@ export default function SettingsPage() {
 						</div>
 
 						{/* Avatar Preview */}
-						{profileData.avatar && (
+						{(profileData.avatar || tempAvatar) && (
 							<div className="mb-4 text-center">
 								<img
-									src={profileData.avatar}
+									src={tempAvatar || profileData.avatar}
 									alt="Profile avatar"
 									className="w-16 h-16 sm-phone:w-20 sm-phone:h-20 rounded-full mx-auto object-cover border-2 border-blue-500"
 								/>
+								{tempAvatar && (
+									<button
+										onClick={handleSaveAvatar}
+										className="mt-2 bg-green-500 text-white px-3 py-1.5 rounded-lg hover:bg-green-600 transition-colors text-sm flex items-center gap-1 mx-auto"
+									>
+										<Check className="w-3 h-3" />
+										Save Avatar
+									</button>
+								)}
 							</div>
 						)}
 
@@ -376,7 +380,7 @@ export default function SettingsPage() {
 								<p
 									className={`text-sm sm-phone:text-base ${themeClasses.subtext}`}
 								>
-									Customize your experience
+									Customise your experience
 								</p>
 							</div>
 						</div>
@@ -418,33 +422,6 @@ export default function SettingsPage() {
 								/>
 							</div>
 
-							{/* Push Notifications */}
-							<div
-								className={`flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-opacity-50 transition-colors cursor-pointer ${themeClasses.hover}`}
-							>
-								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
-									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-blue-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
-										<Bell className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-blue-600" />
-									</div>
-									<div className="min-w-0">
-										<p
-											className={`font-medium text-sm sm-phone:text-base ${themeClasses.text}`}
-										>
-											Push Notifications
-										</p>
-										<p
-											className={`text-xs sm-phone:text-sm ${themeClasses.subtext}`}
-										>
-											Receive app updates
-										</p>
-									</div>
-								</div>
-								<ToggleSwitch
-									checked={pushNotifications}
-									onChange={handlePushToggle}
-								/>
-							</div>
-
 							{/* Email Notifications */}
 							<div
 								className={`flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-opacity-50 transition-colors cursor-pointer ${themeClasses.hover}`}
@@ -477,33 +454,6 @@ export default function SettingsPage() {
 								<ToggleSwitch
 									checked={emailNotifications}
 									onChange={handleEmailToggle}
-								/>
-							</div>
-
-							{/* Public Profile */}
-							<div
-								className={`flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-opacity-50 transition-colors cursor-pointer ${themeClasses.hover}`}
-							>
-								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
-									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-purple-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
-										<Globe className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-purple-600" />
-									</div>
-									<div className="min-w-0">
-										<p
-											className={`font-medium text-sm sm-phone:text-base ${themeClasses.text}`}
-										>
-											Public Profile
-										</p>
-										<p
-											className={`text-xs sm-phone:text-sm ${themeClasses.subtext}`}
-										>
-											Make profile visible
-										</p>
-									</div>
-								</div>
-								<ToggleSwitch
-									checked={publicProfile}
-									onChange={handlePublicToggle}
 								/>
 							</div>
 						</div>
@@ -577,7 +527,9 @@ export default function SettingsPage() {
 							<p
 								className={`text-sm sm-phone:text-base ${themeClasses.subtext}`}
 							>
-								Enable additional security
+								{twoFactorEnabled
+									? "Currently enabled"
+									: "Enable additional security"}
 							</p>
 						</button>
 					</div>
@@ -823,28 +775,60 @@ export default function SettingsPage() {
 						</p>
 					</div>
 					<div className="space-y-3">
-						<button className="w-full p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-left">
-							<div className="font-medium text-gray-800">
-								SMS Authentication
-							</div>
-							<div className="text-sm text-gray-600">
-								Receive codes via text message
+						<button
+							onClick={() => setSelectedAuthMethod("SMS")}
+							className={`w-full p-3 border rounded-lg transition-colors text-left ${
+								selectedAuthMethod === "SMS"
+									? "border-green-500 bg-green-50"
+									: "border-gray-300 hover:bg-gray-50"
+							}`}
+						>
+							<div className="flex items-center justify-between">
+								<div>
+									<div className="font-medium text-gray-800">
+										SMS Authentication
+									</div>
+									<div className="text-sm text-gray-600">
+										Receive codes via text message
+									</div>
+								</div>
+								{selectedAuthMethod === "SMS" && (
+									<Check className="w-5 h-5 text-green-600" />
+								)}
 							</div>
 						</button>
-						<button className="w-full p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-left">
-							<div className="font-medium text-gray-800">Authenticator App</div>
-							<div className="text-sm text-gray-600">
-								Use Google Authenticator or similar
+						<button
+							onClick={() => setSelectedAuthMethod("Authenticator App")}
+							className={`w-full p-3 border rounded-lg transition-colors text-left ${
+								selectedAuthMethod === "Authenticator App"
+									? "border-green-500 bg-green-50"
+									: "border-gray-300 hover:bg-gray-50"
+							}`}
+						>
+							<div className="flex items-center justify-between">
+								<div>
+									<div className="font-medium text-gray-800">
+										Authenticator App
+									</div>
+									<div className="text-sm text-gray-600">
+										Use Google Authenticator or similar
+									</div>
+								</div>
+								{selectedAuthMethod === "Authenticator App" && (
+									<Check className="w-5 h-5 text-green-600" />
+								)}
 							</div>
 						</button>
 					</div>
 					<div className="flex gap-3 pt-4">
 						<button
-							onClick={() => {
-								alert("Two-factor authentication setup initiated!");
-								setTwoFactorModal(false);
-							}}
-							className="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-600 transition-colors"
+							onClick={handleEnable2FA}
+							className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
+								selectedAuthMethod
+									? "bg-green-500 text-white hover:bg-green-600"
+									: "bg-gray-300 text-gray-500 cursor-not-allowed"
+							}`}
+							disabled={!selectedAuthMethod}
 						>
 							Enable 2FA
 						</button>
