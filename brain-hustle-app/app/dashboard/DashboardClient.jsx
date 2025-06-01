@@ -46,6 +46,12 @@ export default function DashboardClient() {
 								<PreviousScores />
 							</div>
 						)}
+						<div
+							className="animate-fade-in-up sm-tablet:col-span-2 2xl-tablet:col-span-1"
+							style={{ animationDelay: "0.4s" }}
+						>
+							<UpcomingQuizzes />
+						</div>
 					</div>
 				);
 		}
@@ -70,9 +76,6 @@ export default function DashboardClient() {
 							<div className="w-full">
 								<AffirmationQuote />
 							</div>
-							<div className="w-full">
-								<UpcomingQuizzes />
-							</div>
 						</>
 					)}
 				</div>
@@ -94,9 +97,6 @@ export default function DashboardClient() {
 							<div className="w-1/2">
 								<AffirmationQuote />
 							</div>
-							<div className="w-1/2">
-								<UpcomingQuizzes />
-							</div>
 						</div>
 					)}
 				</div>
@@ -112,7 +112,6 @@ export default function DashboardClient() {
 						<div className="w-1/4 min-w-[280px] flex flex-col gap-6">
 							<CalendarComponent />
 							<AffirmationQuote />
-							<UpcomingQuizzes />
 						</div>
 					)}
 				</div>
