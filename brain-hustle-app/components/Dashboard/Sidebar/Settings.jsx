@@ -1,424 +1,292 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import {
 	User,
-	Bell,
-	Moon,
-	Sun,
-	Trash2,
-	Edit3,
 	Mail,
-	Shield,
-	Key,
-	Globe,
 	Camera,
-	Palette,
+	Edit,
 	Download,
-	Settings as SettingsIcon,
+	Shield,
+	Sun,
+	Bell,
+	Globe,
+	Key,
+	Trash2,
 } from "lucide-react";
 
-const Settings = () => {
-	const [darkMode, setDarkMode] = useState(false);
-	const [notifications, setNotifications] = useState(true);
-	const [emailNotifications, setEmailNotifications] = useState(false);
-	const [publicProfile, setPublicProfile] = useState(true);
-
-	const handleDarkModeToggle = () => setDarkMode(!darkMode);
-	const handleNotificationsToggle = () => setNotifications(!notifications);
-	const handleEmailNotificationsToggle = () =>
-		setEmailNotifications(!emailNotifications);
-	const handlePublicProfileToggle = () => setPublicProfile(!publicProfile);
-
+export default function SettingsPage() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 p-2 sm-phone:p-3 md-phone:p-4 sm-tablet:p-6 md-laptop:p-8">
-			<div className="w-full max-w-7xl mx-auto">
-				{/* Responsive Header */}
-				<div className="mb-4 sm-phone:mb-6 md-phone:mb-8 text-center relative">
-					<div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-3xl rounded-full"></div>
-					<div className="relative">
-						<div className="inline-flex items-center gap-2 sm-phone:gap-3 mb-3 sm-phone:mb-4 p-2 sm-phone:p-3 bg-white/40 backdrop-blur-xl rounded-full border border-white/20 shadow-lg">
-							<div className="p-1.5 sm-phone:p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full">
-								<SettingsIcon
-									size={16}
-									className="sm-phone:w-5 sm-phone:h-5 text-white"
-								/>
+		<div className="min-h-screen bg-gradient-to-br from-orange-100 via-purple-50 to-blue-100">
+			<div className="w-full max-w-sm-phone sm-phone:max-w-md-phone md-phone:max-w-lg-phone lg-phone:max-w-xl-phone xl-phone:max-w-2xl-phone 2xl-phone:max-w-sm-tablet sm-tablet:max-w-md-tablet md-tablet:max-w-lg-tablet lg-tablet:max-w-xl-tablet xl-tablet:max-w-2xl-tablet 2xl-tablet:max-w-6xl mx-auto p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8 space-y-4 sm-phone:space-y-5 md-phone:space-y-6 lg-tablet:space-y-8">
+				{/* Header */}
+				<div className="text-center mb-6 sm-phone:mb-8 md-phone:mb-10 lg-tablet:mb-12">
+					<h1 className="text-2xl sm-phone:text-3xl md-phone:text-3xl lg-tablet:text-4xl font-bold text-gray-800 mb-2 sm-phone:mb-3">
+						Settings
+					</h1>
+					<p className="text-gray-600 text-sm sm-phone:text-base lg-tablet:text-lg max-w-xs sm-phone:max-w-sm md-phone:max-w-md lg-tablet:max-w-2xl mx-auto px-2 sm-phone:px-0">
+						Customize your experience and manage your account preferences with
+						our intuitive settings panel
+					</p>
+				</div>
+
+				{/* Main Content Grid */}
+				<div className="grid grid-cols-1 2xl-tablet:grid-cols-2 gap-4 sm-phone:gap-5 md-phone:gap-6 lg-tablet:gap-8">
+					{/* Profile Information Card */}
+					<div className="bg-white rounded-xl lg-tablet:rounded-2xl shadow-lg p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8 h-fit">
+						<div className="flex items-start sm-tablet:items-center gap-3 sm-phone:gap-4 mb-4 sm-phone:mb-6 lg-tablet:mb-8">
+							<div className="w-10 h-10 sm-phone:w-12 sm-phone:h-12 lg-tablet:w-14 lg-tablet:h-14 bg-blue-500 rounded-lg lg-tablet:rounded-xl flex items-center justify-center flex-shrink-0">
+								<User className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 lg-tablet:w-7 lg-tablet:h-7 text-white" />
 							</div>
-							<span className="text-slate-600 font-medium text-sm sm-phone:text-base">
-								Account Settings
-							</span>
+							<div className="flex-1 min-w-0">
+								<h2 className="text-lg sm-phone:text-xl font-semibold text-gray-800">
+									Profile Information
+								</h2>
+								<p className="text-gray-600 text-sm sm-phone:text-base">
+									Manage your personal details and avatar
+								</p>
+							</div>
+							<Camera className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 text-gray-400 cursor-pointer hover:text-gray-600 flex-shrink-0" />
 						</div>
-						<h1 className="text-2xl sm-phone:text-3xl md-phone:text-4xl sm-tablet:text-5xl md-laptop:text-6xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 sm-phone:mb-4">
-							Settings
-						</h1>
-						<p className="text-slate-600 text-sm sm-phone:text-base md-phone:text-lg max-w-2xl mx-auto px-2 sm-phone:px-0">
-							Customize your experience and manage your account preferences with
-							our intuitive settings panel
-						</p>
+
+						{/* Profile Details */}
+						<div className="space-y-4 sm-phone:space-y-5 lg-tablet:space-y-6 mb-4 sm-phone:mb-6 lg-tablet:mb-8">
+							<div className="flex items-center gap-3 sm-phone:gap-4">
+								<User className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 text-gray-400 flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-gray-600 text-xs sm-phone:text-sm">
+										Display Name
+									</p>
+									<p className="font-medium text-gray-800 text-sm sm-phone:text-base lg-tablet:text-lg">
+										Ayan
+									</p>
+								</div>
+							</div>
+							<div className="flex items-center gap-3 sm-phone:gap-4">
+								<Mail className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 text-gray-400 flex-shrink-0" />
+								<div className="min-w-0">
+									<p className="text-gray-600 text-xs sm-phone:text-sm">
+										Email Address
+									</p>
+									<p className="font-medium text-gray-800 text-sm sm-phone:text-base lg-tablet:text-lg break-all">
+										ayan@example.com
+									</p>
+								</div>
+							</div>
+						</div>
+
+						{/* Action Buttons */}
+						<div className="flex flex-col sm-tablet:flex-row gap-3 sm-phone:gap-4">
+							<button className="flex-1 bg-blue-500 text-white px-4 sm-phone:px-6 py-2.5 sm-phone:py-3 rounded-lg xl-phone:rounded-xl font-medium hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 text-sm sm-phone:text-base">
+								<Edit className="w-3.5 h-3.5 sm-phone:w-4 sm-phone:h-4" />
+								Edit Profile
+							</button>
+							<button className="px-4 sm-phone:px-6 py-2.5 sm-phone:py-3 border border-gray-300 rounded-lg xl-phone:rounded-xl font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 text-sm sm-phone:text-base">
+								<Download className="w-3.5 h-3.5 sm-phone:w-4 sm-phone:h-4" />
+								Export
+							</button>
+						</div>
+					</div>
+
+					{/* Preferences Card */}
+					<div className="bg-white rounded-xl lg-tablet:rounded-2xl shadow-lg p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8">
+						<div className="flex items-start sm-tablet:items-center gap-3 sm-phone:gap-4 mb-4 sm-phone:mb-6 lg-tablet:mb-8">
+							<div className="w-10 h-10 sm-phone:w-12 sm-phone:h-12 lg-tablet:w-14 lg-tablet:h-14 bg-purple-500 rounded-lg lg-tablet:rounded-xl flex items-center justify-center flex-shrink-0">
+								<Shield className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 lg-tablet:w-7 lg-tablet:h-7 text-white" />
+							</div>
+							<div className="min-w-0">
+								<h2 className="text-lg sm-phone:text-xl font-semibold text-gray-800">
+									Preferences
+								</h2>
+								<p className="text-gray-600 text-sm sm-phone:text-base">
+									Customize your experience
+								</p>
+							</div>
+						</div>
+
+						{/* Settings List */}
+						<div className="space-y-2 sm-phone:space-y-3 lg-tablet:space-y-4">
+							{/* Dark Mode */}
+							<div className="flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 transition-colors">
+								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
+									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-yellow-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
+										<Sun className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-yellow-600" />
+									</div>
+									<div className="min-w-0">
+										<p className="font-medium text-gray-800 text-sm sm-phone:text-base">
+											Dark Mode
+										</p>
+										<p className="text-xs sm-phone:text-sm text-gray-600">
+											Toggle dark theme
+										</p>
+									</div>
+								</div>
+								<div className="relative flex-shrink-0">
+									<input type="checkbox" className="sr-only" />
+									<div className="w-10 h-5 sm-phone:w-11 sm-phone:h-6 lg-tablet:w-12 lg-tablet:h-6 bg-gray-300 rounded-full cursor-pointer">
+										<div className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 bg-white rounded-full shadow transform translate-x-0.5 translate-y-0.5 transition-transform"></div>
+									</div>
+								</div>
+							</div>
+
+							{/* Push Notifications */}
+							<div className="flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 transition-colors">
+								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
+									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-blue-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
+										<Bell className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-blue-600" />
+									</div>
+									<div className="min-w-0">
+										<p className="font-medium text-gray-800 text-sm sm-phone:text-base">
+											Push Notifications
+										</p>
+										<p className="text-xs sm-phone:text-sm text-gray-600">
+											Receive app updates
+										</p>
+									</div>
+								</div>
+								<div className="relative flex-shrink-0">
+									<input type="checkbox" defaultChecked className="sr-only" />
+									<div className="w-10 h-5 sm-phone:w-11 sm-phone:h-6 lg-tablet:w-12 lg-tablet:h-6 bg-blue-500 rounded-full cursor-pointer">
+										<div className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 bg-white rounded-full shadow transform translate-x-5 sm-phone:translate-x-5 lg-tablet:translate-x-6 translate-y-0.5 transition-transform"></div>
+									</div>
+								</div>
+							</div>
+
+							{/* Email Notifications */}
+							<div className="flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 transition-colors">
+								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
+									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-gray-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
+										<Mail className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-gray-600" />
+									</div>
+									<div className="min-w-0">
+										<p className="font-medium text-gray-800 text-sm sm-phone:text-base">
+											Email Notifications
+										</p>
+										<p className="text-xs sm-phone:text-sm text-gray-600">
+											Weekly digest emails
+										</p>
+									</div>
+								</div>
+								<div className="relative flex-shrink-0">
+									<input type="checkbox" className="sr-only" />
+									<div className="w-10 h-5 sm-phone:w-11 sm-phone:h-6 lg-tablet:w-12 lg-tablet:h-6 bg-gray-300 rounded-full cursor-pointer">
+										<div className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 bg-white rounded-full shadow transform translate-x-0.5 translate-y-0.5 transition-transform"></div>
+									</div>
+								</div>
+							</div>
+
+							{/* Public Profile */}
+							<div className="flex items-center justify-between p-3 sm-phone:p-3.5 lg-tablet:p-4 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 transition-colors">
+								<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
+									<div className="w-8 h-8 sm-phone:w-9 sm-phone:h-9 lg-tablet:w-10 lg-tablet:h-10 bg-purple-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
+										<Globe className="w-4 h-4 sm-phone:w-4.5 sm-phone:h-4.5 lg-tablet:w-5 lg-tablet:h-5 text-purple-600" />
+									</div>
+									<div className="min-w-0">
+										<p className="font-medium text-gray-800 text-sm sm-phone:text-base">
+											Public Profile
+										</p>
+										<p className="text-xs sm-phone:text-sm text-gray-600">
+											Make profile visible
+										</p>
+									</div>
+								</div>
+								<div className="relative flex-shrink-0">
+									<input type="checkbox" defaultChecked className="sr-only" />
+									<div className="w-10 h-5 sm-phone:w-11 sm-phone:h-6 lg-tablet:w-12 lg-tablet:h-6 bg-blue-500 rounded-full cursor-pointer">
+										<div className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 bg-white rounded-full shadow transform translate-x-5 sm-phone:translate-x-5 lg-tablet:translate-x-6 translate-y-0.5 transition-transform"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				{/* Responsive Settings Grid */}
-				<div className="grid gap-3 sm-phone:gap-4 md-phone:gap-6 grid-cols-1 md-laptop:grid-cols-12">
-					{/* Profile Card - Responsive */}
-					<div className="md-laptop:col-span-8 group relative overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-xl"></div>
-						<div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm-phone:rounded-3xl p-4 sm-phone:p-6 md-phone:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]">
-							{/* Responsive Profile Header */}
-							<div className="flex flex-col sm-tablet:flex-row sm-tablet:items-center sm-tablet:justify-between mb-6 sm-phone:mb-8 gap-4">
-								<div className="flex items-center gap-3 sm-phone:gap-4">
-									<div className="relative">
-										<div className="p-3 sm-phone:p-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl sm-phone:rounded-2xl text-white shadow-lg">
-											<User size={20} className="sm-phone:w-7 sm-phone:h-7" />
-										</div>
-										<div className="absolute -top-1 -right-1 w-3 h-3 sm-phone:w-4 sm-phone:h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
-									</div>
-									<div>
-										<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl font-bold text-slate-800">
-											Profile Information
-										</h3>
-										<p className="text-slate-500 text-sm sm-phone:text-base">
-											Manage your personal details and avatar
-										</p>
-									</div>
-								</div>
-								<button className="self-start sm-tablet:self-auto p-2 sm-phone:p-3 bg-slate-100 hover:bg-slate-200 rounded-lg sm-phone:rounded-xl transition-colors">
-									<Camera
-										size={16}
-										className="sm-phone:w-5 sm-phone:h-5 text-slate-600"
-									/>
-								</button>
-							</div>
-
-							{/* Responsive Profile Details */}
-							<div className="space-y-3 sm-phone:space-y-4 mb-6 sm-phone:mb-8">
-								<div className="group/item flex items-center gap-3 sm-phone:gap-4 p-4 sm-phone:p-5 bg-gradient-to-r from-slate-50/80 to-blue-50/80 rounded-xl sm-phone:rounded-2xl hover:from-blue-50/80 hover:to-indigo-50/80 transition-all duration-300 border border-slate-100/50 hover:border-blue-200/50 hover:shadow-lg">
-									<div className="p-2 sm-phone:p-3 bg-white rounded-lg sm-phone:rounded-xl shadow-sm group-hover/item:scale-110 transition-transform">
-										<User
-											size={14}
-											className="sm-phone:w-[18px] sm-phone:h-[18px] text-blue-600"
-										/>
-									</div>
-									<div className="flex-1 min-w-0">
-										<p className="font-semibold text-slate-800 text-base sm-phone:text-lg truncate">
-											Ayan
-										</p>
-										<p className="text-xs sm-phone:text-sm text-slate-500">
-											Display Name
-										</p>
-									</div>
-									<div className="hidden sm-tablet:block opacity-0 group-hover/item:opacity-100 transition-opacity">
-										<Edit3 size={16} className="text-slate-400" />
-									</div>
-								</div>
-
-								<div className="group/item flex items-center gap-3 sm-phone:gap-4 p-4 sm-phone:p-5 bg-gradient-to-r from-slate-50/80 to-purple-50/80 rounded-xl sm-phone:rounded-2xl hover:from-purple-50/80 hover:to-pink-50/80 transition-all duration-300 border border-slate-100/50 hover:border-purple-200/50 hover:shadow-lg">
-									<div className="p-2 sm-phone:p-3 bg-white rounded-lg sm-phone:rounded-xl shadow-sm group-hover/item:scale-110 transition-transform">
-										<Mail
-											size={14}
-											className="sm-phone:w-[18px] sm-phone:h-[18px] text-purple-600"
-										/>
-									</div>
-									<div className="flex-1 min-w-0">
-										<p className="font-semibold text-slate-800 text-base sm-phone:text-lg truncate">
-											ayan@example.com
-										</p>
-										<p className="text-xs sm-phone:text-sm text-slate-500">
-											Email Address
-										</p>
-									</div>
-									<div className="hidden sm-tablet:block opacity-0 group-hover/item:opacity-100 transition-opacity">
-										<Edit3 size={16} className="text-slate-400" />
-									</div>
-								</div>
-							</div>
-
-							{/* Responsive Action Buttons */}
-							<div className="flex flex-col sm-tablet:flex-row gap-3">
-								<button className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 sm-phone:px-6 py-3 sm-phone:py-4 rounded-xl sm-phone:rounded-2xl font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm-phone:gap-3 group-hover:scale-[1.02] hover:scale-105 text-sm sm-phone:text-base">
-									<Edit3 size={16} className="sm-phone:w-5 sm-phone:h-5" />
-									Edit Profile
-								</button>
-								<button className="px-4 sm-phone:px-6 py-3 sm-phone:py-4 bg-slate-100 hover:bg-slate-200 rounded-xl sm-phone:rounded-2xl font-semibold text-slate-700 transition-all duration-300 flex items-center justify-center gap-2 sm-phone:gap-3 text-sm sm-phone:text-base">
-									<Download size={16} className="sm-phone:w-5 sm-phone:h-5" />
-									Export
-								</button>
-							</div>
+				{/* Security & Privacy Section */}
+				<div className="bg-white rounded-xl lg-tablet:rounded-2xl shadow-lg p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8">
+					<div className="flex items-start sm-tablet:items-center gap-3 sm-phone:gap-4 mb-4 sm-phone:mb-6 lg-tablet:mb-8">
+						<div className="w-10 h-10 sm-phone:w-12 sm-phone:h-12 lg-tablet:w-14 lg-tablet:h-14 bg-green-500 rounded-lg lg-tablet:rounded-xl flex items-center justify-center flex-shrink-0">
+							<Key className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 lg-tablet:w-7 lg-tablet:h-7 text-white" />
+						</div>
+						<div className="min-w-0">
+							<h2 className="text-lg sm-phone:text-xl font-semibold text-gray-800">
+								Security & Privacy
+							</h2>
+							<p className="text-gray-600 text-sm sm-phone:text-base">
+								Manage your account security
+							</p>
 						</div>
 					</div>
 
-					{/* Preferences Card - Responsive */}
-					<div className="md-laptop:col-span-4 group relative overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-xl"></div>
-						<div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm-phone:rounded-3xl p-4 sm-phone:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-fit">
-							<div className="flex items-center gap-3 mb-6 sm-phone:mb-8">
-								<div className="p-3 sm-phone:p-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl sm-phone:rounded-2xl text-white shadow-lg">
-									<Shield size={20} className="sm-phone:w-7 sm-phone:h-7" />
-								</div>
-								<div>
-									<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl font-bold text-slate-800">
-										Preferences
-									</h3>
-									<p className="text-slate-500 text-sm sm-phone:text-base">
-										Customize your experience
-									</p>
-								</div>
+					<div className="grid grid-cols-1 lg-tablet:grid-cols-2 gap-4 sm-phone:gap-5 lg-tablet:gap-6">
+						{/* Change Password */}
+						<div className="p-4 sm-phone:p-5 lg-tablet:p-6 border border-gray-200 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+							<div className="flex items-center gap-3 sm-phone:gap-4 mb-2 sm-phone:mb-3">
+								<Key className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 text-green-600 flex-shrink-0" />
+								<h3 className="font-medium text-gray-800 text-base sm-phone:text-lg">
+									Change Password
+								</h3>
 							</div>
+							<p className="text-gray-600 text-sm sm-phone:text-base">
+								Last updated 30 days ago
+							</p>
+						</div>
 
-							<div className="space-y-4 sm-phone:space-y-6">
-								{/* Responsive Toggle Items */}
-								{[
-									{
-										icon: darkMode ? Moon : Sun,
-										label: "Dark Mode",
-										description: "Toggle dark theme",
-										value: darkMode,
-										handler: handleDarkModeToggle,
-										activeColor: "bg-slate-700",
-										inactiveColor: "bg-amber-100",
-										iconColor: darkMode ? "text-white" : "text-amber-600",
-									},
-									{
-										icon: Bell,
-										label: "Push Notifications",
-										description: "Receive app updates",
-										value: notifications,
-										handler: handleNotificationsToggle,
-										activeColor: "bg-blue-100",
-										inactiveColor: "bg-slate-100",
-										iconColor: notifications
-											? "text-blue-600"
-											: "text-slate-400",
-									},
-									{
-										icon: Mail,
-										label: "Email Notifications",
-										description: "Weekly digest emails",
-										value: emailNotifications,
-										handler: handleEmailNotificationsToggle,
-										activeColor: "bg-green-100",
-										inactiveColor: "bg-slate-100",
-										iconColor: emailNotifications
-											? "text-green-600"
-											: "text-slate-400",
-									},
-									{
-										icon: Globe,
-										label: "Public Profile",
-										description: "Make profile visible",
-										value: publicProfile,
-										handler: handlePublicProfileToggle,
-										activeColor: "bg-purple-100",
-										inactiveColor: "bg-slate-100",
-										iconColor: publicProfile
-											? "text-purple-600"
-											: "text-slate-400",
-									},
-								].map((item, index) => (
-									<div
-										key={index}
-										className="group/toggle p-3 sm-phone:p-4 md-phone:p-5 bg-gradient-to-r from-slate-50/80 to-slate-100/80 rounded-xl sm-phone:rounded-2xl border border-slate-100/50 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
-									>
-										<div className="flex items-center justify-between">
-											<div className="flex items-center gap-3 sm-phone:gap-4 flex-1 min-w-0">
-												<div
-													className={`p-2 sm-phone:p-3 rounded-lg sm-phone:rounded-xl ${
-														item.value ? item.activeColor : item.inactiveColor
-													} transition-all duration-300 group-hover/toggle:scale-110`}
-												>
-													<item.icon
-														size={14}
-														className={`sm-phone:w-[18px] sm-phone:h-[18px] ${item.iconColor}`}
-													/>
-												</div>
-												<div className="min-w-0 flex-1">
-													<p className="font-semibold text-slate-700 text-sm sm-phone:text-base truncate">
-														{item.label}
-													</p>
-													<p className="text-xs text-slate-500 truncate">
-														{item.description}
-													</p>
-												</div>
-											</div>
-											<button
-												onClick={item.handler}
-												className={`relative w-12 h-6 sm-phone:w-14 sm-phone:h-7 rounded-full transition-all duration-300 shadow-inner ${
-													item.value
-														? "bg-gradient-to-r from-blue-500 to-indigo-600"
-														: "bg-slate-300"
-												} hover:scale-110 flex-shrink-0`}
-											>
-												<div
-													className={`absolute top-0.5 w-5 h-5 sm-phone:w-6 sm-phone:h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-														item.value
-															? "translate-x-6 sm-phone:translate-x-7"
-															: "translate-x-0.5"
-													}`}
-												/>
-											</button>
-										</div>
-									</div>
-								))}
+						{/* Two-Factor Authentication */}
+						<div className="p-4 sm-phone:p-5 lg-tablet:p-6 border border-gray-200 rounded-lg xl-phone:rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+							<div className="flex items-center gap-3 sm-phone:gap-4 mb-2 sm-phone:mb-3">
+								<Shield className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 text-green-600 flex-shrink-0" />
+								<h3 className="font-medium text-gray-800 text-base sm-phone:text-lg">
+									Two-Factor Authentication
+								</h3>
 							</div>
+							<p className="text-gray-600 text-sm sm-phone:text-base">
+								Enable additional security
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{/* Account Management Section */}
+				<div className="bg-white rounded-xl lg-tablet:rounded-2xl shadow-lg p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8">
+					<div className="flex items-start sm-tablet:items-center gap-3 sm-phone:gap-4 mb-4 sm-phone:mb-6 lg-tablet:mb-8">
+						<div className="w-10 h-10 sm-phone:w-12 sm-phone:h-12 lg-tablet:w-14 lg-tablet:h-14 bg-red-500 rounded-lg lg-tablet:rounded-xl flex items-center justify-center flex-shrink-0">
+							<Trash2 className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 lg-tablet:w-7 lg-tablet:h-7 text-white" />
+						</div>
+						<div className="min-w-0">
+							<h2 className="text-lg sm-phone:text-xl font-semibold text-gray-800">
+								Account Management
+							</h2>
+							<p className="text-gray-600 text-sm sm-phone:text-base">
+								Manage your account settings and data
+							</p>
 						</div>
 					</div>
 
-					{/* Security & Privacy Card - Responsive */}
-					<div className="md-laptop:col-span-6 group relative overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 blur-xl"></div>
-						<div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm-phone:rounded-3xl p-4 sm-phone:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-							<div className="flex items-center gap-3 mb-4 sm-phone:mb-6">
-								<div className="p-3 sm-phone:p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl sm-phone:rounded-2xl text-white shadow-lg">
-									<Key size={20} className="sm-phone:w-7 sm-phone:h-7" />
-								</div>
-								<div>
-									<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl font-bold text-slate-800">
-										Security & Privacy
-									</h3>
-									<p className="text-slate-500 text-sm sm-phone:text-base">
-										Manage your account security
-									</p>
-								</div>
+					{/* Danger Zone */}
+					<div className="border border-red-200 rounded-lg xl-phone:rounded-xl p-4 sm-phone:p-5 md-phone:p-6 lg-tablet:p-8 bg-red-50">
+						<div className="flex items-center gap-3 sm-phone:gap-4 mb-4 sm-phone:mb-5 lg-tablet:mb-6">
+							<div className="w-8 h-8 sm-phone:w-10 sm-phone:h-10 lg-tablet:w-12 lg-tablet:h-12 bg-red-100 rounded-lg xl-phone:rounded-xl flex items-center justify-center flex-shrink-0">
+								<Trash2 className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 lg-tablet:w-6 lg-tablet:h-6 text-red-600" />
 							</div>
-
-							<div className="space-y-3 sm-phone:space-y-4">
-								<button className="w-full p-3 sm-phone:p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl sm-phone:rounded-2xl border border-green-100 hover:border-green-200 transition-all duration-300 hover:shadow-md text-left group/btn">
-									<div className="flex items-center gap-3">
-										<div className="p-1.5 sm-phone:p-2 bg-green-100 rounded-lg group-hover/btn:scale-110 transition-transform">
-											<Key
-												size={14}
-												className="sm-phone:w-4 sm-phone:h-4 text-green-600"
-											/>
-										</div>
-										<div className="min-w-0 flex-1">
-											<p className="font-semibold text-green-800 text-sm sm-phone:text-base truncate">
-												Change Password
-											</p>
-											<p className="text-xs sm-phone:text-sm text-green-600 truncate">
-												Last updated 30 days ago
-											</p>
-										</div>
-									</div>
-								</button>
-
-								<button className="w-full p-3 sm-phone:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl sm-phone:rounded-2xl border border-blue-100 hover:border-blue-200 transition-all duration-300 hover:shadow-md text-left group/btn">
-									<div className="flex items-center gap-3">
-										<div className="p-1.5 sm-phone:p-2 bg-blue-100 rounded-lg group-hover/btn:scale-110 transition-transform">
-											<Shield
-												size={14}
-												className="sm-phone:w-4 sm-phone:h-4 text-blue-600"
-											/>
-										</div>
-										<div className="min-w-0 flex-1">
-											<p className="font-semibold text-blue-800 text-sm sm-phone:text-base truncate">
-												Two-Factor Authentication
-											</p>
-											<p className="text-xs sm-phone:text-sm text-blue-600 truncate">
-												Currently enabled
-											</p>
-										</div>
-									</div>
-								</button>
-							</div>
+							<h3 className="text-base sm-phone:text-lg font-semibold text-red-800">
+								Danger Zone
+							</h3>
 						</div>
-					</div>
-
-					{/* Theme Customization Card - Responsive */}
-					<div className="md-laptop:col-span-6 group relative overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-rose-500/10 blur-xl"></div>
-						<div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm-phone:rounded-3xl p-4 sm-phone:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-							<div className="flex items-center gap-3 mb-4 sm-phone:mb-6">
-								<div className="p-3 sm-phone:p-4 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl sm-phone:rounded-2xl text-white shadow-lg">
-									<Palette size={20} className="sm-phone:w-7 sm-phone:h-7" />
-								</div>
-								<div>
-									<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl font-bold text-slate-800">
-										Theme & Appearance
-									</h3>
-									<p className="text-slate-500 text-sm sm-phone:text-base">
-										Customize your visual experience
-									</p>
-								</div>
-							</div>
-
-							<div className="grid grid-cols-3 gap-2 sm-phone:gap-3 mb-4">
-								{[
-									{ name: "Blue", colors: "from-blue-400 to-blue-600" },
-									{ name: "Purple", colors: "from-purple-400 to-purple-600" },
-									{ name: "Green", colors: "from-green-400 to-green-600" },
-								].map((theme, index) => (
-									<button
-										key={index}
-										className="group/theme p-2 sm-phone:p-3 bg-slate-50 rounded-lg sm-phone:rounded-xl hover:bg-slate-100 transition-all duration-300 hover:scale-105"
-									>
-										<div
-											className={`w-full h-6 sm-phone:h-8 bg-gradient-to-r ${theme.colors} rounded-md sm-phone:rounded-lg mb-1 sm-phone:mb-2 group-hover/theme:shadow-lg transition-shadow`}
-										></div>
-										<p className="text-xs font-medium text-slate-600">
-											{theme.name}
-										</p>
-									</button>
-								))}
-							</div>
-						</div>
-					</div>
-
-					{/* Enhanced Danger Zone - Responsive */}
-					<div className="md-laptop:col-span-12 group relative overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-xl"></div>
-						<div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm-phone:rounded-3xl p-4 sm-phone:p-6 md-phone:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-							<div className="flex items-center gap-3 sm-phone:gap-4 mb-6 sm-phone:mb-8">
-								<div className="p-3 sm-phone:p-4 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl sm-phone:rounded-2xl text-white shadow-lg">
-									<Trash2 size={20} className="sm-phone:w-7 sm-phone:h-7" />
-								</div>
-								<div>
-									<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl font-bold text-slate-800">
-										Account Management
-									</h3>
-									<p className="text-slate-500 text-sm sm-phone:text-base">
-										Manage your account settings and data
-									</p>
-								</div>
-							</div>
-
-							<div className="bg-gradient-to-r from-red-50/80 to-pink-50/80 border border-red-200/50 rounded-xl sm-phone:rounded-2xl p-4 sm-phone:p-6 backdrop-blur-sm">
-								<div className="flex flex-col sm-tablet:flex-row items-start gap-4 sm-phone:gap-6">
-									<div className="p-2 sm-phone:p-3 bg-gradient-to-br from-red-100 to-red-200 rounded-xl sm-phone:rounded-2xl">
-										<Trash2
-											size={20}
-											className="sm-phone:w-6 sm-phone:h-6 text-red-600"
-										/>
-									</div>
-									<div className="flex-1">
-										<h4 className="font-bold text-red-800 mb-2 sm-phone:mb-3 text-lg sm-phone:text-xl">
-											Danger Zone
-										</h4>
-										<p className="text-red-700 mb-4 sm-phone:mb-6 leading-relaxed text-sm sm-phone:text-base">
-											Once you delete your account, there is no going back.
-											Please be certain before proceeding with this action. All
-											your data will be permanently removed.
-										</p>
-										<div className="flex flex-col sm-tablet:flex-row gap-3">
-											<button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 sm-phone:px-6 py-3 rounded-lg sm-phone:rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm-phone:gap-3 hover:scale-105 text-sm sm-phone:text-base">
-												<Trash2
-													size={16}
-													className="sm-phone:w-[18px] sm-phone:h-[18px]"
-												/>
-												Delete Account
-											</button>
-											<button className="px-4 sm-phone:px-6 py-3 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg sm-phone:rounded-xl font-semibold transition-all duration-300 text-sm sm-phone:text-base">
-												Export Data First
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p className="text-red-700 mb-4 sm-phone:mb-6 lg-tablet:mb-8 text-sm sm-phone:text-base lg-tablet:text-lg lg-tablet:leading-relaxed">
+							Once you delete your account, there is no going back. Please be
+							certain before proceeding with this action. All your data will be
+							permanently removed.
+						</p>
+						<div className="flex flex-col sm-tablet:flex-row gap-3 sm-phone:gap-4">
+							<button className="bg-red-600 text-white px-4 sm-phone:px-6 lg-tablet:px-8 py-2.5 sm-phone:py-3 rounded-lg xl-phone:rounded-xl font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2 text-sm sm-phone:text-base">
+								<Trash2 className="w-3.5 h-3.5 sm-phone:w-4 sm-phone:h-4" />
+								Delete Account
+							</button>
+							<button className="bg-red-100 text-red-600 px-4 sm-phone:px-6 lg-tablet:px-8 py-2.5 sm-phone:py-3 rounded-lg xl-phone:rounded-xl font-medium hover:bg-red-200 transition-colors text-sm sm-phone:text-base">
+								Export Data First
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
-
-export default Settings;
+}
