@@ -1,476 +1,904 @@
 [
 	{
-		"topic": "A Christmas Carol",
+		"topic": "Paper 1: Creative Reading & Writing",
+		"description": "Fiction texts, narrative writing, and descriptive techniques",
 		"questions": [
 			{
-				"question": "Who is the author of 'A Christmas Carol'?",
+				"question": "What is the main purpose of the opening paragraph in a fictional text?",
 				"options": [
-					"Charles Dickens",
-					"William Shakespeare",
-					"George Orwell",
-					"Jane Austen"
+					"To establish setting and character",
+					"To provide the conclusion",
+					"To give historical context",
+					"To summarize the plot"
 				],
-				"answer": "Charles Dickens"
+				"answer": "To establish setting and character",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What is Scrooge\u2019s first name?",
-				"options": ["Jacob", "Ebenezer", "Bob", "Fred"],
-				"answer": "Ebenezer"
-			},
-			{
-				"question": "What is the name of Scrooge\u2019s clerk?",
-				"options": ["Jacob Marley", "Bob Cratchit", "Fred", "Tiny Tim"],
-				"answer": "Bob Cratchit"
-			},
-			{
-				"question": "Who is the first ghost to visit Scrooge?",
+				"question": "Which technique creates atmosphere in descriptive writing?",
 				"options": [
-					"Ghost of Christmas Present",
-					"Jacob Marley",
-					"Ghost of Christmas Yet to Come",
-					"Tiny Tim"
+					"Statistics",
+					"Sensory imagery",
+					"Direct speech only",
+					"Bullet points"
 				],
-				"answer": "Jacob Marley"
+				"answer": "Sensory imagery",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What does Scrooge see on Marley\u2019s chain?",
+				"question": "What does 'narrative voice' refer to?",
 				"options": [
-					"Money boxes and keys",
-					"Books and candles",
-					"Food and drink",
-					"Children\u2019s toys"
+					"The author's real voice",
+					"The perspective from which the story is told",
+					"The dialogue between characters",
+					"The moral of the story"
 				],
-				"answer": "Money boxes and keys"
+				"answer": "The perspective from which the story is told",
+				"difficulty": "easy"
 			},
 			{
-				"question": "Who says: 'God bless us, everyone!'?",
-				"options": ["Bob Cratchit", "Tiny Tim", "Scrooge", "Fred"],
-				"answer": "Tiny Tim"
-			},
-			{
-				"question": "Who is Scrooge\u2019s cheerful nephew?",
-				"options": ["Fred", "Bob", "Tiny Tim", "Jacob Marley"],
-				"answer": "Fred"
-			},
-			{
-				"question": "Which ghost shows Scrooge the Cratchit family\u2019s dinner?",
-				"options": ["Past", "Present", "Future", "Marley"],
-				"answer": "Present"
-			},
-			{
-				"question": "What lesson does Scrooge learn by the end?",
+				"question": "In creative writing, what is 'show don't tell'?",
 				"options": [
-					"Greed is good",
-					"Family isn\u2019t important",
-					"Money brings happiness",
-					"Kindness and generosity matter"
+					"Using pictures instead of words",
+					"Demonstrating through actions and details rather than stating directly",
+					"Only writing dialogue",
+					"Avoiding descriptions"
 				],
-				"answer": "Kindness and generosity matter"
+				"answer": "Demonstrating through actions and details rather than stating directly",
+				"difficulty": "medium"
 			},
 			{
-				"question": "Who says: 'Are there no prisons?'?",
-				"options": ["Scrooge", "Fred", "Tiny Tim", "Bob Cratchit"],
-				"answer": "Scrooge"
-			},
-			{
-				"question": "Who is the second ghost to visit Scrooge?",
+				"question": "How does pathetic fallacy enhance narrative?",
 				"options": [
-					"Ghost of Christmas Past",
-					"Ghost of Christmas Present",
-					"Jacob Marley",
-					"Ghost of Christmas Yet to Come"
+					"By making characters sad",
+					"By reflecting characters' emotions through weather/nature",
+					"By adding factual information",
+					"By speeding up the plot"
 				],
-				"answer": "Ghost of Christmas Past"
+				"answer": "By reflecting characters' emotions through weather/nature",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What does the Ghost of Christmas Future show Scrooge?",
-				"options": ["A party", "His grave", "A wedding", "Fred's house"],
-				"answer": "His grave"
-			},
-			{
-				"question": "Where does Scrooge work?",
-				"options": ["A school", "A bank", "A counting house", "A church"],
-				"answer": "A counting house"
-			},
-			{
-				"question": "What does Scrooge send to the Cratchits on Christmas Day?",
-				"options": ["A cake", "A goose", "A turkey", "A present"],
-				"answer": "A turkey"
-			},
-			{
-				"question": "What is the final ghost called?",
+				"question": "What is the effect of using short sentences in narrative writing?",
 				"options": [
-					"Ghost of Christmas Future",
-					"Ghost of Christmas Present",
-					"Jacob Marley",
-					"Fred"
+					"To save space",
+					"To create tension and pace",
+					"To confuse the reader",
+					"To add description"
 				],
-				"answer": "Ghost of Christmas Yet to Come"
+				"answer": "To create tension and pace",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does temporal shift enhance narrative structure?",
+				"options": [
+					"By confusing chronology",
+					"By creating suspense and revealing character development",
+					"By making stories longer",
+					"By avoiding present tense"
+				],
+				"answer": "By creating suspense and revealing character development",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the purpose of a cyclical structure in creative writing?",
+				"options": [
+					"To repeat the same events",
+					"To return to opening elements for thematic closure",
+					"To make writing circular",
+					"To avoid endings"
+				],
+				"answer": "To return to opening elements for thematic closure",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does a writer create tension through sentence structure?",
+				"options": [
+					"Using only long sentences",
+					"Varying sentence length strategically",
+					"Using only questions",
+					"Avoiding punctuation"
+				],
+				"answer": "Varying sentence length strategically",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the effect of an unreliable narrator?",
+				"options": [
+					"It makes the story confusing",
+					"It creates uncertainty and forces reader engagement",
+					"It's always negative",
+					"It speeds up the plot"
+				],
+				"answer": "It creates uncertainty and forces reader engagement",
+				"difficulty": "hard"
+			}
+		]
+	},
+	{
+		"topic": "Paper 2: Writers' Viewpoints & Perspectives",
+		"description": "Non-fiction texts, argumentative writing, and comparative analysis",
+		"questions": [
+			{
+				"question": "What is the main purpose of persuasive writing?",
+				"options": [
+					"To entertain",
+					"To influence the reader's opinion",
+					"To provide facts only",
+					"To tell a story"
+				],
+				"answer": "To influence the reader's opinion",
+				"difficulty": "easy"
+			},
+			{
+				"question": "Which technique is most effective for engaging readers in non-fiction?",
+				"options": [
+					"Complex vocabulary only",
+					"Direct address (using 'you')",
+					"Long paragraphs",
+					"Avoiding examples"
+				],
+				"answer": "Direct address (using 'you')",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What does 'bias' mean in non-fiction texts?",
+				"options": [
+					"Balanced viewpoint",
+					"Prejudice for or against something",
+					"Factual reporting",
+					"Neutral stance"
+				],
+				"answer": "Prejudice for or against something",
+				"difficulty": "easy"
+			},
+			{
+				"question": "How do statistics function as persuasive devices?",
+				"options": [
+					"They always tell the truth",
+					"They provide apparent credibility and authority",
+					"They make texts longer",
+					"They replace arguments"
+				],
+				"answer": "They provide apparent credibility and authority",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the effect of rhetorical questions in argumentative writing?",
+				"options": [
+					"To confuse readers",
+					"To engage readers and make them consider the writer's viewpoint",
+					"To avoid making statements",
+					"To end paragraphs"
+				],
+				"answer": "To engage readers and make them consider the writer's viewpoint",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does emotive language work in persuasive texts?",
+				"options": [
+					"By providing facts",
+					"By appealing to readers' emotions to influence opinion",
+					"By being neutral",
+					"By avoiding feelings"
+				],
+				"answer": "By appealing to readers' emotions to influence opinion",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the purpose of counter-arguments in persuasive writing?",
+				"options": [
+					"To confuse the reader",
+					"To acknowledge and refute opposing views, strengthening your argument",
+					"To change your opinion",
+					"To make texts longer"
+				],
+				"answer": "To acknowledge and refute opposing views, strengthening your argument",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does juxtaposition function in comparative analysis?",
+				"options": [
+					"By avoiding comparisons",
+					"By placing contrasting ideas side by side to highlight differences",
+					"By making texts similar",
+					"By creating confusion"
+				],
+				"answer": "By placing contrasting ideas side by side to highlight differences",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What makes a comparison sophisticated in Paper 2?",
+				"options": [
+					"Listing similarities and differences",
+					"Analyzing how writers achieve different effects through methods",
+					"Comparing word counts",
+					"Stating personal preferences"
+				],
+				"answer": "Analyzing how writers achieve different effects through methods",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How should you approach synthesis questions?",
+				"options": [
+					"Write about each text separately",
+					"Select and combine relevant information from both texts",
+					"Focus on one text only",
+					"Summarize both texts completely"
+				],
+				"answer": "Select and combine relevant information from both texts",
+				"difficulty": "hard"
+			}
+		]
+	},
+	{
+		"topic": "Power and Conflict Poetry",
+		"description": "Analysis of poems exploring themes of power and conflict",
+		"questions": [
+			{
+				"question": "Which poem begins with 'My Last Duchess'?",
+				"options": [
+					"Ozymandias",
+					"My Last Duchess",
+					"The Charge of the Light Brigade",
+					"Exposure"
+				],
+				"answer": "My Last Duchess",
+				"difficulty": "easy"
+			},
+			{
+				"question": "Who wrote 'Ozymandias'?",
+				"options": [
+					"Robert Browning",
+					"Percy Shelley",
+					"Alfred Tennyson",
+					"Wilfred Owen"
+				],
+				"answer": "Percy Shelley",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What is the main theme of 'The Charge of the Light Brigade'?",
+				"options": ["Love", "War and sacrifice", "Nature", "Childhood"],
+				"answer": "War and sacrifice",
+				"difficulty": "easy"
+			},
+			{
+				"question": "In 'Exposure', what kills the soldiers?",
+				"options": [
+					"Enemy bullets",
+					"The cold weather",
+					"Poison gas",
+					"Disease"
+				],
+				"answer": "The cold weather",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does the 'statue' represent in 'Ozymandias'?",
+				"options": [
+					"Eternal power",
+					"The futility of human pride and power",
+					"Beauty",
+					"Religion"
+				],
+				"answer": "The futility of human pride and power",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Browning present the Duke's character in 'My Last Duchess'?",
+				"options": [
+					"As loving and kind",
+					"As controlling and possibly murderous",
+					"As weak and submissive",
+					"As generous and caring"
+				],
+				"answer": "As controlling and possibly murderous",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What poetic technique does Owen use in 'merciless iced east winds' in 'Exposure'?",
+				"options": [
+					"Metaphor",
+					"Personification and alliteration",
+					"Simile",
+					"Rhyme"
+				],
+				"answer": "Personification and alliteration",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does the form of 'The Charge of the Light Brigade' reflect its content?",
+				"options": [
+					"Slow rhythm mirrors peace",
+					"Galloping rhythm mirrors cavalry charge",
+					"No rhythm matches chaos",
+					"Complex form shows confusion"
+				],
+				"answer": "Galloping rhythm mirrors cavalry charge",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the effect of caesura in 'Bayonet Charge'?",
+				"options": [
+					"It creates smooth flow",
+					"It mirrors the soldier's stumbling and confusion",
+					"It makes it rhyme",
+					"It adds description"
+				],
+				"answer": "It mirrors the soldier's stumbling and confusion",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Garland present war in 'Kamikaze'?",
+				"options": [
+					"As purely heroic",
+					"As complex, affecting multiple generations",
+					"As simple",
+					"As only destructive"
+				],
+				"answer": "As complex, affecting multiple generations",
+				"difficulty": "hard"
+			}
+		]
+	},
+	{
+		"topic": "Love and Relationships Poetry",
+		"description": "Analysis of poems exploring themes of love and relationships",
+		"questions": [
+			{
+				"question": "Who wrote 'When We Two Parted'?",
+				"options": [
+					"Lord Byron",
+					"Elizabeth Barrett Browning",
+					"Robert Browning",
+					"John Keats"
+				],
+				"answer": "Lord Byron",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What is the main emotion in 'When We Two Parted'?",
+				"options": ["Joy", "Sadness and regret", "Anger", "Fear"],
+				"answer": "Sadness and regret",
+				"difficulty": "easy"
+			},
+			{
+				"question": "In 'Love's Philosophy', what does the speaker argue?",
+				"options": [
+					"Love is painful",
+					"Everything in nature pairs up, so should they",
+					"Love is impossible",
+					"Nature is cruel"
+				],
+				"answer": "Everything in nature pairs up, so should they",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What form is 'Sonnet 29' written in?",
+				"options": [
+					"Free verse",
+					"Shakespearean sonnet",
+					"Petrarchan sonnet",
+					"Ballad"
+				],
+				"answer": "Petrarchan sonnet",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Armitage present the relationship in 'Mother, any distance'?",
+				"options": [
+					"As hostile",
+					"As a journey toward independence",
+					"As unchanging",
+					"As purely negative"
+				],
+				"answer": "As a journey toward independence",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does the 'tape measure' symbolize in 'Mother, any distance'?",
+				"options": [
+					"Work tools",
+					"The bond between mother and child",
+					"Measurement",
+					"Time"
+				],
+				"answer": "The bond between mother and child",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does the structure of 'Climbing My Grandfather' reflect its content?",
+				"options": [
+					"Random structure shows confusion",
+					"Single stanza mirrors the continuous climb",
+					"Short lines show weakness",
+					"No structure matches chaos"
+				],
+				"answer": "Single stanza mirrors the continuous climb",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the effect of enjambment in 'Walking Away'?",
+				"options": [
+					"It creates confusion",
+					"It mirrors the flowing nature of memory and emotion",
+					"It shows anger",
+					"It creates rhyme"
+				],
+				"answer": "It mirrors the flowing nature of memory and emotion",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Duffy use voice in 'Before You Were Mine'?",
+				"options": [
+					"Formal and distant",
+					"Intimate and conversational",
+					"Angry and bitter",
+					"Neutral and factual"
+				],
+				"answer": "Intimate and conversational",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the effect of the extended metaphor in 'Winter Swans'?",
+				"options": [
+					"It confuses the reader",
+					"It parallels the couple's relationship journey",
+					"It's just decoration",
+					"It slows the poem down"
+				],
+				"answer": "It parallels the couple's relationship journey",
+				"difficulty": "hard"
+			}
+		]
+	},
+	{
+		"topic": "Shakespeare: Macbeth",
+		"description": "Analysis of themes, characters, and language in Macbeth",
+		"questions": [
+			{
+				"question": "What is Macbeth's tragic flaw?",
+				"options": ["Cowardice", "Ambition", "Stupidity", "Kindness"],
+				"answer": "Ambition",
+				"difficulty": "easy"
+			},
+			{
+				"question": "Who says 'Fair is foul and foul is fair'?",
+				"options": ["Macbeth", "Lady Macbeth", "The Witches", "Banquo"],
+				"answer": "The Witches",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What does Lady Macbeth ask the spirits to do?",
+				"options": [
+					"Make her beautiful",
+					"Give her power",
+					"Unsex her",
+					"Protect Macbeth"
+				],
+				"answer": "Unsex her",
+				"difficulty": "easy"
+			},
+			{
+				"question": "How does Shakespeare present Lady Macbeth's guilt?",
+				"options": [
+					"Through her confident speeches",
+					"Through sleepwalking and hallucinations",
+					"Through her happiness",
+					"Through her cruelty"
+				],
+				"answer": "Through sleepwalking and hallucinations",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the significance of sleep imagery in the play?",
+				"options": [
+					"It shows laziness",
+					"It represents peace that Macbeth destroys",
+					"It's unimportant",
+					"It shows weakness"
+				],
+				"answer": "It represents peace that Macbeth destroys",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Shakespeare use the supernatural to develop themes?",
+				"options": [
+					"For entertainment only",
+					"To explore fate versus free will",
+					"To confuse audiences",
+					"To add comedy"
+				],
+				"answer": "To explore fate versus free will",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does the Porter scene function in the play's structure?",
+				"options": [
+					"Pure comic relief",
+					"It provides dark irony after Duncan's murder",
+					"It's unnecessary",
+					"It advances the plot"
+				],
+				"answer": "It provides dark irony after Duncan's murder",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the dramatic effect of Macbeth's soliloquies?",
+				"options": [
+					"They slow down the action",
+					"They reveal his internal moral struggle",
+					"They confuse the audience",
+					"They provide facts"
+				],
+				"answer": "They reveal his internal moral struggle",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Shakespeare present the theme of appearance vs reality?",
+				"options": [
+					"Through costume changes",
+					"Through deceptive characters and situations",
+					"Through stage directions",
+					"Through rhyme schemes"
+				],
+				"answer": "Through deceptive characters and situations",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the significance of blood imagery throughout the play?",
+				"options": [
+					"It's just gore",
+					"It represents guilt, violence, and moral corruption",
+					"It shows medical knowledge",
+					"It's historically accurate"
+				],
+				"answer": "It represents guilt, violence, and moral corruption",
+				"difficulty": "hard"
 			}
 		]
 	},
 	{
 		"topic": "An Inspector Calls",
+		"description": "Analysis of Priestley's social and political message",
 		"questions": [
 			{
-				"question": "Who is the author of 'An Inspector Calls'?",
+				"question": "When was 'An Inspector Calls' written?",
+				"options": ["1912", "1945", "1920", "1950"],
+				"answer": "1945",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What is Arthur Birling's attitude to social responsibility?",
 				"options": [
-					"J.B. Priestley",
-					"William Shakespeare",
-					"George Orwell",
-					"Charles Dickens"
+					"He believes in collective responsibility",
+					"He believes everyone should look after themselves",
+					"He supports workers' rights",
+					"He wants to help the poor"
 				],
-				"answer": "J.B. Priestley"
+				"answer": "He believes everyone should look after themselves",
+				"difficulty": "easy"
 			},
 			{
-				"question": "Who is engaged to Sheila Birling?",
-				"options": ["Eric", "Gerald", "Arthur", "Inspector Goole"],
-				"answer": "Gerald"
-			},
-			{
-				"question": "What is the setting year for the play?",
-				"options": ["1912", "1945", "1900", "1920"],
-				"answer": "1912"
-			},
-			{
-				"question": "Who says: 'We are members of one body'?",
-				"options": ["Sheila", "Arthur", "Inspector Goole", "Eric"],
-				"answer": "Inspector Goole"
-			},
-			{
-				"question": "Who is accused of stealing money?",
-				"options": ["Gerald", "Arthur", "Eric", "Sheila"],
-				"answer": "Eric"
-			},
-			{
-				"question": "Who says: 'The girl\u2019s dead though'?",
-				"options": ["Inspector", "Eric", "Sheila", "Arthur"],
-				"answer": "Inspector"
-			},
-			{
-				"question": "Who is described as 'a man of business'?",
-				"options": ["Eric", "Arthur", "Gerald", "Inspector"],
-				"answer": "Arthur"
-			},
-			{
-				"question": "What does Sheila give back to Gerald?",
-				"options": ["His money", "Her ring", "A letter", "A watch"],
-				"answer": "Her ring"
-			},
-			{
-				"question": "Who was Eva Smith pregnant by?",
-				"options": ["Arthur", "Eric", "Inspector", "Gerald"],
-				"answer": "Eric"
-			},
-			{
-				"question": "Who is the Inspector?",
+				"question": "Who changes the most during the play?",
 				"options": [
-					"A family friend",
-					"A police officer",
-					"A mysterious figure",
-					"A priest"
+					"Arthur Birling",
+					"Mrs Birling",
+					"Sheila and Eric",
+					"Gerald"
 				],
-				"answer": "A mysterious figure"
+				"answer": "Sheila and Eric",
+				"difficulty": "easy"
 			},
 			{
-				"question": "Who says: 'These girls aren\u2019t cheap labour'?",
-				"options": ["Sheila", "Arthur", "Gerald", "Eric"],
-				"answer": "Sheila"
-			},
-			{
-				"question": "What does the Inspector say at the end?",
+				"question": "How does Priestley use dramatic irony?",
 				"options": [
-					"He will return",
-					"Nothing",
-					"He was never real",
-					"He will send help"
+					"Through funny jokes",
+					"Through Birling's predictions about the future",
+					"Through character names",
+					"Through stage directions"
 				],
-				"answer": "He will return"
+				"answer": "Through Birling's predictions about the future",
+				"difficulty": "medium"
 			},
 			{
-				"question": "Who says: 'I suppose we\u2019re all nice people now'?",
-				"options": ["Sheila", "Eric", "Arthur", "Gerald"],
-				"answer": "Sheila"
-			},
-			{
-				"question": "Who says: 'Public men have responsibilities as well as privileges'?",
-				"options": ["Inspector", "Arthur", "Eric", "Gerald"],
-				"answer": "Inspector"
-			},
-			{
-				"question": "Where does the play take place?",
+				"question": "What does the Inspector represent?",
 				"options": [
-					"A church",
-					"The Birling\u2019s house",
-					"A school",
-					"A restaurant"
+					"The police force",
+					"Priestley's voice and social conscience",
+					"The government",
+					"The working class"
 				],
-				"answer": "The Birling\u2019s house"
+				"answer": "Priestley's voice and social conscience",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Priestley present the theme of responsibility?",
+				"options": [
+					"Only through dialogue",
+					"Through the consequences of each character's actions",
+					"Through stage directions only",
+					"Through the setting"
+				],
+				"answer": "Through the consequences of each character's actions",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the effect of the play's circular structure?",
+				"options": [
+					"It's confusing",
+					"It suggests that without change, history will repeat",
+					"It saves time",
+					"It's more realistic"
+				],
+				"answer": "It suggests that without change, history will repeat",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Priestley use the Inspector's final speech to convey his message?",
+				"options": [
+					"As entertainment",
+					"As a direct warning about social consequences",
+					"As comedy",
+					"As historical fact"
+				],
+				"answer": "As a direct warning about social consequences",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the significance of the timing of the Inspector's arrival?",
+				"options": [
+					"It's random",
+					"It interrupts their celebration of capitalist success",
+					"It's convenient for the plot",
+					"It shows good timing"
+				],
+				"answer": "It interrupts their celebration of capitalist success",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Priestley present class differences?",
+				"options": [
+					"Through costume only",
+					"Through contrasting attitudes and language",
+					"Through height differences",
+					"Through age gaps"
+				],
+				"answer": "Through contrasting attitudes and language",
+				"difficulty": "hard"
 			}
 		]
 	},
 	{
-		"topic": "Macbeth",
+		"topic": "A Christmas Carol",
+		"description": "Analysis of Dickens' social message and character development",
 		"questions": [
 			{
-				"question": "Who wrote 'Macbeth'?",
+				"question": "What does Scrooge represent at the beginning?",
 				"options": [
-					"William Shakespeare",
-					"Charles Dickens",
-					"Jane Austen",
-					"George Orwell"
+					"Generosity",
+					"Victorian capitalism and selfishness",
+					"Kindness",
+					"Poverty"
 				],
-				"answer": "William Shakespeare"
+				"answer": "Victorian capitalism and selfishness",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What is Macbeth\u2019s wife called?",
+				"question": "What is Dickens' main message in the novella?",
 				"options": [
-					"Lady Macbeth",
-					"Lady Macduff",
-					"Banquo's Wife",
-					"Lady Ross"
+					"Christmas is expensive",
+					"Social responsibility and redemption are possible",
+					"Rich people are evil",
+					"Ghosts are real"
 				],
-				"answer": "Lady Macbeth"
+				"answer": "Social responsibility and redemption are possible",
+				"difficulty": "easy"
 			},
 			{
-				"question": "Who kills King Duncan?",
-				"options": ["Macbeth", "Macduff", "Banquo", "Lady Macbeth"],
-				"answer": "Macbeth"
-			},
-			{
-				"question": "What title does Macbeth receive from Duncan?",
+				"question": "How does Dickens present the Cratchit family?",
 				"options": [
-					"Thane of Glamis",
-					"Thane of Cawdor",
-					"King of Scotland",
-					"Prince of Cumberland"
+					"As lazy and ungrateful",
+					"As poor but loving and dignified",
+					"As wealthy",
+					"As greedy"
 				],
-				"answer": "Thane of Cawdor"
+				"answer": "As poor but loving and dignified",
+				"difficulty": "easy"
 			},
 			{
-				"question": "Who says: 'Out, damned spot'?",
-				"options": ["Lady Macbeth", "Macbeth", "Banquo", "Macduff"],
-				"answer": "Lady Macbeth"
-			},
-			{
-				"question": "What is the name of Macbeth's castle?",
-				"options": ["Dunsinane", "Inverness", "Edinburgh", "Scone"],
-				"answer": "Inverness"
-			},
-			{
-				"question": "Who is Banquo\u2019s son?",
-				"options": ["Malcolm", "Fleance", "Donalbain", "Ross"],
-				"answer": "Fleance"
-			},
-			{
-				"question": "Who becomes king at the end?",
-				"options": ["Macbeth", "Macduff", "Malcolm", "Banquo"],
-				"answer": "Malcolm"
-			},
-			{
-				"question": "What do the witches predict for Banquo?",
+				"question": "What is the significance of the three ghosts?",
 				"options": [
-					"He will be king",
-					"He will die",
-					"His children will be kings",
-					"He will flee"
+					"They represent past, present and future consequences",
+					"They're just entertaining",
+					"They represent different people",
+					"They're meaningless"
 				],
-				"answer": "His children will be kings"
+				"answer": "They represent past, present and future consequences",
+				"difficulty": "medium"
 			},
 			{
-				"question": "Who kills Macbeth?",
-				"options": ["Banquo", "Macduff", "Malcolm", "Lady Macbeth"],
-				"answer": "Macduff"
-			},
-			{
-				"question": "What is Lady Macbeth's fate?",
+				"question": "How does Dickens use Tiny Tim?",
 				"options": [
-					"She flees",
-					"She is killed",
-					"She dies by suicide",
-					"She becomes queen"
+					"For comic relief",
+					"To evoke sympathy and show the effects of poverty",
+					"As a main character",
+					"To represent wealth"
 				],
-				"answer": "She dies by suicide"
+				"answer": "To evoke sympathy and show the effects of poverty",
+				"difficulty": "medium"
 			},
 			{
-				"question": "Who says: 'Fair is foul and foul is fair'?",
-				"options": ["The witches", "Macbeth", "Lady Macbeth", "Banquo"],
-				"answer": "The witches"
-			},
-			{
-				"question": "Who says: 'Is this a dagger which I see before me'?",
-				"options": ["Macbeth", "Banquo", "Lady Macbeth", "Macduff"],
-				"answer": "Macbeth"
-			},
-			{
-				"question": "What forest comes to Dunsinane?",
+				"question": "What is the effect of the novella's structure?",
 				"options": [
-					"Birnam Wood",
-					"Sherwood Forest",
-					"Hampton Court",
-					"Windsor"
+					"It's confusing",
+					"It mirrors Scrooge's journey from isolation to integration",
+					"It's too short",
+					"It's realistic"
 				],
-				"answer": "Birnam Wood"
+				"answer": "It mirrors Scrooge's journey from isolation to integration",
+				"difficulty": "medium"
 			},
 			{
-				"question": "Who says: 'Out, out, brief candle'?",
-				"options": ["Macbeth", "Lady Macbeth", "Banquo", "Macduff"],
-				"answer": "Macbeth"
+				"question": "How does Dickens use Gothic elements?",
+				"options": [
+					"For pure horror",
+					"To create moral atmosphere and emphasize consequences",
+					"To confuse readers",
+					"To be fashionable"
+				],
+				"answer": "To create moral atmosphere and emphasize consequences",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the significance of the novella's original subtitle?",
+				"options": [
+					"It's decorative",
+					"'A Ghost Story of Christmas' emphasizes moral transformation",
+					"It's just scary",
+					"It's historical"
+				],
+				"answer": "'A Ghost Story of Christmas' emphasizes moral transformation",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Dickens present the transformation of Scrooge?",
+				"options": [
+					"As sudden and unbelievable",
+					"As gradual and psychologically convincing",
+					"As forced",
+					"As incomplete"
+				],
+				"answer": "As gradual and psychologically convincing",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the effect of Dickens' use of allegory?",
+				"options": [
+					"It's just symbolic",
+					"It allows complex social criticism through accessible narrative",
+					"It confuses readers",
+					"It's outdated"
+				],
+				"answer": "It allows complex social criticism through accessible narrative",
+				"difficulty": "hard"
 			}
 		]
 	},
 	{
-		"topic": "Language Techniques",
+		"topic": "Language Analysis Techniques",
+		"description": "Key techniques for analyzing language in both fiction and non-fiction",
 		"questions": [
 			{
-				"question": "What is a metaphor?",
+				"question": "What does the acronym DAFOREST help you remember?",
 				"options": [
-					"A direct comparison saying one thing is another",
-					"A question without an answer",
-					"An extreme exaggeration",
-					"A list of three items"
+					"Types of trees",
+					"Persuasive techniques",
+					"Character types",
+					"Plot structures"
 				],
-				"answer": "A direct comparison saying one thing is another"
+				"answer": "Persuasive techniques",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What is a simile?",
+				"question": "What is the effect of using first person in writing?",
 				"options": [
-					"A comparison using 'like' or 'as'",
-					"A question without an answer",
-					"A list of three items",
-					"Giving objects human qualities"
+					"It creates distance",
+					"It creates intimacy and personal connection",
+					"It's always better",
+					"It's more formal"
 				],
-				"answer": "A comparison using 'like' or 'as'"
+				"answer": "It creates intimacy and personal connection",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What is personification?",
+				"question": "What is semantic field?",
 				"options": [
-					"Using many adjectives",
-					"Giving human qualities to something non-human",
-					"A question with no answer",
-					"A type of rhyme"
+					"A farming area",
+					"A group of words related in meaning",
+					"A type of sentence",
+					"A writing technique"
 				],
-				"answer": "Giving human qualities to something non-human"
+				"answer": "A group of words related in meaning",
+				"difficulty": "easy"
 			},
 			{
-				"question": "What is alliteration?",
+				"question": "How do you analyze the effect of sentence structure?",
 				"options": [
-					"Repetition of vowel sounds",
-					"Repeating the same consonant sound",
-					"A list of three",
-					"A type of metaphor"
+					"Just identify the technique",
+					"Consider how it affects pace, emphasis, and reader response",
+					"Count the words",
+					"Check the grammar"
 				],
-				"answer": "Repeating the same consonant sound"
+				"answer": "Consider how it affects pace, emphasis, and reader response",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What is hyperbole?",
+				"question": "What is the difference between connotation and denotation?",
 				"options": [
-					"A story with a moral",
-					"A mild expression for something harsh",
-					"An extreme exaggeration",
-					"A question with no answer"
+					"They're the same",
+					"Denotation is literal meaning, connotation is suggested meaning",
+					"Both are literal",
+					"Both are suggested"
 				],
-				"answer": "An extreme exaggeration"
+				"answer": "Denotation is literal meaning, connotation is suggested meaning",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What is a rhetorical question?",
+				"question": "How should you structure a language analysis paragraph?",
 				"options": [
-					"A question that doesn\u2019t need an answer",
-					"A question with two answers",
-					"A question in a story",
-					"A question with a rhyme"
+					"Random order",
+					"Point, Evidence, Analysis, Link",
+					"Just quotes",
+					"Only techniques"
 				],
-				"answer": "A question that doesn\u2019t need an answer"
+				"answer": "Point, Evidence, Analysis, Link",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What is onomatopoeia?",
+				"question": "What is the most sophisticated way to analyze writer's methods?",
 				"options": [
-					"A list of three",
-					"A word that sounds like its meaning",
-					"A type of poem",
-					"A fancy word"
+					"List techniques",
+					"Explore how methods create meaning and effect in context",
+					"Give personal opinions",
+					"Summarize content"
 				],
-				"answer": "A word that sounds like its meaning"
+				"answer": "Explore how methods create meaning and effect in context",
+				"difficulty": "hard"
 			},
 			{
-				"question": "What is a list of three called?",
+				"question": "How do you achieve the highest marks in comparison questions?",
 				"options": [
-					"Triadic structure",
-					"Tricolon",
-					"Triplet",
-					"All of the above"
+					"Write about each text separately",
+					"Integrate comparison throughout with sophisticated analysis",
+					"Use simple comparisons",
+					"Focus on plot only"
 				],
-				"answer": "All of the above"
+				"answer": "Integrate comparison throughout with sophisticated analysis",
+				"difficulty": "hard"
 			},
 			{
-				"question": "What is emotive language?",
+				"question": "What is the key to analyzing language at word level?",
 				"options": [
-					"Language to make you feel something",
-					"Language that is calm",
-					"Language that describes",
-					"Language that rhymes"
+					"Count syllables",
+					"Explore connotations and word class effects",
+					"Find rhymes",
+					"Check spelling"
 				],
-				"answer": "Language to make you feel something"
+				"answer": "Explore connotations and word class effects",
+				"difficulty": "hard"
 			},
 			{
-				"question": "What is assonance?",
+				"question": "How should you approach context in literature analysis?",
 				"options": [
-					"Repeating consonant sounds",
-					"Repeating vowel sounds",
-					"A question with no answer",
-					"An exaggeration"
+					"Ignore it completely",
+					"Integrate it meaningfully to support analysis",
+					"Only mention it at the end",
+					"Write a separate paragraph"
 				],
-				"answer": "Repeating vowel sounds"
-			},
-			{
-				"question": "What is juxtaposition?",
-				"options": [
-					"Putting two things side by side for contrast",
-					"A question that doesn\u2019t need an answer",
-					"Repeating words for emphasis",
-					"A type of metaphor"
-				],
-				"answer": "Putting two things side by side for contrast"
-			},
-			{
-				"question": "What is sibilance?",
-				"options": [
-					"Repetition of 's' sounds",
-					"A rhyme scheme",
-					"A type of metaphor",
-					"A poetic device"
-				],
-				"answer": "Repetition of 's' sounds"
-			},
-			{
-				"question": "What is an oxymoron?",
-				"options": [
-					"A phrase with opposite meanings",
-					"A question with no answer",
-					"An exaggeration",
-					"A type of list"
-				],
-				"answer": "A phrase with opposite meanings"
-			},
-			{
-				"question": "What is a pun?",
-				"options": [
-					"A play on words",
-					"A rhyme scheme",
-					"An exaggeration",
-					"A type of list"
-				],
-				"answer": "A play on words"
-			},
-			{
-				"question": "What is irony?",
-				"options": [
-					"Saying the opposite of what you mean",
-					"A question with no answer",
-					"An exaggeration",
-					"A type of metaphor"
-				],
-				"answer": "Saying the opposite of what you mean"
+				"answer": "Integrate it meaningfully to support analysis",
+				"difficulty": "hard"
 			}
 		]
 	}
