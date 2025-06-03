@@ -15,58 +15,25 @@
 				"difficulty": "easy"
 			},
 			{
-				"question": "Which technique creates atmosphere in descriptive writing?",
+				"question": "Which narrative technique creates immediacy and involvement for the reader?",
 				"options": [
-					"Statistics",
-					"Sensory imagery",
-					"Direct speech only",
-					"Bullet points"
+					"Third person omniscient",
+					"First person narrative",
+					"Historical present tense",
+					"Flashback sequences"
 				],
-				"answer": "Sensory imagery",
+				"answer": "First person narrative",
 				"difficulty": "easy"
 			},
 			{
-				"question": "What does 'narrative voice' refer to?",
+				"question": "What effect does a circular narrative structure create?",
 				"options": [
-					"The author's real voice",
-					"The perspective from which the story is told",
-					"The dialogue between characters",
-					"The moral of the story"
+					"It confuses the reader",
+					"It creates a sense of completion and unity",
+					"It makes the story longer",
+					"It eliminates the need for a conclusion"
 				],
-				"answer": "The perspective from which the story is told",
-				"difficulty": "easy"
-			},
-			{
-				"question": "In creative writing, what is 'show don't tell'?",
-				"options": [
-					"Using pictures instead of words",
-					"Demonstrating through actions and details rather than stating directly",
-					"Only writing dialogue",
-					"Avoiding descriptions"
-				],
-				"answer": "Demonstrating through actions and details rather than stating directly",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does pathetic fallacy enhance narrative?",
-				"options": [
-					"By making characters sad",
-					"By reflecting characters' emotions through weather/nature",
-					"By adding factual information",
-					"By speeding up the plot"
-				],
-				"answer": "By reflecting characters' emotions through weather/nature",
-				"difficulty": "medium"
-			},
-			{
-				"question": "What is the effect of using short sentences in narrative writing?",
-				"options": [
-					"To save space",
-					"To create tension and pace",
-					"To confuse the reader",
-					"To add description"
-				],
-				"answer": "To create tension and pace",
+				"answer": "It creates a sense of completion and unity",
 				"difficulty": "medium"
 			},
 			{
@@ -81,375 +48,180 @@
 				"difficulty": "hard"
 			},
 			{
-				"question": "What is the purpose of a cyclical structure in creative writing?",
+				"question": "What is the primary function of dialogue in fiction?",
 				"options": [
-					"To repeat the same events",
-					"To return to opening elements for thematic closure",
-					"To make writing circular",
-					"To avoid endings"
+					"To fill space on the page",
+					"To reveal character and advance plot",
+					"To provide factual information",
+					"To replace narrative description"
 				],
-				"answer": "To return to opening elements for thematic closure",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How does a writer create tension through sentence structure?",
-				"options": [
-					"Using only long sentences",
-					"Varying sentence length strategically",
-					"Using only questions",
-					"Avoiding punctuation"
-				],
-				"answer": "Varying sentence length strategically",
-				"difficulty": "hard"
-			},
-			{
-				"question": "What is the effect of an unreliable narrator?",
-				"options": [
-					"It makes the story confusing",
-					"It creates uncertainty and forces reader engagement",
-					"It's always negative",
-					"It speeds up the plot"
-				],
-				"answer": "It creates uncertainty and forces reader engagement",
-				"difficulty": "hard"
-			}
-		]
-	},
-	{
-		"topic": "Paper 2: Writers' Viewpoints & Perspectives",
-		"description": "Non-fiction texts, argumentative writing, and comparative analysis",
-		"questions": [
-			{
-				"question": "What is the main purpose of persuasive writing?",
-				"options": [
-					"To entertain",
-					"To influence the reader's opinion",
-					"To provide facts only",
-					"To tell a story"
-				],
-				"answer": "To influence the reader's opinion",
+				"answer": "To reveal character and advance plot",
 				"difficulty": "easy"
 			},
 			{
-				"question": "Which technique is most effective for engaging readers in non-fiction?",
+				"question": "Which technique would be most effective for creating atmosphere in a horror story?",
 				"options": [
-					"Complex vocabulary only",
-					"Direct address (using 'you')",
-					"Long paragraphs",
-					"Avoiding examples"
+					"Detailed character backstories",
+					"Sensory imagery and pathetic fallacy",
+					"Historical facts and dates",
+					"Long descriptive paragraphs about settings"
 				],
-				"answer": "Direct address (using 'you')",
-				"difficulty": "easy"
-			},
-			{
-				"question": "What does 'bias' mean in non-fiction texts?",
-				"options": [
-					"Balanced viewpoint",
-					"Prejudice for or against something",
-					"Factual reporting",
-					"Neutral stance"
-				],
-				"answer": "Prejudice for or against something",
-				"difficulty": "easy"
-			},
-			{
-				"question": "How do statistics function as persuasive devices?",
-				"options": [
-					"They always tell the truth",
-					"They provide apparent credibility and authority",
-					"They make texts longer",
-					"They replace arguments"
-				],
-				"answer": "They provide apparent credibility and authority",
+				"answer": "Sensory imagery and pathetic fallacy",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What is the effect of rhetorical questions in argumentative writing?",
+				"question": "What does 'showing not telling' mean in creative writing?",
+				"options": [
+					"Using illustrations instead of words",
+					"Revealing information through actions and dialogue rather than exposition",
+					"Writing in present tense only",
+					"Avoiding descriptive language"
+				],
+				"answer": "Revealing information through actions and dialogue rather than exposition",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does an unreliable narrator affect reader interpretation?",
+				"options": [
+					"It makes the story factually incorrect",
+					"It forces readers to question and analyze the narrative more critically",
+					"It simplifies the plot structure",
+					"It eliminates character development"
+				],
+				"answer": "It forces readers to question and analyze the narrative more critically",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the most effective way to create tension in a narrative?",
+				"options": [
+					"Using very long sentences",
+					"Including lots of characters",
+					"Varying sentence length and using cliffhangers",
+					"Providing all information immediately"
+				],
+				"answer": "Varying sentence length and using cliffhangers",
+				"difficulty": "medium"
+			},
+			{
+				"question": "Which narrative voice allows the writer to know all characters' thoughts and feelings?",
+				"options": [
+					"First person",
+					"Second person",
+					"Third person limited",
+					"Third person omniscient"
+				],
+				"answer": "Third person omniscient",
+				"difficulty": "easy"
+			},
+			{
+				"question": "What is the purpose of foreshadowing in fiction?",
 				"options": [
 					"To confuse readers",
-					"To engage readers and make them consider the writer's viewpoint",
-					"To avoid making statements",
-					"To end paragraphs"
+					"To hint at future events and create anticipation",
+					"To provide comic relief",
+					"To extend the word count"
 				],
-				"answer": "To engage readers and make them consider the writer's viewpoint",
+				"answer": "To hint at future events and create anticipation",
 				"difficulty": "medium"
 			},
 			{
-				"question": "How does emotive language work in persuasive texts?",
+				"question": "How can a writer effectively establish characterization without direct description?",
 				"options": [
-					"By providing facts",
-					"By appealing to readers' emotions to influence opinion",
-					"By being neutral",
-					"By avoiding feelings"
+					"Through detailed physical descriptions",
+					"Through character actions, speech patterns, and reactions",
+					"By stating character traits explicitly",
+					"Through narrator commentary only"
 				],
-				"answer": "By appealing to readers' emotions to influence opinion",
+				"answer": "Through character actions, speech patterns, and reactions",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What is the purpose of counter-arguments in persuasive writing?",
+				"question": "What is the effect of using short, fragmented sentences in narrative writing?",
 				"options": [
-					"To confuse the reader",
-					"To acknowledge and refute opposing views, strengthening your argument",
-					"To change your opinion",
-					"To make texts longer"
+					"It shows poor grammar",
+					"It creates pace, tension, or reflects emotional state",
+					"It makes writing easier to read",
+					"It increases word count"
 				],
-				"answer": "To acknowledge and refute opposing views, strengthening your argument",
-				"difficulty": "hard"
+				"answer": "It creates pace, tension, or reflects emotional state",
+				"difficulty": "medium"
 			},
 			{
-				"question": "How does juxtaposition function in comparative analysis?",
+				"question": "Which literary device would be most appropriate for depicting a character's internal conflict?",
 				"options": [
-					"By avoiding comparisons",
-					"By placing contrasting ideas side by side to highlight differences",
-					"By making texts similar",
-					"By creating confusion"
+					"Alliteration",
+					"Interior monologue",
+					"Rhyme scheme",
+					"Metaphor only"
 				],
-				"answer": "By placing contrasting ideas side by side to highlight differences",
-				"difficulty": "hard"
+				"answer": "Interior monologue",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What makes a comparison sophisticated in Paper 2?",
+				"question": "What is the significance of setting in establishing mood?",
 				"options": [
-					"Listing similarities and differences",
-					"Analyzing how writers achieve different effects through methods",
-					"Comparing word counts",
-					"Stating personal preferences"
+					"It provides factual context only",
+					"It reflects and reinforces the emotional tone of the narrative",
+					"It has no impact on reader response",
+					"It only matters for historical fiction"
 				],
-				"answer": "Analyzing how writers achieve different effects through methods",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How should you approach synthesis questions?",
-				"options": [
-					"Write about each text separately",
-					"Select and combine relevant information from both texts",
-					"Focus on one text only",
-					"Summarize both texts completely"
-				],
-				"answer": "Select and combine relevant information from both texts",
-				"difficulty": "hard"
-			}
-		]
-	},
-	{
-		"topic": "Power and Conflict Poetry",
-		"description": "Analysis of poems exploring themes of power and conflict",
-		"questions": [
-			{
-				"question": "Which poem begins with 'My Last Duchess'?",
-				"options": [
-					"Ozymandias",
-					"My Last Duchess",
-					"The Charge of the Light Brigade",
-					"Exposure"
-				],
-				"answer": "My Last Duchess",
+				"answer": "It reflects and reinforces the emotional tone of the narrative",
 				"difficulty": "easy"
 			},
 			{
-				"question": "Who wrote 'Ozymandias'?",
+				"question": "How does stream of consciousness differ from traditional narrative?",
 				"options": [
-					"Robert Browning",
-					"Percy Shelley",
-					"Alfred Tennyson",
-					"Wilfred Owen"
+					"It follows grammatical rules more strictly",
+					"It presents thoughts as they naturally occur, often without logical sequence",
+					"It only uses past tense",
+					"It focuses on external actions only"
 				],
-				"answer": "Percy Shelley",
+				"answer": "It presents thoughts as they naturally occur, often without logical sequence",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What makes an effective story opening?",
+				"options": [
+					"Starting with a character's full biography",
+					"Beginning with action, dialogue, or an intriguing image",
+					"Providing complete background information",
+					"Starting with the conclusion"
+				],
+				"answer": "Beginning with action, dialogue, or an intriguing image",
 				"difficulty": "easy"
 			},
 			{
-				"question": "What is the main theme of 'The Charge of the Light Brigade'?",
-				"options": ["Love", "War and sacrifice", "Nature", "Childhood"],
-				"answer": "War and sacrifice",
-				"difficulty": "easy"
-			},
-			{
-				"question": "In 'Exposure', what kills the soldiers?",
+				"question": "How can writers create empathy for their characters?",
 				"options": [
-					"Enemy bullets",
-					"The cold weather",
-					"Poison gas",
-					"Disease"
+					"By making them perfect",
+					"By giving them relatable flaws and universal emotions",
+					"By avoiding any conflict",
+					"By describing their appearance in detail"
 				],
-				"answer": "The cold weather",
+				"answer": "By giving them relatable flaws and universal emotions",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What does the 'statue' represent in 'Ozymandias'?",
+				"question": "What is the purpose of symbolism in creative writing?",
 				"options": [
-					"Eternal power",
-					"The futility of human pride and power",
-					"Beauty",
-					"Religion"
+					"To make writing more difficult to understand",
+					"To add deeper layers of meaning and thematic resonance",
+					"To increase the word count",
+					"To replace literal description"
 				],
-				"answer": "The futility of human pride and power",
+				"answer": "To add deeper layers of meaning and thematic resonance",
+				"difficulty": "hard"
+			},
+			{
+				"question": "Which ending technique provides the most satisfaction for readers?",
+				"options": [
+					"Leaving everything unresolved",
+					"Resolving main conflicts while maintaining some ambiguity",
+					"Solving every minor detail",
+					"Ending abruptly without explanation"
+				],
+				"answer": "Resolving main conflicts while maintaining some ambiguity",
 				"difficulty": "medium"
-			},
-			{
-				"question": "How does Browning present the Duke's character in 'My Last Duchess'?",
-				"options": [
-					"As loving and kind",
-					"As controlling and possibly murderous",
-					"As weak and submissive",
-					"As generous and caring"
-				],
-				"answer": "As controlling and possibly murderous",
-				"difficulty": "medium"
-			},
-			{
-				"question": "What poetic technique does Owen use in 'merciless iced east winds' in 'Exposure'?",
-				"options": [
-					"Metaphor",
-					"Personification and alliteration",
-					"Simile",
-					"Rhyme"
-				],
-				"answer": "Personification and alliteration",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How does the form of 'The Charge of the Light Brigade' reflect its content?",
-				"options": [
-					"Slow rhythm mirrors peace",
-					"Galloping rhythm mirrors cavalry charge",
-					"No rhythm matches chaos",
-					"Complex form shows confusion"
-				],
-				"answer": "Galloping rhythm mirrors cavalry charge",
-				"difficulty": "hard"
-			},
-			{
-				"question": "What is the effect of caesura in 'Bayonet Charge'?",
-				"options": [
-					"It creates smooth flow",
-					"It mirrors the soldier's stumbling and confusion",
-					"It makes it rhyme",
-					"It adds description"
-				],
-				"answer": "It mirrors the soldier's stumbling and confusion",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How does Garland present war in 'Kamikaze'?",
-				"options": [
-					"As purely heroic",
-					"As complex, affecting multiple generations",
-					"As simple",
-					"As only destructive"
-				],
-				"answer": "As complex, affecting multiple generations",
-				"difficulty": "hard"
-			}
-		]
-	},
-	{
-		"topic": "Love and Relationships Poetry",
-		"description": "Analysis of poems exploring themes of love and relationships",
-		"questions": [
-			{
-				"question": "Who wrote 'When We Two Parted'?",
-				"options": [
-					"Lord Byron",
-					"Elizabeth Barrett Browning",
-					"Robert Browning",
-					"John Keats"
-				],
-				"answer": "Lord Byron",
-				"difficulty": "easy"
-			},
-			{
-				"question": "What is the main emotion in 'When We Two Parted'?",
-				"options": ["Joy", "Sadness and regret", "Anger", "Fear"],
-				"answer": "Sadness and regret",
-				"difficulty": "easy"
-			},
-			{
-				"question": "In 'Love's Philosophy', what does the speaker argue?",
-				"options": [
-					"Love is painful",
-					"Everything in nature pairs up, so should they",
-					"Love is impossible",
-					"Nature is cruel"
-				],
-				"answer": "Everything in nature pairs up, so should they",
-				"difficulty": "easy"
-			},
-			{
-				"question": "What form is 'Sonnet 29' written in?",
-				"options": [
-					"Free verse",
-					"Shakespearean sonnet",
-					"Petrarchan sonnet",
-					"Ballad"
-				],
-				"answer": "Petrarchan sonnet",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does Armitage present the relationship in 'Mother, any distance'?",
-				"options": [
-					"As hostile",
-					"As a journey toward independence",
-					"As unchanging",
-					"As purely negative"
-				],
-				"answer": "As a journey toward independence",
-				"difficulty": "medium"
-			},
-			{
-				"question": "What does the 'tape measure' symbolize in 'Mother, any distance'?",
-				"options": [
-					"Work tools",
-					"The bond between mother and child",
-					"Measurement",
-					"Time"
-				],
-				"answer": "The bond between mother and child",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does the structure of 'Climbing My Grandfather' reflect its content?",
-				"options": [
-					"Random structure shows confusion",
-					"Single stanza mirrors the continuous climb",
-					"Short lines show weakness",
-					"No structure matches chaos"
-				],
-				"answer": "Single stanza mirrors the continuous climb",
-				"difficulty": "hard"
-			},
-			{
-				"question": "What is the effect of enjambment in 'Walking Away'?",
-				"options": [
-					"It creates confusion",
-					"It mirrors the flowing nature of memory and emotion",
-					"It shows anger",
-					"It creates rhyme"
-				],
-				"answer": "It mirrors the flowing nature of memory and emotion",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How does Duffy use voice in 'Before You Were Mine'?",
-				"options": [
-					"Formal and distant",
-					"Intimate and conversational",
-					"Angry and bitter",
-					"Neutral and factual"
-				],
-				"answer": "Intimate and conversational",
-				"difficulty": "hard"
-			},
-			{
-				"question": "What is the effect of the extended metaphor in 'Winter Swans'?",
-				"options": [
-					"It confuses the reader",
-					"It parallels the couple's relationship journey",
-					"It's just decoration",
-					"It slows the poem down"
-				],
-				"answer": "It parallels the couple's relationship journey",
-				"difficulty": "hard"
 			}
 		]
 	},
@@ -464,65 +236,10 @@
 				"difficulty": "easy"
 			},
 			{
-				"question": "Who says 'Fair is foul and foul is fair'?",
-				"options": ["Macbeth", "Lady Macbeth", "The Witches", "Banquo"],
-				"answer": "The Witches",
+				"question": "Which character represents the natural order that Macbeth disrupts?",
+				"options": ["Lady Macbeth", "Duncan", "Banquo", "Malcolm"],
+				"answer": "Duncan",
 				"difficulty": "easy"
-			},
-			{
-				"question": "What does Lady Macbeth ask the spirits to do?",
-				"options": [
-					"Make her beautiful",
-					"Give her power",
-					"Unsex her",
-					"Protect Macbeth"
-				],
-				"answer": "Unsex her",
-				"difficulty": "easy"
-			},
-			{
-				"question": "How does Shakespeare present Lady Macbeth's guilt?",
-				"options": [
-					"Through her confident speeches",
-					"Through sleepwalking and hallucinations",
-					"Through her happiness",
-					"Through her cruelty"
-				],
-				"answer": "Through sleepwalking and hallucinations",
-				"difficulty": "medium"
-			},
-			{
-				"question": "What is the significance of sleep imagery in the play?",
-				"options": [
-					"It shows laziness",
-					"It represents peace that Macbeth destroys",
-					"It's unimportant",
-					"It shows weakness"
-				],
-				"answer": "It represents peace that Macbeth destroys",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does Shakespeare use the supernatural to develop themes?",
-				"options": [
-					"For entertainment only",
-					"To explore fate versus free will",
-					"To confuse audiences",
-					"To add comedy"
-				],
-				"answer": "To explore fate versus free will",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does the Porter scene function in the play's structure?",
-				"options": [
-					"Pure comic relief",
-					"It provides dark irony after Duncan's murder",
-					"It's unnecessary",
-					"It advances the plot"
-				],
-				"answer": "It provides dark irony after Duncan's murder",
-				"difficulty": "hard"
 			},
 			{
 				"question": "What is the dramatic effect of Macbeth's soliloquies?",
@@ -536,368 +253,642 @@
 				"difficulty": "hard"
 			},
 			{
-				"question": "How does Shakespeare present the theme of appearance vs reality?",
+				"question": "How does Lady Macbeth manipulate Macbeth in Act 1?",
 				"options": [
-					"Through costume changes",
-					"Through deceptive characters and situations",
-					"Through stage directions",
-					"Through rhyme schemes"
+					"Through physical force",
+					"By questioning his masculinity and courage",
+					"By offering him money",
+					"Through magical spells"
 				],
-				"answer": "Through deceptive characters and situations",
+				"answer": "By questioning his masculinity and courage",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What do the witches' prophecies represent in the play?",
+				"options": [
+					"Divine intervention",
+					"Fate versus free will",
+					"Comic relief",
+					"Historical accuracy"
+				],
+				"answer": "Fate versus free will",
+				"difficulty": "medium"
+			},
+			{
+				"question": "Why does Macbeth see a dagger before murdering Duncan?",
+				"options": [
+					"It's a real magical dagger",
+					"It represents his guilt and psychological turmoil",
+					"Duncan placed it there",
+					"It's a stage prop error"
+				],
+				"answer": "It represents his guilt and psychological turmoil",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does sleep function as a motif in Macbeth?",
+				"options": [
+					"It shows characters are lazy",
+					"It represents peace, innocence, and natural order",
+					"It's used for comic timing",
+					"It has no symbolic meaning"
+				],
+				"answer": "It represents peace, innocence, and natural order",
 				"difficulty": "hard"
 			},
 			{
 				"question": "What is the significance of blood imagery throughout the play?",
 				"options": [
-					"It's just gore",
-					"It represents guilt, violence, and moral corruption",
+					"It's just for shock value",
+					"It represents guilt, violence, and corruption",
 					"It shows medical knowledge",
-					"It's historically accurate"
+					"It has no particular meaning"
 				],
-				"answer": "It represents guilt, violence, and moral corruption",
-				"difficulty": "hard"
-			}
-		]
-	},
-	{
-		"topic": "An Inspector Calls",
-		"description": "Analysis of Priestley's social and political message",
-		"questions": [
-			{
-				"question": "When was 'An Inspector Calls' written?",
-				"options": ["1912", "1945", "1920", "1950"],
-				"answer": "1945",
-				"difficulty": "easy"
-			},
-			{
-				"question": "What is Arthur Birling's attitude to social responsibility?",
-				"options": [
-					"He believes in collective responsibility",
-					"He believes everyone should look after themselves",
-					"He supports workers' rights",
-					"He wants to help the poor"
-				],
-				"answer": "He believes everyone should look after themselves",
-				"difficulty": "easy"
-			},
-			{
-				"question": "Who changes the most during the play?",
-				"options": [
-					"Arthur Birling",
-					"Mrs Birling",
-					"Sheila and Eric",
-					"Gerald"
-				],
-				"answer": "Sheila and Eric",
-				"difficulty": "easy"
-			},
-			{
-				"question": "How does Priestley use dramatic irony?",
-				"options": [
-					"Through funny jokes",
-					"Through Birling's predictions about the future",
-					"Through character names",
-					"Through stage directions"
-				],
-				"answer": "Through Birling's predictions about the future",
+				"answer": "It represents guilt, violence, and corruption",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What does the Inspector represent?",
+				"question": "How does Lady Macbeth's character change throughout the play?",
 				"options": [
-					"The police force",
-					"Priestley's voice and social conscience",
-					"The government",
-					"The working class"
+					"She remains consistently strong",
+					"She transforms from manipulative to guilt-ridden",
+					"She becomes more ambitious",
+					"She shows no character development"
 				],
-				"answer": "Priestley's voice and social conscience",
+				"answer": "She transforms from manipulative to guilt-ridden",
 				"difficulty": "medium"
 			},
 			{
-				"question": "How does Priestley present the theme of responsibility?",
+				"question": "What is the dramatic irony in Duncan's arrival at Macbeth's castle?",
 				"options": [
-					"Only through dialogue",
-					"Through the consequences of each character's actions",
-					"Through stage directions only",
-					"Through the setting"
+					"Duncan knows about the murder plot",
+					"The audience knows Duncan will be killed, but he doesn't",
+					"Macbeth changes his mind about the murder",
+					"There is no irony in this scene"
 				],
-				"answer": "Through the consequences of each character's actions",
+				"answer": "The audience knows Duncan will be killed, but he doesn't",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Shakespeare use the supernatural in Macbeth?",
+				"options": [
+					"Only for entertainment",
+					"To explore themes of ambition and moral corruption",
+					"To provide historical accuracy",
+					"To confuse the audience"
+				],
+				"answer": "To explore themes of ambition and moral corruption",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What role does Banquo play in the tragedy?",
+				"options": [
+					"Comic relief",
+					"A foil to Macbeth's moral corruption",
+					"The main villain",
+					"A minor character with no significance"
+				],
+				"answer": "A foil to Macbeth's moral corruption",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What is the effect of the play's circular structure?",
+				"question": "Why does Macbeth kill the guards after Duncan's murder?",
 				"options": [
-					"It's confusing",
-					"It suggests that without change, history will repeat",
-					"It saves time",
-					"It's more realistic"
+					"They were witnesses",
+					"To appear grief-stricken and deflect suspicion",
+					"Lady Macbeth ordered him to",
+					"They attacked him first"
 				],
-				"answer": "It suggests that without change, history will repeat",
+				"answer": "To appear grief-stricken and deflect suspicion",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the significance of Macbeth's crown being 'fruitless'?",
+				"options": [
+					"It's made of artificial materials",
+					"He has no legitimate heirs to inherit",
+					"It doesn't fit properly",
+					"It's not valuable"
+				],
+				"answer": "He has no legitimate heirs to inherit",
 				"difficulty": "hard"
 			},
 			{
-				"question": "How does Priestley use the Inspector's final speech to convey his message?",
+				"question": "How does the porter scene function in the play's structure?",
 				"options": [
-					"As entertainment",
-					"As a direct warning about social consequences",
-					"As comedy",
-					"As historical fact"
+					"It provides comic relief after Duncan's murder",
+					"It's irrelevant to the plot",
+					"It reveals important plot information",
+					"It shows the time period"
 				],
-				"answer": "As a direct warning about social consequences",
+				"answer": "It provides comic relief after Duncan's murder",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does Lady Macbeth's sleepwalking scene reveal?",
+				"options": [
+					"She's physically ill",
+					"Her psychological breakdown from guilt",
+					"She's planning another murder",
+					"She's lost her memory"
+				],
+				"answer": "Her psychological breakdown from guilt",
+				"difficulty": "easy"
+			},
+			{
+				"question": "How does Malcolm test Macduff's loyalty?",
+				"options": [
+					"Through combat",
+					"By pretending to be more evil than Macbeth",
+					"By offering him gold",
+					"By threatening his family"
+				],
+				"answer": "By pretending to be more evil than Macbeth",
 				"difficulty": "hard"
 			},
 			{
-				"question": "What is the significance of the timing of the Inspector's arrival?",
+				"question": "What is the dramatic significance of Macbeth's final battle?",
 				"options": [
-					"It's random",
-					"It interrupts their celebration of capitalist success",
-					"It's convenient for the plot",
-					"It shows good timing"
+					"It shows his cowardice",
+					"It demonstrates his remaining courage despite his crimes",
+					"It's anticlimactic",
+					"It proves the witches were wrong"
 				],
-				"answer": "It interrupts their celebration of capitalist success",
+				"answer": "It demonstrates his remaining courage despite his crimes",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does the theme of appearance versus reality manifest in Macbeth?",
+				"options": [
+					"Through costume changes",
+					"Characters frequently deceive others about their true intentions",
+					"Through lighting effects",
+					"It doesn't appear in this play"
+				],
+				"answer": "Characters frequently deceive others about their true intentions",
 				"difficulty": "hard"
 			},
 			{
-				"question": "How does Priestley present class differences?",
+				"question": "What is the significance of the 'double, double, toil and trouble' scene?",
 				"options": [
-					"Through costume only",
-					"Through contrasting attitudes and language",
-					"Through height differences",
-					"Through age gaps"
+					"It's purely for entertainment",
+					"It shows the increasing supernatural influence on Macbeth",
+					"It provides historical context",
+					"It introduces new characters"
 				],
-				"answer": "Through contrasting attitudes and language",
-				"difficulty": "hard"
+				"answer": "It shows the increasing supernatural influence on Macbeth",
+				"difficulty": "medium"
 			}
 		]
 	},
 	{
 		"topic": "A Christmas Carol",
-		"description": "Analysis of Dickens' social message and character development",
+		"description": "Analysis of themes, characters, and Dickens' social commentary",
 		"questions": [
 			{
-				"question": "What does Scrooge represent at the beginning?",
+				"question": "What is Scrooge's initial attitude toward Christmas?",
 				"options": [
-					"Generosity",
-					"Victorian capitalism and selfishness",
-					"Kindness",
-					"Poverty"
+					"Enthusiastic",
+					"Dismissive and contemptuous",
+					"Indifferent",
+					"Sad"
 				],
-				"answer": "Victorian capitalism and selfishness",
+				"answer": "Dismissive and contemptuous",
 				"difficulty": "easy"
 			},
 			{
-				"question": "What is Dickens' main message in the novella?",
+				"question": "Which ghost has the most profound impact on Scrooge's transformation?",
 				"options": [
-					"Christmas is expensive",
-					"Social responsibility and redemption are possible",
-					"Rich people are evil",
-					"Ghosts are real"
+					"Ghost of Christmas Past",
+					"Ghost of Christmas Present",
+					"Ghost of Christmas Yet to Come",
+					"Jacob Marley's ghost"
 				],
-				"answer": "Social responsibility and redemption are possible",
+				"answer": "Ghost of Christmas Yet to Come",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does Jacob Marley's chain represent?",
+				"options": [
+					"His wealth",
+					"The burden of his selfish life",
+					"His professional achievements",
+					"His family connections"
+				],
+				"answer": "The burden of his selfish life",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Dickens use the Cratchit family to develop his social message?",
+				"options": [
+					"To show the dangers of poverty",
+					"To demonstrate how love and kindness can overcome hardship",
+					"To criticize large families",
+					"To promote religious values"
+				],
+				"answer": "To demonstrate how love and kindness can overcome hardship",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the significance of Tiny Tim's character?",
+				"options": [
+					"He provides comic relief",
+					"He represents innocent suffering and social injustice",
+					"He shows medical knowledge of the time",
+					"He's irrelevant to the main plot"
+				],
+				"answer": "He represents innocent suffering and social injustice",
+				"difficulty": "hard"
+			},
+			{
+				"question": "Why does Scrooge's nephew Fred continue to invite him to Christmas dinner?",
+				"options": [
+					"He wants Scrooge's money",
+					"He believes in the power of kindness and family bonds",
+					"His wife forces him to",
+					"It's a social obligation"
+				],
+				"answer": "He believes in the power of kindness and family bonds",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does the Ghost of Christmas Past reveal about Scrooge's transformation into a miser?",
+				"options": [
+					"He was born selfish",
+					"Loneliness and rejection in his youth shaped his character",
+					"He chose greed for no reason",
+					"His business partner corrupted him"
+				],
+				"answer": "Loneliness and rejection in his youth shaped his character",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Dickens use weather and setting to reflect Scrooge's character?",
+				"options": [
+					"Through realistic descriptions only",
+					"Cold, dark imagery mirrors his emotional state",
+					"Weather has no symbolic meaning",
+					"Only to show the time period"
+				],
+				"answer": "Cold, dark imagery mirrors his emotional state",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the significance of Scrooge's transformation occurring on Christmas?",
+				"options": [
+					"It's just coincidental timing",
+					"Christmas represents redemption, generosity, and human connection",
+					"It's the only holiday Dickens knew",
+					"It makes the story shorter"
+				],
+				"answer": "Christmas represents redemption, generosity, and human connection",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Dickens criticize Victorian society through the novel?",
+				"options": [
+					"He doesn't offer social criticism",
+					"By exposing the gap between rich and poor and lack of social responsibility",
+					"By praising the wealthy",
+					"Through supernatural elements only"
+				],
+				"answer": "By exposing the gap between rich and poor and lack of social responsibility",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What role does memory play in Scrooge's redemption?",
+				"options": [
+					"It's irrelevant to his change",
+					"Confronting his past helps him understand his present choices",
+					"It only confuses him",
+					"It makes him more bitter"
+				],
+				"answer": "Confronting his past helps him understand his present choices",
+				"difficulty": "hard"
+			},
+			{
+				"question": "Why does Scrooge initially dismiss the first ghost as a hallucination?",
+				"options": [
+					"He's drunk",
+					"He's mentally ill",
+					"He resists facing uncomfortable truths about himself",
+					"He doesn't believe in the supernatural"
+				],
+				"answer": "He resists facing uncomfortable truths about himself",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the symbolic significance of light in the novella?",
+				"options": [
+					"It's just for practical illumination",
+					"It represents knowledge, hope, and spiritual awakening",
+					"It shows the time period",
+					"It has no symbolic meaning"
+				],
+				"answer": "It represents knowledge, hope, and spiritual awakening",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Bob Cratchit's loyalty to Scrooge develop the theme?",
+				"options": [
+					"It shows fear of unemployment",
+					"It demonstrates the dignity of the working class",
+					"It proves Scrooge isn't that bad",
+					"It's unrealistic character behavior"
+				],
+				"answer": "It demonstrates the dignity of the working class",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the purpose of the charity collectors in Stave One?",
+				"options": [
+					"To provide exposition",
+					"To show Scrooge's complete lack of social responsibility",
+					"To add minor characters",
+					"To show historical accuracy"
+				],
+				"answer": "To show Scrooge's complete lack of social responsibility",
 				"difficulty": "easy"
 			},
 			{
-				"question": "How does Dickens present the Cratchit family?",
+				"question": "How does Dickens use the frame narrative structure?",
 				"options": [
-					"As lazy and ungrateful",
-					"As poor but loving and dignified",
-					"As wealthy",
-					"As greedy"
-				],
-				"answer": "As poor but loving and dignified",
-				"difficulty": "easy"
-			},
-			{
-				"question": "What is the significance of the three ghosts?",
-				"options": [
-					"They represent past, present and future consequences",
-					"They're just entertaining",
-					"They represent different people",
-					"They're meaningless"
-				],
-				"answer": "They represent past, present and future consequences",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does Dickens use Tiny Tim?",
-				"options": [
-					"For comic relief",
-					"To evoke sympathy and show the effects of poverty",
-					"As a main character",
-					"To represent wealth"
-				],
-				"answer": "To evoke sympathy and show the effects of poverty",
-				"difficulty": "medium"
-			},
-			{
-				"question": "What is the effect of the novella's structure?",
-				"options": [
-					"It's confusing",
-					"It mirrors Scrooge's journey from isolation to integration",
-					"It's too short",
-					"It's realistic"
-				],
-				"answer": "It mirrors Scrooge's journey from isolation to integration",
-				"difficulty": "medium"
-			},
-			{
-				"question": "How does Dickens use Gothic elements?",
-				"options": [
-					"For pure horror",
-					"To create moral atmosphere and emphasize consequences",
 					"To confuse readers",
-					"To be fashionable"
+					"To emphasize the story's moral lesson and universality",
+					"To show off his writing skills",
+					"It serves no particular purpose"
 				],
-				"answer": "To create moral atmosphere and emphasize consequences",
+				"answer": "To emphasize the story's moral lesson and universality",
 				"difficulty": "hard"
 			},
 			{
-				"question": "What is the significance of the novella's original subtitle?",
+				"question": "What does Scrooge's relationship with his clerk reveal about class dynamics?",
 				"options": [
-					"It's decorative",
-					"'A Ghost Story of Christmas' emphasizes moral transformation",
-					"It's just scary",
-					"It's historical"
+					"Class doesn't matter",
+					"The exploitation of workers by employers",
+					"Bob Cratchit is lazy",
+					"They are equals"
 				],
-				"answer": "'A Ghost Story of Christmas' emphasizes moral transformation",
+				"answer": "The exploitation of workers by employers",
+				"difficulty": "medium"
+			},
+			{
+				"question": "Why is the Ghost of Christmas Yet to Come silent?",
+				"options": [
+					"It can't speak",
+					"Silence makes its message more ominous and forces Scrooge to confront death",
+					"It's a minor character",
+					"Dickens forgot to give it dialogue"
+				],
+				"answer": "Silence makes its message more ominous and forces Scrooge to confront death",
 				"difficulty": "hard"
 			},
 			{
-				"question": "How does Dickens present the transformation of Scrooge?",
+				"question": "How does the novella's ending reinforce its themes?",
 				"options": [
-					"As sudden and unbelievable",
-					"As gradual and psychologically convincing",
-					"As forced",
-					"As incomplete"
+					"It's too sudden to be meaningful",
+					"Scrooge's sustained transformation proves redemption is possible",
+					"It's unrealistic",
+					"It contradicts the earlier message"
 				],
-				"answer": "As gradual and psychologically convincing",
-				"difficulty": "hard"
+				"answer": "Scrooge's sustained transformation proves redemption is possible",
+				"difficulty": "medium"
 			},
 			{
-				"question": "What is the effect of Dickens' use of allegory?",
+				"question": "What is the significance of Scrooge's counting house being cold?",
 				"options": [
-					"It's just symbolic",
-					"It allows complex social criticism through accessible narrative",
-					"It confuses readers",
-					"It's outdated"
+					"It's winter weather",
+					"It reflects his cold heart and miserly nature",
+					"He can't afford heating",
+					"It's realistic for the time period"
 				],
-				"answer": "It allows complex social criticism through accessible narrative",
-				"difficulty": "hard"
+				"answer": "It reflects his cold heart and miserly nature",
+				"difficulty": "easy"
 			}
 		]
 	},
 	{
-		"topic": "Language Analysis Techniques",
-		"description": "Key techniques for analyzing language in both fiction and non-fiction",
+		"topic": "An Inspector Calls",
+		"description": "Analysis of themes, characters, and Priestley's social and political message",
 		"questions": [
 			{
-				"question": "What does the acronym DAFOREST help you remember?",
+				"question": "Who is Inspector Goole investigating?",
 				"options": [
-					"Types of trees",
-					"Persuasive techniques",
-					"Character types",
-					"Plot structures"
+					"A robbery",
+					"The death of Eva Smith/Daisy Renton",
+					"A tax fraud",
+					"A political conspiracy"
 				],
-				"answer": "Persuasive techniques",
+				"answer": "The death of Eva Smith/Daisy Renton",
 				"difficulty": "easy"
 			},
 			{
-				"question": "What is the effect of using first person in writing?",
+				"question": "What does the Inspector represent in the play?",
 				"options": [
-					"It creates distance",
-					"It creates intimacy and personal connection",
-					"It's always better",
-					"It's more formal"
+					"The legal system",
+					"Social conscience and moral authority",
+					"Political corruption",
+					"Religious judgment"
 				],
-				"answer": "It creates intimacy and personal connection",
+				"answer": "Social conscience and moral authority",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Arthur Birling's character embody capitalist values?",
+				"options": [
+					"He's generous to workers",
+					"He prioritizes profit over people and social responsibility",
+					"He supports socialism",
+					"He's politically neutral"
+				],
+				"answer": "He prioritizes profit over people and social responsibility",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the dramatic irony in Birling's speech about the Titanic?",
+				"options": [
+					"He's lying about the ship",
+					"The audience knows the Titanic will sink, contradicting his optimism",
+					"He's never seen the ship",
+					"There is no irony"
+				],
+				"answer": "The audience knows the Titanic will sink, contradicting his optimism",
+				"difficulty": "hard"
+			},
+			{
+				"question": "Why does Sheila give back the engagement ring?",
+				"options": [
+					"She doesn't love Gerald",
+					"She recognizes their moral differences after the revelation",
+					"Her parents force her to",
+					"The ring is too expensive"
+				],
+				"answer": "She recognizes their moral differences after the revelation",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How does Eric's drinking problem relate to the play's themes?",
+				"options": [
+					"It's irrelevant to the plot",
+					"It shows the moral bankruptcy of the upper class",
+					"It provides comic relief",
+					"It's just character detail"
+				],
+				"answer": "It shows the moral bankruptcy of the upper class",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What is the significance of the play being set in 1912 but written in 1945?",
+				"options": [
+					"Priestley could only write about the past",
+					"It allows Priestley to use hindsight to critique pre-war attitudes",
+					"It's more dramatic",
+					"The setting is irrelevant"
+				],
+				"answer": "It allows Priestley to use hindsight to critique pre-war attitudes",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Mrs. Birling's treatment of Eva Smith reveal her character?",
+				"options": [
+					"She's genuinely helpful",
+					"She shows class prejudice and lack of empathy",
+					"She's confused about the situation",
+					"She's trying to protect her family"
+				],
+				"answer": "She shows class prejudice and lack of empathy",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What does the Inspector's final speech warn about?",
+				"options": [
+					"Individual crimes",
+					"The consequences of ignoring social responsibility",
+					"Legal punishment",
+					"Family conflicts"
+				],
+				"answer": "The consequences of ignoring social responsibility",
+				"difficulty": "medium"
+			},
+			{
+				"question": "Why might the Inspector not be a real police officer?",
+				"options": [
+					"He's a criminal",
+					"He represents moral rather than legal authority",
+					"He's mentally ill",
+					"He's from another country"
+				],
+				"answer": "He represents moral rather than legal authority",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does Gerald's affair with Daisy Renton complicate his character?",
+				"options": [
+					"It makes him purely villainous",
+					"It shows he's capable of both kindness and exploitation",
+					"It's irrelevant to his character",
+					"It proves he's innocent"
+				],
+				"answer": "It shows he's capable of both kindness and exploitation",
+				"difficulty": "medium"
+			},
+			{
+				"question": "What is the dramatic function of the telephone call at the end?",
+				"options": [
+					"It provides a twist ending",
+					"It suggests the cycle of social irresponsibility will continue",
+					"It resolves all conflicts",
+					"It's just for suspense"
+				],
+				"answer": "It suggests the cycle of social irresponsibility will continue",
+				"difficulty": "hard"
+			},
+			{
+				"question": "How does the unity of time, place, and action affect the play's impact?",
+				"options": [
+					"It makes the play boring",
+					"It intensifies the psychological pressure and moral scrutiny",
+					"It's just a stylistic choice",
+					"It has no particular effect"
+				],
+				"answer": "It intensifies the psychological pressure and moral scrutiny",
+				"difficulty": "hard"
+			},
+			{
+				"question": "What does Eva Smith/Daisy Renton symbolize in the play?",
+				"options": [
+					"Individual tragedy only",
+					"The exploitation of the working class",
+					"Women's rights",
+					"Mental illness"
+				],
+				"answer": "The exploitation of the working class",
+				"difficulty": "medium"
+			},
+			{
+				"question": "How do Sheila and Eric differ from their parents by the play's end?",
+				"options": [
+					"They don't change at all",
+					"They accept responsibility and show genuine remorse",
+					"They become more selfish",
+					"They leave the family"
+				],
+				"answer": "They accept responsibility and show genuine remorse",
 				"difficulty": "easy"
 			},
 			{
-				"question": "What is semantic field?",
+				"question": "What is the significance of the lighting changes during the Inspector's visit?",
 				"options": [
-					"A farming area",
-					"A group of words related in meaning",
-					"A type of sentence",
-					"A writing technique"
+					"They show the time of day",
+					"They represent the harsh light of truth exposing hidden secrets",
+					"They're just stage directions",
+					"They indicate scene changes"
 				],
-				"answer": "A group of words related in meaning",
-				"difficulty": "easy"
-			},
-			{
-				"question": "How do you analyze the effect of sentence structure?",
-				"options": [
-					"Just identify the technique",
-					"Consider how it affects pace, emphasis, and reader response",
-					"Count the words",
-					"Check the grammar"
-				],
-				"answer": "Consider how it affects pace, emphasis, and reader response",
+				"answer": "They represent the harsh light of truth exposing hidden secrets",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What is the difference between connotation and denotation?",
+				"question": "How does Priestley use the engagement celebration as a dramatic device?",
 				"options": [
-					"They're the same",
-					"Denotation is literal meaning, connotation is suggested meaning",
-					"Both are literal",
-					"Both are suggested"
+					"To show family happiness",
+					"To contrast private celebration with public responsibility",
+					"To establish the time period",
+					"For comic relief"
 				],
-				"answer": "Denotation is literal meaning, connotation is suggested meaning",
+				"answer": "To contrast private celebration with public responsibility",
 				"difficulty": "medium"
 			},
 			{
-				"question": "How should you structure a language analysis paragraph?",
+				"question": "What is the Inspector's method of questioning designed to achieve?",
 				"options": [
-					"Random order",
-					"Point, Evidence, Analysis, Link",
-					"Just quotes",
-					"Only techniques"
+					"To gather evidence for court",
+					"To force each character to confront their moral failings",
+					"To confuse the family",
+					"To find the real killer"
 				],
-				"answer": "Point, Evidence, Analysis, Link",
+				"answer": "To force each character to confront their moral failings",
 				"difficulty": "medium"
 			},
 			{
-				"question": "What is the most sophisticated way to analyze writer's methods?",
+				"question": "How does the class system function as a theme in the play?",
 				"options": [
-					"List techniques",
-					"Explore how methods create meaning and effect in context",
-					"Give personal opinions",
-					"Summarize content"
+					"It's not addressed",
+					"It shows how social divisions enable exploitation and prevent justice",
+					"It proves class doesn't matter",
+					"It only affects minor characters"
 				],
-				"answer": "Explore how methods create meaning and effect in context",
+				"answer": "It shows how social divisions enable exploitation and prevent justice",
 				"difficulty": "hard"
 			},
 			{
-				"question": "How do you achieve the highest marks in comparison questions?",
+				"question": "What is the significance of the play's circular structure?",
 				"options": [
-					"Write about each text separately",
-					"Integrate comparison throughout with sophisticated analysis",
-					"Use simple comparisons",
-					"Focus on plot only"
+					"It's confusing for audiences",
+					"It suggests that without change, the same patterns will repeat",
+					"It's just a dramatic technique",
+					"It shows time passing"
 				],
-				"answer": "Integrate comparison throughout with sophisticated analysis",
-				"difficulty": "hard"
-			},
-			{
-				"question": "What is the key to analyzing language at word level?",
-				"options": [
-					"Count syllables",
-					"Explore connotations and word class effects",
-					"Find rhymes",
-					"Check spelling"
-				],
-				"answer": "Explore connotations and word class effects",
-				"difficulty": "hard"
-			},
-			{
-				"question": "How should you approach context in literature analysis?",
-				"options": [
-					"Ignore it completely",
-					"Integrate it meaningfully to support analysis",
-					"Only mention it at the end",
-					"Write a separate paragraph"
-				],
-				"answer": "Integrate it meaningfully to support analysis",
+				"answer": "It suggests that without change, the same patterns will repeat",
 				"difficulty": "hard"
 			}
 		]

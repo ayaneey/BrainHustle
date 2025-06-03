@@ -1,231 +1,106 @@
 [
 	{
-		"topic": "Algebra",
+		"topic": "Number & Calculations",
 		"questions": [
 			{
-				"question": "Factor: x\u00b2 - 9",
-				"options": ["(x+3)(x-3)", "(x+9)(x-1)", "(x-9)(x+1)", "(x+9)(x+9)"],
-				"answer": "(x+3)(x-3)"
+				"question": "What is 345 + 287?",
+				"options": ["632", "622", "642", "612"],
+				"answer": "632"
 			},
 			{
-				"question": "What is the value of x in: 3(x - 2) = 9",
-				"options": ["5", "3", "6", "4"],
-				"answer": "5"
+				"question": "Calculate 456 - 189",
+				"options": ["267", "277", "257", "247"],
+				"answer": "267"
 			},
 			{
-				"question": "Expand: (x + 2)(x + 3)",
-				"options": [
-					"x\u00b2 + 5x + 6",
-					"x\u00b2 + 6x + 5",
-					"x\u00b2 + 2x + 3",
-					"x\u00b2 + 3x + 2"
-				],
-				"answer": "x\u00b2 + 5x + 6"
+				"question": "What is 24 × 15?",
+				"options": ["360", "350", "370", "340"],
+				"answer": "360"
 			},
 			{
-				"question": "Solve for x: 2x + 5 = 13",
-				"options": ["3", "4", "5", "6"],
-				"answer": "4"
-			},
-			{
-				"question": "Simplify: (3x + 2x) - x",
-				"options": ["4x", "5x", "3x", "2x"],
-				"answer": "4x"
-			},
-			{
-				"question": "Solve for x: x\u00b2 = 49",
-				"options": ["7", "\u00b17", "6", "9"],
-				"answer": "\u00b17"
-			},
-			{
-				"question": "Solve: x\u00b2 - 4x = 0",
-				"options": ["0, 4", "2", "1, -1", "4"],
-				"answer": "0, 4"
-			},
-			{
-				"question": "What is the slope in y = 3x + 5?",
-				"options": ["3", "5", "-3", "-5"],
-				"answer": "3"
-			},
-			{
-				"question": "Expand: (x - 1)\u00b2",
-				"options": [
-					"x\u00b2 - 2x + 1",
-					"x\u00b2 - 1",
-					"x\u00b2 + 2x + 1",
-					"x\u00b2 + 1"
-				],
-				"answer": "x\u00b2 - 2x + 1"
-			},
-			{
-				"question": "Simplify: 2(x + 3) + x",
-				"options": ["3x + 6", "2x + 3", "2x + 6", "x + 6"],
-				"answer": "3x + 6"
-			},
-			{
-				"question": "Factor: x\u00b2 + 5x + 6",
-				"options": ["(x+2)(x+3)", "(x+1)(x+6)", "(x+3)(x+4)", "(x+2)(x+4)"],
-				"answer": "(x+2)(x+3)"
-			},
-			{
-				"question": "Simplify: 4x - 2x + 7",
-				"options": ["2x + 7", "6x + 7", "x + 7", "4x + 7"],
-				"answer": "2x + 7"
-			},
-			{
-				"question": "Solve for x: 5x = 20",
-				"options": ["4", "5", "6", "3"],
-				"answer": "4"
-			},
-			{
-				"question": "What is the solution to x\u00b2 - 16 = 0?",
-				"options": ["\u00b14", "4", "-4", "0"],
-				"answer": "\u00b14"
-			},
-			{
-				"question": "What is the solution to 2(x + 4) = 12?",
-				"options": ["x = 2", "x = 3", "x = 4", "x = 1"],
-				"answer": "x = 2"
-			},
-			{
-				"question": "What is the y-intercept of y = 2x + 1?",
-				"options": ["1", "2", "0", "-1"],
-				"answer": "1"
-			},
-			{
-				"question": "What is the value of x if x/2 = 6?",
-				"options": ["12", "6", "3", "10"],
+				"question": "Calculate 144 ÷ 12",
+				"options": ["12", "11", "13", "10"],
 				"answer": "12"
 			},
 			{
-				"question": "Simplify: (x + 1)(x - 1)",
-				"options": [
-					"x\u00b2 - 1",
-					"x\u00b2 + 1",
-					"x\u00b2 - 2",
-					"x\u00b2 + 2x + 1"
-				],
-				"answer": "x\u00b2 - 1"
+				"question": "Round 4,567 to the nearest hundred",
+				"options": ["4,600", "4,500", "4,570", "5,000"],
+				"answer": "4,600"
 			},
 			{
-				"question": "Solve: x\u00b2 + 2x = 0",
-				"options": ["0, -2", "2", "1", "0, 2"],
-				"answer": "0, -2"
+				"question": "What is 2³?",
+				"options": ["8", "6", "9", "4"],
+				"answer": "8"
 			},
 			{
-				"question": "What is the solution to: 2x - 3 = 5?",
-				"options": ["x = 4", "x = 3", "x = 5", "x = 2"],
-				"answer": "x = 4"
-			}
-		]
-	},
-	{
-		"topic": "Geometry",
-		"questions": [
-			{
-				"question": "How many degrees are in a right angle?",
-				"options": ["90\u00b0", "45\u00b0", "60\u00b0", "180\u00b0"],
-				"answer": "90\u00b0"
+				"question": "Calculate 7 × 8 + 4",
+				"options": ["60", "58", "62", "56"],
+				"answer": "60"
 			},
 			{
-				"question": "What is the total interior angle sum of a quadrilateral?",
-				"options": ["360\u00b0", "180\u00b0", "540\u00b0", "720\u00b0"],
-				"answer": "360\u00b0"
+				"question": "What is the square root of 81?",
+				"options": ["9", "8", "10", "7"],
+				"answer": "9"
 			},
 			{
-				"question": "What is the area of a triangle with base 10 and height 4?",
-				"options": ["20", "40", "14", "25"],
-				"answer": "20"
+				"question": "Round 0.456 to 2 decimal places",
+				"options": ["0.46", "0.45", "0.50", "0.44"],
+				"answer": "0.46"
 			},
 			{
-				"question": "What is the name of a polygon with 8 sides?",
-				"options": ["Octagon", "Hexagon", "Heptagon", "Nonagon"],
-				"answer": "Octagon"
+				"question": "What is 5²?",
+				"options": ["25", "10", "20", "15"],
+				"answer": "25"
 			},
 			{
-				"question": "A straight angle measures:",
-				"options": ["180\u00b0", "90\u00b0", "360\u00b0", "120\u00b0"],
-				"answer": "180\u00b0"
+				"question": "Calculate 18 + 7 × 3",
+				"options": ["39", "75", "45", "30"],
+				"answer": "39"
 			},
 			{
-				"question": "What is the name of a triangle with two equal sides?",
-				"options": ["Isosceles", "Scalene", "Equilateral", "Right"],
-				"answer": "Isosceles"
+				"question": "What is 132 ÷ 11?",
+				"options": ["12", "11", "13", "10"],
+				"answer": "12"
 			},
 			{
-				"question": "What do you call a 3D object with circular base and curved surface?",
-				"options": ["Cylinder", "Cone", "Sphere", "Cube"],
-				"answer": "Cylinder"
+				"question": "Round 3.847 to 1 decimal place",
+				"options": ["3.8", "3.9", "4.0", "3.85"],
+				"answer": "3.8"
 			},
 			{
-				"question": "Which shape has all sides equal and angles 90\u00b0?",
-				"options": ["Square", "Rectangle", "Rhombus", "Parallelogram"],
-				"answer": "Square"
+				"question": "Calculate 15 × 7",
+				"options": ["105", "95", "115", "100"],
+				"answer": "105"
 			},
 			{
-				"question": "What is the perimeter of a square with side 4cm?",
-				"options": ["16cm", "8cm", "12cm", "10cm"],
-				"answer": "16cm"
+				"question": "What is 4³?",
+				"options": ["64", "12", "16", "24"],
+				"answer": "64"
 			},
 			{
-				"question": "How many faces does a cube have?",
-				"options": ["6", "8", "4", "12"],
-				"answer": "6"
+				"question": "Calculate 234 + 567 + 123",
+				"options": ["924", "914", "934", "904"],
+				"answer": "924"
 			},
 			{
-				"question": "What is the area of a rectangle with width 5 and length 6?",
-				"options": ["30", "25", "35", "20"],
-				"answer": "30"
+				"question": "What is the square root of 144?",
+				"options": ["12", "11", "13", "14"],
+				"answer": "12"
 			},
 			{
-				"question": "What is a chord in a circle?",
-				"options": [
-					"A line segment joining two points on the circle",
-					"Radius",
-					"Diameter",
-					"Tangent"
-				],
-				"answer": "A line segment joining two points on the circle"
+				"question": "Calculate 96 ÷ 8",
+				"options": ["12", "11", "13", "10"],
+				"answer": "12"
 			},
 			{
-				"question": "Which triangle has one angle exactly 90\u00b0?",
-				"options": ["Right Triangle", "Scalene", "Equilateral", "Obtuse"],
-				"answer": "Right Triangle"
+				"question": "Round 567.89 to the nearest whole number",
+				"options": ["568", "567", "570", "560"],
+				"answer": "568"
 			},
 			{
-				"question": "What is the radius of a circle with diameter 10cm?",
-				"options": ["5cm", "10cm", "2cm", "20cm"],
-				"answer": "5cm"
-			},
-			{
-				"question": "What do we call angles that add up to 90\u00b0?",
-				"options": ["Complementary", "Supplementary", "Reflex", "Straight"],
-				"answer": "Complementary"
-			},
-			{
-				"question": "Which 3D shape has only one vertex?",
-				"options": ["Cone", "Sphere", "Cube", "Cylinder"],
-				"answer": "Cone"
-			},
-			{
-				"question": "The distance around a circle is called:",
-				"options": ["Circumference", "Diameter", "Radius", "Chord"],
-				"answer": "Circumference"
-			},
-			{
-				"question": "What is the longest side in a right-angled triangle?",
-				"options": ["Hypotenuse", "Base", "Height", "Adjacent"],
-				"answer": "Hypotenuse"
-			},
-			{
-				"question": "A regular pentagon has how many equal sides?",
-				"options": ["5", "4", "6", "3"],
-				"answer": "5"
-			},
-			{
-				"question": "What is the measure of each angle in an equilateral triangle?",
-				"options": ["60\u00b0", "45\u00b0", "90\u00b0", "30\u00b0"],
-				"answer": "60\u00b0"
+				"question": "What is 6 × 9 - 14?",
+				"options": ["40", "50", "44", "36"],
+				"answer": "40"
 			}
 		]
 	},
@@ -233,103 +108,103 @@
 		"topic": "Fractions & Decimals",
 		"questions": [
 			{
-				"question": "Simplify: 8/12",
-				"options": ["2/3", "3/4", "1/2", "4/5"],
-				"answer": "2/3"
+				"question": "Simplify 12/16",
+				"options": ["3/4", "2/3", "1/2", "4/5"],
+				"answer": "3/4"
 			},
 			{
-				"question": "What is 0.25 as a fraction?",
-				"options": ["1/4", "1/3", "2/5", "3/4"],
-				"answer": "1/4"
+				"question": "Convert 0.75 to a fraction",
+				"options": ["3/4", "2/3", "4/5", "7/10"],
+				"answer": "3/4"
 			},
 			{
-				"question": "Add: 1/3 + 1/6",
-				"options": ["1/2", "2/3", "1/6", "5/6"],
+				"question": "Calculate 1/3 + 1/6",
+				"options": ["1/2", "2/9", "1/4", "2/6"],
 				"answer": "1/2"
 			},
 			{
-				"question": "Subtract: 3/4 - 1/2",
-				"options": ["1/4", "2/4", "3/4", "1/2"],
+				"question": "What is 3/4 - 1/2?",
+				"options": ["1/4", "1/2", "2/4", "1/8"],
 				"answer": "1/4"
 			},
 			{
-				"question": "Convert 0.6 to a fraction",
-				"options": ["3/5", "2/3", "1/2", "4/5"],
-				"answer": "3/5"
+				"question": "Convert 3/5 to a decimal",
+				"options": ["0.6", "0.5", "0.65", "0.35"],
+				"answer": "0.6"
 			},
 			{
-				"question": "What is 1/2 of 20?",
-				"options": ["10", "5", "2", "15"],
-				"answer": "10"
+				"question": "Calculate 1/2 × 2/3",
+				"options": ["1/3", "2/6", "1/6", "2/3"],
+				"answer": "1/3"
 			},
 			{
-				"question": "Which is larger: 0.75 or 2/3?",
-				"options": ["0.75", "2/3", "Equal", "Can't Say"],
-				"answer": "0.75"
+				"question": "What is 2/5 of 30?",
+				"options": ["12", "10", "15", "6"],
+				"answer": "12"
 			},
 			{
-				"question": "Multiply: 1/4 \u00d7 2/3",
-				"options": ["2/12", "1/6", "1/2", "2/3"],
-				"answer": "1/6"
+				"question": "Simplify 15/20",
+				"options": ["3/4", "2/3", "4/5", "1/2"],
+				"answer": "3/4"
 			},
 			{
-				"question": "Divide: 1/2 \u00f7 1/4",
-				"options": ["2", "1", "4", "3"],
-				"answer": "2"
+				"question": "Calculate 2/3 + 1/4",
+				"options": ["11/12", "3/7", "5/12", "7/12"],
+				"answer": "11/12"
 			},
 			{
-				"question": "Convert 3/4 to a decimal",
-				"options": ["0.75", "0.5", "0.6", "0.8"],
-				"answer": "0.75"
+				"question": "Convert 0.4 to a fraction",
+				"options": ["2/5", "1/4", "3/8", "4/10"],
+				"answer": "2/5"
 			},
 			{
-				"question": "What is 1/5 of 100?",
+				"question": "What is 3/4 ÷ 1/2?",
+				"options": ["3/2", "3/8", "6/4", "1"],
+				"answer": "3/2"
+			},
+			{
+				"question": "Calculate 0.25 + 0.75",
+				"options": ["1", "0.9", "1.1", "0.95"],
+				"answer": "1"
+			},
+			{
+				"question": "What is 1/4 of 80?",
 				"options": ["20", "15", "25", "10"],
 				"answer": "20"
 			},
 			{
-				"question": "Add: 0.2 + 0.5",
-				"options": ["0.7", "0.6", "0.8", "0.9"],
-				"answer": "0.7"
-			},
-			{
-				"question": "Subtract: 0.9 - 0.4",
-				"options": ["0.5", "0.4", "0.3", "0.6"],
-				"answer": "0.5"
-			},
-			{
-				"question": "Simplify: 18/24",
-				"options": ["3/4", "2/3", "5/6", "1/2"],
+				"question": "Simplify 18/24",
+				"options": ["3/4", "2/3", "5/6", "7/8"],
 				"answer": "3/4"
 			},
 			{
-				"question": "What is 0.5 \u00d7 0.2?",
-				"options": ["0.1", "0.2", "0.05", "0.3"],
-				"answer": "0.1"
+				"question": "Calculate 5/6 - 1/3",
+				"options": ["1/2", "4/3", "2/3", "1/6"],
+				"answer": "1/2"
 			},
 			{
-				"question": "Which is greater: 1/3 or 0.3?",
-				"options": ["1/3", "0.3", "Equal", "Can't Say"],
-				"answer": "1/3"
+				"question": "Convert 7/10 to a decimal",
+				"options": ["0.7", "0.07", "7.0", "0.77"],
+				"answer": "0.7"
 			},
 			{
-				"question": "Divide 0.6 by 0.2",
-				"options": ["3", "2", "1", "0.5"],
-				"answer": "3"
+				"question": "What is 2/3 × 3/4?",
+				"options": ["1/2", "6/12", "5/7", "6/7"],
+				"answer": "1/2"
 			},
 			{
-				"question": "What is 0.2 as a fraction?",
-				"options": ["1/5", "1/4", "1/2", "2/5"],
-				"answer": "1/5"
+				"question": "Calculate 0.8 - 0.35",
+				"options": ["0.45", "0.55", "0.43", "0.48"],
+				"answer": "0.45"
 			},
 			{
-				"question": "What is 1/10 + 1/5?",
-				"options": ["3/10", "1/2", "1/3", "2/10"],
-				"answer": "3/10"
+				"question": "What is 3/8 + 1/8?",
+				"options": ["1/2", "4/16", "4/8", "2/8"],
+				"answer": "1/2"
 			},
 			{
 				"question": "Convert 1.25 to a fraction",
-				"options": ["5/4", "3/2", "1/2", "4/5"],
+				"options": ["5/4", "4/5", "3/2", "6/5"],
 				"answer": "5/4"
 			}
 		]
@@ -338,104 +213,854 @@
 		"topic": "Percentages",
 		"questions": [
 			{
-				"question": "What is 25% of 200?",
-				"options": ["50", "25", "75", "100"],
-				"answer": "50"
+				"question": "What is 20% of 150?",
+				"options": ["30", "25", "35", "40"],
+				"answer": "30"
 			},
 			{
-				"question": "What is 10% of 90?",
-				"options": ["9", "10", "8", "7"],
-				"answer": "9"
+				"question": "Convert 0.35 to a percentage",
+				"options": ["35%", "3.5%", "350%", "0.35%"],
+				"answer": "35%"
 			},
 			{
-				"question": "Increase 100 by 20%",
-				"options": ["120", "110", "115", "105"],
-				"answer": "120"
+				"question": "Increase 80 by 25%",
+				"options": ["100", "90", "110", "105"],
+				"answer": "100"
 			},
 			{
-				"question": "Decrease 80 by 25%",
-				"options": ["60", "55", "70", "50"],
-				"answer": "60"
-			},
-			{
-				"question": "What is 50% of 0.8?",
-				"options": ["0.4", "0.5", "0.6", "0.3"],
-				"answer": "0.4"
-			},
-			{
-				"question": "Convert 0.4 to a percentage",
-				"options": ["40%", "4%", "0.4%", "14%"],
-				"answer": "40%"
-			},
-			{
-				"question": "What percentage is 20 out of 80?",
-				"options": ["25%", "30%", "20%", "15%"],
+				"question": "What percentage is 15 out of 60?",
+				"options": ["25%", "20%", "30%", "15%"],
 				"answer": "25%"
 			},
 			{
-				"question": "Find 15% of 60",
-				"options": ["9", "10", "12", "15"],
-				"answer": "9"
+				"question": "Decrease 120 by 10%",
+				"options": ["108", "110", "100", "112"],
+				"answer": "108"
 			},
 			{
-				"question": "Convert 3/4 to percentage",
+				"question": "What is 15% of 200?",
+				"options": ["30", "25", "35", "20"],
+				"answer": "30"
+			},
+			{
+				"question": "Convert 3/4 to a percentage",
 				"options": ["75%", "70%", "80%", "60%"],
 				"answer": "75%"
 			},
 			{
-				"question": "If a shirt costs $100 and is discounted by 30%, what is the price?",
-				"options": ["70", "60", "80", "90"],
-				"answer": "70"
+				"question": "A jacket costs £60. It's reduced by 20%. What's the new price?",
+				"options": ["£48", "£50", "£45", "£52"],
+				"answer": "£48"
 			},
 			{
-				"question": "What is 5% of 300?",
-				"options": ["15", "20", "30", "25"],
-				"answer": "15"
+				"question": "What is 5% of 400?",
+				"options": ["20", "25", "15", "30"],
+				"answer": "20"
 			},
 			{
-				"question": "Which is greater: 0.6 or 60%",
-				"options": ["Equal", "0.6", "60%", "Can't Say"],
-				"answer": "Equal"
-			},
-			{
-				"question": "What is 12.5% of 80?",
-				"options": ["10", "9", "11", "12"],
-				"answer": "10"
-			},
-			{
-				"question": "Convert 0.05 to a percentage",
-				"options": ["5%", "50%", "0.5%", "0.05%"],
-				"answer": "5%"
-			},
-			{
-				"question": "What is 120 increased by 10%?",
-				"options": ["132", "130", "128", "120"],
-				"answer": "132"
-			},
-			{
-				"question": "What is 90 decreased by 20%?",
-				"options": ["72", "80", "70", "75"],
-				"answer": "72"
-			},
-			{
-				"question": "What percentage of 250 is 50?",
-				"options": ["20%", "25%", "10%", "30%"],
-				"answer": "20%"
-			},
-			{
-				"question": "Find the percentage: 40 out of 160",
-				"options": ["25%", "20%", "30%", "40%"],
+				"question": "What percentage is 40 out of 160?",
+				"options": ["25%", "20%", "30%", "35%"],
 				"answer": "25%"
 			},
 			{
-				"question": "Increase 200 by 10%",
-				"options": ["220", "210", "215", "205"],
-				"answer": "220"
+				"question": "Increase 50 by 40%",
+				"options": ["70", "60", "80", "65"],
+				"answer": "70"
+			},
+			{
+				"question": "Convert 0.08 to a percentage",
+				"options": ["8%", "80%", "0.8%", "0.08%"],
+				"answer": "8%"
+			},
+			{
+				"question": "What is 30% of 90?",
+				"options": ["27", "30", "24", "21"],
+				"answer": "27"
+			},
+			{
+				"question": "A phone costs £200. VAT at 20% is added. What's the total cost?",
+				"options": ["£240", "£220", "£250", "£230"],
+				"answer": "£240"
+			},
+			{
+				"question": "What percentage is 18 out of 72?",
+				"options": ["25%", "20%", "30%", "15%"],
+				"answer": "25%"
+			},
+			{
+				"question": "Decrease 80 by 15%",
+				"options": ["68", "70", "65", "72"],
+				"answer": "68"
 			},
 			{
 				"question": "Convert 1/5 to a percentage",
 				"options": ["20%", "25%", "15%", "10%"],
 				"answer": "20%"
+			},
+			{
+				"question": "What is 12.5% of 160?",
+				"options": ["20", "18", "22", "16"],
+				"answer": "20"
+			},
+			{
+				"question": "A car depreciates by 30% from £8000. What's its new value?",
+				"options": ["£5600", "£6000", "£5200", "£6400"],
+				"answer": "£5600"
+			},
+			{
+				"question": "What percentage is 35 out of 140?",
+				"options": ["25%", "20%", "30%", "35%"],
+				"answer": "25%"
+			}
+		]
+	},
+	{
+		"topic": "Basic Algebra",
+		"questions": [
+			{
+				"question": "Solve: x + 5 = 12",
+				"options": ["x = 7", "x = 6", "x = 8", "x = 5"],
+				"answer": "x = 7"
+			},
+			{
+				"question": "Simplify: 3x + 2x",
+				"options": ["5x", "6x", "4x", "3x"],
+				"answer": "5x"
+			},
+			{
+				"question": "Solve: 2x = 14",
+				"options": ["x = 7", "x = 6", "x = 8", "x = 5"],
+				"answer": "x = 7"
+			},
+			{
+				"question": "What is the value of x when x - 3 = 8?",
+				"options": ["11", "10", "12", "9"],
+				"answer": "11"
+			},
+			{
+				"question": "Simplify: 7x - 3x",
+				"options": ["4x", "5x", "3x", "6x"],
+				"answer": "4x"
+			},
+			{
+				"question": "Solve: x/3 = 4",
+				"options": ["x = 12", "x = 10", "x = 8", "x = 15"],
+				"answer": "x = 12"
+			},
+			{
+				"question": "Expand: 3(x + 2)",
+				"options": ["3x + 6", "3x + 2", "x + 6", "3x + 5"],
+				"answer": "3x + 6"
+			},
+			{
+				"question": "Solve: 2x + 3 = 11",
+				"options": ["x = 4", "x = 5", "x = 3", "x = 6"],
+				"answer": "x = 4"
+			},
+			{
+				"question": "Simplify: 5x + 3 - 2x",
+				"options": ["3x + 3", "7x + 3", "3x - 3", "5x + 1"],
+				"answer": "3x + 3"
+			},
+			{
+				"question": "What is the value of y when 3y = 21?",
+				"options": ["7", "6", "8", "9"],
+				"answer": "7"
+			},
+			{
+				"question": "Expand: 2(x - 4)",
+				"options": ["2x - 8", "2x - 4", "x - 8", "2x + 8"],
+				"answer": "2x - 8"
+			},
+			{
+				"question": "Solve: x + 7 = 15",
+				"options": ["x = 8", "x = 7", "x = 9", "x = 6"],
+				"answer": "x = 8"
+			},
+			{
+				"question": "Simplify: 4x + x - 2x",
+				"options": ["3x", "5x", "2x", "4x"],
+				"answer": "3x"
+			},
+			{
+				"question": "Solve: 5x - 2 = 18",
+				"options": ["x = 4", "x = 3", "x = 5", "x = 6"],
+				"answer": "x = 4"
+			},
+			{
+				"question": "What is the value of n when n/2 = 6?",
+				"options": ["12", "10", "8", "14"],
+				"answer": "12"
+			},
+			{
+				"question": "Expand: 4(2x + 1)",
+				"options": ["8x + 4", "8x + 1", "4x + 4", "8x + 2"],
+				"answer": "8x + 4"
+			},
+			{
+				"question": "Solve: 3x - 5 = 10",
+				"options": ["x = 5", "x = 4", "x = 6", "x = 3"],
+				"answer": "x = 5"
+			},
+			{
+				"question": "Simplify: 6x - 4x + 3",
+				"options": ["2x + 3", "10x + 3", "2x - 3", "6x + 3"],
+				"answer": "2x + 3"
+			},
+			{
+				"question": "What is the value of a when a + 9 = 20?",
+				"options": ["11", "10", "12", "9"],
+				"answer": "11"
+			},
+			{
+				"question": "Solve: 4x = 28",
+				"options": ["x = 7", "x = 6", "x = 8", "x = 5"],
+				"answer": "x = 7"
+			}
+		]
+	},
+	{
+		"topic": "Geometry Basics",
+		"questions": [
+			{
+				"question": "How many degrees are in a right angle?",
+				"options": ["90°", "45°", "180°", "60°"],
+				"answer": "90°"
+			},
+			{
+				"question": "What is the perimeter of a rectangle with length 8cm and width 5cm?",
+				"options": ["26cm", "24cm", "28cm", "30cm"],
+				"answer": "26cm"
+			},
+			{
+				"question": "What is the area of a square with side length 6cm?",
+				"options": ["36cm²", "24cm²", "30cm²", "32cm²"],
+				"answer": "36cm²"
+			},
+			{
+				"question": "How many sides does a hexagon have?",
+				"options": ["6", "5", "7", "8"],
+				"answer": "6"
+			},
+			{
+				"question": "What is the area of a triangle with base 10cm and height 6cm?",
+				"options": ["30cm²", "60cm²", "16cm²", "20cm²"],
+				"answer": "30cm²"
+			},
+			{
+				"question": "What do we call angles that add up to 180°?",
+				"options": ["Supplementary", "Complementary", "Right", "Acute"],
+				"answer": "Supplementary"
+			},
+			{
+				"question": "What is the area of a rectangle with length 12cm and width 4cm?",
+				"options": ["48cm²", "32cm²", "16cm²", "24cm²"],
+				"answer": "48cm²"
+			},
+			{
+				"question": "How many degrees are in a straight line?",
+				"options": ["180°", "90°", "360°", "270°"],
+				"answer": "180°"
+			},
+			{
+				"question": "What is the perimeter of a square with side length 9cm?",
+				"options": ["36cm", "18cm", "27cm", "81cm"],
+				"answer": "36cm"
+			},
+			{
+				"question": "What do we call a triangle with all sides equal?",
+				"options": ["Equilateral", "Isosceles", "Scalene", "Right"],
+				"answer": "Equilateral"
+			},
+			{
+				"question": "How many angles are in a triangle?",
+				"options": ["3", "4", "2", "5"],
+				"answer": "3"
+			},
+			{
+				"question": "What is the area of a circle with radius 3cm? (Use π = 3)",
+				"options": ["27cm²", "18cm²", "9cm²", "12cm²"],
+				"answer": "27cm²"
+			},
+			{
+				"question": "What do we call angles that add up to 90°?",
+				"options": ["Complementary", "Supplementary", "Right", "Obtuse"],
+				"answer": "Complementary"
+			},
+			{
+				"question": "How many sides does a pentagon have?",
+				"options": ["5", "4", "6", "7"],
+				"answer": "5"
+			},
+			{
+				"question": "What is the circumference of a circle with radius 4cm? (Use π = 3)",
+				"options": ["24cm", "12cm", "16cm", "8cm"],
+				"answer": "24cm"
+			},
+			{
+				"question": "What is the sum of angles in a triangle?",
+				"options": ["180°", "90°", "360°", "270°"],
+				"answer": "180°"
+			},
+			{
+				"question": "What do we call a triangle with two equal sides?",
+				"options": ["Isosceles", "Equilateral", "Scalene", "Right"],
+				"answer": "Isosceles"
+			},
+			{
+				"question": "What is the area of a parallelogram with base 8cm and height 5cm?",
+				"options": ["40cm²", "13cm²", "26cm²", "20cm²"],
+				"answer": "40cm²"
+			},
+			{
+				"question": "How many degrees are in a complete turn?",
+				"options": ["360°", "180°", "90°", "270°"],
+				"answer": "360°"
+			},
+			{
+				"question": "What is the perimeter of a triangle with sides 5cm, 7cm, and 8cm?",
+				"options": ["20cm", "18cm", "15cm", "25cm"],
+				"answer": "20cm"
+			}
+		]
+	},
+	{
+		"topic": "Advanced Algebra",
+		"questions": [
+			{
+				"question": "Solve the simultaneous equations: 3x + 2y = 16 and 2x - y = 3",
+				"options": [
+					"x = 4, y = 2",
+					"x = 2, y = 5",
+					"x = 3, y = 3",
+					"x = 5, y = 1"
+				],
+				"answer": "x = 4, y = 2"
+			},
+			{
+				"question": "Factorise completely: x² - 9x + 20",
+				"options": [
+					"(x - 4)(x - 5)",
+					"(x - 2)(x - 10)",
+					"(x + 4)(x + 5)",
+					"(x - 1)(x - 20)"
+				],
+				"answer": "(x - 4)(x - 5)"
+			},
+			{
+				"question": "Solve: x² + 6x - 7 = 0",
+				"options": [
+					"x = 1, x = -7",
+					"x = -1, x = 7",
+					"x = 2, x = -3",
+					"x = -2, x = 3"
+				],
+				"answer": "x = 1, x = -7"
+			},
+			{
+				"question": "Simplify: (3x²y³)² ÷ (xy)³",
+				"options": ["9xy³", "9x⁴y⁶", "3x⁴y³", "9xy⁶"],
+				"answer": "9xy³"
+			},
+			{
+				"question": "Find the equation of the line passing through (2, 5) and (4, 11)",
+				"options": ["y = 3x - 1", "y = 2x + 1", "y = 3x + 2", "y = 4x - 3"],
+				"answer": "y = 3x - 1"
+			},
+			{
+				"question": "Solve: 2x² - 8x + 6 = 0",
+				"options": [
+					"x = 1, x = 3",
+					"x = 2, x = 4",
+					"x = -1, x = -3",
+					"x = 0, x = 4"
+				],
+				"answer": "x = 1, x = 3"
+			},
+			{
+				"question": "Expand and simplify: (2x + 3)(x - 4) - (x + 1)²",
+				"options": [
+					"x² - 10x - 13",
+					"x² - 6x - 11",
+					"x² - 8x - 12",
+					"x² - 4x - 15"
+				],
+				"answer": "x² - 10x - 13"
+			},
+			{
+				"question": "Find the value of k if x = 2 is a solution to x² + kx - 10 = 0",
+				"options": ["k = 3", "k = -3", "k = 5", "k = -5"],
+				"answer": "k = 3"
+			},
+			{
+				"question": "Solve the inequality: 3x - 7 > 2x + 5",
+				"options": ["x > 12", "x > 6", "x < 12", "x < 6"],
+				"answer": "x > 12"
+			},
+			{
+				"question": "Find the gradient of the line 4x - 3y + 12 = 0",
+				"options": ["4/3", "-4/3", "3/4", "-3/4"],
+				"answer": "4/3"
+			},
+			{
+				"question": "Solve by completing the square: x² + 8x + 7 = 0",
+				"options": [
+					"x = -1, x = -7",
+					"x = 1, x = 7",
+					"x = -2, x = -6",
+					"x = 2, x = 6"
+				],
+				"answer": "x = -1, x = -7"
+			},
+			{
+				"question": "Simplify: (x⁴y²)³ ÷ (x²y)⁵",
+				"options": ["x⁷y", "x⁶y", "x⁵y²", "x⁸y³"],
+				"answer": "x⁶y"
+			},
+			{
+				"question": "Find the coordinates where y = x² - 4x + 3 crosses the x-axis",
+				"options": [
+					"(1, 0) and (3, 0)",
+					"(2, 0) and (4, 0)",
+					"(-1, 0) and (-3, 0)",
+					"(0, 1) and (0, 3)"
+				],
+				"answer": "(1, 0) and (3, 0)"
+			},
+			{
+				"question": "Solve: |2x - 6| = 8",
+				"options": [
+					"x = 7, x = -1",
+					"x = 4, x = -2",
+					"x = 5, x = -3",
+					"x = 6, x = 0"
+				],
+				"answer": "x = 7, x = -1"
+			},
+			{
+				"question": "Express in the form a√b: √72",
+				"options": ["6√2", "8√3", "4√5", "3√8"],
+				"answer": "6√2"
+			},
+			{
+				"question": "Find the equation of the line perpendicular to y = 2x + 1 passing through (4, 3)",
+				"options": ["y = -½x + 5", "y = -2x + 11", "y = ½x + 1", "y = -½x + 7"],
+				"answer": "y = -½x + 5"
+			},
+			{
+				"question": "Solve: 3ˣ = 81",
+				"options": ["x = 4", "x = 3", "x = 5", "x = 27"],
+				"answer": "x = 4"
+			},
+			{
+				"question": "Find the turning point of y = x² - 6x + 5",
+				"options": ["(3, -4)", "(2, -3)", "(4, -5)", "(1, 0)"],
+				"answer": "(3, -4)"
+			},
+			{
+				"question": "Solve: √(x + 3) = x - 3",
+				"options": ["x = 6", "x = 3", "x = 9", "x = 1"],
+				"answer": "x = 6"
+			},
+			{
+				"question": "Rationalise the denominator: 12/(3√2)",
+				"options": ["2√2", "4√2", "6√2", "√2"],
+				"answer": "2√2"
+			}
+		]
+	},
+	{
+		"topic": "Quadratics & Functions",
+		"questions": [
+			{
+				"question": "Find the discriminant of 2x² + 5x - 3 = 0",
+				"options": ["49", "25", "1", "73"],
+				"answer": "49"
+			},
+			{
+				"question": "Complete the square: x² + 10x + 21",
+				"options": [
+					"(x + 5)² - 4",
+					"(x + 5)² + 4",
+					"(x + 10)² - 21",
+					"(x + 5)² - 25"
+				],
+				"answer": "(x + 5)² - 4"
+			},
+			{
+				"question": "Find the roots using the quadratic formula: x² - 4x - 5 = 0",
+				"options": [
+					"x = 5, x = -1",
+					"x = 4, x = 1",
+					"x = -5, x = 1",
+					"x = 2, x = -3"
+				],
+				"answer": "x = 5, x = -1"
+			},
+			{
+				"question": "What transformation maps y = x² to y = (x - 3)² + 2?",
+				"options": [
+					"Translation 3 right, 2 up",
+					"Translation 3 left, 2 up",
+					"Translation 3 right, 2 down",
+					"Translation 3 left, 2 down"
+				],
+				"answer": "Translation 3 right, 2 up"
+			},
+			{
+				"question": "Find the axis of symmetry for y = 3x² - 12x + 7",
+				"options": ["x = 2", "x = -2", "x = 4", "x = 3"],
+				"answer": "x = 2"
+			},
+			{
+				"question": "For what values of k does x² + 4x + k = 0 have equal roots?",
+				"options": ["k = 4", "k = -4", "k = 16", "k = -16"],
+				"answer": "k = 4"
+			},
+			{
+				"question": "Find the maximum value of y = -2x² + 8x - 3",
+				"options": ["5", "3", "8", "1"],
+				"answer": "5"
+			},
+			{
+				"question": "Solve: x² + 2x = 15",
+				"options": [
+					"x = 3, x = -5",
+					"x = 5, x = -3",
+					"x = 15, x = -1",
+					"x = 1, x = 15"
+				],
+				"answer": "x = 3, x = -5"
+			},
+			{
+				"question": "Find where y = x² - 7x + 12 intersects the x-axis",
+				"options": [
+					"x = 3, x = 4",
+					"x = 2, x = 6",
+					"x = 1, x = 12",
+					"x = -3, x = -4"
+				],
+				"answer": "x = 3, x = 4"
+			},
+			{
+				"question": "Express y = 2x² + 12x + 10 in completed square form",
+				"options": [
+					"2(x + 3)² - 8",
+					"2(x + 6)² - 62",
+					"(x + 6)² - 26",
+					"2(x + 3)² + 28"
+				],
+				"answer": "2(x + 3)² - 8"
+			},
+			{
+				"question": "Find the y-intercept of y = 3x² - 6x + 2",
+				"options": ["2", "-6", "3", "0"],
+				"answer": "2"
+			},
+			{
+				"question": "Solve: (x - 2)² = 25",
+				"options": [
+					"x = 7, x = -3",
+					"x = 5, x = -1",
+					"x = 27, x = -23",
+					"x = 3, x = 1"
+				],
+				"answer": "x = 7, x = -3"
+			},
+			{
+				"question": "Find the minimum point of y = x² - 8x + 20",
+				"options": ["(4, 4)", "(8, 20)", "(-4, 4)", "(2, 8)"],
+				"answer": "(4, 4)"
+			},
+			{
+				"question": "How many real solutions does x² + 2x + 5 = 0 have?",
+				"options": ["0", "1", "2", "3"],
+				"answer": "0"
+			},
+			{
+				"question": "Find k if the curve y = x² + kx + 9 touches the x-axis",
+				"options": ["k = ±6", "k = ±3", "k = ±9", "k = ±12"],
+				"answer": "k = ±6"
+			},
+			{
+				"question": "Solve: x² - 6x + 8 = 0 by factoring",
+				"options": [
+					"x = 2, x = 4",
+					"x = 1, x = 8",
+					"x = -2, x = -4",
+					"x = 3, x = 6"
+				],
+				"answer": "x = 2, x = 4"
+			},
+			{
+				"question": "Find the range of f(x) = -(x - 1)² + 4",
+				"options": ["f(x) ≤ 4", "f(x) ≥ 4", "f(x) ≤ 1", "f(x) ≥ 1"],
+				"answer": "f(x) ≤ 4"
+			},
+			{
+				"question": "Solve: 3x² - 27 = 0",
+				"options": ["x = ±3", "x = ±9", "x = ±√3", "x = ±6"],
+				"answer": "x = ±3"
+			},
+			{
+				"question": "Find the vertex of the parabola y = -x² + 4x - 1",
+				"options": ["(2, 3)", "(-2, 3)", "(4, -1)", "(1, 2)"],
+				"answer": "(2, 3)"
+			},
+			{
+				"question": "Express 3x² + 18x + 24 in the form 3(x + a)² + b",
+				"options": [
+					"3(x + 3)² - 3",
+					"3(x + 6)² - 84",
+					"(x + 3)² + 15",
+					"3(x + 9)² - 219"
+				],
+				"answer": "3(x + 3)² - 3"
+			}
+		]
+	},
+	{
+		"topic": "Trigonometry",
+		"questions": [
+			{
+				"question": "Find sin(30°)",
+				"options": ["1/2", "√3/2", "√2/2", "1"],
+				"answer": "1/2"
+			},
+			{
+				"question": "In a right triangle with opposite = 8 and hypotenuse = 10, find sin θ",
+				"options": ["0.8", "0.6", "4/5", "0.75"],
+				"answer": "0.8"
+			},
+			{
+				"question": "Solve: sin x = 0.5 for 0° ≤ x ≤ 360°",
+				"options": [
+					"x = 30°, 150°",
+					"x = 60°, 120°",
+					"x = 45°, 135°",
+					"x = 30°, 60°"
+				],
+				"answer": "x = 30°, 150°"
+			},
+			{
+				"question": "Find the length of side a using the cosine rule: b = 7, c = 5, A = 60°",
+				"options": ["√39", "√19", "6", "√29"],
+				"answer": "√39"
+			},
+			{
+				"question": "Calculate tan(45°)",
+				"options": ["1", "√2", "1/2", "√3"],
+				"answer": "1"
+			},
+			{
+				"question": "Find cos(120°)",
+				"options": ["-1/2", "1/2", "-√3/2", "√3/2"],
+				"answer": "-1/2"
+			},
+			{
+				"question": "In triangle ABC, a = 8, b = 6, C = 90°. Find c using Pythagoras",
+				"options": ["10", "14", "2", "100"],
+				"answer": "10"
+			},
+			{
+				"question": "Solve: cos x = -0.5 for 0° ≤ x ≤ 360°",
+				"options": [
+					"x = 120°, 240°",
+					"x = 60°, 300°",
+					"x = 150°, 210°",
+					"x = 30°, 330°"
+				],
+				"answer": "x = 120°, 240°"
+			},
+			{
+				"question": "Find the area of triangle with sides a = 5, b = 7, and angle C = 30°",
+				"options": ["8.75", "17.5", "35", "4.375"],
+				"answer": "8.75"
+			},
+			{
+				"question": "Calculate sin(60°)",
+				"options": ["√3/2", "1/2", "√2/2", "1"],
+				"answer": "√3/2"
+			},
+			{
+				"question": "Find angle A using sine rule: a = 6, b = 8, B = 45°",
+				"options": ["sin⁻¹(3√2/8)", "sin⁻¹(6/8)", "sin⁻¹(3/4)", "sin⁻¹(√2/2)"],
+				"answer": "sin⁻¹(3√2/8)"
+			},
+			{
+				"question": "What is the period of y = sin(2x)?",
+				"options": ["180°", "360°", "90°", "720°"],
+				"answer": "180°"
+			},
+			{
+				"question": "Find tan(120°)",
+				"options": ["-√3", "√3", "-1/√3", "1/√3"],
+				"answer": "-√3"
+			},
+			{
+				"question": "Solve: tan x = 1 for 0° ≤ x ≤ 360°",
+				"options": [
+					"x = 45°, 225°",
+					"x = 30°, 210°",
+					"x = 60°, 240°",
+					"x = 90°, 270°"
+				],
+				"answer": "x = 45°, 225°"
+			},
+			{
+				"question": "Find the exact value of cos(45°)",
+				"options": ["√2/2", "1/2", "√3/2", "1"],
+				"answer": "√2/2"
+			},
+			{
+				"question": "In triangle PQR, p = 12, q = 16, r = 20. Find angle R",
+				"options": ["90°", "60°", "45°", "30°"],
+				"answer": "90°"
+			},
+			{
+				"question": "What is the amplitude of y = 3sin(x)?",
+				"options": ["3", "1", "π", "2π"],
+				"answer": "3"
+			},
+			{
+				"question": "Find sin(210°)",
+				"options": ["-1/2", "1/2", "-√3/2", "√3/2"],
+				"answer": "-1/2"
+			},
+			{
+				"question": "Using cosine rule, find angle A: a = 7, b = 9, c = 5",
+				"options": [
+					"cos⁻¹(59/90)",
+					"cos⁻¹(31/90)",
+					"cos⁻¹(25/63)",
+					"cos⁻¹(1/2)"
+				],
+				"answer": "cos⁻¹(59/90)"
+			},
+			{
+				"question": "Find the range of y = 2cos(x) + 1",
+				"options": ["[-1, 3]", "[0, 2]", "[-2, 2]", "[-3, 1]"],
+				"answer": "[-1, 3]"
+			}
+		]
+	},
+	{
+		"topic": "Calculus Basics",
+		"questions": [
+			{
+				"question": "Find dy/dx when y = 3x⁴ + 2x² - 5",
+				"options": ["12x³ + 4x", "3x³ + 2x", "12x⁴ + 4x²", "9x³ + 4x"],
+				"answer": "12x³ + 4x"
+			},
+			{
+				"question": "Differentiate: y = 5x³ - 7x + 2",
+				"options": ["15x² - 7", "15x² - 7x", "5x² - 7", "15x³ - 7x"],
+				"answer": "15x² - 7"
+			},
+			{
+				"question": "Find the gradient of y = x² + 4x - 1 at x = 3",
+				"options": ["10", "8", "6", "12"],
+				"answer": "10"
+			},
+			{
+				"question": "Find dy/dx when y = 2x⁵ - 3x² + x - 4",
+				"options": [
+					"10x⁴ - 6x + 1",
+					"2x⁴ - 3x + 1",
+					"10x⁵ - 6x² + x",
+					"10x⁴ - 6x"
+				],
+				"answer": "10x⁴ - 6x + 1"
+			},
+			{
+				"question": "Find the equation of the tangent to y = x² - 2x + 3 at x = 2",
+				"options": ["y = 2x - 1", "y = 2x + 3", "y = x + 1", "y = 3x - 3"],
+				"answer": "y = 2x - 1"
+			},
+			{
+				"question": "Differentiate: f(x) = (2x + 1)³",
+				"options": ["6(2x + 1)²", "3(2x + 1)²", "2(2x + 1)²", "(2x + 1)²"],
+				"answer": "6(2x + 1)²"
+			},
+			{
+				"question": "Find the stationary points of y = x³ - 3x² + 2",
+				"options": [
+					"x = 0, x = 2",
+					"x = 1, x = 3",
+					"x = -1, x = 2",
+					"x = 0, x = 3"
+				],
+				"answer": "x = 0, x = 2"
+			},
+			{
+				"question": "Find ∫(3x² + 4x - 1)dx",
+				"options": [
+					"x³ + 2x² - x + c",
+					"6x + 4 + c",
+					"3x³ + 4x² - x + c",
+					"x³ + 2x² + c"
+				],
+				"answer": "x³ + 2x² - x + c"
+			},
+			{
+				"question": "Find the minimum value of y = x² - 6x + 11",
+				"options": ["2", "3", "5", "11"],
+				"answer": "2"
+			},
+			{
+				"question": "Differentiate: y = √x",
+				"options": ["1/(2√x)", "1/√x", "2√x", "√x/2"],
+				"answer": "1/(2√x)"
+			},
+			{
+				"question": "Find dy/dx when y = 4x⁻² + 3x",
+				"options": ["-8x⁻³ + 3", "-8x⁻² + 3", "8x⁻³ + 3", "-4x⁻³ + 3"],
+				"answer": "-8x⁻³ + 3"
+			},
+			{
+				"question": "Find the area under y = 2x from x = 1 to x = 3",
+				"options": ["8", "6", "4", "10"],
+				"answer": "8"
+			},
+			{
+				"question": "Find the second derivative of y = x⁴ - 2x³ + x",
+				"options": ["12x² - 12x", "4x³ - 6x²", "12x² - 6x", "4x² - 6x + 1"],
+				"answer": "12x² - 12x"
+			},
+			{
+				"question": "At what point does the curve y = x³ - 3x have a horizontal tangent?",
+				"options": ["x = ±1", "x = ±√3", "x = 0, 3", "x = ±3"],
+				"answer": "x = ±1"
+			},
+			{
+				"question": "Find ∫x⁵dx",
+				"options": ["x⁶/6 + c", "5x⁴ + c", "x⁶ + c", "6x⁵ + c"],
+				"answer": "x⁶/6 + c"
+			},
+			{
+				"question": "Differentiate: y = e^(2x)",
+				"options": ["2e^(2x)", "e^(2x)", "2xe^(2x)", "e^(2x-1)"],
+				"answer": "2e^(2x)"
+			},
+			{
+				"question": "Find the gradient of the normal to y = x² + 1 at x = 2",
+				"options": ["-1/4", "-4", "1/4", "4"],
+				"answer": "-1/4"
+			},
+			{
+				"question": "Find the maximum value of f(x) = -x² + 4x - 1",
+				"options": ["3", "4", "1", "2"],
+				"answer": "3"
+			},
+			{
+				"question": "Evaluate ∫₀² 3x²dx",
+				"options": ["8", "6", "12", "4"],
+				"answer": "8"
+			},
+			{
+				"question": "Find dy/dx when y = ln(3x)",
+				"options": ["1/x", "3/x", "1/(3x)", "3x"],
+				"answer": "1/x"
 			}
 		]
 	},
@@ -443,104 +1068,109 @@
 		"topic": "Probability & Statistics",
 		"questions": [
 			{
-				"question": "What is the probability of flipping heads on a fair coin?",
-				"options": ["1/2", "1/3", "1/4", "2/3"],
+				"question": "A bag contains 5 red, 3 blue, and 2 green balls. Find P(red)",
+				"options": ["1/2", "3/10", "1/5", "2/5"],
 				"answer": "1/2"
 			},
 			{
-				"question": "What is the probability of rolling a 3 on a standard die?",
-				"options": ["1/6", "1/3", "1/2", "2/6"],
+				"question": "Two dice are rolled. What's P(sum = 7)?",
+				"options": ["1/6", "1/12", "1/36", "7/36"],
 				"answer": "1/6"
 			},
 			{
-				"question": "What is the mean of [2, 4, 6]?",
-				"options": ["4", "3", "5", "6"],
-				"answer": "4"
+				"question": "Find the mean of: 12, 15, 18, 20, 25",
+				"options": ["18", "17", "19", "20"],
+				"answer": "18"
 			},
 			{
-				"question": "What is the median of [4, 1, 3, 2, 5]?",
-				"options": ["3", "2", "4", "5"],
+				"question": "Calculate the standard deviation of: 2, 4, 6, 8, 10",
+				"options": ["√8", "2√2", "4", "8"],
+				"answer": "2√2"
+			},
+			{
+				"question": "In a normal distribution with μ = 50 and σ = 5, what percentage lies within one standard deviation?",
+				"options": ["68%", "95%", "99.7%", "50%"],
+				"answer": "68%"
+			},
+			{
+				"question": "A card is drawn from a standard deck. Find P(face card)",
+				"options": ["3/13", "1/4", "4/13", "1/13"],
+				"answer": "3/13"
+			},
+			{
+				"question": "Find the median of: 3, 7, 2, 9, 5, 8, 1",
+				"options": ["5", "6", "7", "4"],
+				"answer": "5"
+			},
+			{
+				"question": "If P(A) = 0.3 and P(B) = 0.4, and A and B are independent, find P(A ∩ B)",
+				"options": ["0.12", "0.7", "0.1", "0.2"],
+				"answer": "0.12"
+			},
+			{
+				"question": "The range of the data set {15, 23, 8, 42, 31, 17} is:",
+				"options": ["34", "27", "23", "42"],
+				"answer": "34"
+			},
+			{
+				"question": "In a binomial distribution with n = 10 and p = 0.3, find the expected value",
+				"options": ["3", "7", "0.3", "10"],
 				"answer": "3"
 			},
 			{
-				"question": "What is the mode of [1, 2, 2, 3, 4]?",
-				"options": ["2", "3", "4", "1"],
-				"answer": "2"
+				"question": "A coin is flipped 3 times. Find P(exactly 2 heads)",
+				"options": ["3/8", "1/4", "1/2", "1/8"],
+				"answer": "3/8"
 			},
 			{
-				"question": "Which measure of central tendency is most affected by outliers?",
-				"options": ["Mean", "Median", "Mode", "Range"],
-				"answer": "Mean"
-			},
-			{
-				"question": "What is the probability of drawing a red card from a deck?",
-				"options": ["1/2", "1/3", "1/4", "1/5"],
-				"answer": "1/2"
-			},
-			{
-				"question": "What is the range of [3, 7, 5, 10, 2]?",
-				"options": ["8", "7", "5", "10"],
+				"question": "Find the variance of: 1, 3, 5, 7, 9",
+				"options": ["8", "10", "6", "4"],
 				"answer": "8"
 			},
 			{
-				"question": "What is the median of [5, 8, 1, 3, 2]?",
-				"options": ["3", "5", "2", "8"],
+				"question": "In a sample of 100 students, 60 passed. The 95% confidence interval for the population proportion is approximately:",
+				"options": ["0.6 ± 0.1", "0.6 ± 0.05", "0.6 ± 0.15", "0.6 ± 0.2"],
+				"answer": "0.6 ± 0.1"
+			},
+			{
+				"question": "Two events A and B are mutually exclusive. If P(A) = 0.2 and P(B) = 0.3, find P(A ∪ B)",
+				"options": ["0.5", "0.06", "0.1", "0.8"],
+				"answer": "0.5"
+			},
+			{
+				"question": "Find the interquartile range of: 2, 5, 7, 8, 12, 15, 18, 20, 25",
+				"options": ["13", "10", "8", "15"],
+				"answer": "13"
+			},
+			{
+				"question": "A normal distribution has μ = 100 and σ = 15. Find P(X > 115)",
+				"options": ["0.16", "0.34", "0.84", "0.5"],
+				"answer": "0.16"
+			},
+			{
+				"question": "In hypothesis testing, what does a p-value of 0.03 indicate if α = 0.05?",
+				"options": [
+					"Reject null hypothesis",
+					"Accept null hypothesis",
+					"Inconclusive",
+					"Error in calculation"
+				],
+				"answer": "Reject null hypothesis"
+			},
+			{
+				"question": "Find the correlation coefficient for the points: (1,2), (2,4), (3,6), (4,8)",
+				"options": ["1", "0.5", "-1", "0"],
+				"answer": "1"
+			},
+			{
+				"question": "A bag contains numbered balls 1-10. Two balls are drawn without replacement. Find P(both odd)",
+				"options": ["2/9", "1/4", "1/2", "4/9"],
+				"answer": "2/9"
+			},
+			{
+				"question": "The mode of the dataset: 3, 7, 5, 3, 9, 7, 3, 8 is:",
+				"options": ["3", "7", "5", "Multiple modes"],
 				"answer": "3"
-			},
-			{
-				"question": "What is the mode of [4, 4, 2, 2, 4]?",
-				"options": ["4", "2", "None", "Both"],
-				"answer": "4"
-			},
-			{
-				"question": "What is the chance of rolling an even number on a die?",
-				"options": ["1/2", "1/3", "1/4", "1/6"],
-				"answer": "1/2"
-			},
-			{
-				"question": "If the mean of [2, 2, 4, 6, 6] is recalculated after removing 4, what is the new mean?",
-				"options": ["4", "3.5", "3", "2"],
-				"answer": "4"
-			},
-			{
-				"question": "A coin is flipped twice. Probability of getting 2 heads?",
-				"options": ["1/4", "1/2", "1/3", "3/4"],
-				"answer": "1/4"
-			},
-			{
-				"question": "In a survey, the most selected option is the:",
-				"options": ["Mode", "Mean", "Median", "Range"],
-				"answer": "Mode"
-			},
-			{
-				"question": "What is the mean of [5, 10, 15]?",
-				"options": ["10", "15", "5", "8"],
-				"answer": "10"
-			},
-			{
-				"question": "What is the probability of getting tails on a fair coin toss?",
-				"options": ["1/2", "1/4", "1", "0"],
-				"answer": "1/2"
-			},
-			{
-				"question": "What is the mode of [1, 2, 3, 3, 4, 4, 4]?",
-				"options": ["4", "3", "1", "2"],
-				"answer": "4"
-			},
-			{
-				"question": "If 3 people each roll a die, how many outcomes are possible?",
-				"options": ["216", "6", "36", "18"],
-				"answer": "216"
-			},
-			{
-				"question": "What is the median of [9, 2, 5, 1, 4]?",
-				"options": ["4", "5", "2", "9"],
-				"answer": "4"
-			},
-			{
-				"question": "What is the probability of drawing an Ace from a deck?",
-				"options": ["1/13", "1/4", "1/52", "4/52"],
-				"answer": "1/13"
 			}
 		]
 	}
