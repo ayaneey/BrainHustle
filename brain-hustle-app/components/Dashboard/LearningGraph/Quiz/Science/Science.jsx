@@ -127,7 +127,7 @@ const Science = () => {
 		return "text-white bg-rose-500/90 animate-pulse";
 	};
 
-	// Add safety check for scienceQuestions
+
 	if (!scienceQuestions || !Array.isArray(scienceQuestions)) {
 		return (
 			<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 px-3 sm-phone:px-4">

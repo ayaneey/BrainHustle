@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 
-// Mock data for demonstration
+// Mock data for demonstration tutorial
 const englishQuestions = [
 	{
 		topic: "Paper 1: Creative Reading & Writing",
