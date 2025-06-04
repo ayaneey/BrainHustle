@@ -393,18 +393,18 @@ export default function AboutPage() {
 							</p>
 						</div>
 
-						<div className="grid md-phone:grid-cols-2 gap-6 lg-tablet:gap-8">
+						<div className="grid gap-6 lg-tablet:grid-cols-2 lg-tablet:gap-8">
 							{values.map((value, index) => (
 								<div
 									key={index}
-									className={`bg-gradient-to-br from-white to-gray-50 card-hover p-6 md-phone:p-8 lg-tablet:p-10 rounded-3xl border border-gray-100 shadow-lg ${
+									className={`bg-gradient-to-br from-white to-gray-50 card-hover p-6 lg-tablet:p-8 rounded-3xl border border-gray-100 shadow-lg ${
 										isVisible ? "animate-fade-in-up" : "opacity-0"
 									}`}
 									style={{ animationDelay: `${600 + index * 100}ms` }}
 								>
-									<div className="flex items-center gap-4 lg-tablet:gap-6 mb-6">
+									<div className="text-center mb-6">
 										<div
-											className="w-16 h-16 lg-tablet:w-20 lg-tablet:h-20 rounded-xl flex items-center justify-center text-3xl lg-tablet:text-4xl floating-icon flex-shrink-0"
+											className="w-16 h-16 lg-tablet:w-20 lg-tablet:h-20 rounded-xl flex items-center justify-center text-3xl lg-tablet:text-4xl floating-icon mx-auto mb-4"
 											style={{
 												backgroundColor: value.color + "40",
 												animationDelay: `${index * 0.5}s`,
@@ -412,11 +412,11 @@ export default function AboutPage() {
 										>
 											{value.icon}
 										</div>
-										<h3 className="text-xl md-phone:text-2xl lg-tablet:text-2xl md-laptop:text-3xl font-bold text-gray-900">
+										<h3 className="text-lg md-phone:text-xl lg-tablet:text-2xl md-laptop:text-2xl font-bold text-gray-900 leading-tight">
 											{value.title}
 										</h3>
 									</div>
-									<p className="text-base md-phone:text-lg lg-tablet:text-lg md-laptop:text-xl text-gray-600 leading-relaxed">
+									<p className="text-sm md-phone:text-base lg-tablet:text-lg md-laptop:text-lg text-gray-600 leading-relaxed text-center">
 										{value.description}
 									</p>
 								</div>
@@ -492,7 +492,7 @@ export default function AboutPage() {
 							</p>
 						</div>
 
-						<div className="grid md-phone:grid-cols-2 gap-6 lg-tablet:gap-8">
+						<div className="grid gap-6 lg-tablet:grid-cols-2 lg-tablet:gap-8">
 							{team.map((member, index) => (
 								<div
 									key={index}
