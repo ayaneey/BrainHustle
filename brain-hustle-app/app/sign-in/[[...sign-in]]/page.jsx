@@ -36,6 +36,8 @@ export default function LoginPage() {
 				<SignIn
 					path="/sign-in"
 					routing="path"
+					redirectUrl="/dashboard"
+					afterSignInUrl="/dashboard"
 					appearance={{
 						variables: {
 							colorBackground: "#F1F7F6", // soft page background

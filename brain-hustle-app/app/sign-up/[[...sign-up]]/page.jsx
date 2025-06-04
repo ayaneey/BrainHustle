@@ -33,7 +33,12 @@ export default function SignUpPage() {
 
 			{/* Right side with Clerk SignUp form */}
 			<div className="flex-1 sm:flex-1 lg:flex-1 flex justify-center items-center p-10">
-				<SignUp path="/sign-up" routing="path" />
+				<SignUp
+					path="/sign-up"
+					routing="path"
+					redirectUrl="/dashboard"
+					afterSignUpUrl="/dashboard"
+				/>
 			</div>
 		</div>
 	);
