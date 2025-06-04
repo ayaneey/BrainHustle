@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model User { // User model to store user information
   id       String     @id @map("_id") @db.String   // Clerk's string ID
   email    String     @unique
   name     String?
@@ -15,7 +15,7 @@ model User {
   thoughts Thoughts[]
 }
 
-model ToDo {
+model ToDo { // ToDo model to store user tasks
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   text      String
   createdAt DateTime @default(now())
@@ -23,7 +23,7 @@ model ToDo {
   user      User     @relation(fields: [userId], references: [id])
 }
 
-model Thoughts {
+model Thoughts { // Thoughts model to store user thoughts
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   text      String
   createdAt DateTime @default(now())
@@ -31,7 +31,7 @@ model Thoughts {
   user      User     @relation(fields: [userId], references: [id])
 }
 
-model QuizResult {
+model QuizResult { // Model to store quiz results
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   userId    String
   subject   String
