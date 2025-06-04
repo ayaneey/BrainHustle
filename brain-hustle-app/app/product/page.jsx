@@ -8,6 +8,7 @@ function Product() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeTab, setActiveTab] = useState("overview");
 	const [activePlan, setActivePlan] = useState("standard");
+	const [showVideo, setShowVideo] = useState(false); // Added this missing state
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -347,13 +348,37 @@ function Product() {
 								>
 									Start Free Trial
 								</Link>
-								<button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-800 transition-all">
+								<button
+									className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-800 transition-all"
+									onClick={() => setShowVideo(true)}
+								>
 									Watch Demo
 								</button>
 							</div>
 						</div>
 					</div>
 				</section>
+
+				{/* Video Modal */}
+				{showVideo && (
+					<div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+						<div className="bg-white p-4 rounded-lg max-w-4xl w-full mx-4">
+							<div className="flex justify-between items-center mb-4">
+								<h2 className="text-xl font-bold text-gray-800">Demo Video</h2>
+								<button
+									onClick={() => setShowVideo(false)}
+									className="text-gray-500 hover:text-gray-700 text-2xl"
+								>
+									✕
+								</button>
+							</div>
+							<video controls className="w-full">
+								<source src="/videos/Brain-Hustle.mp4" type="video/mp4" /> Your
+								browser does not support the video tag.
+							</video>
+						</div>
+					</div>
+				)}
 
 				{/* Product Overview Tabs */}
 				<section className="py-12 sm-phone:py-16 md-phone:py-20 px-4 sm-phone:px-6 lg-tablet:px-8">
@@ -628,21 +653,22 @@ function Product() {
 											</li>
 										))}
 									</ul>
-
-									<button
-										className={`w-full py-4 rounded-xl font-semibold text-lg transition-all ${
-											plan.popular
-												? "bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-300"
-												: "text-white hover:opacity-90"
-										}`}
-										style={{
-											background: plan.popular
-												? "white"
-												: "linear-gradient(135deg, #64b5f6 0%, #cdc1ff 100%)",
-										}}
-									>
-										{plan.popular ? "Start Free Trial" : "Choose Plan"}
-									</button>
+									<Link href="/demo" passHref>
+										<button
+											className={`w-full py-4 rounded-xl font-semibold text-lg transition-all ${
+												plan.popular
+													? "bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-300"
+													: "text-white hover:opacity-90"
+											}`}
+											style={{
+												background: plan.popular
+													? "white"
+													: "linear-gradient(135deg, #64b5f6 0%, #cdc1ff 100%)",
+											}}
+										>
+											{plan.popular ? "Start Free Trial" : "Choose Plan"}
+										</button>
+									</Link>
 								</div>
 							))}
 						</div>
@@ -742,9 +768,12 @@ function Product() {
 							with Brain Hustle. Start your free trial today.
 						</p>
 						<div className="flex flex-col sm-tablet:flex-row gap-4 justify-center items-center">
-							<button className="bg-white text-gray-800 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+							<Link
+								href="/demo"
+								className="bg-white text-gray-800 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+							>
 								Start 14-Day Free Trial
-							</button>
+							</Link>
 							<button className="text-white underline text-lg hover:no-underline transition-all">
 								Schedule a Demo Call
 							</button>

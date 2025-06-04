@@ -1,16 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import Link from "next/link";
 
 export default function ContactPage() {
 	const [isVisible, setIsVisible] = useState(false);
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		subject: "",
-		message: "",
-	});
-	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [state, handleSubmit] = useForm("xkgbgnzp");
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -19,27 +15,84 @@ export default function ContactPage() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	const handleInputChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-	};
+	// Show success message if form was submitted successfully
+	if (state.succeeded) {
+		return (
+			<>
+				<style jsx>{`
+					@keyframes fade-in-up {
+						from {
+							opacity: 0;
+							transform: translateY(30px);
+						}
+						to {
+							opacity: 1;
+							transform: translateY(0);
+						}
+					}
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setIsSubmitting(true);
+					.animate-fade-in-up {
+						animation: fade-in-up 0.8s ease-out forwards;
+					}
 
-		// Simulate form submission
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+					.success-bg {
+						background: linear-gradient(
+							135deg,
+							#f0f9ff 0%,
+							#e0e7ff 20%,
+							#ddd6fe 40%,
+							#e0e7ff 60%,
+							#f0f9ff 100%
+						);
+					}
 
-		// Reset form
-		setFormData({ name: "", email: "", subject: "", message: "" });
-		setIsSubmitting(false);
+					.success-card {
+						background: linear-gradient(
+							135deg,
+							#ffffff 0%,
+							rgba(255, 255, 255, 0.95) 30%,
+							rgba(248, 250, 252, 0.98) 70%,
+							#ffffff 100%
+						);
+						border: 2px solid rgba(139, 92, 246, 0.2);
+						box-shadow: 0 25px 50px rgba(139, 92, 246, 0.1);
+					}
 
-		// You would handle actual form submission here
-		alert("Thank you for your message! We'll get back to you soon.");
-	};
+					.gradient-text {
+						background: linear-gradient(
+							135deg,
+							#7c3aed 0%,
+							#8b5cf6 50%,
+							#a855f7 100%
+						);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						background-clip: text;
+					}
+				`}</style>
+
+				<main className="bg-white text-gray-800 min-h-screen flex items-center justify-center">
+					<div className="success-bg w-full min-h-screen flex items-center justify-center px-4">
+						<div className="success-card p-8 rounded-3xl shadow-2xl max-w-md mx-auto text-center animate-fade-in-up">
+							<div className="text-6xl mb-6">🎉</div>
+							<h1 className="text-3xl font-bold gradient-text mb-4">
+								Thank You!
+							</h1>
+							<p className="text-lg text-gray-600 mb-6">
+								Your message has been sent successfully. We'll get back to you
+								within 24 hours!
+							</p>
+							<Link href="/contact" passHref>
+								<button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+									Send Another Message
+								</button>
+							</Link>
+						</div>
+					</div>
+				</main>
+			</>
+		);
+	}
 
 	return (
 		<>
@@ -147,6 +200,11 @@ export default function ContactPage() {
 
 				.form-input:hover {
 					border-color: rgba(129, 85, 155, 0.4);
+				}
+
+				.form-input.error {
+					border-color: #ef4444;
+					box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
 				}
 
 				.submit-button {
@@ -289,6 +347,12 @@ export default function ContactPage() {
 				.icon-light {
 					background-color: rgba(205, 193, 255, 0.15);
 				}
+
+				.error-message {
+					color: #ef4444;
+					font-size: 0.875rem;
+					margin-top: 0.25rem;
+				}
 			`}</style>
 
 			<main className="bg-white text-gray-800 overflow-hidden">
@@ -339,11 +403,15 @@ export default function ContactPage() {
 													type="text"
 													id="name"
 													name="name"
-													value={formData.name}
-													onChange={handleInputChange}
 													className="form-input w-full rounded-xl px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-4 md-phone:py-3 lg-phone:px-5 lg-phone:py-4 xl-phone:px-5 xl-phone:py-4 2xl-phone:px-5 2xl-phone:py-4 sm-tablet:px-5 sm-tablet:py-4 md-tablet:px-5 md-tablet:py-4 lg-tablet:px-4 lg-tablet:py-3 xl-tablet:px-5 xl-tablet:py-4 2xl-tablet:px-6 2xl-tablet:py-5 md-laptop:px-6 md-laptop:py-5 text-gray-800 placeholder-gray-400 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-base 2xl-phone:text-base sm-tablet:text-base md-tablet:text-base lg-tablet:text-sm xl-tablet:text-base 2xl-tablet:text-base md-laptop:text-lg"
 													placeholder="Your full name"
 													required
+												/>
+												<ValidationError
+													prefix="Name"
+													field="name"
+													errors={state.errors}
+													className="error-message"
 												/>
 											</div>
 											<div>
@@ -357,11 +425,22 @@ export default function ContactPage() {
 													type="email"
 													id="email"
 													name="email"
-													value={formData.email}
-													onChange={handleInputChange}
-													className="form-input w-full rounded-xl px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-4 md-phone:py-3 lg-phone:px-5 lg-phone:py-4 xl-phone:px-5 xl-phone:py-4 2xl-phone:px-5 2xl-phone:py-4 sm-tablet:px-5 sm-tablet:py-4 md-tablet:px-5 md-tablet:py-4 lg-tablet:px-4 lg-tablet:py-3 xl-tablet:px-5 xl-tablet:py-4 2xl-tablet:px-6 2xl-tablet:py-5 md-laptop:px-6 md-laptop:py-5 text-gray-800 placeholder-gray-400 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-base 2xl-phone:text-base sm-tablet:text-base md-tablet:text-base lg-tablet:text-sm xl-tablet:text-base 2xl-tablet:text-base md-laptop:text-lg"
+													className={`form-input w-full rounded-xl px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-4 md-phone:py-3 lg-phone:px-5 lg-phone:py-4 xl-phone:px-5 xl-phone:py-4 2xl-phone:px-5 2xl-phone:py-4 sm-tablet:px-5 sm-tablet:py-4 md-tablet:px-5 md-tablet:py-4 lg-tablet:px-4 lg-tablet:py-3 xl-tablet:px-5 xl-tablet:py-4 2xl-tablet:px-6 2xl-tablet:py-5 md-laptop:px-6 md-laptop:py-5 text-gray-800 placeholder-gray-400 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-base 2xl-phone:text-base sm-tablet:text-base md-tablet:text-base lg-tablet:text-sm xl-tablet:text-base 2xl-tablet:text-base md-laptop:text-lg ${
+														state.errors?.find(
+															(error) => error.field === "email"
+														)
+															? "error"
+															: ""
+													}`}
 													placeholder="you@example.com"
 													required
+												/>
+
+												<ValidationError
+													prefix="Email"
+													field="email"
+													errors={state.errors}
+													className="error-message"
 												/>
 											</div>
 										</div>
@@ -376,8 +455,6 @@ export default function ContactPage() {
 											<select
 												id="subject"
 												name="subject"
-												value={formData.subject}
-												onChange={handleInputChange}
 												className="form-input w-full rounded-xl px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-4 md-phone:py-3 lg-phone:px-5 lg-phone:py-4 xl-phone:px-5 xl-phone:py-4 2xl-phone:px-5 2xl-phone:py-4 sm-tablet:px-5 sm-tablet:py-4 md-tablet:px-5 md-tablet:py-4 lg-tablet:px-4 lg-tablet:py-3 xl-tablet:px-5 xl-tablet:py-4 2xl-tablet:px-6 2xl-tablet:py-5 md-laptop:px-6 md-laptop:py-5 text-gray-800 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-base 2xl-phone:text-base sm-tablet:text-base md-tablet:text-base lg-tablet:text-sm xl-tablet:text-base 2xl-tablet:text-base md-laptop:text-lg"
 												required
 											>
@@ -389,6 +466,12 @@ export default function ContactPage() {
 												<option value="partnership">Partnership</option>
 												<option value="feedback">Feedback</option>
 											</select>
+											<ValidationError
+												prefix="Subject"
+												field="subject"
+												errors={state.errors}
+												className="error-message"
+											/>
 										</div>
 
 										<div>
@@ -401,21 +484,25 @@ export default function ContactPage() {
 											<textarea
 												id="message"
 												name="message"
-												value={formData.message}
-												onChange={handleInputChange}
 												className="form-input w-full rounded-xl px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-4 md-phone:py-3 lg-phone:px-5 lg-phone:py-4 xl-phone:px-5 xl-phone:py-4 2xl-phone:px-5 2xl-phone:py-4 sm-tablet:px-5 sm-tablet:py-4 md-tablet:px-5 md-tablet:py-4 lg-tablet:px-4 lg-tablet:py-3 xl-tablet:px-5 xl-tablet:py-4 2xl-tablet:px-6 2xl-tablet:py-5 md-laptop:px-6 md-laptop:py-5 text-gray-800 placeholder-gray-400 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-base 2xl-phone:text-base sm-tablet:text-base md-tablet:text-base lg-tablet:text-sm xl-tablet:text-base 2xl-tablet:text-base md-laptop:text-lg resize-none"
 												placeholder="Tell us how we can help you..."
 												rows="6"
 												required
 											></textarea>
+											<ValidationError
+												prefix="Message"
+												field="message"
+												errors={state.errors}
+												className="error-message"
+											/>
 										</div>
 
 										<button
 											type="submit"
-											disabled={isSubmitting}
+											disabled={state.submitting}
 											className="submit-button w-full py-3 sm-phone:py-4 md-phone:py-4 lg-phone:py-5 xl-phone:py-5 2xl-phone:py-5 sm-tablet:py-5 md-tablet:py-5 lg-tablet:py-4 xl-tablet:py-5 2xl-tablet:py-6 md-laptop:py-6 rounded-xl font-semibold text-base sm-phone:text-lg md-phone:text-lg lg-phone:text-xl xl-phone:text-xl 2xl-phone:text-xl sm-tablet:text-xl md-tablet:text-xl lg-tablet:text-lg xl-tablet:text-xl 2xl-tablet:text-xl md-laptop:text-2xl text-white shadow-lg relative z-10"
 										>
-											{isSubmitting ? (
+											{state.submitting ? (
 												<div className="flex items-center justify-center gap-2 sm-phone:gap-3">
 													<div className="loading-spinner w-4 h-4 sm-phone:w-5 sm-phone:h-5 border-2 border-white border-t-transparent rounded-full"></div>
 													Sending...
