@@ -25,9 +25,12 @@ const PreviousScores = () => {
 			try {
 				const res = await fetch(`/api/quizResults?userId=${userId}`);
 				const data = await res.json();
-				setScores(data);
+				// Ensure we always have an array
+				setScores(Array.isArray(data) ? data : []);
 			} catch (error) {
 				console.error("Failed to fetch quiz scores:", error);
+				// Set empty array on error to prevent crashes
+				setScores([]);
 			} finally {
 				setLoading(false);
 			}
@@ -35,6 +38,9 @@ const PreviousScores = () => {
 
 		fetchScores();
 	}, [userId]);
+
+	// Safety check to ensure scores is always an array
+	const safeScores = Array.isArray(scores) ? scores : [];
 
 	const getScoreColor = (score, maxScore) => {
 		const percentage = (score / maxScore) * 100;
@@ -62,22 +68,22 @@ const PreviousScores = () => {
 	};
 
 	const averageScore =
-		scores.length > 0
+		safeScores.length > 0
 			? Math.round(
-					scores.reduce(
+					safeScores.reduce(
 						(sum, s) =>
 							sum +
 							(s.maxScore
 								? (s.score / s.maxScore) * 100
 								: (s.score / 100) * 100),
 						0
-					) / scores.length
+					) / safeScores.length
 			  )
 			: 0;
 
 	// Show only first 3 scores by default, with option to show all
-	const displayedScores = showAll ? scores : scores.slice(0, 3);
-	const hasMoreScores = scores.length > 3;
+	const displayedScores = showAll ? safeScores : safeScores.slice(0, 3);
+	const hasMoreScores = safeScores.length > 3;
 
 	return (
 		<div className="mt-6">
@@ -87,7 +93,7 @@ const PreviousScores = () => {
 					<BookOpen className="w-4 h-4 text-blue-600" />
 					Quiz History
 				</h3>
-				{scores.length > 0 && (
+				{safeScores.length > 0 && (
 					<div className="flex items-center gap-2 px-2 py-1 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200">
 						<BarChart3 className="w-3 h-3 text-blue-600" />
 						<span className="text-xs font-medium text-blue-700">
@@ -99,7 +105,7 @@ const PreviousScores = () => {
 
 			{loading ? (
 				<p className="text-gray-500 text-sm">Loading...</p>
-			) : scores.length === 0 ? (
+			) : safeScores.length === 0 ? (
 				<div className="text-center py-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border-2 border-dashed border-gray-300">
 					<BookOpen className="w-8 h-8 text-gray-400 mx-auto mb-2" />
 					<p className="text-gray-500 font-medium text-sm">
@@ -220,7 +226,7 @@ const PreviousScores = () => {
 							onClick={() => setShowAll(!showAll)}
 							className="w-full mt-3 py-2 px-3 text-sm text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg border border-blue-200 transition-colors duration-200 flex items-center justify-center gap-1"
 						>
-							{showAll ? "Show Less" : `Show All (${scores.length})`}
+							{showAll ? "Show Less" : `Show All (${safeScores.length})`}
 							<ChevronDown
 								className={`w-3 h-3 transition-transform duration-200 ${
 									showAll ? "rotate-180" : ""
