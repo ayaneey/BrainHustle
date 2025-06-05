@@ -36,7 +36,6 @@ const englishQuestions = [
 					"To sound smart",
 				],
 				answer: "To create vivid imagery",
-				difficulty: "easy",
 			},
 			{
 				question:
@@ -48,7 +47,6 @@ const englishQuestions = [
 					"Formal language",
 				],
 				answer: "Short, sharp sentences",
-				difficulty: "medium",
 			},
 		],
 	},
@@ -60,7 +58,6 @@ const englishQuestions = [
 				question: "What does the dagger represent in Macbeth's soliloquy?",
 				options: ["His ambition", "His guilt", "His power", "His fear"],
 				answer: "His guilt",
-				difficulty: "medium",
 			},
 		],
 	},
@@ -78,7 +75,6 @@ const englishQuestions = [
 					"Family values",
 				],
 				answer: "Social inequality",
-				difficulty: "easy",
 			},
 		],
 	},
@@ -91,7 +87,6 @@ const englishQuestions = [
 				question: "What does the Inspector represent in the play?",
 				options: ["The law", "Social conscience", "The government", "The past"],
 				answer: "Social conscience",
-				difficulty: "medium",
 			},
 		],
 	},
@@ -108,7 +103,6 @@ const English = () => {
 	const [showResults, setShowResults] = useState(false);
 	const [timeLeft, setTimeLeft] = useState(30);
 	const [isTimerActive, setIsTimerActive] = useState(false);
-	const [difficultyFilter, setDifficultyFilter] = useState("all");
 	const [currentStreak, setCurrentStreak] = useState(0);
 	const [showStreakAnimation, setShowStreakAnimation] = useState(false);
 
@@ -151,8 +145,6 @@ const English = () => {
 					userId: userId,
 					subject: `English - ${selectedTopic}`,
 					score: score,
-					totalQuestions: currentQuestions.length,
-					difficulty: difficultyFilter,
 					date: new Date(),
 				}),
 			});
@@ -161,16 +153,13 @@ const English = () => {
 		}
 	};
 
-	const getFilteredQuestions = () => {
+	const getCurrentQuestions = () => {
 		if (!selectedTopic) return [];
 		const topicData = englishQuestions.find((t) => t.topic === selectedTopic);
-		if (!topicData) return [];
-
-		if (difficultyFilter === "all") return topicData.questions;
-		return topicData.questions.filter((q) => q.difficulty === difficultyFilter);
+		return topicData ? topicData.questions : [];
 	};
 
-	const currentQuestions = getFilteredQuestions();
+	const currentQuestions = getCurrentQuestions();
 	const currentQ = currentQuestions?.[currentIndex];
 
 	const handleAnswer = (option) => {
@@ -206,23 +195,9 @@ const English = () => {
 
 	const restartQuiz = () => {
 		setSelectedTopic(null);
-		setDifficultyFilter("all");
 		setTimeLeft(30);
 		setIsTimerActive(false);
 		setCurrentStreak(0);
-	};
-
-	const getDifficultyColor = (difficulty) => {
-		switch (difficulty) {
-			case "easy":
-				return "text-emerald-600 bg-emerald-100 border-emerald-200";
-			case "medium":
-				return "text-amber-600 bg-amber-100 border-amber-200";
-			case "hard":
-				return "text-rose-600 bg-rose-100 border-rose-200";
-			default:
-				return "text-slate-600 bg-slate-100 border-slate-200";
-		}
 	};
 
 	const getScoreColor = (percentage) => {
@@ -235,24 +210,6 @@ const English = () => {
 		if (timeLeft > 20) return "text-white bg-emerald-500/90";
 		if (timeLeft > 10) return "text-white bg-amber-500/90";
 		return "text-white bg-rose-500/90 animate-pulse";
-	};
-
-	// Return actual quiz count of 20 for display, but use demo data for actual quiz
-	const getQuestionCountForDisplay = (topicData, difficulty) => {
-		// Show 20 questions for the actual quiz display
-		if (difficulty === "all") return 20;
-		// Show typical distribution for different difficulties
-		if (difficulty === "easy") return 6;
-		if (difficulty === "medium") return 10;
-		if (difficulty === "hard") return 4;
-		return 20;
-	};
-
-	const getQuestionCountByDifficulty = (topicData, difficulty) => {
-		// For the actual demo functionality, use the real question count
-		if (difficulty === "all") return topicData.questions.length;
-		return topicData.questions.filter((q) => q.difficulty === difficulty)
-			.length;
 	};
 
 	const resultData = currentQuestions
@@ -335,84 +292,13 @@ const English = () => {
 								Select Your Learning Focus 📖
 							</h2>
 							<p className="text-gray-600 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-lg sm-tablet:text-lg lg-tablet:text-xl xl-tablet:text-2xl mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-10 lg-tablet:mb-12 max-w-xs sm-phone:max-w-sm md-phone:max-w-md lg-phone:max-w-lg xl-phone:max-w-xl sm-tablet:max-w-2xl lg-tablet:max-w-3xl mx-auto leading-relaxed px-2">
-								Select a topic and difficulty level to begin your epic learning
-								journey
+								Select a topic to begin your epic learning journey
 							</p>
-
-							{/* Difficulty Filter */}
-							<div className="flex flex-wrap justify-center gap-2 sm-phone:gap-3 md-phone:gap-4 lg-tablet:gap-6 mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16 px-2">
-								{[
-									{
-										key: "all",
-										label: "All Levels",
-										icon: Brain,
-										gradient: "from-slate-500 to-slate-600",
-										bgGradient: "from-slate-100 to-slate-200",
-									},
-									{
-										key: "easy",
-										label: "Easy",
-										icon: Star,
-										gradient: "from-emerald-500 to-green-600",
-										bgGradient: "from-emerald-100 to-green-200",
-									},
-									{
-										key: "medium",
-										label: "Medium",
-										icon: Zap,
-										gradient: "from-amber-500 to-orange-600",
-										bgGradient: "from-amber-100 to-orange-200",
-									},
-									{
-										key: "hard",
-										label: "Hard",
-										icon: Flame,
-										gradient: "from-rose-500 to-red-600",
-										bgGradient: "from-rose-100 to-red-200",
-									},
-								].map((difficulty) => {
-									const Icon = difficulty.icon;
-									return (
-										<button
-											key={difficulty.key}
-											onClick={() => setDifficultyFilter(difficulty.key)}
-											className={`group relative px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-5 md-phone:py-3 sm-tablet:px-6 sm-tablet:py-4 lg-tablet:px-10 lg-tablet:py-5 rounded-xl sm-phone:rounded-2xl lg-tablet:rounded-3xl font-bold text-xs sm-phone:text-sm md-phone:text-base lg-tablet:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg ${
-												difficultyFilter === difficulty.key
-													? `bg-gradient-to-r ${difficulty.gradient} text-white shadow-2xl scale-105`
-													: `bg-gradient-to-r ${difficulty.bgGradient} text-gray-700 hover:shadow-xl border-2 border-white`
-											}`}
-										>
-											<div className="flex items-center gap-1 sm-phone:gap-2 md-phone:gap-3 lg-tablet:gap-4">
-												<Icon
-													className={`w-3 h-3 sm-phone:w-4 sm-phone:h-4 md-phone:w-5 md-phone:h-5 lg-tablet:w-7 lg-tablet:h-7 ${
-														difficultyFilter === difficulty.key
-															? "animate-spin"
-															: "group-hover:animate-bounce"
-													}`}
-												/>
-												<span className="whitespace-nowrap">
-													{difficulty.label}
-												</span>
-											</div>
-										</button>
-									);
-								})}
-							</div>
 						</div>
 
 						{/* Topics Grid */}
 						<div className="grid grid-cols-1 sm-tablet:grid-cols-2 gap-3 sm-phone:gap-4 md-phone:gap-5 sm-tablet:gap-6 lg-tablet:gap-8 mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16 max-w-4xl mx-auto">
 							{englishQuestions.map((topicData, index) => {
-								const filteredCount = getQuestionCountByDifficulty(
-									topicData,
-									difficultyFilter
-								);
-
-								const displayCount = getQuestionCountForDisplay(
-									topicData,
-									difficultyFilter
-								);
-
 								const cardGradients = [
 									"from-cyan-500 to-blue-600",
 									"from-purple-500 to-pink-600",
@@ -430,16 +316,10 @@ const English = () => {
 								return (
 									<div
 										key={topicData.topic}
-										onClick={() =>
-											filteredCount > 0 && handleTopicSelect(topicData.topic)
-										}
+										onClick={() => handleTopicSelect(topicData.topic)}
 										className={`group relative bg-gradient-to-br ${
 											bgGradients[index % bgGradients.length]
-										} rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 shadow-xl border-2 border-white transition-all duration-500 transform hover:scale-105 ${
-											filteredCount > 0
-												? "cursor-pointer hover:shadow-2xl"
-												: "opacity-50 cursor-not-allowed"
-										}`}
+										} rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 shadow-xl border-2 border-white transition-all duration-500 transform hover:scale-105 cursor-pointer hover:shadow-2xl`}
 									>
 										<div className="relative z-10">
 											<div className="flex items-start justify-between mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8">
@@ -451,7 +331,7 @@ const English = () => {
 													<Target className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-6 md-phone:h-6 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-8 lg-tablet:h-8 text-white" />
 												</div>
 												<div className="bg-white/80 backdrop-blur-sm px-2 py-1 sm-phone:px-2 sm-phone:py-1 md-phone:px-3 md-phone:py-1 sm-tablet:px-3 sm-tablet:py-2 lg-tablet:px-4 lg-tablet:py-2 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl text-gray-700 font-bold border border-gray-200 shadow-sm text-xs sm-phone:text-xs md-phone:text-sm sm-tablet:text-sm">
-													{displayCount} questions
+													20 questions
 												</div>
 											</div>
 
@@ -462,45 +342,22 @@ const English = () => {
 												{topicData.description}
 											</p>
 
-											{/* Difficulty breakdown */}
-											<div className="flex flex-wrap gap-1 sm-phone:gap-2 mb-4 sm-phone:mb-6 md-phone:mb-8">
-												{["easy", "medium", "hard"].map((diff) => {
-													const count = getQuestionCountByDifficulty(
-														topicData,
-														diff
-													);
-													if (count === 0) return null;
-													return (
-														<span
-															key={diff}
-															className={`px-2 py-1 sm-phone:px-3 sm-phone:py-1 text-xs font-bold rounded-full border ${getDifficultyColor(
-																diff
-															)}`}
-														>
-															{diff}: {count}
-														</span>
-													);
-												})}
+											<div className="flex items-center text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg font-bold group-hover:text-gray-900 transition-colors">
+												<span>Start Adventure</span>
+												<svg
+													className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-5 md-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 ml-2 sm-tablet:ml-3 transform group-hover:translate-x-2 transition-transform duration-300"
+													fill="none"
+													stroke="currentColor"
+													viewBox="0 0 24 24"
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={3}
+														d="M9 5l7 7-7 7"
+													/>
+												</svg>
 											</div>
-
-											{filteredCount > 0 && (
-												<div className="flex items-center text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg font-bold group-hover:text-gray-900 transition-colors">
-													<span>Start Adventure</span>
-													<svg
-														className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-5 md-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 ml-2 sm-tablet:ml-3 transform group-hover:translate-x-2 transition-transform duration-300"
-														fill="none"
-														stroke="currentColor"
-														viewBox="0 0 24 24"
-													>
-														<path
-															strokeLinecap="round"
-															strokeLinejoin="round"
-															strokeWidth={3}
-															d="M9 5l7 7-7 7"
-														/>
-													</svg>
-												</div>
-											)}
 										</div>
 									</div>
 								);
@@ -540,14 +397,6 @@ const English = () => {
 											>
 												<Timer className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 md-phone:w-5 md-phone:h-5 lg-tablet:w-6 lg-tablet:h-6" />
 												<span>{timeLeft}s</span>
-											</div>
-											<div
-												className={`px-2 py-1 sm-phone:px-3 sm-phone:py-2 md-phone:px-4 md-phone:py-2 sm-tablet:px-4 sm-tablet:py-2 lg-tablet:px-6 lg-tablet:py-3 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl font-bold border-2 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base ${getDifficultyColor(
-													currentQ.difficulty
-												)}`}
-											>
-												{currentQ.difficulty.charAt(0).toUpperCase() +
-													currentQ.difficulty.slice(1)}
 											</div>
 										</div>
 									</div>
