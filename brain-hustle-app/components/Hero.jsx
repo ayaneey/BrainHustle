@@ -19,7 +19,7 @@ function Hero() {
 	const stats = [
 		{ number: "10K+", label: "Students", icon: FaUsers },
 		{ number: "95%", label: "Success Rate", icon: FaTrophy },
-		{ number: "50+", label: "Subjects", icon: FaGraduationCap },
+		{ number: "10+", label: "Subjects", icon: FaGraduationCap },
 		{ number: "4.9/5", label: "Rating", icon: FaStar },
 	];
 
