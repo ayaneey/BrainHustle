@@ -127,7 +127,6 @@ const Science = () => {
 		return "text-white bg-rose-500/90 animate-pulse";
 	};
 
-
 	if (!scienceQuestions || !Array.isArray(scienceQuestions)) {
 		return (
 			<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 px-3 sm-phone:px-4">
@@ -209,7 +208,7 @@ const Science = () => {
 				{!selectedTopic && (
 					<div className="max-w-7xl mx-auto">
 						<div className="text-center mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16">
-							<h2 className="text-xl sm-phone:text-2xl md-phone:text-3xl lg-phone:text-3xl xl-phone:text-4xl sm-tablet:text-4xl lg-tablet:text-5xl font-bold text-gray-800 mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 leading-tight">
+							<h2 className="text-xl sm-phone:text-2xl md-phone:text-3xl lg-phone:text-3xl xl-phone:text-4xl sm-tablet:text-4xl lg-tablet:text-4xl font-bold text-gray-800 mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 leading-tight">
 								Discover the World of Science 🔬
 							</h2>
 							<p className="text-gray-600 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-lg sm-tablet:text-lg lg-tablet:text-xl xl-tablet:text-2xl mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-10 lg-tablet:mb-12 max-w-xs sm-phone:max-w-sm md-phone:max-w-md lg-phone:max-w-lg xl-phone:max-w-xl sm-tablet:max-w-2xl lg-tablet:max-w-3xl mx-auto leading-relaxed px-2">
