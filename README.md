@@ -20,7 +20,7 @@
 
 ### Quiz Interface
 
-<img width="1047" alt="Screenshot 2025-06-13 at 23 40 10" src="https://github.com/user-attachments/assets/79a25d65-ba4a-41bf-8702-d061cfec6f9c" />
+<img width="1512" alt="Screenshot 2025-06-13 at 23 42 11" src="https://github.com/user-attachments/assets/a3db99ba-464f-4692-8a4a-5addba85277a" />
 
 ---
 
