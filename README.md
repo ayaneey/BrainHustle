@@ -18,9 +18,11 @@
 
 <img width="1502" alt="Screenshot 2025-06-13 at 22 05 31" src="https://github.com/user-attachments/assets/8529ff97-8be5-427b-92db-5ce9ffcedafd" />
 
-### Quiz Interface - Mobile First
+### Quiz Interface
 
-_Interactive quizzes that work great on phones and tablets_
+<img width="1047" alt="Screenshot 2025-06-13 at 23 40 10" src="https://github.com/user-attachments/assets/79a25d65-ba4a-41bf-8702-d061cfec6f9c" />
+
+---
 
 ## ✨ About Brain-Hustle
 
@@ -74,6 +76,8 @@ Here are some future improvements and expansions planned for Brain Hustle:
 - Further GCSE subjects will be added, including Geography, History, and French, just to name a few.
 - To implement badges or achievements to motivate consistent studying.
 - To incorporate a dark mode toggle for better user experience during late-night studying.
+
+---
 
 ## 🏃‍♂️ Quick Start
 
