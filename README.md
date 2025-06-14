@@ -103,6 +103,6 @@ Visit http://localhost:3000 to start exploring.
 
 ## 🔗 Links
 
-- **Live App**: [brainhustle.vercel.app](https://brainhustle.vercel.app)
+- **Live App**: [brainhustle.vercel.app](https://brain-hustle-app.vercel.app/)
 
 ---
