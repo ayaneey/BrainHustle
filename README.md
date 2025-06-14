@@ -14,7 +14,7 @@
 
 ## 📸 App Screenshots
 
-### Landing Page - Clean & Simple
+### Landing Page
 
 <img width="1502" alt="Screenshot 2025-06-13 at 22 05 31" src="https://github.com/user-attachments/assets/8529ff97-8be5-427b-92db-5ce9ffcedafd" />
 
@@ -30,7 +30,7 @@ BrainHustle is a GCSE-focused revision app that helps students practice Maths, E
 
 ## 🎯 The Story
 
-As a former teacher turned aspiring developer, I started BrainHustle as a way to build up my technical skills and experiment with real-world tools. At first, it was just a side project — something fun to tinker with as I learned more about coding. But the more time I spent on it, the more I realised it had the potential to actually help students.
+As a former teacher turned developer, I started BrainHustle as a way to build up my technical skills and experiment with real-world tools. At first, it was just a side project — something fun to tinker with as I learned more about coding. But the more time I spent on it, the more I realised it had the potential to actually help students.
 
 Driven by the idea of giving back to the learners I used to teach, I decided to take the app seriously. I began putting real effort into every feature — from structuring the quiz experience to designing a user-friendly dashboard and calendar system. I poured countless hours into development, problem-solving, and debugging.
 
