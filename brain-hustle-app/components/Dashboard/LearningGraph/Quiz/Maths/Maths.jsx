@@ -718,7 +718,7 @@ const Maths = () => {
 															Well Done! ⚡
 														</p>
 														<p className="text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl leading-relaxed">
-															Great progress! Keep practicing to reach mastery!
+															Great progress! Keep practising to reach mastery!
 															📈
 														</p>
 													</div>

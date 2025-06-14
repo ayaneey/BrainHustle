@@ -1,6 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
 import Settings from "../../components/Dashboard/Sidebar/Settings";
 import AffirmationQuote from "../../components/Dashboard/Sidebar/Affirmations";
@@ -11,9 +10,8 @@ import English from "../../components/Dashboard/LearningGraph/Quiz/English/Engli
 import Science from "../../components/Dashboard/LearningGraph/Quiz/Science/Science";
 import PreviousScores from "../../components/Dashboard/PreviousScores/PreviousScores";
 
-export default function DashboardClient() {
-	const searchParams = useSearchParams();
-	const section = searchParams.get("section");
+export default function DashboardClient({ searchParams }) {
+	const section = searchParams?.section;
 	const isSubjectView = ["maths", "english", "science"].includes(section);
 	const isSettingsView = section === "settings";
 

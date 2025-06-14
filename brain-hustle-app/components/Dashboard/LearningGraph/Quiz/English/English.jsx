@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import {
@@ -8,103 +6,135 @@ import {
 	Target,
 	ArrowLeft,
 	RefreshCw,
-	Brain,
 	CheckCircle,
 	XCircle,
 	Timer,
-	Zap,
-	Star,
-	Trophy,
-	Sparkles,
-	Flame,
+	Play,
 } from "lucide-react";
+import questionsData from "./english-questions.json";
 import { useUser } from "@clerk/nextjs";
 
-// Mock data for demonstration tutorial
-const englishQuestions = [
-	{
-		topic: "Paper 1: Creative Reading & Writing",
-		description: "Fiction texts, narrative writing, and descriptive techniques",
-		questions: [
-			{
-				question:
-					"What is the main purpose of using metaphors in creative writing?",
-				options: [
-					"To confuse the reader",
-					"To create vivid imagery",
-					"To fill space",
-					"To sound smart",
-				],
-				answer: "To create vivid imagery",
-			},
-			{
-				question:
-					"Which technique is most effective for creating tension in a narrative?",
-				options: [
-					"Long descriptions",
-					"Short, sharp sentences",
-					"Complex vocabulary",
-					"Formal language",
-				],
-				answer: "Short, sharp sentences",
-			},
-		],
-	},
-	{
-		topic: "Shakespeare: Macbeth",
-		description: "Analysis of themes, characters, and language in Macbeth",
-		questions: [
-			{
-				question: "What does the dagger represent in Macbeth's soliloquy?",
-				options: ["His ambition", "His guilt", "His power", "His fear"],
-				answer: "His guilt",
-			},
-		],
-	},
-	{
-		topic: "A Christmas Carol",
-		description:
-			"Analysis of themes, characters, and Dickens' social commentary",
-		questions: [
-			{
-				question: "What does Scrooge represent at the beginning of the novel?",
-				options: [
-					"Generosity",
-					"Social inequality",
-					"Christmas spirit",
-					"Family values",
-				],
-				answer: "Social inequality",
-			},
-		],
-	},
-	{
-		topic: "An Inspector Calls",
-		description:
-			"Analysis of themes, characters, and Priestley's social and political message",
-		questions: [
-			{
-				question: "What does the Inspector represent in the play?",
-				options: ["The law", "Social conscience", "The government", "The past"],
-				answer: "Social conscience",
-			},
-		],
-	},
-];
+// Custom SVG Icon Components
+const ChristmasCarolIcon = ({ className = "w-6 h-6" }) => (
+	<img
+		src="/images/english-quiz/a-christmas-carol.svg"
+		alt="Christmas Carol"
+		className={className}
+	/>
+);
+
+const MacbethIcon = ({ className = "w-6 h-6" }) => (
+	<img
+		src="/images/english-quiz/macbeth.svg"
+		alt="Macbeth"
+		className={className}
+	/>
+);
+
+const InspectorCallsIcon = ({ className = "w-6 h-6" }) => (
+	<img
+		src="/images/english-quiz/an-inspector-calls.svg"
+		alt="An Inspector Calls"
+		className={className}
+	/>
+);
+
+const LanguagePaperIcon = ({ className = "w-6 h-6" }) => (
+	<img
+		src="/images/english-quiz/language-paper-1.svg"
+		alt="Language Paper 1"
+		className={className}
+	/>
+);
 
 const English = () => {
-	const { user } = useUser();
-	const userId = user?.id;
-
+	const { user, isLoaded } = useUser();
 	const [selectedTopic, setSelectedTopic] = useState(null);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
 	const [score, setScore] = useState(0);
 	const [showResults, setShowResults] = useState(false);
+	const [shuffledQuestions, setShuffledQuestions] = useState([]);
 	const [timeLeft, setTimeLeft] = useState(30);
 	const [isTimerActive, setIsTimerActive] = useState(false);
-	const [currentStreak, setCurrentStreak] = useState(0);
-	const [showStreakAnimation, setShowStreakAnimation] = useState(false);
+
+	// Function to save quiz results to database
+	const saveQuizResult = async (topic, finalScore, totalQuestions) => {
+		// Only save if user is loaded and authenticated
+		if (!isLoaded || !user?.id) {
+			console.log("User not authenticated, skipping save");
+			return;
+		}
+
+		try {
+			const response = await fetch("/api/quizResults", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					userId: user.id,
+					subject: `English - ${topic}`,
+					score: finalScore,
+					totalQuestions: totalQuestions,
+					date: new Date().toISOString(),
+				}),
+			});
+
+			if (!response.ok) {
+				throw new Error("Failed to save quiz result");
+			}
+
+			console.log("Quiz result saved successfully");
+		} catch (error) {
+			console.error("Failed to save quiz result:", error);
+		}
+	};
+
+	// Function to assign colors to topics
+	const getTopicColor = (topic) => {
+		switch (topic) {
+			case "Paper 1: Creative Reading & Writing":
+				return "from-purple-500 to-pink-500";
+			case "Shakespeare: Macbeth":
+				return "from-blue-500 to-cyan-500";
+			case "A Christmas Carol":
+				return "from-green-500 to-emerald-500";
+			case "An Inspector Calls":
+				return "from-orange-500 to-red-500";
+			default:
+				return "from-gray-500 to-gray-600";
+		}
+	};
+
+	// Function to shuffle array (Fisher-Yates algorithm)
+	const shuffleArray = (array) => {
+		const shuffled = [...array];
+		for (let i = shuffled.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+		}
+		return shuffled;
+	};
+
+	// Function to shuffle question options
+	const shuffleQuestionOptions = (question) => {
+		const correctAnswer = question.answer;
+		const shuffledOptions = shuffleArray(question.options);
+		return {
+			...question,
+			options: shuffledOptions,
+			answer: correctAnswer,
+		};
+	};
+
+	// Add colors to each topic since they're not in your JSON
+	const englishQuestions = questionsData.map((topic) => ({
+		...topic,
+		color: getTopicColor(topic.topic),
+	}));
+
+	const currentQ = shuffledQuestions?.[currentIndex];
 
 	// Timer effect
 	useEffect(() => {
@@ -132,35 +162,19 @@ const English = () => {
 		setShowResults(false);
 		setTimeLeft(30);
 		setIsTimerActive(true);
-		setCurrentStreak(0);
-	};
 
-	const saveScoreToDB = async () => {
-		if (!userId) return;
-		try {
-			await fetch("/api/quizResults", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					userId: userId,
-					subject: `English - ${selectedTopic}`,
-					score: score,
-					date: new Date(),
-				}),
-			});
-		} catch (error) {
-			console.error("Error saving score:", error);
+		// Find and shuffle questions for the selected topic
+		const topicData = questionsData.find(
+			(topicData) => topicData.topic === topic
+		);
+		if (topicData && topicData.questions) {
+			// Get all 20 questions and shuffle them
+			const shuffled = shuffleArray(topicData.questions).map(
+				shuffleQuestionOptions
+			);
+			setShuffledQuestions(shuffled);
 		}
 	};
-
-	const getCurrentQuestions = () => {
-		if (!selectedTopic) return [];
-		const topicData = englishQuestions.find((t) => t.topic === selectedTopic);
-		return topicData ? topicData.questions : [];
-	};
-
-	const currentQuestions = getCurrentQuestions();
-	const currentQ = currentQuestions?.[currentIndex];
 
 	const handleAnswer = (option) => {
 		if (selectedAnswer) return;
@@ -171,34 +185,85 @@ const English = () => {
 		const isCorrect = option === currentQ?.answer;
 		if (isCorrect) {
 			setScore((prev) => prev + 1);
-			setCurrentStreak((prev) => prev + 1);
-			if (currentStreak + 1 >= 3) {
-				setShowStreakAnimation(true);
-				setTimeout(() => setShowStreakAnimation(false), 2000);
-			}
-		} else {
-			setCurrentStreak(0);
 		}
 
 		setTimeout(() => {
-			if (currentIndex + 1 < currentQuestions.length) {
+			if (currentIndex + 1 < shuffledQuestions.length) {
 				setCurrentIndex((prev) => prev + 1);
 				setSelectedAnswer(null);
 				setTimeLeft(30);
 				setIsTimerActive(true);
 			} else {
-				saveScoreToDB();
 				setShowResults(true);
+				saveQuizResult(selectedTopic, score, shuffledQuestions.length);
 			}
 		}, 2000);
 	};
 
 	const restartQuiz = () => {
 		setSelectedTopic(null);
+		setShuffledQuestions([]);
 		setTimeLeft(30);
 		setIsTimerActive(false);
-		setCurrentStreak(0);
 	};
+
+	const goBackToTopics = () => {
+		setSelectedTopic(null);
+		setShuffledQuestions([]);
+		setTimeLeft(30);
+		setIsTimerActive(false);
+	};
+
+	const resultData = shuffledQuestions.length
+		? [
+				{ name: "Correct", value: score, color: "#22c55e" },
+				{
+					name: "Incorrect",
+					value: shuffledQuestions.length - score,
+					color: "#ef4444",
+				},
+		  ]
+		: [];
+
+	const scorePercentage = shuffledQuestions.length
+		? Math.round((score / shuffledQuestions.length) * 100)
+		: 0;
+
+	const progressPercent = shuffledQuestions.length
+		? Math.round(
+				((currentIndex + (showResults ? 1 : 0)) / shuffledQuestions.length) *
+					100
+		  )
+		: 0;
+
+	// Function to get the appropriate icon for each topic
+	const getTopicIcon = (topic) => {
+		switch (topic) {
+			case "A Christmas Carol":
+				return <ChristmasCarolIcon className="w-8 h-8" />;
+			case "Shakespeare: Macbeth":
+				return <MacbethIcon className="w-8 h-8" />;
+			case "An Inspector Calls":
+				return <InspectorCallsIcon className="w-8 h-8" />;
+			case "Paper 1: Creative Reading & Writing":
+				return <LanguagePaperIcon className="w-8 h-8" />;
+			default:
+				return <Target className="w-8 h-8 text-white" />;
+		}
+	};
+
+	// Get actual question count from the data
+	const getQuestionCountForDisplay = (topic) => {
+		if (!questionsData || !Array.isArray(questionsData)) return 20;
+		const topicData = questionsData.find((t) => t.topic === topic);
+		return topicData?.questions?.length || 20;
+	};
+
+	const getCurrentTopicData = () => {
+		return englishQuestions.find((t) => t.topic === selectedTopic);
+	};
+
+	const currentTopicData = getCurrentTopicData();
 
 	const getScoreColor = (percentage) => {
 		if (percentage >= 80) return "text-emerald-600";
@@ -212,433 +277,294 @@ const English = () => {
 		return "text-white bg-rose-500/90 animate-pulse";
 	};
 
-	const resultData = currentQuestions
-		? [
-				{ name: "Correct", value: score, color: "#10b981" },
-				{
-					name: "Incorrect",
-					value: currentQuestions.length - score,
-					color: "#ef4444",
-				},
-		  ]
-		: [];
-
-	const progressPercent = currentQuestions?.length
-		? Math.round(
-				((currentIndex + (showResults ? 1 : 0)) / currentQuestions.length) * 100
-		  )
-		: 0;
-
-	const scorePercentage = currentQuestions?.length
-		? Math.round((score / currentQuestions.length) * 100)
-		: 0;
-
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
-			{/* Decorative Background Elements */}
-			<div className="absolute inset-0 overflow-hidden">
-				<div className="absolute -top-4 -left-4 w-24 h-24 sm-phone:w-32 sm-phone:h-32 md-phone:w-36 md-phone:h-36 sm-tablet:w-48 sm-tablet:h-48 lg-tablet:w-72 lg-tablet:h-72 bg-gradient-to-br from-cyan-200 to-blue-300 rounded-full opacity-20 animate-pulse"></div>
-				<div
-					className="absolute top-1/4 -right-4 w-32 h-32 sm-phone:w-40 sm-phone:h-40 md-phone:w-48 md-phone:h-48 sm-tablet:w-64 sm-tablet:h-64 lg-tablet:w-96 lg-tablet:h-96 bg-gradient-to-br from-purple-200 to-pink-300 rounded-full opacity-20 animate-pulse"
-					style={{ animationDelay: "2s" }}
-				></div>
-				<div
-					className="absolute -bottom-4 left-1/4 w-28 h-28 sm-phone:w-36 sm-phone:h-36 md-phone:w-44 md-phone:h-44 sm-tablet:w-56 sm-tablet:h-56 lg-tablet:w-80 lg-tablet:h-80 bg-gradient-to-br from-indigo-200 to-cyan-300 rounded-full opacity-20 animate-pulse"
-					style={{ animationDelay: "4s" }}
-				></div>
-			</div>
-
-			{/* Streak Animation */}
-			{showStreakAnimation && (
-				<div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none px-3 sm-phone:px-4">
-					<div className="bg-gradient-to-r from-orange-400 to-red-500 text-white px-3 py-2 sm-phone:px-4 sm-phone:py-3 md-phone:px-5 md-phone:py-3 sm-tablet:px-8 sm-tablet:py-6 rounded-xl md-phone:rounded-2xl sm-tablet:rounded-3xl text-sm sm-phone:text-base md-phone:text-lg sm-tablet:text-2xl lg-tablet:text-3xl font-bold shadow-2xl animate-bounce text-center flex items-center gap-2 max-w-sm sm-phone:max-w-md">
-						<Flame className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-6 md-phone:h-6 animate-spin flex-shrink-0" />
-						<span className="flex-1">
-							🔥 STREAK! {currentStreak} in a row! 🔥
-						</span>
-						<Flame className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-6 md-phone:h-6 animate-spin flex-shrink-0" />
-					</div>
-				</div>
-			)}
-
-			<div className="container mx-auto px-3 sm-phone:px-4 md-phone:px-5 sm-tablet:px-6 py-4 sm-phone:py-6 md-phone:py-8 sm-tablet:py-10 lg-tablet:py-12 relative z-10">
+		<div className="min-h-screen bg-gradient-to-br from-pink-300  via-blue-400 to-cyan-300 py-8 px-4">
+			<div className="max-w-4xl mx-auto">
 				{/* Header */}
-				<div className="text-center mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16">
-					<div className="flex flex-col sm-tablet:flex-row items-center justify-center gap-3 sm-phone:gap-4 md-phone:gap-5 sm-tablet:gap-6 mb-4 sm-phone:mb-6 md-phone:mb-7 sm-tablet:mb-8">
-						<div className="relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl blur-xl opacity-40 animate-pulse"></div>
-							<div className="relative p-2 sm-phone:p-3 md-phone:p-4 sm-tablet:p-5 lg-tablet:p-6 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl shadow-xl">
-								<BookOpen className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 md-phone:w-7 md-phone:h-7 sm-tablet:w-8 sm-tablet:h-8 lg-tablet:w-10 lg-tablet:h-10 text-white" />
-							</div>
+				<div className="text-center mb-12">
+					<div className="flex items-center justify-center gap-3 mb-4">
+						<div className="p-4 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl shadow-lg">
+							<BookOpen className="w-10 h-10 text-white" />
 						</div>
-						<div className="text-center sm-tablet:text-left">
-							<h1 className="text-2xl sm-phone:text-3xl md-phone:text-4xl lg-phone:text-4xl xl-phone:text-5xl sm-tablet:text-5xl lg-tablet:text-6xl font-black bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+						<div>
+							<h1 className="text-4xl font-bold text-gray-800 mb-2 drop-shadow-lg">
 								AQA GCSE English
 							</h1>
-							<p className="text-purple-600 text-xs sm-phone:text-sm md-phone:text-base sm-tablet:text-lg lg-tablet:text-xl font-semibold mt-1 sm-phone:mt-2 sm-tablet:mt-3 flex items-center justify-center sm-tablet:justify-start gap-2">
-								<Sparkles className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 sm-tablet:w-5 sm-tablet:h-5 lg-tablet:w-6 lg-tablet:h-6" />
-								Language & Literature Mastery
-								<Sparkles className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 sm-tablet:w-5 sm-tablet:h-5 lg-tablet:w-6 lg-tablet:h-6" />
+							<p className="text-gray-700 text-lg font-medium">
+								Language & Literature
 							</p>
 						</div>
 					</div>
+					<div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full"></div>
 				</div>
 
 				{/* Topic Selection */}
 				{!selectedTopic && (
-					<div className="max-w-7xl mx-auto">
-						<div className="text-center mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16">
-							<h2 className="text-xl sm-phone:text-2xl md-phone:text-3xl lg-phone:text-3xl xl-phone:text-4xl sm-tablet:text-4xl lg-tablet:text-5xl font-bold text-gray-800 mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6">
-								Select Your Learning Focus 📖
+					<div>
+						<div className="text-center mb-8">
+							<h2 className="text-3xl font-semibold text-gray-800 mb-3 drop-shadow-lg">
+								Choose Your Adventure! 🚀
 							</h2>
-							<p className="text-gray-600 text-sm sm-phone:text-sm md-phone:text-base lg-phone:text-base xl-phone:text-lg sm-tablet:text-lg lg-tablet:text-xl xl-tablet:text-2xl mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-10 lg-tablet:mb-12 max-w-xs sm-phone:max-w-sm md-phone:max-w-md lg-phone:max-w-lg xl-phone:max-w-xl sm-tablet:max-w-2xl lg-tablet:max-w-3xl mx-auto leading-relaxed px-2">
-								Select a topic to begin your epic learning journey
+							<p className="text-gray-700 text-lg font-medium">
+								Pick a topic and let's ace this quiz!
 							</p>
 						</div>
 
-						{/* Topics Grid */}
-						<div className="grid grid-cols-1 sm-tablet:grid-cols-2 gap-3 sm-phone:gap-4 md-phone:gap-5 sm-tablet:gap-6 lg-tablet:gap-8 mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16 max-w-4xl mx-auto">
-							{englishQuestions.map((topicData, index) => {
-								const cardGradients = [
-									"from-cyan-500 to-blue-600",
-									"from-purple-500 to-pink-600",
-									"from-emerald-500 to-teal-600",
-									"from-orange-500 to-red-600",
-								];
-
-								const bgGradients = [
-									"from-cyan-50 to-blue-100",
-									"from-purple-50 to-pink-100",
-									"from-emerald-50 to-teal-100",
-									"from-orange-50 to-red-100",
-								];
-
-								return (
+						<div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+							{englishQuestions.map((topicData, index) => (
+								<div
+									key={topicData.topic}
+									onClick={() => handleTopicSelect(topicData.topic)}
+									className="group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/40 hover:bg-white/90 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-2xl"
+								>
 									<div
-										key={topicData.topic}
-										onClick={() => handleTopicSelect(topicData.topic)}
-										className={`group relative bg-gradient-to-br ${
-											bgGradients[index % bgGradients.length]
-										} rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 shadow-xl border-2 border-white transition-all duration-500 transform hover:scale-105 cursor-pointer hover:shadow-2xl`}
-									>
-										<div className="relative z-10">
-											<div className="flex items-start justify-between mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8">
-												<div
-													className={`p-2 sm-phone:p-3 md-phone:p-4 sm-tablet:p-4 lg-tablet:p-5 rounded-lg sm-phone:rounded-xl lg-tablet:rounded-2xl bg-gradient-to-r ${
-														cardGradients[index % cardGradients.length]
-													} shadow-lg transform group-hover:rotate-12 transition-transform duration-300`}
-												>
-													<Target className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-6 md-phone:h-6 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-8 lg-tablet:h-8 text-white" />
-												</div>
-												<div className="bg-white/80 backdrop-blur-sm px-2 py-1 sm-phone:px-2 sm-phone:py-1 md-phone:px-3 md-phone:py-1 sm-tablet:px-3 sm-tablet:py-2 lg-tablet:px-4 lg-tablet:py-2 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl text-gray-700 font-bold border border-gray-200 shadow-sm text-xs sm-phone:text-xs md-phone:text-sm sm-tablet:text-sm">
-													20 questions
-												</div>
-											</div>
+										className={`absolute inset-0 bg-gradient-to-r ${topicData.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+									></div>
 
-											<h3 className="text-base sm-phone:text-lg md-phone:text-xl lg-phone:text-xl xl-phone:text-xl sm-tablet:text-xl lg-tablet:text-2xl font-bold mb-2 sm-phone:mb-3 sm-tablet:mb-4 text-gray-800 group-hover:text-gray-900 transition-colors leading-tight">
-												{topicData.topic}
-											</h3>
-											<p className="text-gray-600 text-xs sm-phone:text-xs md-phone:text-sm leading-relaxed mb-3 sm-phone:mb-4 md-phone:mb-6">
-												{topicData.description}
-											</p>
-
-											<div className="flex items-center text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg font-bold group-hover:text-gray-900 transition-colors">
-												<span>Start Adventure</span>
-												<svg
-													className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-5 md-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 ml-2 sm-tablet:ml-3 transform group-hover:translate-x-2 transition-transform duration-300"
-													fill="none"
-													stroke="currentColor"
-													viewBox="0 0 24 24"
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth={3}
-														d="M9 5l7 7-7 7"
-													/>
-												</svg>
+									<div className="relative z-10">
+										<div className="flex items-start justify-between mb-4">
+											<div
+												className={`p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border-2 border-white/50`}
+											>
+												{getTopicIcon(topicData.topic)}
 											</div>
+											<span className="text-sm text-gray-600 bg-white/60 backdrop-blur-sm px-3 py-2 rounded-full border border-white/50">
+												{getQuestionCountForDisplay(topicData.topic)} questions
+											</span>
+										</div>
+
+										<h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors">
+											{topicData.topic}
+										</h3>
+										<p className="text-gray-600 text-sm mb-6 leading-relaxed">
+											{topicData.description}
+										</p>
+
+										<div className="flex items-center text-purple-600 font-semibold group-hover:text-cyan-600 transition-colors">
+											<Play className="w-5 h-5 mr-2" />
+											Start Practice
 										</div>
 									</div>
-								);
-							})}
+								</div>
+							))}
 						</div>
 					</div>
 				)}
 
 				{/* Quiz Section */}
 				{selectedTopic && !showResults && currentQ && (
-					<div className="max-w-5xl mx-auto">
-						<div className="bg-white/90 backdrop-blur-sm rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl shadow-2xl border border-white overflow-hidden">
-							{/* Quiz Header */}
-							<div className="bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-600 p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 xl-tablet:p-10 text-white relative overflow-hidden">
-								<div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
-								<div className="relative z-10">
-									<div className="flex flex-col sm-tablet:flex-row items-start sm-tablet:items-center justify-between gap-3 sm-phone:gap-4 md-phone:gap-5 sm-tablet:gap-6 lg-tablet:gap-8 mb-4 sm-phone:mb-5 md-phone:mb-6 sm-tablet:mb-8">
-										<button
-											onClick={() => setSelectedTopic(null)}
-											className="p-2 sm-phone:p-2 md-phone:p-3 sm-tablet:p-3 lg-tablet:p-4 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
-											aria-label="Back to topic selection"
-										>
-											<ArrowLeft className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 md-phone:w-6 md-phone:h-6 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-7 lg-tablet:h-7" />
-										</button>
-
-										<div className="flex flex-wrap items-center gap-2 sm-phone:gap-3 md-phone:gap-4 lg-tablet:gap-8">
-											{currentStreak > 0 && (
-												<div className="flex items-center gap-1 sm-phone:gap-2 px-2 py-1 sm-phone:px-3 sm-phone:py-2 md-phone:px-4 md-phone:py-2 sm-tablet:px-4 sm-tablet:py-2 lg-tablet:px-6 lg-tablet:py-3 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl bg-gradient-to-r from-orange-400 to-red-500 text-white font-bold animate-pulse">
-													<Flame className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 md-phone:w-5 md-phone:h-5 lg-tablet:w-6 lg-tablet:h-6" />
-													<span className="text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg">
-														{currentStreak} streak!
-													</span>
-												</div>
-											)}
-											<div
-												className={`flex items-center gap-1 sm-phone:gap-2 px-2 py-1 sm-phone:px-3 sm-phone:py-2 md-phone:px-4 md-phone:py-2 sm-tablet:px-4 sm-tablet:py-2 lg-tablet:px-6 lg-tablet:py-3 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl ${getTimerColor()} font-bold text-sm sm-phone:text-base md-phone:text-base sm-tablet:text-lg lg-tablet:text-xl border-2 border-white/30 shadow-lg`}
-											>
-												<Timer className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 md-phone:w-5 md-phone:h-5 lg-tablet:w-6 lg-tablet:h-6" />
-												<span>{timeLeft}s</span>
-											</div>
-										</div>
-									</div>
-
-									<div>
-										<h2 className="text-lg sm-phone:text-xl md-phone:text-2xl lg-phone:text-2xl xl-phone:text-3xl sm-tablet:text-3xl lg-tablet:text-4xl font-bold mb-1 sm-phone:mb-2 sm-tablet:mb-3">
-											{selectedTopic}
-										</h2>
-										<p className="text-cyan-100 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl">
-											Question {currentIndex + 1} of {currentQuestions.length}
-										</p>
-									</div>
-								</div>
-							</div>
-
-							{/* Animated Progress Bar */}
-							<div className="w-full bg-gray-200 h-2 sm-tablet:h-3 lg-tablet:h-4 relative overflow-hidden">
-								<div
-									className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 h-2 sm-tablet:h-3 lg-tablet:h-4 transition-all duration-1000 ease-out relative"
-									style={{ width: `${progressPercent}%` }}
+					<div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/40 overflow-hidden">
+						{/* Quiz Header */}
+						<div className={`bg-gradient-to-r ${currentTopicData?.color} p-6`}>
+							<div className="flex items-center justify-between mb-4">
+								<button
+									onClick={goBackToTopics}
+									className="p-3 hover:bg-white/20 rounded-xl transition-colors backdrop-blur-sm"
 								>
-									<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+									<ArrowLeft className="w-6 h-6 text-white" />
+								</button>
+
+								<div className="flex items-center gap-4">
+									<div
+										className={`flex items-center gap-3 ${getTimerColor()} px-4 py-2 rounded-xl border border-white/30 font-bold text-lg`}
+									>
+										<Timer className="w-5 h-5" />
+										<span>{timeLeft}s</span>
+									</div>
 								</div>
 							</div>
 
-							{/* Question Content */}
-							<div className="p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 xl-tablet:p-12">
-								<div className="mb-4 sm-phone:mb-5 md-phone:mb-6 sm-tablet:mb-8 lg-tablet:mb-12">
-									<h3 className="text-sm sm-phone:text-base md-phone:text-lg lg-phone:text-lg xl-phone:text-xl sm-tablet:text-2xl lg-tablet:text-3xl xl-tablet:text-4xl font-bold text-gray-800 leading-relaxed">
-										{currentQ.question}
-									</h3>
-								</div>
+							<div>
+								<h2 className="text-2xl font-bold mb-2 text-white">
+									{selectedTopic}
+								</h2>
+								<p className="text-white/80 text-lg">
+									Question {currentIndex + 1} of {shuffledQuestions.length}
+								</p>
+							</div>
+						</div>
 
-								{/* Options */}
-								<div className="grid gap-2 sm-phone:gap-3 md-phone:gap-4 sm-tablet:gap-4 lg-tablet:gap-6 xl-tablet:gap-8">
-									{currentQ.options.map((option, idx) => {
-										let buttonClass =
-											"group relative p-3 sm-phone:p-4 md-phone:p-4 sm-tablet:p-5 lg-tablet:p-6 xl-tablet:p-8 rounded-lg sm-phone:rounded-xl sm-tablet:rounded-2xl lg-tablet:rounded-3xl border-2 text-left transition-all duration-500 transform hover:scale-105 font-semibold text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl shadow-lg ";
+						{/* Progress Bar */}
+						<div className="w-full bg-gray-200 h-3">
+							<div
+								className={`bg-gradient-to-r ${currentTopicData?.color} h-3 transition-all duration-500 shadow-lg`}
+								style={{ width: `${progressPercent}%` }}
+							></div>
+						</div>
 
-										if (selectedAnswer === option) {
-											if (option === currentQ.answer) {
-												buttonClass +=
-													"bg-gradient-to-r from-emerald-400 to-green-500 border-emerald-300 text-white shadow-2xl scale-105";
-											} else {
-												buttonClass +=
-													"bg-gradient-to-r from-rose-400 to-red-500 border-rose-300 text-white shadow-2xl scale-105";
-											}
-										} else if (selectedAnswer && option === currentQ.answer) {
+						{/* Question Content */}
+						<div className="p-8 bg-white/50 backdrop-blur-sm">
+							<div className="mb-8">
+								<h3 className="text-2xl font-bold text-gray-800 leading-relaxed mb-4">
+									{currentQ.question}
+								</h3>
+							</div>
+
+							{/* Options */}
+							<div className="space-y-4">
+								{currentQ.options.map((option, idx) => {
+									let buttonClass =
+										"w-full p-5 text-left border-2 rounded-xl transition-all font-semibold text-lg ";
+
+									if (selectedAnswer === option) {
+										if (option === currentQ.answer) {
 											buttonClass +=
-												"bg-gradient-to-r from-emerald-400 to-green-500 border-emerald-300 text-white shadow-2xl";
+												"bg-gradient-to-r from-green-400 to-emerald-500 border-green-400 text-white shadow-lg transform scale-105";
 										} else {
 											buttonClass +=
-												"bg-white/80 backdrop-blur-sm border-gray-200 hover:border-cyan-400 hover:bg-white/90 text-gray-800 hover:shadow-2xl";
+												"bg-gradient-to-r from-red-400 to-pink-500 border-red-400 text-white shadow-lg";
 										}
+									} else if (selectedAnswer && option === currentQ.answer) {
+										buttonClass +=
+											"bg-gradient-to-r from-green-400 to-emerald-500 border-green-400 text-white shadow-lg transform scale-105";
+									} else {
+										buttonClass +=
+											"bg-white/70 backdrop-blur-sm border-gray-300 hover:bg-white/90 hover:border-purple-500 text-gray-800 hover:scale-105 hover:shadow-xl";
+									}
 
-										return (
-											<button
-												key={idx}
-												onClick={() => handleAnswer(option)}
-												className={buttonClass}
-												disabled={!!selectedAnswer}
-											>
-												<div className="flex items-center justify-between">
-													<span className="flex-1 pr-2 sm-phone:pr-3 sm-tablet:pr-4 lg-tablet:pr-6 leading-relaxed">
-														{option}
-													</span>
-													{selectedAnswer === option &&
-														(option === currentQ.answer ? (
-															<CheckCircle className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-8 lg-tablet:h-8 text-white animate-bounce flex-shrink-0" />
-														) : (
-															<XCircle className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-8 lg-tablet:h-8 text-white animate-bounce flex-shrink-0" />
-														))}
-													{selectedAnswer &&
-														selectedAnswer !== option &&
-														option === currentQ.answer && (
-															<CheckCircle className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 sm-tablet:w-6 sm-tablet:h-6 lg-tablet:w-8 lg-tablet:h-8 text-white animate-bounce flex-shrink-0" />
-														)}
-												</div>
-											</button>
-										);
-									})}
-								</div>
+									return (
+										<button
+											key={idx}
+											onClick={() => handleAnswer(option)}
+											className={buttonClass}
+											disabled={!!selectedAnswer}
+										>
+											<div className="flex items-center justify-between">
+												<span>{option}</span>
+												{selectedAnswer === option &&
+													(option === currentQ.answer ? (
+														<CheckCircle className="w-6 h-6 text-white" />
+													) : (
+														<XCircle className="w-6 h-6 text-white" />
+													))}
+												{selectedAnswer &&
+													selectedAnswer !== option &&
+													option === currentQ.answer && (
+														<CheckCircle className="w-6 h-6 text-white" />
+													)}
+											</div>
+										</button>
+									);
+								})}
 							</div>
 						</div>
 					</div>
 				)}
 
 				{/* Results Section */}
-				{showResults && currentQuestions && (
-					<div className="max-w-5xl mx-auto">
-						<div className="bg-white/90 backdrop-blur-sm rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl shadow-2xl border border-white overflow-hidden">
-							{/* Results Header */}
-							<div
-								className={`p-4 sm-phone:p-5 md-phone:p-6 sm-tablet:p-8 lg-tablet:p-10 xl-tablet:p-12 text-center relative overflow-hidden ${
-									scorePercentage >= 80
-										? "bg-gradient-to-r from-emerald-400 via-green-500 to-teal-600"
-										: scorePercentage >= 60
-										? "bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600"
-										: "bg-gradient-to-r from-rose-400 via-red-500 to-pink-600"
-								} text-white`}
-							>
-								<div className="absolute inset-0">
-									{[...Array(20)].map((_, i) => (
-										<div
-											key={i}
-											className="absolute animate-pulse"
-											style={{
-												left: `${Math.random() * 100}%`,
-												top: `${Math.random() * 100}%`,
-												animationDelay: `${Math.random() * 3}s`,
-											}}
-										>
-											<Star className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 md-phone:w-5 md-phone:h-5 lg-tablet:w-6 lg-tablet:h-6 text-white/30" />
-										</div>
-									))}
+				{selectedTopic && showResults && shuffledQuestions.length > 0 && (
+					<div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/40 overflow-hidden">
+						{/* Results Header */}
+						<div
+							className={`p-10 text-center ${
+								scorePercentage >= 80
+									? "bg-gradient-to-r from-emerald-400 via-green-500 to-teal-600"
+									: scorePercentage >= 60
+									? "bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600"
+									: "bg-gradient-to-r from-rose-400 via-red-500 to-pink-600"
+							} text-white`}
+						>
+							<Award className="w-20 h-20 mx-auto mb-6 text-white animate-bounce" />
+							<h2 className="text-4xl font-bold mb-4 text-white">
+								Quiz Complete! 🎉
+							</h2>
+							<p className="text-2xl text-white font-semibold">
+								You scored {score} out of {shuffledQuestions.length} (
+								{scorePercentage}%)
+							</p>
+							<p className="text-lg opacity-80 mt-2">{selectedTopic}</p>
+						</div>
+
+						{/* Results Content */}
+						<div className="p-10 bg-white/70 backdrop-blur-sm">
+							<div className="grid lg:grid-cols-2 gap-12 mb-12">
+								{/* Score Breakdown */}
+								<div className="text-center">
+									<h3 className="text-2xl font-bold mb-6 text-gray-800">
+										Score Breakdown
+									</h3>
+									<ResponsiveContainer width="100%" height={250}>
+										<PieChart>
+											<Pie
+												data={resultData}
+												cx="50%"
+												cy="50%"
+												outerRadius={80}
+												dataKey="value"
+												label={({ name, value }) => `${name}: ${value}`}
+												labelLine={false}
+											>
+												{resultData.map((entry, index) => (
+													<Cell key={`cell-${index}`} fill={entry.color} />
+												))}
+											</Pie>
+											<Tooltip />
+										</PieChart>
+									</ResponsiveContainer>
 								</div>
-								<div className="relative z-10">
-									<div className="mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8">
-										<Award className="w-12 h-12 sm-phone:w-14 sm-phone:h-14 md-phone:w-16 md-phone:h-16 sm-tablet:w-20 sm-tablet:h-20 lg-tablet:w-24 lg-tablet:h-24 mx-auto mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8 animate-bounce" />
+
+								{/* Performance Message */}
+								<div className="flex items-center justify-center">
+									<div className="text-center">
+										<div
+											className={`text-8xl font-bold ${getScoreColor(
+												scorePercentage
+											)} mb-6 animate-pulse`}
+										>
+											{scorePercentage}%
+										</div>
+										<div className="space-y-4">
+											{scorePercentage >= 80 && (
+												<div className="bg-gradient-to-r from-emerald-100 to-green-200 backdrop-blur-sm rounded-2xl p-6 border-2 border-emerald-200 shadow-lg">
+													<p className="text-2xl font-bold text-emerald-700 mb-2">
+														🌟 Excellent! 🌟
+													</p>
+													<p className="text-emerald-700 text-lg">
+														You've absolutely mastered this topic!
+													</p>
+												</div>
+											)}
+											{scorePercentage >= 60 && scorePercentage < 80 && (
+												<div className="bg-gradient-to-r from-amber-100 to-yellow-200 backdrop-blur-sm rounded-2xl p-6 border-2 border-amber-200 shadow-lg">
+													<p className="text-2xl font-bold text-amber-700 mb-2">
+														⚡ Good Work! ⚡
+													</p>
+													<p className="text-amber-700 text-lg">
+														Keep practising to reach excellence!
+													</p>
+												</div>
+											)}
+											{scorePercentage < 60 && (
+												<div className="bg-gradient-to-r from-rose-100 to-red-200 backdrop-blur-sm rounded-2xl p-6 border-2 border-rose-200 shadow-lg">
+													<p className="text-2xl font-bold text-rose-700 mb-2">
+														💪 Keep Learning! 💪
+													</p>
+													<p className="text-rose-700 text-lg">
+														Practice makes perfect - you've got this!
+													</p>
+												</div>
+											)}
+										</div>
 									</div>
-									<h2 className="text-xl sm-phone:text-2xl md-phone:text-3xl lg-phone:text-3xl xl-phone:text-4xl sm-tablet:text-4xl lg-tablet:text-5xl xl-tablet:text-6xl font-black mb-2 sm-phone:mb-3 md-phone:mb-4 sm-tablet:mb-4 lg-tablet:mb-6">
-										Quiz Complete! 🎉
-									</h2>
-									<p className="text-base sm-phone:text-lg md-phone:text-xl lg-phone:text-xl xl-phone:text-2xl sm-tablet:text-xl lg-tablet:text-2xl xl-tablet:text-3xl opacity-90 font-bold">
-										You scored {score} out of {currentQuestions.length} (
-										{scorePercentage}%)
-									</p>
 								</div>
 							</div>
 
-							{/* Results Content */}
-							<div className="p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 xl-tablet:p-12">
-								<div className="grid lg-tablet:grid-cols-2 gap-6 sm-phone:gap-8 md-phone:gap-10 sm-tablet:gap-12 lg-tablet:gap-16 mb-6 sm-phone:mb-8 md-phone:mb-10 sm-tablet:mb-12 lg-tablet:mb-16">
-									{/* Score Breakdown */}
-									<div className="text-center">
-										<h3 className="text-lg sm-phone:text-xl md-phone:text-2xl sm-tablet:text-2xl lg-tablet:text-3xl font-bold mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8 text-gray-800">
-											Score Breakdown
-										</h3>
-										<ResponsiveContainer
-											width="100%"
-											height={200}
-											className="sm-phone:!h-[220px] md-phone:!h-[250px] sm-tablet:!h-[300px]"
-										>
-											<PieChart>
-												<Pie
-													data={resultData}
-													cx="50%"
-													cy="50%"
-													outerRadius={60}
-													className="sm-phone:!r-[70px] md-phone:!r-[80px] sm-tablet:!r-[100px]"
-													dataKey="value"
-													label={({ name, value }) => `${name}: ${value}`}
-													labelLine={false}
-												>
-													{resultData.map((entry, index) => (
-														<Cell key={`cell-${index}`} fill={entry.color} />
-													))}
-												</Pie>
-												<Tooltip />
-											</PieChart>
-										</ResponsiveContainer>
-									</div>
-
-									{/* Performance Message */}
-									<div className="flex items-center justify-center">
-										<div className="text-center">
-											<div
-												className={`text-4xl sm-phone:text-5xl md-phone:text-6xl sm-tablet:text-7xl lg-tablet:text-8xl xl-tablet:text-9xl font-black mb-3 sm-phone:mb-4 md-phone:mb-5 sm-tablet:mb-6 lg-tablet:mb-8 ${getScoreColor(
-													scorePercentage
-												)} animate-pulse`}
-											>
-												{scorePercentage}%
-											</div>
-											<div className="space-y-3 sm-phone:space-y-4 md-phone:space-y-5 sm-tablet:space-y-6">
-												{scorePercentage >= 80 && (
-													<div className="bg-gradient-to-r from-emerald-100 to-green-200 backdrop-blur-sm rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 border-2 border-emerald-200 shadow-lg">
-														<p className="text-base sm-phone:text-lg md-phone:text-xl sm-tablet:text-2xl lg-tablet:text-3xl font-bold text-emerald-700 mb-1 sm-phone:mb-2 sm-tablet:mb-3 flex items-center justify-center gap-1 sm-phone:gap-2">
-															<Trophy className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 md-phone:w-7 md-phone:h-7 sm-tablet:w-8 sm-tablet:h-8 lg-tablet:w-10 lg-tablet:h-10" />
-															Outstanding!
-														</p>
-														<p className="text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl leading-relaxed">
-															You've mastered this topic! You're ready for the
-															exam! 🌟
-														</p>
-													</div>
-												)}
-												{scorePercentage >= 60 && scorePercentage < 80 && (
-													<div className="bg-gradient-to-r from-amber-100 to-yellow-200 backdrop-blur-sm rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 border-2 border-amber-200 shadow-lg">
-														<p className="text-base sm-phone:text-lg md-phone:text-xl sm-tablet:text-2xl lg-tablet:text-3xl font-bold text-amber-700 mb-1 sm-phone:mb-2 sm-tablet:mb-3 flex items-center justify-center gap-1 sm-phone:gap-2">
-															<Zap className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 md-phone:w-7 md-phone:h-7 sm-tablet:w-8 sm-tablet:h-8 lg-tablet:w-10 lg-tablet:h-10" />
-															Great Progress!
-														</p>
-														<p className="text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl leading-relaxed">
-															You're getting there! A bit more practice and
-															you'll ace it! ⚡
-														</p>
-													</div>
-												)}
-												{scorePercentage < 60 && (
-													<div className="bg-gradient-to-r from-rose-100 to-red-200 backdrop-blur-sm rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl p-3 sm-phone:p-4 md-phone:p-5 sm-tablet:p-6 lg-tablet:p-8 border-2 border-rose-200 shadow-lg">
-														<p className="text-base sm-phone:text-lg md-phone:text-xl sm-tablet:text-2xl lg-tablet:text-3xl font-bold text-rose-700 mb-1 sm-phone:mb-2 sm-tablet:mb-3 flex items-center justify-center gap-1 sm-phone:gap-2">
-															<Brain className="w-5 h-5 sm-phone:w-6 sm-phone:h-6 md-phone:w-7 md-phone:h-7 sm-tablet:w-8 sm-tablet:h-8 lg-tablet:w-10 lg-tablet:h-10" />
-															Keep Learning!
-														</p>
-														<p className="text-gray-700 text-xs sm-phone:text-sm md-phone:text-sm sm-tablet:text-base lg-tablet:text-lg xl-tablet:text-xl leading-relaxed">
-															Don't give up! Every expert was once a beginner!
-															💪
-														</p>
-													</div>
-												)}
-											</div>
-										</div>
-									</div>
-								</div>
-
-								{/* Action Buttons */}
-								<div className="flex flex-col sm-tablet:flex-row gap-3 sm-phone:gap-4 md-phone:gap-5 sm-tablet:gap-6 lg-tablet:gap-8 justify-center">
-									<button
-										onClick={restartQuiz}
-										className="group relative px-4 py-3 sm-phone:px-5 sm-phone:py-4 md-phone:px-6 md-phone:py-4 sm-tablet:px-8 sm-tablet:py-5 lg-tablet:px-10 lg-tablet:py-6 xl-tablet:px-12 xl-tablet:py-6 bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-600 text-white rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl font-bold text-sm sm-phone:text-base md-phone:text-base sm-tablet:text-lg lg-tablet:text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-2 sm-phone:gap-3 overflow-hidden shadow-xl"
-									>
-										<div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-										<RefreshCw className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 lg-tablet:w-6 lg-tablet:h-6 xl-tablet:w-7 xl-tablet:h-7 group-hover:animate-spin" />
-										<span className="relative z-10">Try Another Adventure</span>
-									</button>
-									<button
-										onClick={() => {
-											setShowResults(false);
-											setCurrentIndex(0);
-											setScore(0);
-											setSelectedAnswer(null);
-											setTimeLeft(30);
-											setIsTimerActive(true);
-											setCurrentStreak(0);
-										}}
-										className="group relative px-4 py-3 sm-phone:px-5 sm-phone:py-4 md-phone:px-6 md-phone:py-4 sm-tablet:px-8 sm-tablet:py-5 lg-tablet:px-10 lg-tablet:py-6 xl-tablet:px-12 xl-tablet:py-6 bg-white/80 backdrop-blur-sm border-2 border-gray-300 text-gray-700 rounded-xl sm-phone:rounded-2xl sm-tablet:rounded-3xl font-bold text-sm sm-phone:text-base md-phone:text-base sm-tablet:text-lg lg-tablet:text-xl hover:bg-white/90 hover:shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-2 sm-phone:gap-3 overflow-hidden shadow-xl"
-									>
-										<div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-										<Target className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 lg-tablet:w-6 lg-tablet:h-6 xl-tablet:w-7 xl-tablet:h-7 group-hover:animate-bounce" />
-										<span className="relative z-10">Retry This Topic</span>
-									</button>
-								</div>
+							{/* Action Buttons */}
+							<div className="flex flex-col sm:flex-row gap-6 justify-center">
+								<button
+									onClick={goBackToTopics}
+									className="px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-3 shadow-lg"
+								>
+									<Target className="w-6 h-6" />
+									Try Another Topic
+								</button>
+								<button
+									onClick={restartQuiz}
+									className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-gray-300 text-gray-700 rounded-xl font-bold text-lg hover:bg-white/90 hover:shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-3 shadow-lg"
+								>
+									<RefreshCw className="w-6 h-6" />
+									Change Topic
+								</button>
 							</div>
 						</div>
 					</div>
