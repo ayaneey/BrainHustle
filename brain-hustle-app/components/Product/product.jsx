@@ -189,19 +189,19 @@ function Product() {
 												{/* Hover Effect */}
 												<div className="opacity-0 group-hover:opacity-100 transition-all duration-300 pt-2">
 													<div className="flex items-center justify-center text-blue-600 font-medium text-sm sm-phone:text-base">
-														<span>Learn more</span>
+														{/* <span>Learn more</span> */}
 														<svg
 															className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
 															fill="none"
 															stroke="currentColor"
 															viewBox="0 0 24 24"
 														>
-															<path
+															{/* <path
 																strokeLinecap="round"
 																strokeLinejoin="round"
 																strokeWidth={2}
 																d="M9 5l7 7-7 7"
-															/>
+															/> */}
 														</svg>
 													</div>
 												</div>

@@ -192,19 +192,19 @@ function Card({ imgSrc, title, description, index = 0 }) {
 					{/* Learn More Button */}
 					<div className="learn-more">
 						<div className="inline-flex items-center text-blue-600 font-medium text-sm sm-phone:text-base group-hover:text-blue-700 transition-colors">
-							<span>Explore feature</span>
+							{/* <span>Explore feature</span> */}
 							<svg
 								className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
 								fill="none"
 								stroke="currentColor"
 								viewBox="0 0 24 24"
 							>
-								<path
+								{/* <path
 									strokeLinecap="round"
 									strokeLinejoin="round"
 									strokeWidth={2}
 									d="M13 7l5 5m0 0l-5 5m5-5H6"
-								/>
+								/> */}
 							</svg>
 						</div>
 					</div>
