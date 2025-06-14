@@ -181,6 +181,11 @@ function Navbar() {
 									Product
 								</span>
 							</Link>
+							<Link href="/about">
+								<span className="nav-link text-gray-700 hover:text-gray-900 block rounded-lg px-3 py-2 xl-tablet:px-4 xl-tablet:py-3 text-sm xl-tablet:text-base 2xl-tablet:text-lg md-laptop:text-lg font-medium cursor-pointer">
+									About
+								</span>
+							</Link>
 							<Link href="/contact">
 								<span className="nav-link text-gray-700 hover:text-gray-900 block rounded-lg px-3 py-2 xl-tablet:px-4 xl-tablet:py-3 text-sm xl-tablet:text-base 2xl-tablet:text-lg md-laptop:text-lg font-medium cursor-pointer">
 									Contact
@@ -261,6 +266,14 @@ function Navbar() {
 									>
 										<span className="nav-link text-gray-700 hover:text-gray-900 block rounded-lg px-4 py-3 text-base sm-phone:text-lg font-medium cursor-pointer">
 											Product
+										</span>
+									</Link>
+									<Link
+										href="/about"
+										onClick={() => setIsMobileMenuOpen(false)}
+									>
+										<span className="nav-link text-gray-700 hover:text-gray-900 block rounded-lg px-4 py-3 text-base sm-phone:text-lg font-medium cursor-pointer">
+											About
 										</span>
 									</Link>
 									<Link
