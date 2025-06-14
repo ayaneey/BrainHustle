@@ -118,7 +118,10 @@ function Hero() {
 								<button className="px-4 py-2 sm-phone:px-6 sm-phone:py-3 md-phone:px-8 md-phone:py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl animate-pulse-glow text-xs sm-phone:text-sm md-phone:text-base">
 									Get in Touch
 								</button>
-								<button className="px-4 py-2 sm-phone:px-6 sm-phone:py-3 md-phone:px-8 md-phone:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-2 text-xs sm-phone:text-sm md-phone:text-base">
+								<button
+									className="px-4 py-2 sm-phone:px-6 sm-phone:py-3 md-phone:px-8 md-phone:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-2 text-xs sm-phone:text-sm md-phone:text-base"
+									onClick={() => setShowVideo(true)}
+								>
 									<FaPlay className="text-xs sm-phone:text-sm" />
 									Watch Demo
 								</button>
