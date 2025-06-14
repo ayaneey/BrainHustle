@@ -40,6 +40,18 @@ model QuizResult { // Model to store quiz results
   date     DateTime @default(now())
 }
 
+model CalendarEvent {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String
+  title       String
+  time        String?
+  date        DateTime
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@index([date])
+}
+
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
 	Calendar as CalendarIcon,
 	ChevronLeft,
@@ -10,8 +10,12 @@ import {
 	Trash2,
 	RotateCcw,
 } from "lucide-react";
+import { useUser } from "@clerk/nextjs";
 
 const CalendarComponent = () => {
+	const { user } = useUser();
+	const userId = user?.id;
+
 	const [currentDate, setCurrentDate] = useState(new Date());
 	const [selectedDate, setSelectedDate] = useState(null);
 	const [showEventModal, setShowEventModal] = useState(false);
@@ -20,9 +24,10 @@ const CalendarComponent = () => {
 	const [eventForm, setEventForm] = useState({
 		title: "",
 		time: "",
-		description: "",
 	});
 	const [editingEventId, setEditingEventId] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [saving, setSaving] = useState(false);
 
 	const touchStartX = useRef(0);
 	const touchEndX = useRef(0);
@@ -46,6 +51,49 @@ const CalendarComponent = () => {
 		"Nov",
 		"Dec",
 	];
+
+	// Fetch events from database when component loads
+	useEffect(() => {
+		const fetchEvents = async () => {
+			if (!userId) return;
+
+			console.log("Fetching events for userId:", userId);
+			setLoading(true);
+
+			try {
+				const response = await fetch(`/api/calendarEvents?userId=${userId}`);
+				console.log("Fetch response status:", response.status);
+
+				if (!response.ok) throw new Error("Failed to fetch events");
+
+				const eventsData = await response.json();
+				console.log("Fetched events data:", eventsData);
+
+				// Convert array to date-keyed object for easier lookup
+				const eventsObject = {};
+				eventsData.forEach((event) => {
+					const dateKey = new Date(event.date).toISOString().split("T")[0];
+					if (!eventsObject[dateKey]) {
+						eventsObject[dateKey] = [];
+					}
+					eventsObject[dateKey].push({
+						id: event.id,
+						title: event.title,
+						time: event.time,
+					});
+				});
+
+				setEvents(eventsObject);
+				console.log("Processed events object:", eventsObject);
+			} catch (error) {
+				console.error("Failed to fetch calendar events:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchEvents();
+	}, [userId]);
 
 	// Generate year options (current year ± 5 years)
 	const yearOptions = Array.from({ length: 11 }, (_, i) => currentYear - 5 + i);
@@ -71,20 +119,18 @@ const CalendarComponent = () => {
 		setShowYearPicker(false);
 	};
 
-	// Jump to today function
 	const jumpToToday = () => {
 		setCurrentDate(new Date());
 		setShowYearPicker(false);
 	};
 
-	// Check if current view is showing today's month
 	const isCurrentMonth = () => {
 		return (
 			currentMonth === today.getMonth() && currentYear === today.getFullYear()
 		);
 	};
 
-	// Improved Touch/Swipe handlers
+	// Touch/Swipe handlers
 	const handleTouchStart = (e) => {
 		touchStartX.current = e.targetTouches[0].clientX;
 		isSwiping.current = false;
@@ -94,7 +140,6 @@ const CalendarComponent = () => {
 		touchEndX.current = e.targetTouches[0].clientX;
 		const diffX = Math.abs(touchStartX.current - touchEndX.current);
 
-		// If user is swiping more than 10px, mark as swiping
 		if (diffX > 10) {
 			isSwiping.current = true;
 		}
@@ -128,7 +173,6 @@ const CalendarComponent = () => {
 	};
 
 	const openEventModal = (date, e) => {
-		// Prevent modal from opening if user was swiping
 		if (isSwiping.current) {
 			e.preventDefault();
 			return;
@@ -136,59 +180,128 @@ const CalendarComponent = () => {
 
 		setSelectedDate(date);
 		setShowEventModal(true);
-		setEventForm({ title: "", time: "", description: "" });
+		setEventForm({ title: "", time: "" });
 		setEditingEventId(null);
-		// Prevent body scroll when modal is open
 		document.body.style.overflow = "hidden";
 	};
 
 	const closeEventModal = () => {
 		setShowEventModal(false);
-		setEventForm({ title: "", time: "", description: "" });
+		setEventForm({ title: "", time: "" });
 		setEditingEventId(null);
-		// Restore body scroll
 		document.body.style.overflow = "unset";
 	};
 
-	const saveEvent = () => {
-		if (!eventForm.title.trim()) return;
+	const saveEvent = async () => {
+		console.log("saveEvent called");
+		console.log("userId:", userId);
+		console.log("eventForm:", eventForm);
+		console.log("selectedDate:", selectedDate);
 
-		const dateKey = getDateKey(selectedDate);
-		const newEvent = {
-			id: editingEventId || Date.now(),
-			title: eventForm.title,
-			time: eventForm.time,
-			description: eventForm.description,
-		};
+		if (!eventForm.title.trim() || !userId) {
+			console.log("Missing title or userId");
+			return;
+		}
 
-		setEvents((prev) => {
-			const dateEvents = prev[dateKey] || [];
+		setSaving(true);
+		try {
+			const eventData = {
+				userId,
+				title: eventForm.title,
+				time: eventForm.time,
+				date: selectedDate.toISOString(),
+			};
+
+			console.log("Sending event data:", eventData);
+
+			let response;
 			if (editingEventId) {
-				const updatedEvents = dateEvents.map((event) =>
-					event.id === editingEventId ? newEvent : event
-				);
-				return { ...prev, [dateKey]: updatedEvents };
+				// Update existing event
+				response = await fetch("/api/calendarEvents", {
+					method: "PUT",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						id: editingEventId,
+						...eventData,
+					}),
+				});
 			} else {
-				return { ...prev, [dateKey]: [...dateEvents, newEvent] };
+				// Create new event
+				response = await fetch("/api/calendarEvents", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(eventData),
+				});
 			}
-		});
 
-		closeEventModal();
+			console.log("Response status:", response.status);
+
+			if (!response.ok) {
+				const errorData = await response.json();
+				console.error("Error response:", errorData);
+				throw new Error("Failed to save event");
+			}
+
+			const savedEvent = await response.json();
+			console.log("Saved event:", savedEvent);
+
+			// Update local state
+			const dateKey = getDateKey(selectedDate);
+			const newEvent = {
+				id: savedEvent.id,
+				title: eventForm.title,
+				time: eventForm.time,
+			};
+
+			setEvents((prev) => {
+				const dateEvents = prev[dateKey] || [];
+				if (editingEventId) {
+					const updatedEvents = dateEvents.map((event) =>
+						event.id === editingEventId ? newEvent : event
+					);
+					return { ...prev, [dateKey]: updatedEvents };
+				} else {
+					return { ...prev, [dateKey]: [...dateEvents, newEvent] };
+				}
+			});
+
+			closeEventModal();
+		} catch (error) {
+			console.error("Failed to save event:", error);
+			alert("Failed to save event. Please try again.");
+		} finally {
+			setSaving(false);
+		}
 	};
 
-	const deleteEvent = (eventId) => {
-		const dateKey = getDateKey(selectedDate);
-		setEvents((prev) => ({
-			...prev,
-			[dateKey]: prev[dateKey].filter((event) => event.id !== eventId),
-		}));
+	const deleteEvent = async (eventId) => {
+		if (!userId) return;
+
+		try {
+			const response = await fetch("/api/calendarEvents", {
+				method: "DELETE",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ id: eventId, userId }),
+			});
+
+			if (!response.ok) throw new Error("Failed to delete event");
+
+			// Update local state
+			const dateKey = getDateKey(selectedDate);
+			setEvents((prev) => ({
+				...prev,
+				[dateKey]: prev[dateKey].filter((event) => event.id !== eventId),
+			}));
+		} catch (error) {
+			console.error("Failed to delete event:", error);
+			alert("Failed to delete event. Please try again.");
+		}
 	};
 
 	const editEvent = (event) => {
 		setEventForm({
 			title: event.title,
 			time: event.time,
-			description: event.description,
 		});
 		setEditingEventId(event.id);
 	};
@@ -263,13 +376,15 @@ const CalendarComponent = () => {
 	return (
 		<>
 			<div className="bg-gradient-to-br from-white to-blue-50 backdrop-blur-sm border border-white/20 rounded-xl sm-phone:rounded-2xl p-3 sm-phone:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-				{/* Clean Header - Icon only */}
+				{/* Header with loading indicator */}
 				<div className="flex items-center justify-between mb-3">
-					<div className="w-6 h-6 sm-phone:w-8 sm-phone:h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+					<div className="w-6 h-6 sm-phone:w-8 sm-phone:h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center relative">
 						<CalendarIcon className="w-3 h-3 sm-phone:w-4 sm-phone:h-4 text-white" />
+						{loading && (
+							<div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+						)}
 					</div>
 
-					{/* Go to Today Button - Only show if not viewing current month */}
 					{!isCurrentMonth() && (
 						<button
 							onClick={jumpToToday}
@@ -282,7 +397,7 @@ const CalendarComponent = () => {
 					)}
 				</div>
 
-				{/* Compact Year Selector */}
+				{/* Year Selector */}
 				<div className="relative mb-3">
 					<button
 						onClick={() => setShowYearPicker(!showYearPicker)}
@@ -292,7 +407,6 @@ const CalendarComponent = () => {
 						{currentYear}
 					</button>
 
-					{/* Compact Year Picker */}
 					{showYearPicker && (
 						<div className="absolute top-full left-0 right-0 z-20 bg-white border border-gray-200 rounded-lg shadow-lg max-h-32 sm-phone:max-h-40 overflow-y-auto mt-1">
 							{yearOptions.map((year) => (
@@ -313,7 +427,7 @@ const CalendarComponent = () => {
 					)}
 				</div>
 
-				{/* Compact Month Navigation */}
+				{/* Month Navigation */}
 				<div
 					className="touch-pan-x select-none"
 					onTouchStart={handleTouchStart}
@@ -342,7 +456,7 @@ const CalendarComponent = () => {
 						</button>
 					</div>
 
-					{/* Compact Days Header */}
+					{/* Days Header */}
 					<div className="grid grid-cols-7 gap-1 mb-2">
 						{["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
 							<div
@@ -354,12 +468,12 @@ const CalendarComponent = () => {
 						))}
 					</div>
 
-					{/* Compact Calendar Grid */}
+					{/* Calendar Grid */}
 					<div className="grid grid-cols-7 gap-1">{renderCalendarDays()}</div>
 				</div>
 			</div>
 
-			{/* Mobile-Optimized Event Modal */}
+			{/* Event Modal */}
 			{showEventModal && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm-phone:items-center justify-center z-50 p-0 sm-phone:p-4">
 					<div className="bg-white rounded-t-xl sm-phone:rounded-xl w-full sm-phone:max-w-md sm-phone:w-full max-h-[90vh] sm-phone:max-h-96 overflow-y-auto animate-in slide-in-from-bottom duration-300 sm-phone:animate-in sm-phone:fade-in">
@@ -427,7 +541,7 @@ const CalendarComponent = () => {
 								</div>
 							)}
 
-							{/* Mobile-Optimized Event Form */}
+							{/* Event Form */}
 							<div className="space-y-4">
 								<h4 className="font-medium text-gray-800 text-sm">
 									{editingEventId ? "Edit Event" : "Add Event"}
@@ -441,7 +555,7 @@ const CalendarComponent = () => {
 									}
 									className="w-full px-3 py-3 sm-phone:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm-phone:text-base"
 									placeholder="Event title"
-									style={{ fontSize: "16px" }} // Prevents zoom on iOS
+									style={{ fontSize: "16px" }}
 								/>
 
 								<input
@@ -451,18 +565,22 @@ const CalendarComponent = () => {
 										setEventForm((prev) => ({ ...prev, time: e.target.value }))
 									}
 									className="w-full px-3 py-3 sm-phone:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm-phone:text-base"
-									style={{ fontSize: "16px" }} // Prevents zoom on iOS
+									style={{ fontSize: "16px" }}
 								/>
 
 								<div className="flex flex-col sm-phone:flex-row gap-2 pt-2">
 									<button
 										onClick={saveEvent}
-										disabled={!eventForm.title.trim()}
+										disabled={!eventForm.title.trim() || saving}
 										className="flex-1 bg-blue-500 text-white px-4 py-3 sm-phone:py-2 rounded-lg font-medium hover:bg-blue-600 active:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:bg-gray-400 text-sm sm-phone:text-base touch-manipulation"
 										style={{ WebkitTapHighlightColor: "transparent" }}
 									>
-										<Save className="w-4 h-4" />
-										Save
+										{saving ? (
+											<div className="w-4 h-4 animate-spin rounded-full border border-white border-t-transparent"></div>
+										) : (
+											<Save className="w-4 h-4" />
+										)}
+										{saving ? "Saving..." : "Save"}
 									</button>
 									<button
 										onClick={closeEventModal}
