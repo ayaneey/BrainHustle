@@ -8,6 +8,8 @@ import {
 	BookOpen,
 	BarChart3,
 	ChevronDown,
+	Trash2,
+	X,
 } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 
@@ -18,6 +20,7 @@ const PreviousScores = () => {
 	const [loading, setLoading] = useState(true);
 	const [selectedScore, setSelectedScore] = useState(null);
 	const [showAll, setShowAll] = useState(false);
+	const [deletingId, setDeletingId] = useState(null);
 
 	useEffect(() => {
 		const fetchScores = async () => {
@@ -38,6 +41,42 @@ const PreviousScores = () => {
 
 		fetchScores();
 	}, [userId]);
+
+	// Function to delete a quiz result
+	const deleteQuizResult = async (scoreId) => {
+		if (!userId || !scoreId) return;
+
+		setDeletingId(scoreId);
+
+		try {
+			const response = await fetch("/api/quizResults", {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ id: scoreId, userId }),
+			});
+
+			if (response.ok) {
+				// Remove the deleted score from the local state
+				setScores((prevScores) =>
+					prevScores.filter((score) => score.id !== scoreId)
+				);
+				// Reset selected score if it was the deleted one
+				if (selectedScore === scoreId) {
+					setSelectedScore(null);
+				}
+			} else {
+				console.error("Failed to delete quiz result");
+				// You might want to show a user-friendly error message here
+			}
+		} catch (error) {
+			console.error("Error deleting quiz result:", error);
+			// You might want to show a user-friendly error message here
+		} finally {
+			setDeletingId(null);
+		}
+	};
 
 	// Safety check to ensure scores is always an array
 	const safeScores = Array.isArray(scores) ? scores : [];
@@ -124,25 +163,29 @@ const PreviousScores = () => {
 								const maxScore = score.maxScore || 20;
 								const percentage = Math.round((score.score / maxScore) * 100);
 								const isSelected = selectedScore === score.id;
+								const isDeleting = deletingId === score.id;
 
 								return (
 									<div
 										key={score.id}
-										onClick={() =>
-											setSelectedScore(isSelected ? null : score.id)
-										}
 										className={`
-                      group relative p-3 rounded-lg border cursor-pointer transition-all duration-200 hover:shadow-md
+                      group relative p-3 rounded-lg border transition-all duration-200 hover:shadow-md
                       ${getScoreColor(score.score, maxScore)}
                       ${
 												isSelected
 													? "ring-2 ring-blue-300 shadow-md"
 													: "hover:border-opacity-70"
 											}
+											${isDeleting ? "opacity-50 pointer-events-none" : ""}
                     `}
 									>
 										<div className="flex items-center justify-between">
-											<div className="flex items-center gap-2 flex-1 min-w-0">
+											<div
+												className="flex items-center gap-2 flex-1 min-w-0 cursor-pointer"
+												onClick={() =>
+													setSelectedScore(isSelected ? null : score.id)
+												}
+											>
 												<div className="flex items-center justify-center w-6 h-6 rounded-full bg-white shadow-sm flex-shrink-0">
 													{getScoreIcon(score.score, maxScore)}
 												</div>
@@ -165,23 +208,47 @@ const PreviousScores = () => {
 												</div>
 											</div>
 
-											<div className="text-right flex-shrink-0 ml-2">
-												<div className="flex items-center gap-1">
-													<span className="text-lg font-bold">
-														{score.score}
-													</span>
-													<span className="text-xs opacity-75">
-														/{maxScore}
-													</span>
+											<div className="flex items-center gap-2">
+												<div
+													className="text-right flex-shrink-0 cursor-pointer"
+													onClick={() =>
+														setSelectedScore(isSelected ? null : score.id)
+													}
+												>
+													<div className="flex items-center gap-1">
+														<span className="text-lg font-bold">
+															{score.score}
+														</span>
+														<span className="text-xs opacity-75">
+															/{maxScore}
+														</span>
+													</div>
+													<div className="flex items-center gap-1 justify-end">
+														<span className="text-sm font-bold">
+															{getScoreGrade(score.score, maxScore)}
+														</span>
+														<span className="text-xs opacity-75">
+															({percentage}%)
+														</span>
+													</div>
 												</div>
-												<div className="flex items-center gap-1 justify-end">
-													<span className="text-sm font-bold">
-														{getScoreGrade(score.score, maxScore)}
-													</span>
-													<span className="text-xs opacity-75">
-														({percentage}%)
-													</span>
-												</div>
+
+												{/* Delete Button */}
+												<button
+													onClick={(e) => {
+														e.stopPropagation();
+														deleteQuizResult(score.id);
+													}}
+													disabled={isDeleting}
+													className="opacity-0 group-hover:opacity-100 p-1 rounded-md hover:bg-red-100 text-red-500 hover:text-red-700 transition-all duration-200 flex-shrink-0"
+													title="Delete this result"
+												>
+													{isDeleting ? (
+														<div className="w-3 h-3 animate-spin rounded-full border border-red-500 border-t-transparent"></div>
+													) : (
+														<Trash2 className="w-3 h-3" />
+													)}
+												</button>
 											</div>
 										</div>
 
