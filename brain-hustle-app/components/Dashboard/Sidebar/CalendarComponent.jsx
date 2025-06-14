@@ -26,6 +26,7 @@ const CalendarComponent = () => {
 
 	const touchStartX = useRef(0);
 	const touchEndX = useRef(0);
+	const isSwiping = useRef(false);
 
 	const today = new Date();
 	const currentMonth = currentDate.getMonth();
@@ -83,16 +84,25 @@ const CalendarComponent = () => {
 		);
 	};
 
-	// Touch/Swipe handlers
+	// Improved Touch/Swipe handlers
 	const handleTouchStart = (e) => {
 		touchStartX.current = e.targetTouches[0].clientX;
+		isSwiping.current = false;
 	};
 
 	const handleTouchMove = (e) => {
 		touchEndX.current = e.targetTouches[0].clientX;
+		const diffX = Math.abs(touchStartX.current - touchEndX.current);
+
+		// If user is swiping more than 10px, mark as swiping
+		if (diffX > 10) {
+			isSwiping.current = true;
+		}
 	};
 
 	const handleTouchEnd = () => {
+		if (!isSwiping.current) return;
+
 		const diffX = touchStartX.current - touchEndX.current;
 		const threshold = 50;
 
@@ -103,6 +113,8 @@ const CalendarComponent = () => {
 				navigateMonth(-1);
 			}
 		}
+
+		isSwiping.current = false;
 	};
 
 	// Event management
@@ -115,17 +127,27 @@ const CalendarComponent = () => {
 		return events[key] && events[key].length > 0;
 	};
 
-	const openEventModal = (date) => {
+	const openEventModal = (date, e) => {
+		// Prevent modal from opening if user was swiping
+		if (isSwiping.current) {
+			e.preventDefault();
+			return;
+		}
+
 		setSelectedDate(date);
 		setShowEventModal(true);
 		setEventForm({ title: "", time: "", description: "" });
 		setEditingEventId(null);
+		// Prevent body scroll when modal is open
+		document.body.style.overflow = "hidden";
 	};
 
 	const closeEventModal = () => {
 		setShowEventModal(false);
 		setEventForm({ title: "", time: "", description: "" });
 		setEditingEventId(null);
+		// Restore body scroll
+		document.body.style.overflow = "unset";
 	};
 
 	const saveEvent = () => {
@@ -185,7 +207,7 @@ const CalendarComponent = () => {
 			days.push(
 				<div
 					key={`prev-${day}`}
-					className="w-7 h-7 sm-phone:w-8 sm-phone:h-8 flex items-center justify-center text-gray-300 text-xs"
+					className="w-7 h-7 sm-phone:w-8 sm-phone:h-8 md-phone:w-9 md-phone:h-9 flex items-center justify-center text-gray-300 text-xs sm-phone:text-sm"
 				>
 					{day}
 				</div>
@@ -204,16 +226,17 @@ const CalendarComponent = () => {
 			days.push(
 				<button
 					key={day}
-					onClick={() => openEventModal(date)}
-					className={`w-7 h-7 sm-phone:w-8 sm-phone:h-8 rounded-lg text-xs font-medium transition-all duration-200 hover:scale-105 flex items-center justify-center relative ${
+					onClick={(e) => openEventModal(date, e)}
+					className={`w-7 h-7 sm-phone:w-8 sm-phone:h-8 md-phone:w-9 md-phone:h-9 rounded-lg text-xs sm-phone:text-sm font-medium transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center relative touch-manipulation ${
 						isToday
 							? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md"
-							: "hover:bg-blue-50 text-gray-700 hover:text-blue-600"
+							: "hover:bg-blue-50 active:bg-blue-100 text-gray-700 hover:text-blue-600"
 					}`}
+					style={{ WebkitTapHighlightColor: "transparent" }}
 				>
 					{day}
 					{dateHasEvents && (
-						<div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+						<div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 sm-phone:w-2 sm-phone:h-2 bg-red-500 rounded-full"></div>
 					)}
 				</button>
 			);
@@ -227,7 +250,7 @@ const CalendarComponent = () => {
 			days.push(
 				<div
 					key={`next-${day}`}
-					className="w-7 h-7 sm-phone:w-8 sm-phone:h-8 flex items-center justify-center text-gray-300 text-xs"
+					className="w-7 h-7 sm-phone:w-8 sm-phone:h-8 md-phone:w-9 md-phone:h-9 flex items-center justify-center text-gray-300 text-xs sm-phone:text-sm"
 				>
 					{day}
 				</div>
@@ -250,9 +273,10 @@ const CalendarComponent = () => {
 					{!isCurrentMonth() && (
 						<button
 							onClick={jumpToToday}
-							className="px-2 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded-lg transition-all duration-200 flex items-center gap-1 text-xs font-medium"
+							className="px-2 py-1 sm-phone:px-3 sm-phone:py-1.5 bg-green-100 hover:bg-green-200 active:bg-green-300 text-green-700 rounded-lg transition-all duration-200 flex items-center gap-1 text-xs sm-phone:text-sm font-medium touch-manipulation"
+							style={{ WebkitTapHighlightColor: "transparent" }}
 						>
-							<RotateCcw className="w-3 h-3" />
+							<RotateCcw className="w-3 h-3 sm-phone:w-4 sm-phone:h-4" />
 							Today
 						</button>
 					)}
@@ -262,23 +286,25 @@ const CalendarComponent = () => {
 				<div className="relative mb-3">
 					<button
 						onClick={() => setShowYearPicker(!showYearPicker)}
-						className="w-full px-3 py-1.5 bg-blue-100 hover:bg-blue-200 rounded-lg transition-all duration-200 text-blue-700 font-medium text-sm"
+						className="w-full px-3 py-1.5 sm-phone:py-2 bg-blue-100 hover:bg-blue-200 active:bg-blue-300 rounded-lg transition-all duration-200 text-blue-700 font-medium text-sm sm-phone:text-base touch-manipulation"
+						style={{ WebkitTapHighlightColor: "transparent" }}
 					>
 						{currentYear}
 					</button>
 
 					{/* Compact Year Picker */}
 					{showYearPicker && (
-						<div className="absolute top-full left-0 right-0 z-10 bg-white border border-gray-200 rounded-lg shadow-lg max-h-32 overflow-y-auto mt-1">
+						<div className="absolute top-full left-0 right-0 z-20 bg-white border border-gray-200 rounded-lg shadow-lg max-h-32 sm-phone:max-h-40 overflow-y-auto mt-1">
 							{yearOptions.map((year) => (
 								<button
 									key={year}
 									onClick={() => changeYear(year)}
-									className={`w-full px-3 py-1.5 text-left hover:bg-blue-50 text-sm ${
+									className={`w-full px-3 py-1.5 sm-phone:py-2 text-left hover:bg-blue-50 active:bg-blue-100 text-sm sm-phone:text-base touch-manipulation ${
 										year === currentYear
 											? "bg-blue-100 text-blue-700"
 											: "text-gray-700"
 									}`}
+									style={{ WebkitTapHighlightColor: "transparent" }}
 								>
 									{year}
 								</button>
@@ -289,7 +315,7 @@ const CalendarComponent = () => {
 
 				{/* Compact Month Navigation */}
 				<div
-					className="touch-pan-x"
+					className="touch-pan-x select-none"
 					onTouchStart={handleTouchStart}
 					onTouchMove={handleTouchMove}
 					onTouchEnd={handleTouchEnd}
@@ -297,20 +323,22 @@ const CalendarComponent = () => {
 					<div className="flex items-center justify-between mb-3">
 						<button
 							onClick={() => navigateMonth(-1)}
-							className="p-1.5 hover:bg-blue-100 rounded-lg transition-all duration-200"
+							className="p-1.5 sm-phone:p-2 hover:bg-blue-100 active:bg-blue-200 rounded-lg transition-all duration-200 touch-manipulation"
+							style={{ WebkitTapHighlightColor: "transparent" }}
 						>
-							<ChevronLeft className="w-4 h-4 text-gray-600" />
+							<ChevronLeft className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 text-gray-600" />
 						</button>
 
-						<h4 className="text-sm font-semibold text-gray-800">
+						<h4 className="text-sm sm-phone:text-base font-semibold text-gray-800">
 							{monthNames[currentMonth]}
 						</h4>
 
 						<button
 							onClick={() => navigateMonth(1)}
-							className="p-1.5 hover:bg-blue-100 rounded-lg transition-all duration-200"
+							className="p-1.5 sm-phone:p-2 hover:bg-blue-100 active:bg-blue-200 rounded-lg transition-all duration-200 touch-manipulation"
+							style={{ WebkitTapHighlightColor: "transparent" }}
 						>
-							<ChevronRight className="w-4 h-4 text-gray-600" />
+							<ChevronRight className="w-4 h-4 sm-phone:w-5 sm-phone:h-5 text-gray-600" />
 						</button>
 					</div>
 
@@ -319,7 +347,7 @@ const CalendarComponent = () => {
 						{["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
 							<div
 								key={index}
-								className="text-center text-xs font-medium text-gray-500 py-1"
+								className="text-center text-xs sm-phone:text-sm font-medium text-gray-500 py-1"
 							>
 								{day}
 							</div>
@@ -331,10 +359,10 @@ const CalendarComponent = () => {
 				</div>
 			</div>
 
-			{/* Event Modal (unchanged) */}
+			{/* Mobile-Optimized Event Modal */}
 			{showEventModal && (
-				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-					<div className="bg-white rounded-xl max-w-md w-full max-h-96 overflow-y-auto">
+				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm-phone:items-center justify-center z-50 p-0 sm-phone:p-4">
+					<div className="bg-white rounded-t-xl sm-phone:rounded-xl w-full sm-phone:max-w-md sm-phone:w-full max-h-[90vh] sm-phone:max-h-96 overflow-y-auto animate-in slide-in-from-bottom duration-300 sm-phone:animate-in sm-phone:fade-in">
 						<div className="flex items-center justify-between p-4 border-b">
 							<h3 className="text-lg font-semibold text-gray-800">
 								{selectedDate?.toLocaleDateString("en-US", {
@@ -344,13 +372,14 @@ const CalendarComponent = () => {
 							</h3>
 							<button
 								onClick={closeEventModal}
-								className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+								className="p-1 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors touch-manipulation"
+								style={{ WebkitTapHighlightColor: "transparent" }}
 							>
 								<X className="w-5 h-5 text-gray-500" />
 							</button>
 						</div>
 
-						<div className="p-4">
+						<div className="p-4 pb-6">
 							{/* Existing Events */}
 							{selectedDate && events[getDateKey(selectedDate)]?.length > 0 && (
 								<div className="mb-4">
@@ -361,7 +390,7 @@ const CalendarComponent = () => {
 										{events[getDateKey(selectedDate)].map((event) => (
 											<div
 												key={event.id}
-												className="p-2 bg-gray-50 rounded-lg border text-sm"
+												className="p-3 bg-gray-50 rounded-lg border text-sm"
 											>
 												<div className="flex items-start justify-between">
 													<div className="flex-1">
@@ -378,15 +407,17 @@ const CalendarComponent = () => {
 													<div className="flex gap-1 ml-2">
 														<button
 															onClick={() => editEvent(event)}
-															className="p-1 hover:bg-blue-100 rounded text-blue-600"
+															className="p-2 hover:bg-blue-100 active:bg-blue-200 rounded text-blue-600 touch-manipulation"
+															style={{ WebkitTapHighlightColor: "transparent" }}
 														>
-															<Plus className="w-3 h-3" />
+															<Plus className="w-4 h-4" />
 														</button>
 														<button
 															onClick={() => deleteEvent(event.id)}
-															className="p-1 hover:bg-red-100 rounded text-red-600"
+															className="p-2 hover:bg-red-100 active:bg-red-200 rounded text-red-600 touch-manipulation"
+															style={{ WebkitTapHighlightColor: "transparent" }}
 														>
-															<Trash2 className="w-3 h-3" />
+															<Trash2 className="w-4 h-4" />
 														</button>
 													</div>
 												</div>
@@ -396,8 +427,8 @@ const CalendarComponent = () => {
 								</div>
 							)}
 
-							{/* Compact Event Form */}
-							<div className="space-y-3">
+							{/* Mobile-Optimized Event Form */}
+							<div className="space-y-4">
 								<h4 className="font-medium text-gray-800 text-sm">
 									{editingEventId ? "Edit Event" : "Add Event"}
 								</h4>
@@ -408,8 +439,9 @@ const CalendarComponent = () => {
 									onChange={(e) =>
 										setEventForm((prev) => ({ ...prev, title: e.target.value }))
 									}
-									className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+									className="w-full px-3 py-3 sm-phone:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm-phone:text-base"
 									placeholder="Event title"
+									style={{ fontSize: "16px" }} // Prevents zoom on iOS
 								/>
 
 								<input
@@ -418,21 +450,24 @@ const CalendarComponent = () => {
 									onChange={(e) =>
 										setEventForm((prev) => ({ ...prev, time: e.target.value }))
 									}
-									className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+									className="w-full px-3 py-3 sm-phone:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm-phone:text-base"
+									style={{ fontSize: "16px" }} // Prevents zoom on iOS
 								/>
 
-								<div className="flex gap-2 pt-2">
+								<div className="flex flex-col sm-phone:flex-row gap-2 pt-2">
 									<button
 										onClick={saveEvent}
 										disabled={!eventForm.title.trim()}
-										className="flex-1 bg-blue-500 text-white px-3 py-2 rounded-lg font-medium hover:bg-blue-600 transition-colors flex items-center justify-center gap-1 disabled:bg-gray-400 text-sm"
+										className="flex-1 bg-blue-500 text-white px-4 py-3 sm-phone:py-2 rounded-lg font-medium hover:bg-blue-600 active:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:bg-gray-400 text-sm sm-phone:text-base touch-manipulation"
+										style={{ WebkitTapHighlightColor: "transparent" }}
 									>
-										<Save className="w-3 h-3" />
+										<Save className="w-4 h-4" />
 										Save
 									</button>
 									<button
 										onClick={closeEventModal}
-										className="px-3 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors text-sm"
+										className="px-4 py-3 sm-phone:py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors text-sm sm-phone:text-base touch-manipulation"
+										style={{ WebkitTapHighlightColor: "transparent" }}
 									>
 										Cancel
 									</button>
