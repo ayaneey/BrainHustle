@@ -66,6 +66,16 @@ In the beginning, I stored all data in MongoDB, but without linking it to a spec
 - Filter database queries by the current user
 - Keep each user’s data private and separate
 
+---
+
+## Future Plans
+
+Here are some future improvements and expansions planned for Brain Hustle:
+
+- Further GCSE subjects will be added, including Geography, History, and French, just to name a few.
+- To implement badges or achievements to motivate consistent studying.
+- To incorporate a dark mode toggle for better user experience during late-night studying.
+
 ## 🏃‍♂️ Quick Start
 
 ```bash
