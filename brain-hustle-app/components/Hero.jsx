@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import {
 	FaPlay,
@@ -7,10 +5,12 @@ import {
 	FaTrophy,
 	FaGraduationCap,
 	FaStar,
+	FaTimes,
 } from "react-icons/fa";
 
 function Hero() {
 	const [isVisible, setIsVisible] = useState(false);
+	const [showVideo, setShowVideo] = useState(false);
 
 	useEffect(() => {
 		setIsVisible(true);
@@ -212,6 +212,27 @@ function Hero() {
 					</div>
 				</div>
 			</div>
+
+			{/* Video Modal */}
+			{showVideo && (
+				<div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+					<div className="bg-white p-4 rounded-lg max-w-4xl w-full mx-4">
+						<div className="flex justify-between items-center mb-4">
+							<h2 className="text-xl font-bold text-gray-800">Demo Video</h2>
+							<button
+								onClick={() => setShowVideo(false)}
+								className="text-gray-500 hover:text-gray-700 text-2xl"
+							>
+								✕
+							</button>
+						</div>
+						<video controls className="w-full">
+							<source src="/videos/Brain-Hustle.mp4" type="video/mp4" />
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			)}
 		</>
 	);
 }
