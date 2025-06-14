@@ -10,5 +10,7 @@ export default async function DashboardPage({ searchParams }) {
 		redirect("/sign-in");
 	}
 
-	return <DashboardClient searchParams={searchParams} />;
+	const resolvedSearchParams = await searchParams;
+
+	return <DashboardClient searchParams={resolvedSearchParams} />;
 }

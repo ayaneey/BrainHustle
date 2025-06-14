@@ -27,16 +27,17 @@ model Thoughts { // Thoughts model to store user thoughts
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   text      String
   createdAt DateTime @default(now())
-  userId    String   @db.String             // <- ✅ FIX HERE
+  userId    String   @db.String             
   user      User     @relation(fields: [userId], references: [id])
 }
 
 model QuizResult { // Model to store quiz results
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String
-  subject   String
-  score     Int
-  date      DateTime @default(now())
+  userId   String
+  subject  String
+  score    Int
+  maxScore Int      @default(20)   
+  date     DateTime @default(now())
 }
 
 
